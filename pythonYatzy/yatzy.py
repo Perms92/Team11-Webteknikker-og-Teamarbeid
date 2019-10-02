@@ -1,6 +1,8 @@
 import random
 
+# Oppretter første kast hver runde
 def startKast():
+    # mitt_kast 
     mitt_kast = []
     for i in range(5):
         mitt_kast.append(random.randint(1,6))
@@ -63,7 +65,7 @@ def sjekk(hand, tall):
     for element in hand:
         if element == tall:
             antall += 1
-    return antall    
+    return antall
 
 def faseEn(kast, verdi):
     poeng = 0
@@ -71,7 +73,7 @@ def faseEn(kast, verdi):
     poeng += verdi * antall
     print("Du fikk ", poeng, " poeng for å ha ", antall, " av ", verdi)
     return poeng
-    
+
 def bonus(poeng):
     if poeng >= 42:
         print("Du har ",poeng," og får 50 bonuspoeng!")
@@ -127,7 +129,7 @@ def storStraight(hand):
     if 6 in hand and not 1 in hand:
         return straight(hand)
     return 0
-    
+
 
 def hus(kast):
     kast.sort()
@@ -155,7 +157,7 @@ def saveScore(score):
 
 def main():
     poeng = 0
-    
+
     for i in range (1,7):
         print("\nDu vil nå ha flest mulig av ",i)
         mitt_kast = kast()
