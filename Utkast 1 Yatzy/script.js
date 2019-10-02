@@ -1,0 +1,8 @@
+
+function startKast(){
+
+}
+
+function nyttKast(){
+
+}
