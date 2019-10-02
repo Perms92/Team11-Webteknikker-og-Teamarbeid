@@ -9,10 +9,17 @@ def startKast():
     for i in range(5):
         # Legger til et random tall (terning) med verdi mellom 1-6
         mitt_kast.append(random.randint(1,6))
+<<<<<<< HEAD
     # Returnerer arrayet med 5 terninger med random verdier
     return mitt_kast
 
 # Tar inn forrige kast og hvilke indekser som skal kastes på nytt
+=======
+    # Returner arrayet med 5 terninger med random verdier
+    return mitt_kast
+
+# 
+>>>>>>> Edvard
 def nytt_kast(innListe, indekser):
     # Lager nytt array for å sende ut
     utListe = innListe
