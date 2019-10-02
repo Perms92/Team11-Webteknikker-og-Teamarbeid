@@ -1,17 +1,26 @@
 import random
 
 # Oppretter første kast hver runde
+# def a() = funtion a()
 def startKast():
-    # mitt_kast 
+    # mitt_kast lager tomt array for "terningene"
     mitt_kast = []
+    # For hver terning (5 terninger)
     for i in range(5):
+        # Legger til et random tall (terning) med verdi mellom 1-6
         mitt_kast.append(random.randint(1,6))
+    # Returnerer arrayet med 5 terninger med random verdier
     return mitt_kast
 
+# Tar inn forrige kast og hvilke indekser som skal kastes på nytt
 def nytt_kast(innListe, indekser):
+    # Lager nytt array for å sende ut
     utListe = innListe
+    # For hver indeks som skal byttes ut
     for i in indekser:
+        # Bytter ut terning i med ny terning
         utListe = nyTerning(utListe, i)
+    # Returnerer nytt kast
     return utListe
 
 def nytt_kast_indexer():
