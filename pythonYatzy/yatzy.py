@@ -79,16 +79,20 @@ def kast():
     print("Du kastet:")
     print(mitt_kast)
 
-    # Henter hvilke verdier 
+    # Henter hvilke indekser som skal byttes ut
     verdier = nytt_kast_indexer()
+    # Bytter ut terning ut ifra index verdier
     mitt_kast = nytt_kast(mitt_kast, verdier)
     print("Ditt andre kast ble:")
     print(mitt_kast)
 
+    # Henter hvilke indekser som skal byttes ut
     verdier = nytt_kast_indexer()
+    # Bytter ut terning ut ifra index verdier
     mitt_kast = nytt_kast(mitt_kast, verdier)
     print("Ditt tredje kast ble:")
     print(mitt_kast)
+    # Returnerer ditt tredje kast
     return mitt_kast
 
 
