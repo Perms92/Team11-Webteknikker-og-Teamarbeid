@@ -19,6 +19,8 @@ body {
   flex: 1;
 }
 
-p {
+/*p {
+  display: flex;
   justify-content: center;
+  align-items: center;
 }
