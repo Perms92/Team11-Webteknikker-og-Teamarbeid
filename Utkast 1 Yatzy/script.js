@@ -12,17 +12,18 @@ function startKast(){
 }
 
 
-/*//Tar inn forrige kast og hvilke indekser som skal kastes på nytt
-function nyttKast(innListe, indekser){
-   var utListe = innListe;
-  for (i = 0; i < 5; i++) {
-    //Bytter ut terning i med ny terning
-    utListe = nyTerning(utListe, i);
+//Tar inn forrige kast og hvilke indekser som skal kastes på nytt
+function nyttKast(indekser){
+  prompt(indekser + " Test indeks nyttKast");
+  if (i != null){
+    mitt_kast[i] = Math.floor((Math.random() * 6) + 1);
+    prompt("Test nyttKast " + i);
   }
-  //Returnerer nytt kast
-  return utListe;
+  //Returnerer arrayet med 5 terninger med random verdier
+  // return mitt_kast;
+  document.getElementById("kast").innerHTML = mitt_kast;
 }
-*/
+
 
 // Definerer hvilke indekser som skal kastes på nytt
 function nytt_kast_indexer(){
@@ -47,4 +48,10 @@ function nytt_kast_indexer(){
     nyeTerninger[4] = 4;
     prompt("Test5");
   }
+  prompt(nyeTerninger);
+  nyeTerninger.forEach(nytt_kast_indexer);
+}
+
+function regler(){
+  document.getElementById("regler").innerHTML= "Her er reglene bla bla bla bla bla"
 }
