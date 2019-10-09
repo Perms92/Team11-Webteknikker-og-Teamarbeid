@@ -12,7 +12,7 @@ function startKast(){
 }
 
 
-//Tar inn hvilke indekser som skal kastes på nytt
+// Bytter de terningene som ikke er huket i checkbox
 function nyttKast(indekser){
   console.log(indekser + " Test indeks nyttKast");
   for (i = 0; i <= 4; i++){
