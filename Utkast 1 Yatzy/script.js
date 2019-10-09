@@ -3,7 +3,7 @@ function startKast(){
   var mitt_kast = [];
   //For hver terning
   for (i = 0; i <= 4; i++){
-    mitt_kast[i] = Math.round(Math.random()*(6-1)+1);
+    mitt_kast[i] = Math.floor((Math.random() * 6) + 1);
   }
   //Returnerer arrayet med 5 terninger med random verdier
   // return mitt_kast;
