@@ -5,6 +5,35 @@
     <title></title>
   </head>
   <body>
-    Hva skjer mannen
+    <button onclick="rng()">Klikk</button>
+    <div id="utskrift"></div>
+    <script>
+    function rng()
+    {
+    let tilfeldigNr = Math.floor((Math.random() * 6) + 1);
+    document.getElementById("utskrift").innerHTML = tilfeldigNr;
+    }
+
+    
+    function nyTerning(liste, posisjon)
+    {
+    utListe = liste;
+    utListe[posisjon] = Math.floor((Math.random() * 6) + 1);
+    return utListe
+    }
+
+    function kast()
+    {
+    mitt_kast = startKast()
+
+    verdier = nytt_kast_indexer()
+    mitt_kast = nytt_kast(mitt_kast, verdier)
+
+    verdier = nytt_kast_indexer()
+    mitt_kast = nytt_kast(mitt_kast, verdier)
+
+    return mitt_kast
+    }
+  </script>
   </body>
 </html>
