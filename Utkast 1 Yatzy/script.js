@@ -12,16 +12,12 @@ function startKast(){
 }
 
 
-//Tar inn forrige kast og hvilke indekser som skal kastes på nytt
+//Tar inn hvilke indekser som skal kastes på nytt
 function nyttKast(indekser){
-  prompt(indekser + " Test indeks nyttKast");
-  if (i != null){
-    mitt_kast[i] = Math.floor((Math.random() * 6) + 1);
-    prompt("Test nyttKast " + i);
+  console.log(indekser + " Test indeks nyttKast");
+  for (i = 0; i <= 4; i++){
+
   }
-  //Returnerer arrayet med 5 terninger med random verdier
-  // return mitt_kast;
-  document.getElementById("kast").innerHTML = mitt_kast;
 }
 
 
@@ -29,24 +25,45 @@ function nyttKast(indekser){
 function nytt_kast_indexer(){
   var nyeTerninger = [];
   if (document.getElementById("check1").checked){
+    nyeTerninger[0] = 1;
+    console.log("Test: Terning 1");
+  }
+  else {
     nyeTerninger[0] = 0;
-    prompt("Test1");
+    console.log("Test: Ikke terning 1");
   }
   if (document.getElementById("check2").checked) {
     nyeTerninger[1] = 1;
-    prompt("Test2");
+    console.log("Test: Terning 2");
+  }
+  else {
+    nyeTerninger[1] = 0;
+    console.log("Test: Ikke terning 2");
   }
   if (document.getElementById("check3").checked) {
-    nyeTerninger[2] = 2;
-    prompt("Test3");
+    nyeTerninger[2] = 1;
+    console.log("Test: Terning 3");
+  }
+  else {
+    nyeTerninger[2] = 0;
+    console.log("Test: Ikke terning 3");
   }
   if (document.getElementById("check4").checked) {
-    nyeTerninger[3] = 3;
-    prompt("Test4");
+    nyeTerninger[3] = 1;
+    console.log("Test: Terning 4");
+  }
+  else {
+    nyeTerninger[3] = 0;
+    console.log("Test: Ikke terning 4");
   }
   if (document.getElementById("check5").checked) {
-    nyeTerninger[4] = 4;
-    prompt("Test5");
+    nyeTerninger[4] = 1;
+    console.log("Test: Terning 5");
   }
-  prompt(nyeTerninger + " Test slutt nytt_kast_indexer");
+  else {
+    nyeTerninger[4] = 0;
+    console.log("Test: Ikke terning 5");
+  }
+  console.log("Test: slutt nytt_kast_indexer " + nyeTerninger);
+  nyttKast(nyeTerninger);
 }
