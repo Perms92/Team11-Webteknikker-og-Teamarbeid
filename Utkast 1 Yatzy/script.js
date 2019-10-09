@@ -16,8 +16,15 @@ function startKast(){
 function nyttKast(indekser){
   console.log(indekser + " Test indeks nyttKast");
   for (i = 0; i <= 4; i++){
-
+    if (indekser[i] == 0){
+      console.log("Test: indekser [0] " + indekser[i]);
+      mitt_kast[i] = Math.floor((Math.random() * 6) + 1);
+    }
+    else {
+      console.log("Test: indekser [1] " + indekser[i]);
+    }
   }
+  document.getElementById("kast").innerHTML = mitt_kast;
 }
 
 
