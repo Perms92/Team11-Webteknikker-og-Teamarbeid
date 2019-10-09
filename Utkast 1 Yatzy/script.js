@@ -18,11 +18,4 @@ function nyttKast(innListe, indekser){
   }
   //Returnerer nytt kast
   return utListe;
-
-function startKast(){
-
-}
-
-function nyttKast(){
-
 }
