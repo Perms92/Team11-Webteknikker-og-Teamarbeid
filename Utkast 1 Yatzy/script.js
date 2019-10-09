@@ -48,10 +48,5 @@ function nytt_kast_indexer(){
     nyeTerninger[4] = 4;
     prompt("Test5");
   }
-  prompt(nyeTerninger);
-  nyeTerninger.forEach(nytt_kast_indexer);
-}
-
-function regler(){
-  document.getElementById("regler").innerHTML= "Her er reglene bla bla bla bla bla"
+  prompt(nyeTerninger + " Test slutt nytt_kast_indexer");
 }
