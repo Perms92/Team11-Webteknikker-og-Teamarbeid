@@ -1,13 +1,18 @@
 var mitt_kast = [];
 var antallKast = 0;
+var runde = 0;
+var score = 0;
+var midlertidigScore = 0;
 
 // Oppretter første kast hver runde
 function startKast(){
+  runde += 1;
+  rundeForteller();
   // Skjer bare om det er første kast
   if (antallKast == 0) {
-    // For hver terning
+    // Lager 5 indekser/terninger
     for (i = 0; i <= 4; i++){
-      // Setter random tall 1-6 på hver indeks
+      // Setter random tall 1-6 på hver indeks/terning
       mitt_kast[i] = Math.floor((Math.random() * 6) + 1);
     }
     // Teller startkastet som kast nr. 1
@@ -20,7 +25,6 @@ function startKast(){
     console.log("Bare første kast her");
   }
 }
-
 
 // Bytter de terningene som ikke er huket i checkbox
 function nyttKast(indekser){
@@ -35,8 +39,9 @@ function nyttKast(indekser){
     antallKast += 1;
     //console.log("Test: antallKast " + antallKast);
     if (antallKast == 3) {
-      antallKast = 0;
+      //score(); Fungerer ikke som en funksjon, vet ikke hvorfor
       console.log("Du har nå kastet 3 ganger, start på nytt");
+      antallKast = 0;
     }
   }
   else {
@@ -92,4 +97,24 @@ function nytt_kast_indexer(){
   }
   //console.log("Test: slutt nytt_kast_indexer " + nyeTerninger);
   nyttKast(nyeTerninger);
+}
+
+function rundeForteller(){
+  if (runde < 7) {
+    console.log("Du skal nå finne " + runde + "-ere");
+  }
+}
+
+function score(){
+  if (runde < 7) {
+    for (i = 0; i <= 4; i++) {
+      if (runde == mitt_kast[i]) {
+        midlertidigScore += mitt_kast[i];
+      }
+    }
+    console.log("Du scorte " + midlertidigScore + " for " + runde + "-ere");
+    score += midlertidigScore;
+    console.log("Din totale score er: " + score);
+    midlertidigScore = 0;
+  }
 }
