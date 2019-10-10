@@ -1,28 +1,47 @@
 var mitt_kast = [];
+var antallKast = 0;
 
-//Oppretter første kast hver runde
+// Oppretter første kast hver runde
 function startKast(){
-  //For hver terning
-  for (i = 0; i <= 4; i++){
-    mitt_kast[i] = Math.floor((Math.random() * 6) + 1);
+  // Skjer bare om det er første kast
+  if (antallKast == 0) {
+    // For hver terning
+    for (i = 0; i <= 4; i++){
+      // Setter random tall 1-6 på hver indeks
+      mitt_kast[i] = Math.floor((Math.random() * 6) + 1);
+    }
+    // Teller startkastet som kast nr. 1
+    antallKast = 1;
+    console.log("Test: antallKast startkast " + antallKast);
+    // Returnerer arrayet med 5 terninger med random verdier
+    document.getElementById("kast").innerHTML = mitt_kast;
   }
-  //Returnerer arrayet med 5 terninger med random verdier
-  // return mitt_kast;
-  document.getElementById("kast").innerHTML = mitt_kast;
 }
 
 
 // Bytter de terningene som ikke er huket i checkbox
 function nyttKast(indekser){
   console.log(indekser + " Test indeks nyttKast");
-  for (i = 0; i <= 4; i++){
-    if (indekser[i] == 0){
-      console.log("Test: indekser [0] " + indekser[i]);
-      mitt_kast[i] = Math.floor((Math.random() * 6) + 1);
+  if (antallKast > 0 && antallKast < 3) {
+    for (i = 0; i <= 4; i++){
+      if (indekser[i] == 0){
+        console.log("Test: indekser [0] " + indekser[i]);
+        mitt_kast[i] = Math.floor((Math.random() * 6) + 1);
+      }
+      else {
+        console.log("Test: indekser [1] " + indekser[i]);
+      }
     }
-    else {
-      console.log("Test: indekser [1] " + indekser[i]);
-    }
+    antallKast += 1;
+    console.log("Test: antallKast " + antallKast);
+  }
+  else if (antallKast == 3){
+    console.log("Test: Du har kastet 3 ganger");
+    console.log(antallKast);
+  }
+  else {
+    console.log("Test: Du må starte spillet for å kaste på nytt");
+    console.log(antallKast);
   }
   document.getElementById("kast").innerHTML = mitt_kast;
 }
