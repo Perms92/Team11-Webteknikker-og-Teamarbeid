@@ -34,10 +34,10 @@ function nyttKast(indekser){
     }
     antallKast += 1;
     console.log("Test: antallKast " + antallKast);
-  }
-  else if (antallKast == 3){
-    console.log("Test: Du har kastet 3 ganger");
-    console.log(antallKast);
+    if (antallKast == 3) {
+      antallKast = 0;
+      console.log("Du har nå kastet 3 ganger, start på nytt");
+    }
   }
   else {
     console.log("Test: Du må starte spillet for å kaste på nytt");
