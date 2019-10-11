@@ -1,4 +1,5 @@
 body {
+  margin: 0;
   text-align: center;
   font-family: 'Be Vietnam', sans-serif;
   background: url(img/pattern5.png);
@@ -11,17 +12,20 @@ body {
 #first {
   flex: 1;
 }
+
 #regler {
   text-align: left;
   margin-left: 15%;
   margin-right: 15%;
 }
+
 #second {
   flex: 1;
 }
 
 #third {
   flex: 1;
+
 }
 
 #brett {
@@ -30,10 +34,15 @@ body {
   border-radius: 10px;
   border: 18px solid;
   border-color: saddlebrown #713F00;
-  padding: 0px 50px 300px 50px;
+  padding: 0px 50px 250px 50px;
   margin-bottom: 20px;
-
 }
+
+
+#kast {
+  margin-top: 50%;
+}
+
 p {
   display: flex;
   justify-content: center;
@@ -78,19 +87,24 @@ button {
   margin-top:-200px;
   cursor: pointer;
 }
+
 #logo {
   cursor: pointer;
   width: 250px;
   margin-bottom: -40px;
 }
+
 img:active {
   transform: scale(1.2);
   transition-duration: 0.5s;
 }
 
 table {
-  width: 100vw;
+  min-width: 120px;
   text-align: center;
+  font-size: 10px;
+  display: flex;
+  justify-content: space-around;
 }
 
 th {
@@ -100,6 +114,6 @@ th {
 }
 
 td {
-  background-color: #1f363d;
+  background-color: #B4B5B5;
   padding: 5px;
 }
