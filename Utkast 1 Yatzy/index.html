@@ -24,14 +24,15 @@
 
       <div id="second">
 
+
         <div id="brett"><p id="kast"></p>
-
-          <input type="checkbox" id="check1">
-          <input type="checkbox" id="check2">
-          <input type="checkbox" id="check3">
-          <input type="checkbox" id="check4">
-          <input type="checkbox" id="check5">
-
+          <div id="checkboxer">
+            <input type="checkbox" id="check1">
+            <input type="checkbox" id="check2">
+            <input type="checkbox" id="check3">
+            <input type="checkbox" id="check4">
+            <input type="checkbox" id="check5">
+          </div>
         </div>
       </div>
 
@@ -139,9 +140,7 @@
       </div>
     </div>
 
-    <button onclick="startKast()">Start spillet</button>
-
-    <button onclick="nytt_kast_indexer()">Kast på nytt</button>
+    <button onclick="kasteKnapp()" id="kasteKnapp">Start spillet</button>
 
     <script src="yatzy.js"></script>
     <script src="menyer.js"></script>
