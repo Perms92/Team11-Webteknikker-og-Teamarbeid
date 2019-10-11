@@ -4,7 +4,6 @@ var runde = 0;
 
 function kasteKnapp() {
   console.log("Test mitt_kast " + mitt_kast);
-  console.log("Du er på runde " + (runde+1));
   var x = document.getElementById("kasteKnapp");
   if (x.innerHTML === "Neste kast" && antallKast != 2) {
     antallKast += 1;
@@ -55,7 +54,7 @@ function nyttKast(indekser){
   for (i = 0; i <= 4; i++){
     if (indekser[i] == 0){
       //console.log("Test: indekser [0] " + indekser[i]);
-      console.log("Test bytte terning " + i);
+      // console.log("Test bytte terning " + i);
       mitt_kast[i] = Math.floor((Math.random() * 6) + 1);
     }
   }
@@ -113,6 +112,7 @@ function nytt_kast_indexer(){
 }
 
 function rundeForteller(){
+  console.log("Du er på runde " + (runde));
   if (runde < 7) {
     for (i = 0; i <= 5; i++) {
       console.log("Du vil nå ha " + runde + "-ere");
