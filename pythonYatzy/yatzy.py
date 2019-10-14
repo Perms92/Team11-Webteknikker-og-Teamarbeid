@@ -9,50 +9,77 @@ def startKast():
     for i in range(5):
         # Legger til et random tall (terning) med verdi mellom 1-6
         mitt_kast.append(random.randint(1,6))
-    # Returner arrayet med 5 terninger med random verdier
+    # Returnerer arrayet med 5 terninger med random verdier
     return mitt_kast
 
-# 
+# Tar inn forrige kast og hvilke indekser som skal kastes på nytt
 def nytt_kast(innListe, indekser):
+    # Lager nytt array for å sende ut
     utListe = innListe
+    # For hver indeks som skal byttes ut
     for i in indekser:
+        # Bytter ut terning i med ny terning
         utListe = nyTerning(utListe, i)
+    # Returnerer nytt kast
     return utListe
 
+# Definerer hvilke indekser som skal kastes på nytt
 def nytt_kast_indexer():
     text = input("Hvilke terninger vil du kaste på ny? (separer med komma uten mellomrom (1-indexert) \n")
+    # Hvis ingen tekst er skrevet
     if not text:
+        # Returner en tom array
         return []
+    # Hvis input er "alle"
     if text == "alle":
+        # Returnerer alle 5 terninger
+        # Husk array er 0-indeksert, starter med plassering 0
         return [0,1,2,3,4]
     try:
+        # Skiller hver indeks med komma-tegn
         indekser = text.split(",")
+        # Lager array for nytt kast
         utListe = []
+        # For plassering "i" i indekser
         for i in indekser:
+            # Henter tallet på plassering "i"
             tall = int(i)
+            # Hvis input tall er under 1 eller over 5
             if tall < 1 or tall >5:
                 print("Du har skrevet et ugyldig tall, prøv på nytt")
+                # Kjører funksjonen på nytt
                 return nytt_kast_indexer()
+            # Hvis ikke input tall er under 1 eller over 5
             else:
+                # Endrer slik at indeksene du velger vil tas vare på
+                # Endrer hvilke terninger du kaster på nytt fra 1-indeksert
+                # til 0-indeksert
                 utListe.append(int(i)-1) #NB: endrer tilbake til 0-index
+    # Hvis input er noe annet enn "alle" eller tall mellom 1-5
     except ValueError:
         print("Ugyldig input")
         print("Prøv igjen")
+        # Kjører funksjonen på nytt
         return nytt_kast_indexer()
+    # Returnerer hvilke indekser som skal byttes
     return utListe
 
-
+# Bytter ut en terning fra kastet
 def nyTerning(liste, posisjon):
     utListe = liste
+    # Endrer terning i bestemt posisjon mellom 1-6
     utListe[posisjon] = random.randint(1,6)
+    # Returnerer kastet med en enkelt terning byttet
     return utListe
 
-
+# Funksjon for tre kast
 def kast():
+    # Henter startkastet på runden
     mitt_kast = startKast()
     print("Du kastet:")
     print(mitt_kast)
 
+    # Henter hvilke verdier 
     verdier = nytt_kast_indexer()
     mitt_kast = nytt_kast(mitt_kast, verdier)
     print("Ditt andre kast ble:")
