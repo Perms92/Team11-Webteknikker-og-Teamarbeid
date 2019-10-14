@@ -4,28 +4,145 @@
     <meta charset="utf-8">
     <title>Yatzy</title>
     <link href="stylesheet.css" rel="stylesheet" type="text/css">
+      <link href="https://fonts.googleapis.com/css?family=Be+Vietnam&display=swap" rel="stylesheet">
   </head>
   <body>
-    <h1>Yatzy</h1>
+    <h1><img src="img/logo.png" alt="Logo" id="logo" onclick="window.location.href = 'index.html';"><br><img src="img/dice.png" alt="Dices" id="dice" onclick="window.location.href = 'index.html';"></h1>
 
     <div id="container">
 
       <div id="first">
-        <h3>Regler</h3>
+        <h3><button onclick="regler()">Regler</button></h3>
+        <div id="regler">
+          Meningen med spillet er å oppnå en høyest mulig poengsum. Poeng
+          tildeles for 15 forskjellige terningkombinasjonstyper. I hver runde
+          får hver spiller inntil tre kast for å oppnå én av disse typene.
+          Bortsett fra i det første kastet, kan spilleren velge å legge til side
+          et antall av terningene og kaste kun de resterende."
+        </div>
       </div>
 
       <div id="second">
-        <h3>Poengoversikt</h3>
+
+
+        <div id="brett"><p id="kast"></p>
+          <div id="checkboxer">
+            <input type="checkbox" id=0>
+            <input type="checkbox" id=1>
+            <input type="checkbox" id=2>
+            <input type="checkbox" id=3>
+            <input type="checkbox" id=4>
+          </div>
+        </div>
       </div>
 
       <div id="third">
-        <h3>Scoreboard</h3>
+        <h3>Poengoversikt</h3>
+        <table>
+          <tr>
+            <th>
+            </th>
+            <th id="spiller1"></th>
+            <th id="spiller2"></th>
+          </tr>
+          <tr id="enere">
+            <td>Enere</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr id="toere">
+            <td>Toere</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr id="treere">
+            <td>Treere</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr id="firere">
+            <td>Firere</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr id="femmere">
+            <td>Femmere</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr id="seksere">
+            <td>Seksere</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr id="sum">
+            <td>Sum</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr id="bonus">
+            <td>Bonus</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr id="1par">
+            <td>1 par</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr id="2par">
+            <td>2 par</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr id="3like">
+            <td>3 like</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr id="4like">
+            <td>4 like</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr id="litenStraight">
+            <td>Liten straight</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr id="storStraight">
+            <td>Stor straight</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr id="hus">
+            <td>Hus</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr id="sjanse">
+            <td>Sjanse</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr id="yatzy">
+            <td>Yatzy</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr id="totalsum">
+            <td>Totalsum</td>
+            <td></td>
+            <td></td>
+          </tr>
+        </table>
+        </div>
       </div>
     </div>
 
-    <button onclick="terningkast">Kast terninger</button>
-    <div id="utdata"></div>
+    <button onclick="kasteKnapp()" id="kasteKnapp">Start spillet</button>
 
-    <script src="script.js"></script>
+    <script src="yatzy.js"></script>
+    <script src="menyer.js"></script>
   </body>
 </html>

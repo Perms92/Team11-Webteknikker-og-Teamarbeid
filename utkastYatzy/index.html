@@ -7,12 +7,19 @@
       <link href="https://fonts.googleapis.com/css?family=Be+Vietnam&display=swap" rel="stylesheet">
   </head>
   <body>
-    <h1>Yatzy</h1>
+    <h1><img src="img/logo.png" alt="Logo" id="logo" onclick="window.location.href = 'index.html';"><br><img src="img/dice.png" alt="Dices" id="dice" onclick="window.location.href = 'index.html';"></h1>
 
     <div id="container">
 
       <div id="first">
-        <h3>Regler</h3>
+        <h3><button onclick="regler()">Regler</button></h3>
+        <div id="regler">
+          Meningen med spillet er å oppnå en høyest mulig poengsum. Poeng
+          tildeles for 15 forskjellige terningkombinasjonstyper. I hver runde
+          får hver spiller inntil tre kast for å oppnå én av disse typene.
+          Bortsett fra i det første kastet, kan spilleren velge å legge til side
+          et antall av terningene og kaste kun de resterende."
+        </div>
       </div>
 
       <div id="second">
@@ -22,10 +29,11 @@
 
       <div id="third">
         <h3>Poengoversikt</h3>
+        </div>
       </div>
     </div>
 
-    <button onclick="startKast()">START SPILL</button>
+    <button onclick="startKast()">Start spillet</button>
 
     <button onclick="nytt_kast_indexer()">Kast på nytt</button>
 
