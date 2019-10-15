@@ -103,25 +103,3 @@ td {
   background-color: #1f363d;
   padding: 5px;
 }
-
-#container {
-  display: flex;
-}
-
-#first {
-  flex: 1;
-}
-
-#second {
-  flex: 1;
-}
-
-#third {
-  flex: 1;
-}
-
-p {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}

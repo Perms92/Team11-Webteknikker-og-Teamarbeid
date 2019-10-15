@@ -2,9 +2,42 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8" />
-    <title></title>
+    <title>Yatzy</title>
+    <link href="stylesheet.css" rel="stylesheet" type="text/css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Be+Vietnam&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <p></p>
+    <h1>Yatzy</h1>
+
+    <div id="container">
+      <div id="first">
+        <h3>Regler</h3>
+      </div>
+
+      <div id="second">
+        <div id="brett"></div>
+      </div>
+
+      <div id="third">
+        <h3>Poengoversikt</h3>
+      </div>
+    </div>
+
+    <button onclick="startKast()">START SPILL</button>
+
+    <button onclick="nytt_kast_indexer()">Kast på nytt</button>
+
+    <p id="kast"></p>
+
+    <input type="checkbox" id="check1" />
+    <input type="checkbox" id="check2" />
+    <input type="checkbox" id="check3" />
+    <input type="checkbox" id="check4" />
+    <input type="checkbox" id="check5" />
+
+    <script src="script.js"></script>
   </body>
 </html>
