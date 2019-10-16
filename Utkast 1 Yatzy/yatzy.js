@@ -1,4 +1,5 @@
 var mitt_kast = [];
+var midlertidig_poeng = 0;
 var antallKast = 0;
 var runde = 0;
 
@@ -16,6 +17,7 @@ function kasteKnapp() {
     console.log("Test 2 kasteKnapp()");
     x.innerHTML = "Start kast"
     nytt_kast_indexer();
+    score();
   }
   else if (x.innerHTML === "Start kast") {
     antallKast += 1;
@@ -87,4 +89,9 @@ function rundeForteller(){
       console.log("Du vil nå ha " + runde + "-ere");
     }
   }
+}
+
+function score(){
+  console.log("Test score()");
+  
 }
