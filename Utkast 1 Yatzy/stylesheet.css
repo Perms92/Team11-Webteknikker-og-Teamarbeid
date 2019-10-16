@@ -1,6 +1,7 @@
 body {
+  margin: 0;
   text-align: center;
-  font-family: 'Be Vietnam', sans-serif;
+  font-family: "Be Vietnam", sans-serif;
   background: url(img/pattern5.png);
 }
 
@@ -11,11 +12,13 @@ body {
 #first {
   flex: 1;
 }
+
 #regler {
   text-align: left;
   margin-left: 15%;
   margin-right: 15%;
 }
+
 #second {
   flex: 1;
 }
@@ -29,11 +32,15 @@ body {
   background-image: url("https://www.transparenttextures.com/patterns/60-lines.png");
   border-radius: 10px;
   border: 18px solid;
-  border-color: saddlebrown #713F00;
-  padding: 0px 50px 300px 50px;
+  border-color: saddlebrown #713f00;
+  padding: 0px 50px 250px 50px;
   margin-bottom: 20px;
-
 }
+
+#kast {
+  margin-top: 50%;
+}
+
 p {
   display: flex;
   justify-content: center;
@@ -47,50 +54,55 @@ button {
   cursor: pointer;
   border: 4px solid;
   border-color: #800000;
-  background-color:#808080;
+  background-color: #808080;
   opacity: 0.7;
-  font-family: 'Be Vietnam', sans-serif;
+  font-family: "Be Vietnam", sans-serif;
   font-weight: 700;
-  color: #FFFFFF;
+  color: #ffffff;
   border-radius: 5px;
   text-align: center;
 }
 
-  button:hover {
-    transform: scale(1.05);
-    transition-duration: 1.2s;
-    background: url(img/pattern5.png);
-    background-color: #d2d2d2;
-    border-color: saddlebrown;
-    color: black;
-  }
+button:hover {
+  transform: scale(1.05);
+  transition-duration: 1.2s;
+  background: url(img/pattern5.png);
+  background-color: #d2d2d2;
+  border-color: saddlebrown;
+  color: black;
+}
 
-  button:active {
-    transform: scale(1.1);
-    cursor: default;
-    transition-duration: 0.5s;
-  }
+button:active {
+  transform: scale(1.1);
+  cursor: default;
+  transition-duration: 0.5s;
+}
 
 #dice {
   width: 130px;
   height: auto;
   margin-bottom: -30px;
-  margin-top:-200px;
+  margin-top: -200px;
   cursor: pointer;
 }
+
 #logo {
   cursor: pointer;
   width: 250px;
   margin-bottom: -40px;
 }
+
 img:active {
   transform: scale(1.2);
   transition-duration: 0.5s;
 }
 
 table {
-  width: 100vw;
+  min-width: 120px;
   text-align: center;
+  font-size: 10px;
+  display: flex;
+  justify-content: space-around;
 }
 
 th {
@@ -100,28 +112,6 @@ th {
 }
 
 td {
-  background-color: #1f363d;
+  background-color: #b4b5b5;
   padding: 5px;
-}
-
-#container {
-  display: flex;
-}
-
-#first {
-  flex: 1;
-}
-
-#second {
-  flex: 1;
-}
-
-#third {
-  flex: 1;
-}
-
-p {
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
