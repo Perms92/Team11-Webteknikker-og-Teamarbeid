@@ -1,11 +1,7 @@
 body {
   margin: 0;
   text-align: center;
-<<<<<<< HEAD
   font-family: 'Be Vietnam', sans-serif;
-=======
-  font-family: "Be Vietnam", sans-serif;
->>>>>>> Mina
   background: url(img/pattern5.png);
 }
 
@@ -42,20 +38,6 @@ body {
   margin-bottom: 20px;
 }
 
-
-#kast {
-  margin-top: 50%;
-}
-
-#brett {
-  background-color: #468f15;
-  background-image: url("https://www.transparenttextures.com/patterns/60-lines.png");
-  border-radius: 10px;
-  border: 18px solid;
-  border-color: saddlebrown #713f00;
-  padding: 0px 50px 250px 50px;
-  margin-bottom: 20px;
-}
 
 #kast {
   margin-top: 50%;
@@ -134,74 +116,5 @@ th {
 
 td {
   background-color: #B4B5B5;
-  padding: 5px;
-}
-
-button {
-  padding: 20px;
-  display: inline-block;
-  font-size: 24px;
-  cursor: pointer;
-  border: 4px solid;
-  border-color: #800000;
-  background-color: #808080;
-  opacity: 0.7;
-  font-family: "Be Vietnam", sans-serif;
-  font-weight: 700;
-  color: #ffffff;
-  border-radius: 5px;
-  text-align: center;
-}
-
-button:hover {
-  transform: scale(1.05);
-  transition-duration: 1.2s;
-  background: url(img/pattern5.png);
-  background-color: #d2d2d2;
-  border-color: saddlebrown;
-  color: black;
-}
-
-button:active {
-  transform: scale(1.1);
-  cursor: default;
-  transition-duration: 0.5s;
-}
-
-#dice {
-  width: 130px;
-  height: auto;
-  margin-bottom: -30px;
-  margin-top: -200px;
-  cursor: pointer;
-}
-
-#logo {
-  cursor: pointer;
-  width: 250px;
-  margin-bottom: -40px;
-}
-
-img:active {
-  transform: scale(1.2);
-  transition-duration: 0.5s;
-}
-
-table {
-  min-width: 120px;
-  text-align: center;
-  font-size: 10px;
-  display: flex;
-  justify-content: space-around;
-}
-
-th {
-  background-color: #cfe0c3;
-  color: #1f363d;
-  padding: 10px;
-}
-
-td {
-  background-color: #b4b5b5;
   padding: 5px;
 }
