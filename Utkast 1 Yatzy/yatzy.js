@@ -152,9 +152,11 @@ function showDice(){
     var diceName = "img/dice" + mitt_kast[i] + ".png";
     var showDiceId = "dicePos" + i;
     document.getElementById(showDiceId).innerHTML = diceName;
+  }
 }
 
-function spillernavn(){
+
+function playerName(){
   text = String(prompt("Skriv inn ditt spillernavn her!"));
   document.getElementById("spiller1").innerHTML += text + "";
   text1 = String(prompt("Skriv inn ditt spillernavn her!"));
