@@ -2,6 +2,7 @@ var mitt_kast = [];
 var midlertidig_poeng = 0;
 var antallKast = 0;
 var runde = 0;
+var totalScore = 0;
 
 // En felles funksjon som endrer teksten på kasteknappen,
 // teller runder, og kjører spillet
@@ -12,29 +13,49 @@ function kasteKnapp() {
     antallKast += 1;
     //console.log("Test 1 kasteKnapp()");
     nytt_kast_indexer();
+    showDice()
   }
+  //Tredje kast
   else if (x.innerHTML === "Neste kast" && antallKast == 2) {
     antallKast = 0;
     nytt_kast_indexer();
     if (runde < 7) {
-      console.log("Test runde 1-7: " + runde);
-      faseEn(mitt_kast, runde);
+      midlertidig_poeng = 0;
+      //console.log("Test runde 1-7: " + runde);
+      midlertidig_poeng += faseEn(mitt_kast, runde);
+
+      totalScore += midlertidig_poeng;
+      //console.log("Test totalScore: " + totalScore);
     }
     //console.log("Test 2 kasteKnapp()");
     x.innerHTML = "Start kast";
     score();
+    showDice();
   }
   else if (x.innerHTML === "Start kast") {
     antallKast += 1;
     //console.log("Test 4 kasteKnapp()");
     x.innerHTML = "Neste kast";
     startKast();
+    showDice()
   }
   else if (x.innerHTML === "Start spillet") {
     antallKast += 1;
     //console.log("Test 5 kasteKnapp()");
     x.innerHTML = "Neste kast";
     startKast();
+    showDice()
+  }
+}
+
+function showDice(){
+  for (j = 0; j < mitt_kast.length; j++){
+    console.log("mitt_kast[j]: " + mitt_kast[j]);
+    var diceName = "img/dice" + mitt_kast[j] + ".png";
+    var dicePos = "dicePos" + j;
+    //console.log("Test disePos " + dicePos);
+    //console.log("Test diceName " + diceName);
+    document.getElementById(dicePos).src = diceName;
   }
 }
 
@@ -75,12 +96,13 @@ function nyttKast(indekser){
 // Definerer hvilke indekser som skal kastes på nytt
 function nytt_kast_indexer(){
   var nyeTerninger = [];
-  for (var i = 0; i < 4; i++) {
+  for (var i = 0; i <= 4; i++) {
     if (document.getElementById(i).checked) {
         nyeTerninger[i] = 1;
     }
     else {
       nyeTerninger[i] = 0;
+      console.log("test nytt_kast_indexer: i " + i);
     }
   }
   nyttKast(nyeTerninger);
@@ -123,15 +145,24 @@ function faseEn(kast, verdi) {
   var antall = sjekk(kast, verdi);
   midlertidig_poeng += verdi * antall;
   console.log("Du fikk " + midlertidig_poeng + " poeng for å ha " + antall + " av " + verdi);
+  return midlertidig_poeng;
 }
 
 function bonus(poeng) {
   bonuspoeng = 50;
   let ikkeBonus = 0;
   if (poeng >= 42) {
-    "Du har " + poeng + " og får " + bonuspoeng + "!"
+    "Du har " + poeng + " og får " + bonuspoeng + "bonuspoeng!";
   }
   else {
-    "Du har " + poeng + " det er ikke nok til å få bonus."
+    "Du har " + poeng + " det er ikke nok til å få bonus.";
   };
+}
+
+function spillernavn() {
+  text = String(prompt("Skriv inn ditt spillernavn her!"));
+  document.getElementById("spiller1").innerHTML += text + "";
+  text1 = String(prompt("Skriv inn ditt spillernavn her!"));
+  document.getElementById("spiller2").innerHTML += text1 + "";
+document.getElementById('navneknapp').style.display="none";
 }
