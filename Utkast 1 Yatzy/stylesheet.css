@@ -126,6 +126,10 @@ button {
   margin-bottom: -40px;
 }
 
+.dices:hover{
+  opacity: 0.5;
+}
+
 img:active {
   transform: scale(1.2);
   transition-duration: 0.5s;

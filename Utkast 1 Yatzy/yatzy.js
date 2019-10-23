@@ -22,6 +22,9 @@ function kasteKnapp() {
       console.log("Test runde 1-7: " + runde);
       totalScore += faseEn(mitt_kast, runde);
       console.log("Test totalScore: " + totalScore);
+      if (runde == 6) {
+        bonus();
+      }
     }
     //console.log("Test 2 kasteKnapp()");
     x.innerHTML = "Start kast";
@@ -103,9 +106,29 @@ function rundeForteller(){
   }
 }
 
+// Sjekker score for alle rundet etter bonus
 function score(){
-  //console.log("Test score()");
+  if (runde == 7) {
+    ettPar();
+  }
 }
+
+function ettPar(){
+  var tall6 = 0;
+  var tall5 = 0;
+  var tall4 = 0;
+  var tall3 = 0;
+  var tall2 = 0;
+  var tall1 = 0;
+  for (var i = 0; i <= 4; i++) {
+    for (var y = 0; y <= 6; y++) {
+      if (mitt_kast[i] == y){
+        // Sett inn +antall her
+      }
+    }
+  }
+}
+
 
 // Hva gjør denne?
 let spiller1 = document.getElementById("spiller1");
@@ -134,14 +157,19 @@ function faseEn(kast, verdi) {
 }
 
 function bonus(poeng) {
-  bonuspoeng = 50;
-  let ikkeBonus = 0;
+  var bonuspoeng = 50;
+  var ikkeBonus = 0;
   if (poeng >= 42) {
-    "Du har " + poeng + " og får " + bonuspoeng + "!"
+    console.log("Du har " + poeng + " og får " + bonuspoeng + "!");
+    document.getElementById("1-faseEn").innerHTML = totalScore;
+    document.getElementById("1-bonus").innerHTML = bonuspoeng;
+    totalScore += bonuspoeng;
   }
   else {
-    "Du har " + poeng + " det er ikke nok til å få bonus."
-  };
+    console.log("Du har " + poeng + " det er ikke nok til å få bonus.");
+    document.getElementById("1-faseEn").innerHTML = totalScore;
+    document.getElementById("1-bonus").innerHTML = ikkeBonus;
+  }
 }
 
 function moveToTable(){
@@ -160,17 +188,4 @@ function showDice(){
     console.log("Test showDiceId " + showDiceId);
     document.getElementById(showDiceId).src = diceName;
   }
-}
-
-
-function playerName(){
-  text = String(prompt("Skriv inn ditt spillernavn her!"));
-  document.getElementById("spiller1").innerHTML += text + "";
-  text1 = String(prompt("Skriv inn ditt spillernavn her!"));
-  document.getElementById("spiller2").innerHTML += text1 + "";
-  document.getElementById('navneknapp').style.display="none";
-  document.getElementById("kasteKnapp").style.visibility="visible";
-  document.getElementById("brett").style.backgroundColor="#468f15";
-  document.getElementById("brett").style.backgroundImage="url('https://www.transparenttextures.com/patterns/60-lines.png')";
-  document.getElementById("brett").style.borderColor="saddlebrown #713F00";
 }
