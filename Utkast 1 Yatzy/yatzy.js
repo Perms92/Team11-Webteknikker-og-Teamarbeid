@@ -13,6 +13,7 @@ function kasteKnapp() {
     antallKast += 1;
     //console.log("Test 1 kasteKnapp()");
     nytt_kast_indexer();
+    showDice();
   }
   else if (x.innerHTML === "Neste kast" && antallKast == 2) {
     antallKast = 0;
@@ -26,18 +27,21 @@ function kasteKnapp() {
     x.innerHTML = "Start kast";
     score();
     moveToTable();
+    showDice();
   }
   else if (x.innerHTML === "Start kast") {
     antallKast += 1;
     //console.log("Test 4 kasteKnapp()");
     x.innerHTML = "Neste kast";
     startKast();
+    showDice();
   }
   else if (x.innerHTML === "Start spillet") {
     antallKast += 1;
     //console.log("Test 5 kasteKnapp()");
     x.innerHTML = "Neste kast";
     startKast();
+    showDice();
   }
 }
 
@@ -148,10 +152,13 @@ function moveToTable(){
 }
 
 function showDice(){
-  for (var i = 0; i < mitt_kast.length; i++) {
+  console.log("Test showDice() function");
+  for (var i = 0; i <= 4; i++) {
     var diceName = "img/dice" + mitt_kast[i] + ".png";
     var showDiceId = "dicePos" + i;
-    document.getElementById(showDiceId).innerHTML = diceName;
+    console.log("Test showDice diceName " + diceName);
+    console.log("Test showDiceId " + showDiceId);
+    document.getElementById(showDiceId).src = diceName;
   }
 }
 
