@@ -59,11 +59,11 @@ function startKast(){
   //console.log("Test: antallKast startkast " + antallKast);
   // Returnerer arrayet med 5 terninger med random verdier
   document.getElementById("kast").innerHTML = mitt_kast;
-  document.getElementById("dicePos0").style.marginBottom = "0%";
+/*  document.getElementById("dicePos0").style.marginBottom = "0%";
   document.getElementById("dicePos1").style.marginBottom = "0%";
   document.getElementById("dicePos2").style.marginBottom = "0%";
   document.getElementById("dicePos3").style.marginBottom = "0%";
-  document.getElementById("dicePos4").style.marginBottom = "0%";
+  document.getElementById("dicePos4").style.marginBottom = "0%"; */
 }
 
 
@@ -181,25 +181,21 @@ function playerName(){
 }
 
 function moveDice0(){
-  if (marginBottom = "0%"){
-    document.getElementById("dicePos0").style.marginBottom = "-125%"; }
-    else {
-      document.getElementById("dicePos0").style.marginBottom = "0%";
-    }
+  document.getElementById("dicePos0").style.marginBottom = "-850%";
 }
 
 function moveDice1(){
-  document.getElementById("dicePos1").style.marginBottom = "-125%";
+  document.getElementById("dicePos1").style.marginBottom = "-850%";
 }
 
 function moveDice2(){
-  document.getElementById("dicePos2").style.marginBottom = "-125%";
+  document.getElementById("dicePos2").style.marginBottom = "-850%";
 }
 
 function moveDice3(){
-  document.getElementById("dicePos3").style.marginBottom = "-125%";
+  document.getElementById("dicePos3").style.marginBottom = "-850%";
 }
 
 function moveDice4(){
-  document.getElementById("dicePos4").style.marginBottom = "-125%";
+  document.getElementById("dicePos4").style.marginBottom = "-850%";
 }
