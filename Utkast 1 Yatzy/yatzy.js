@@ -40,7 +40,10 @@ function startKast(){
   for (i = 0; i <= 4; i++){
     // Setter random tall 1-6 på hver indeks/terning
     mitt_kast[i] = Math.floor((Math.random() * 6) + 1);
+    }
+
   }
+
   // Teller startkastet som kast nr. 1
   console.log("Test: antallKast startkast " + antallKast);
   // Returnerer arrayet med 5 terninger med random verdier
@@ -58,6 +61,7 @@ function nyttKast(indekser){
       // console.log("Test bytte terning " + i);
       mitt_kast[i] = Math.floor((Math.random() * 6) + 1);
     }
+
   }
   console.log("Test:nyttKast1 antallKast " + antallKast);
   document.getElementById("kast").innerHTML = mitt_kast;
