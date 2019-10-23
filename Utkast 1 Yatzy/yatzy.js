@@ -1,4 +1,5 @@
 var mitt_kast = [];
+var midlertidig_poeng = 0;
 var antallKast = 0;
 var runde = 0;
 
@@ -16,6 +17,7 @@ function kasteKnapp() {
     console.log("Test 2 kasteKnapp()");
     x.innerHTML = "Start kast"
     nytt_kast_indexer();
+    score();
   }
   else if (x.innerHTML === "Start kast") {
     antallKast += 1;
@@ -91,4 +93,29 @@ function rundeForteller(){
       console.log("Du vil nå ha " + runde + "-ere");
     }
   }
+}
+
+function score(){
+  console.log("Test score()");
+}
+
+let spiller1 = document.getElementById("spiller1");
+
+//må kobles sammen med en funksjon som heter kast, sjekk def kast i py
+function førsteDel(kast, verdi) {
+  poeng = 0;
+  antall = sjekk(kast, verdi);
+  poeng += verdi * antall;
+  document.innerHTML ="Du fikk" + poeng + " poeng for å ha " + antall + "av " + verdi + " ";
+}
+
+function bonus(poeng) {
+  bonuspoeng = 50;
+  let ikkeBonus = 0;
+  if poeng >=42 {
+    "Du har " + poeng + " og får " + bonuspoeng + "!"
+  }
+  else {
+    "Du har " + poeng + " det er ikke nok til å få bonus."
+  };
 }
