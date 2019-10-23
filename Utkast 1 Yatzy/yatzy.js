@@ -55,6 +55,13 @@ function startKast(){
     // Setter random tall 1-6 på hver indeks/terning
     mitt_kast[i] = Math.floor((Math.random() * 6) + 1);
   }
+  var checks = document.querySelectorAll('#' + checkboxer + ' input[type="checkbox"]');
+    for(var i =0; i< checks.length;i++){
+        var check = checks[i];
+        if(!check.disabled){
+            check.checked = false;
+        }
+    }
   // Teller startkastet som kast nr. 1
   //console.log("Test: antallKast startkast " + antallKast);
   // Returnerer arrayet med 5 terninger med random verdier
