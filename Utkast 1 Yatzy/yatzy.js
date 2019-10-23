@@ -144,4 +144,8 @@ function spillernavn() {
   text1 = String(prompt("Skriv inn ditt spillernavn her!"));
   document.getElementById("spiller2").innerHTML += text1 + "";
 document.getElementById('navneknapp').style.display="none";
+document.getElementById("kasteKnapp").style.visibility="visible";
+document.getElementById("brett").style.backgroundColor="#468f15";
+document.getElementById("brett").style.backgroundImage="url('https://www.transparenttextures.com/patterns/60-lines.png')";
+document.getElementById("brett").style.borderColor="saddlebrown #713F00";
 }
