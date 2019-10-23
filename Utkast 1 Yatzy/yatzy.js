@@ -13,6 +13,7 @@ function kasteKnapp() {
     antallKast += 1;
     //console.log("Test 1 kasteKnapp()");
     nytt_kast_indexer();
+    showDice();
   }
   else if (x.innerHTML === "Neste kast" && antallKast == 2) {
     antallKast = 0;
@@ -25,18 +26,22 @@ function kasteKnapp() {
     //console.log("Test 2 kasteKnapp()");
     x.innerHTML = "Start kast";
     score();
+    moveToTable();
+    showDice();
   }
   else if (x.innerHTML === "Start kast") {
     antallKast += 1;
     //console.log("Test 4 kasteKnapp()");
     x.innerHTML = "Neste kast";
     startKast();
+    showDice();
   }
   else if (x.innerHTML === "Start spillet") {
     antallKast += 1;
     //console.log("Test 5 kasteKnapp()");
     x.innerHTML = "Neste kast";
     startKast();
+    showDice();
   }
 }
 
@@ -50,10 +55,22 @@ function startKast(){
     // Setter random tall 1-6 på hver indeks/terning
     mitt_kast[i] = Math.floor((Math.random() * 6) + 1);
   }
+  var checks = document.querySelectorAll('#' + checkboxer + ' input[type="checkbox"]');
+    for(var i =0; i< checks.length;i++){
+        var check = checks[i];
+        if(!check.disabled){
+            check.checked = false;
+        }
+    }
   // Teller startkastet som kast nr. 1
   //console.log("Test: antallKast startkast " + antallKast);
   // Returnerer arrayet med 5 terninger med random verdier
   document.getElementById("kast").innerHTML = mitt_kast;
+/*  document.getElementById("dicePos0").style.marginBottom = "0%";
+  document.getElementById("dicePos1").style.marginBottom = "0%";
+  document.getElementById("dicePos2").style.marginBottom = "0%";
+  document.getElementById("dicePos3").style.marginBottom = "0%";
+  document.getElementById("dicePos4").style.marginBottom = "0%"; */
 }
 
 
@@ -138,14 +155,54 @@ function bonus(poeng) {
     "Du har " + poeng + " det er ikke nok til å få bonus."
   };
 }
-function spillernavn() {
+
+function moveToTable(){
+  let spiller1 = 1;
+  let sendTilId = spiller1 + "-" + runde;
+  console.log("Test moveToTable: " + sendTilId);
+  document.getElementById(sendTilId).innerHTML = midlertidig_poeng;
+}
+
+function showDice(){
+  console.log("Test showDice() function");
+  for (var i = 0; i <= 4; i++) {
+    var diceName = "img/dice" + mitt_kast[i] + ".png";
+    var showDiceId = "dicePos" + i;
+    console.log("Test showDice diceName " + diceName);
+    console.log("Test showDiceId " + showDiceId);
+    document.getElementById(showDiceId).src = diceName;
+  }
+}
+
+
+function playerName(){
   text = String(prompt("Skriv inn ditt spillernavn her!"));
   document.getElementById("spiller1").innerHTML += text + "";
   text1 = String(prompt("Skriv inn ditt spillernavn her!"));
   document.getElementById("spiller2").innerHTML += text1 + "";
-document.getElementById('navneknapp').style.display="none";
-document.getElementById("kasteKnapp").style.visibility="visible";
-document.getElementById("brett").style.backgroundColor="#468f15";
-document.getElementById("brett").style.backgroundImage="url('https://www.transparenttextures.com/patterns/60-lines.png')";
-document.getElementById("brett").style.borderColor="saddlebrown #713F00";
+  document.getElementById('navneknapp').style.display="none";
+  document.getElementById("kasteKnapp").style.visibility="visible";
+  document.getElementById("brett").style.backgroundColor="#468f15";
+  document.getElementById("brett").style.backgroundImage="url('https://www.transparenttextures.com/patterns/60-lines.png')";
+  document.getElementById("brett").style.borderColor="saddlebrown #713F00";
+}
+
+function moveDice0(){
+  document.getElementById("dicePos0").style.marginBottom = "-850%";
+}
+
+function moveDice1(){
+  document.getElementById("dicePos1").style.marginBottom = "-850%";
+}
+
+function moveDice2(){
+  document.getElementById("dicePos2").style.marginBottom = "-850%";
+}
+
+function moveDice3(){
+  document.getElementById("dicePos3").style.marginBottom = "-850%";
+}
+
+function moveDice4(){
+  document.getElementById("dicePos4").style.marginBottom = "-850%";
 }
