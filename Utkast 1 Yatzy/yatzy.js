@@ -13,24 +13,18 @@ function kasteKnapp() {
     antallKast += 1;
     //console.log("Test 1 kasteKnapp()");
     nytt_kast_indexer();
-    showDice()
   }
-  //Tredje kast
   else if (x.innerHTML === "Neste kast" && antallKast == 2) {
     antallKast = 0;
     nytt_kast_indexer();
     if (runde < 7) {
-      midlertidig_poeng = 0;
-      //console.log("Test runde 1-7: " + runde);
-      midlertidig_poeng += faseEn(mitt_kast, runde);
-
-      totalScore += midlertidig_poeng;
-      //console.log("Test totalScore: " + totalScore);
+      console.log("Test runde 1-7: " + runde);
+      totalScore += faseEn(mitt_kast, runde);
+      console.log("Test totalScore: " + totalScore);
     }
     //console.log("Test 2 kasteKnapp()");
     x.innerHTML = "Start kast";
     score();
-    showDice();
     moveToTable();
   }
   else if (x.innerHTML === "Start kast") {
@@ -38,25 +32,12 @@ function kasteKnapp() {
     //console.log("Test 4 kasteKnapp()");
     x.innerHTML = "Neste kast";
     startKast();
-    showDice()
   }
   else if (x.innerHTML === "Start spillet") {
     antallKast += 1;
     //console.log("Test 5 kasteKnapp()");
     x.innerHTML = "Neste kast";
     startKast();
-    showDice()
-  }
-}
-
-function showDice(){
-  for (j = 0; j < mitt_kast.length; j++){
-    console.log("mitt_kast[j]: " + mitt_kast[j]);
-    var diceName = "img/dice" + mitt_kast[j] + ".png";
-    var dicePos = "dicePos" + j;
-    //console.log("Test disePos " + dicePos);
-    //console.log("Test diceName " + diceName);
-    document.getElementById(dicePos).src = diceName;
   }
 }
 
@@ -97,13 +78,12 @@ function nyttKast(indekser){
 // Definerer hvilke indekser som skal kastes på nytt
 function nytt_kast_indexer(){
   var nyeTerninger = [];
-  for (var i = 0; i <= 4; i++) {
+  for (var i = 0; i < 4; i++) {
     if (document.getElementById(i).checked) {
         nyeTerninger[i] = 1;
     }
     else {
       nyeTerninger[i] = 0;
-      console.log("test nytt_kast_indexer: i " + i);
     }
   }
   nyttKast(nyeTerninger);
@@ -153,28 +133,35 @@ function bonus(poeng) {
   bonuspoeng = 50;
   let ikkeBonus = 0;
   if (poeng >= 42) {
-    "Du har " + poeng + " og får " + bonuspoeng + "bonuspoeng!";
+    "Du har " + poeng + " og får " + bonuspoeng + "!"
   }
   else {
-    "Du har " + poeng + " det er ikke nok til å få bonus.";
+    "Du har " + poeng + " det er ikke nok til å få bonus."
   };
 }
 
-function moveToTable() {
-  let spiller = 1;
-  let sendTilId = spiller + "-" + runde;
-
+function moveToTable(){
+  let spiller1 = 1;
+  let sendTilId = spiller1 + "-" + runde;
+  console.log("Test moveToTable: " + sendTilId);
   document.getElementById(sendTilId).innerHTML = midlertidig_poeng;
 }
 
-function spillernavn() {
+function showDice(){
+  for (var i = 0; i < mitt_kast.length; i++) {
+    var diceName = "img/dice" + mitt_kast[i] + ".png";
+    var showDiceId = "dicePos" + i;
+    document.getElementById(showDiceId).innerHTML = diceName;
+}
+
+function spillernavn(){
   text = String(prompt("Skriv inn ditt spillernavn her!"));
   document.getElementById("spiller1").innerHTML += text + "";
   text1 = String(prompt("Skriv inn ditt spillernavn her!"));
   document.getElementById("spiller2").innerHTML += text1 + "";
-document.getElementById('navneknapp').style.display="none";
-document.getElementById("kasteKnapp").style.visibility="visible";
-document.getElementById("brett").style.backgroundColor="#468f15";
-document.getElementById("brett").style.backgroundImage="url('https://www.transparenttextures.com/patterns/60-lines.png')";
-document.getElementById("brett").style.borderColor="saddlebrown #713F00";
+  document.getElementById('navneknapp').style.display="none";
+  document.getElementById("kasteKnapp").style.visibility="visible";
+  document.getElementById("brett").style.backgroundColor="#468f15";
+  document.getElementById("brett").style.backgroundImage="url('https://www.transparenttextures.com/patterns/60-lines.png')";
+  document.getElementById("brett").style.borderColor="saddlebrown #713F00";
 }

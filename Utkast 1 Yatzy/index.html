@@ -9,7 +9,7 @@
   <body>
     <h1><img src="img/logo.png" alt="Logo" id="logo" onclick="window.location.href = 'index.html';"><br><img src="img/dice.png" alt="Dices" id="dice" onclick="window.location.href = 'index.html';"></h1>
     <div id="container">
-      <button onclick="spillernavn()" id="navneknapp">Spillernavn</button>
+
       <div id="first">
         <h3><button onclick="regler()">Regler</button></h3>
         <div id="regler">
@@ -23,14 +23,13 @@
 
       <div id="second">
         <div id="brett"><p id="kast"></p>
+          <img src="img/dice1.png" height="40px" id="dicePos0" class="dices">
+          <img src="img/dice2.png" height="40px" id="dicePos1" class="dices">
+          <img src="img/dice3.png" height="40px" id="dicePos2" class="dices">
+          <img src="img/dice4.png" height="40px" id="dicePos3" class="dices">
+          <img src="img/dice5.png" height="40px" id="dicePos4" class="dices"><br>
           <button onclick="spillernavn()" id="navneknapp">Spillernavn</button>
           <div id="checkboxer">
-            <img src="" height="40px" id="dicePos0" class="dices">
-            <img src="" height="40px" id="dicePos1" class="dices">
-            <img src="" height="40px" id="dicePos2" class="dices">
-            <img src="" height="40px" id="dicePos3" class="dices">
-            <img src="" height="40px" id="dicePos4" class="dices"><br>
-
             <input type="checkbox" id=0>
             <input type="checkbox" id=1>
             <input type="checkbox" id=2>
@@ -45,7 +44,7 @@
         <h3>Poengoversikt</h3>
         <table>
           <tr>
-            <th>
+            <th> Deltakere
             </th>
             <th id="spiller1"></th>
             <th id="spiller2"></th>
@@ -108,37 +107,37 @@
           <tr id="4like">
             <td>4 like</td>
             <td id="1-4like"></td>
-            <td id="2-4like"></td>
+            <td id=""></td>
           </tr>
           <tr id="litenStraight">
             <td>Liten straight</td>
-            <td id="1-litenStraight"></td>
-            <td id="2-litenStraight"></td>
+            <td></td>
+            <td></td>
           </tr>
           <tr id="storStraight">
             <td>Stor straight</td>
-            <td id="1-storStraight"></td>
-            <td id="2-storStraight"></td>
+            <td></td>
+            <td></td>
           </tr>
           <tr id="hus">
             <td>Hus</td>
-            <td id="1-hus"></td>
-            <td id="2-hus"></td>
+            <td></td>
+            <td></td>
           </tr>
           <tr id="sjanse">
             <td>Sjanse</td>
-            <td id="1-sjanse"></td>
-            <td id="2-sjanse"></td>
+            <td></td>
+            <td></td>
           </tr>
           <tr id="yatzy">
             <td>Yatzy</td>
-            <td id="1-yatzy"></td>
-            <td id="2-yatzy"></td>
+            <td></td>
+            <td></td>
           </tr>
           <tr id="totalsum">
             <td>Totalsum</td>
-            <td id="1-total"></td>
-            <td id="2-total"></td>
+            <td></td>
+            <td></td>
           </tr>
         </table>
         </div>
