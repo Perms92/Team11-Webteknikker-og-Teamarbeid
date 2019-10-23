@@ -160,17 +160,21 @@ function bonus(poeng) {
   };
 }
 
+function moveToTable() {
+  let spiller = 1;
+  let sendTilId = spiller + "-" + runde;
+
+  document.getElementById(sendTilId).innerHTML = midlertidig_poeng;
+}
+
 function spillernavn() {
   text = String(prompt("Skriv inn ditt spillernavn her!"));
   document.getElementById("spiller1").innerHTML += text + "";
   text1 = String(prompt("Skriv inn ditt spillernavn her!"));
   document.getElementById("spiller2").innerHTML += text1 + "";
 document.getElementById('navneknapp').style.display="none";
-}
-
-function moveToTable() {
-  let spiller = 1;
-  let sendTilId = spiller + "-" + runde;
-
-  document.getElementById(sendTilId).innerHTML = midlertidig_poeng;
+document.getElementById("kasteKnapp").style.visibility="visible";
+document.getElementById("brett").style.backgroundColor="#468f15";
+document.getElementById("brett").style.backgroundImage="url('https://www.transparenttextures.com/patterns/60-lines.png')";
+document.getElementById("brett").style.borderColor="saddlebrown #713F00";
 }
