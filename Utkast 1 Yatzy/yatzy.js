@@ -31,6 +31,7 @@ function kasteKnapp() {
     x.innerHTML = "Start kast";
     score();
     showDice();
+    moveToTable();
   }
   else if (x.innerHTML === "Start kast") {
     antallKast += 1;
@@ -165,4 +166,11 @@ function spillernavn() {
   text1 = String(prompt("Skriv inn ditt spillernavn her!"));
   document.getElementById("spiller2").innerHTML += text1 + "";
 document.getElementById('navneknapp').style.display="none";
+}
+
+function moveToTable() {
+  let spiller = 1;
+  let sendTilId = spiller + "-" + runde;
+
+  document.getElementById(sendTilId).innerHTML = midlertidig_poeng;
 }
