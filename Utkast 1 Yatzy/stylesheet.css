@@ -115,9 +115,10 @@ button {
 #dice {
   width: 130px;
   height: auto;
-  margin-bottom: -30px;
-  margin-top:-200px;
+  margin-bottom: -20px;
+  margin-top:-50px;
   cursor: pointer;
+
 }
 
 #logo {

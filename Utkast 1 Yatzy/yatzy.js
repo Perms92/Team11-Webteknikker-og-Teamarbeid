@@ -59,6 +59,11 @@ function startKast(){
   //console.log("Test: antallKast startkast " + antallKast);
   // Returnerer arrayet med 5 terninger med random verdier
   document.getElementById("kast").innerHTML = mitt_kast;
+  document.getElementById("dicePos0").style.marginBottom = "0%";
+  document.getElementById("dicePos1").style.marginBottom = "0%";
+  document.getElementById("dicePos2").style.marginBottom = "0%";
+  document.getElementById("dicePos3").style.marginBottom = "0%";
+  document.getElementById("dicePos4").style.marginBottom = "0%";
 }
 
 
@@ -173,4 +178,28 @@ function playerName(){
   document.getElementById("brett").style.backgroundColor="#468f15";
   document.getElementById("brett").style.backgroundImage="url('https://www.transparenttextures.com/patterns/60-lines.png')";
   document.getElementById("brett").style.borderColor="saddlebrown #713F00";
+}
+
+function moveDice0(){
+  if (marginBottom = "0%"){
+    document.getElementById("dicePos0").style.marginBottom = "-125%"; }
+    else {
+      document.getElementById("dicePos0").style.marginBottom = "0%";
+    }
+}
+
+function moveDice1(){
+  document.getElementById("dicePos1").style.marginBottom = "-125%";
+}
+
+function moveDice2(){
+  document.getElementById("dicePos2").style.marginBottom = "-125%";
+}
+
+function moveDice3(){
+  document.getElementById("dicePos3").style.marginBottom = "-125%";
+}
+
+function moveDice4(){
+  document.getElementById("dicePos4").style.marginBottom = "-125%";
 }
