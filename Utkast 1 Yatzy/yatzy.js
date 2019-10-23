@@ -93,9 +93,6 @@ function rundeForteller(){
 
 function score(){
   console.log("Test score()");
-<<<<<<< HEAD
-  
-=======
 }
 
 let spiller1 = document.getElementById("spiller1");
@@ -110,12 +107,11 @@ function førsteDel(kast, verdi) {
 
 function bonus(poeng) {
   bonuspoeng = 50;
-  ikkeBonus = 0;
+  let ikkeBonus = 0;
   if poeng >=42 {
     "Du har " + poeng + " og får " + bonuspoeng + "!"
   }
   else {
     "Du har " + poeng + " det er ikke nok til å få bonus."
   };
->>>>>>> Mina
 }
