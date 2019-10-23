@@ -137,12 +137,14 @@ table {
   font-size: 10px;
   display: flex;
   justify-content: space-around;
+  border: 4px solid;
 }
 
 th {
   background-color: #cfe0c3;
   color: #1f363d;
   padding: 10px;
+  border-bottom: 4px solid;
 }
 
 td {
