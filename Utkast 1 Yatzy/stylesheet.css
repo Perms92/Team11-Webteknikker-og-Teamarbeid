@@ -35,7 +35,7 @@ body {
   border: 18px solid;
   border-color: saddlebrown #713F00;
   padding: 0px 50px 250px 50px;
-  margin-bottom: 20px;
+  margin-bottom: -110px;
 }
 
 
@@ -80,6 +80,37 @@ button {
     cursor: default;
     transition-duration: 0.5s;
   }
+
+  #kasteKnapp {
+    padding: 20px;
+    display: inline-block;
+    font-size: 24px;
+    cursor: pointer;
+    border: 4px solid;
+    border-color: #800000;
+    background-color:#808080;
+    opacity: 1.0;
+    font-family: 'Be Vietnam', sans-serif;
+    font-weight: 700;
+    color: #FFFFFF;
+    border-radius: 5px;
+    text-align: center;
+  }
+
+    #kasteKnapp:hover {
+      transform: scale(1.05);
+      transition-duration: 1.2s;
+      background: url(img/pattern5.png);
+      background-color: #d2d2d2;
+      border-color: saddlebrown;
+      color: black;
+    }
+
+    #kasteKnapp:active {
+      transform: scale(1.1);
+      cursor: default;
+      transition-duration: 0.5s;
+    }
 
 #dice {
   width: 130px;
