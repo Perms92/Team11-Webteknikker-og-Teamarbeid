@@ -4,6 +4,9 @@ body {
   font-family: 'Be Vietnam', sans-serif;
   background: url(img/pattern5.png);
 }
+  .dices:hover {
+  opacity: 0.5;
+  }
 
 #container {
   display: flex;
@@ -95,10 +98,6 @@ button {
   margin-bottom: -40px;
 }
 
-img:active {
-  transform: scale(1.2);
-  transition-duration: 0.5s;
-}
 
 table {
   min-width: 120px;
