@@ -58,22 +58,22 @@ function startKast(){
     // Setter random tall 1-6 på hver indeks/terning
     mitt_kast[i] = Math.floor((Math.random() * 6) + 1);
   }
-  var checks = document.querySelectorAll('#' + checkboxer + ' input[type="checkbox"]');
+  // Teller startkastet som kast nr. 1
+  //console.log("Test: antallKast startkast " + antallKast);
+  // Returnerer arrayet med 5 terninger med random verdier
+  document.getElementById("kast").innerHTML = mitt_kast;
+  document.getElementById("dicePos0").style.marginBottom = "0%";
+  document.getElementById("dicePos1").style.marginBottom = "0%";
+  document.getElementById("dicePos2").style.marginBottom = "0%";
+  document.getElementById("dicePos3").style.marginBottom = "0%";
+  document.getElementById("dicePos4").style.marginBottom = "0%";
+  /*var checks = document.querySelectorAll('#' + checkboxer + 'input[type="checkbox"]');
     for(var i =0; i< checks.length;i++){
         var check = checks[i];
         if(!check.disabled){
             check.checked = false;
         }
-    }
-  // Teller startkastet som kast nr. 1
-  //console.log("Test: antallKast startkast " + antallKast);
-  // Returnerer arrayet med 5 terninger med random verdier
-  document.getElementById("kast").innerHTML = mitt_kast;
-/*  document.getElementById("dicePos0").style.marginBottom = "0%";
-  document.getElementById("dicePos1").style.marginBottom = "0%";
-  document.getElementById("dicePos2").style.marginBottom = "0%";
-  document.getElementById("dicePos3").style.marginBottom = "0%";
-  document.getElementById("dicePos4").style.marginBottom = "0%"; */
+    }*/
 }
 
 
@@ -168,17 +168,17 @@ function faseEn(kast, verdi) {
   return midlertidig_poeng;
 }
 
-function bonus(poeng) {
+function bonus() {
   var bonuspoeng = 50;
   var ikkeBonus = 0;
-  if (poeng >= 42) {
-    console.log("Du har " + poeng + " og får " + bonuspoeng + "!");
+  if (totalScore >= 42) {
+    console.log("Du har " + totalScore + " og får " + bonuspoeng + "!");
     document.getElementById("1-faseEn").innerHTML = totalScore;
     document.getElementById("1-bonus").innerHTML = bonuspoeng;
     totalScore += bonuspoeng;
   }
   else {
-    console.log("Du har " + poeng + " det er ikke nok til å få bonus.");
+    console.log("Du har " + totalScore + " det er ikke nok til å få bonus.");
     document.getElementById("1-faseEn").innerHTML = totalScore;
     document.getElementById("1-bonus").innerHTML = ikkeBonus;
   }
@@ -202,34 +202,47 @@ function showDice(){
   }
 }
 
-function playerName(){
-  text = String(prompt("Skriv inn ditt spillernavn her!"));
-  document.getElementById("spiller1").innerHTML += text + "";
-  text1 = String(prompt("Skriv inn ditt spillernavn her!"));
-  document.getElementById("spiller2").innerHTML += text1 + "";
-  document.getElementById('navneknapp').style.display="none";
-  document.getElementById("kasteKnapp").style.visibility="visible";
-  document.getElementById("brett").style.backgroundColor="#468f15";
-  document.getElementById("brett").style.backgroundImage="url('https://www.transparenttextures.com/patterns/60-lines.png')";
-  document.getElementById("brett").style.borderColor="saddlebrown #713F00";
+function moveDice0() {
+  if(document.getElementById("dicePos0").style.marginBottom == "-850%") {
+    document.getElementById("dicePos0").style.marginBottom = "0%";
+  }
+  else {
+    document.getElementById("dicePos0").style.marginBottom = "-850%";
+  }
 }
 
-function moveDice0(){
-  document.getElementById("dicePos0").style.marginBottom = "-850%";
+function moveDice1() {
+  if(document.getElementById("dicePos1").style.marginBottom == "-850%") {
+    document.getElementById("dicePos1").style.marginBottom = "0%";
+  }
+  else {
+    document.getElementById("dicePos1").style.marginBottom = "-850%";
+  }
 }
 
-function moveDice1(){
-  document.getElementById("dicePos1").style.marginBottom = "-850%";
+function moveDice2() {
+  if(document.getElementById("dicePos2").style.marginBottom == "-850%") {
+    document.getElementById("dicePos2").style.marginBottom = "0%";
+  }
+  else {
+    document.getElementById("dicePos2").style.marginBottom = "-850%";
+  }
 }
 
-function moveDice2(){
-  document.getElementById("dicePos2").style.marginBottom = "-850%";
+function moveDice3() {
+  if(document.getElementById("dicePos3").style.marginBottom == "-850%") {
+    document.getElementById("dicePos3").style.marginBottom = "0%";
+  }
+  else {
+    document.getElementById("dicePos3").style.marginBottom = "-850%";
+  }
 }
 
-function moveDice3(){
-  document.getElementById("dicePos3").style.marginBottom = "-850%";
-}
-
-function moveDice4(){
-  document.getElementById("dicePos4").style.marginBottom = "-850%";
+function moveDice4() {
+  if(document.getElementById("dicePos4").style.marginBottom == "-850%") {
+    document.getElementById("dicePos4").style.marginBottom = "0%";
+  }
+  else {
+    document.getElementById("dicePos4").style.marginBottom = "-850%";
+  }
 }
