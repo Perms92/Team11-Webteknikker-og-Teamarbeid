@@ -55,13 +55,7 @@ function startKast(){
     // Setter random tall 1-6 på hver indeks/terning
     mitt_kast[i] = Math.floor((Math.random() * 6) + 1);
   }
-  var checks = document.querySelectorAll('#' + checkboxer + ' input[type="checkbox"]');
-    for(var i =0; i< checks.length;i++){
-        var check = checks[i];
-        if(!check.disabled){
-            check.checked = false;
-        }
-    }
+
   // Teller startkastet som kast nr. 1
   //console.log("Test: antallKast startkast " + antallKast);
   // Returnerer arrayet med 5 terninger med random verdier
@@ -174,7 +168,6 @@ function showDice(){
   }
 }
 
-
 function playerName(){
   text = String(prompt("Skriv inn ditt spillernavn her!"));
   document.getElementById("spiller1").innerHTML += text + "";
@@ -187,8 +180,17 @@ function playerName(){
   document.getElementById("brett").style.borderColor="saddlebrown #713F00";
 }
 
-function moveDice0(){
+ /* function moveDice0() {
+  if(document.getElementById("dicePos0").style.marginBottom == "-850%") {
+  document.getElementById("dicePos0").style.marginBottom = "0%";
+  }
+  else {
   document.getElementById("dicePos0").style.marginBottom = "-850%";
+  }
+} */
+
+function moveDice0() {
+document.getElementById("dicePos0").style.marginBottom = "-550%";
 }
 
 function moveDice1(){
