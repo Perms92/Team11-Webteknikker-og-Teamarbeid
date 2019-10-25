@@ -28,9 +28,9 @@ function kasteKnapp() {
     }
     //console.log("Test 2 kasteKnapp()");
     x.innerHTML = "Start kast";
+    showDice();
     score();
     moveToTable();
-    showDice();
   }
   else if (x.innerHTML === "Start kast") {
     antallKast += 1;
@@ -123,9 +123,29 @@ function score(){
   if (runde == 7) {
     midlertidig_poeng = like(mitt_kast, 2);
     totalScore += midlertidig_poeng;
-    console.log("test score() " + totalScore);
+    console.log("test score() runde 7" + totalScore);
     console.log("test score() midlertidig_poeng " + midlertidig_poeng);
   }
+  if (runde == 8) {
+    midlertidig_poeng = toPar(mitt_kast);
+    totalScore += midlertidig_poeng;
+    console.log("test score() runde 8 " + totalScore);
+    console.log("test score() midlertidig_poeng " + midlertidig_poeng);
+  }
+}
+
+function toPar(mitt_kast){
+  ettPar = like(mitt_kast, 2)
+  if (ettPar > 0) {
+    var verdi = ettPar/2;
+    mitt_kast.pop(mitt_kast[verdi]);
+    mitt_kast.pop(mitt_kast[verdi]);
+    var andrePar = like(mitt_kast,2);
+    if (ettPar && andrePar && (ettPar != andrePar)) {
+      return (ettPar + andrePar);
+    }
+  }
+  return 0;
 }
 
 function like(mitt_kast, antall){
