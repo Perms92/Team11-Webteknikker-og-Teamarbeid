@@ -22,12 +22,15 @@ function kasteKnapp() {
       console.log("Test runde 1-7: " + runde);
       totalScore += faseEn(mitt_kast, runde);
       console.log("Test totalScore: " + totalScore);
+      if (runde == 6) {
+        bonus();
+      }
     }
     //console.log("Test 2 kasteKnapp()");
     x.innerHTML = "Start kast";
+    showDice();
     score();
     moveToTable();
-    showDice();
   }
   else if (x.innerHTML === "Start kast") {
     antallKast += 1;
@@ -55,16 +58,22 @@ function startKast(){
     // Setter random tall 1-6 på hver indeks/terning
     mitt_kast[i] = Math.floor((Math.random() * 6) + 1);
   }
-
   // Teller startkastet som kast nr. 1
   //console.log("Test: antallKast startkast " + antallKast);
   // Returnerer arrayet med 5 terninger med random verdier
   document.getElementById("kast").innerHTML = mitt_kast;
-/*  document.getElementById("dicePos0").style.marginBottom = "0%";
+  document.getElementById("dicePos0").style.marginBottom = "0%";
   document.getElementById("dicePos1").style.marginBottom = "0%";
   document.getElementById("dicePos2").style.marginBottom = "0%";
   document.getElementById("dicePos3").style.marginBottom = "0%";
-  document.getElementById("dicePos4").style.marginBottom = "0%"; */
+  document.getElementById("dicePos4").style.marginBottom = "0%";
+  /*var checks = document.querySelectorAll('#' + checkboxer + 'input[type="checkbox"]');
+    for(var i =0; i< checks.length;i++){
+        var check = checks[i];
+        if(!check.disabled){
+            check.checked = false;
+        }
+    }*/
 }
 
 
@@ -109,9 +118,65 @@ function rundeForteller(){
   }
 }
 
+// Sjekker score for alle rundet etter bonus
 function score(){
-  //console.log("Test score()");
+  if (runde == 7) {
+    midlertidig_poeng = like(mitt_kast, 2);
+    totalScore += midlertidig_poeng;
+    console.log("test score() runde 7" + totalScore);
+    console.log("test score() midlertidig_poeng " + midlertidig_poeng);
+  }
+  if (runde == 8) {
+    midlertidig_poeng = toPar(mitt_kast);
+    totalScore += midlertidig_poeng;
+    console.log("test score() runde 8 " + totalScore);
+    console.log("test score() midlertidig_poeng " + midlertidig_poeng);
+  }
 }
+
+function toPar(mitt_kast){
+  ettPar = like(mitt_kast, 2)
+  if (ettPar > 0) {
+    var verdi = ettPar/2;
+    mitt_kast.pop(mitt_kast[verdi]);
+    mitt_kast.pop(mitt_kast[verdi]);
+    var andrePar = like(mitt_kast,2);
+    if (ettPar && andrePar && (ettPar != andrePar)) {
+      return (ettPar + andrePar);
+    }
+  }
+  return 0;
+}
+
+function like(mitt_kast, antall){
+  var verdi = 0;
+  if (sjekk(mitt_kast, 6) >= antall) {
+    verdi = antall * 6;
+    return verdi;
+  }
+  if (sjekk(mitt_kast, 5) >= antall) {
+    verdi = antall * 5;
+    return verdi;
+  }
+  if (sjekk(mitt_kast, 4) >= antall) {
+    verdi = antall * 4;
+    return verdi;
+  }
+  if (sjekk(mitt_kast, 3) >= antall) {
+    verdi = antall * 3;
+    return verdi;
+  }
+  if (sjekk(mitt_kast, 2) >= antall) {
+    verdi = antall * 2;
+    console.log("Test like2 " + verdi);
+    return verdi;
+  }
+  if (sjekk(mitt_kast, 1) >= antall) {
+    verdi = antall * 1;
+    return verdi;
+  }
+}
+
 
 // Hva gjør denne?
 let spiller1 = document.getElementById("spiller1");
@@ -139,21 +204,27 @@ function faseEn(kast, verdi) {
   return midlertidig_poeng;
 }
 
-function bonus(poeng) {
-  bonuspoeng = 50;
-  let ikkeBonus = 0;
-  if (poeng >= 42) {
-    "Du har " + poeng + " og får " + bonuspoeng + "!"
+function bonus() {
+  var bonuspoeng = 50;
+  var ikkeBonus = 0;
+  if (totalScore >= 42) {
+    console.log("Du har " + totalScore + " og får " + bonuspoeng + "!");
+    document.getElementById("1-faseEn").innerHTML = totalScore;
+    document.getElementById("1-bonus").innerHTML = bonuspoeng;
+    totalScore += bonuspoeng;
   }
   else {
-    "Du har " + poeng + " det er ikke nok til å få bonus."
-  };
+    console.log("Du har " + totalScore + " det er ikke nok til å få bonus.");
+    document.getElementById("1-faseEn").innerHTML = totalScore;
+    document.getElementById("1-bonus").innerHTML = ikkeBonus;
+  }
 }
 
 function moveToTable(){
   let spiller1 = 1;
   let sendTilId = spiller1 + "-" + runde;
   console.log("Test moveToTable: " + sendTilId);
+  console.log("Test moveToTable midlertidig_poeng: " + midlertidig_poeng);
   document.getElementById(sendTilId).innerHTML = midlertidig_poeng;
 }
 
@@ -193,18 +264,38 @@ function moveDice0() {
 document.getElementById("dicePos0").style.marginBottom = "-550%";
 }
 
-function moveDice1(){
-  document.getElementById("dicePos1").style.marginBottom = "-850%";
+function moveDice1() {
+  if(document.getElementById("dicePos1").style.marginBottom == "-850%") {
+    document.getElementById("dicePos1").style.marginBottom = "0%";
+  }
+  else {
+    document.getElementById("dicePos1").style.marginBottom = "-850%";
+  }
 }
 
-function moveDice2(){
-  document.getElementById("dicePos2").style.marginBottom = "-850%";
+function moveDice2() {
+  if(document.getElementById("dicePos2").style.marginBottom == "-850%") {
+    document.getElementById("dicePos2").style.marginBottom = "0%";
+  }
+  else {
+    document.getElementById("dicePos2").style.marginBottom = "-850%";
+  }
 }
 
-function moveDice3(){
-  document.getElementById("dicePos3").style.marginBottom = "-850%";
+function moveDice3() {
+  if(document.getElementById("dicePos3").style.marginBottom == "-850%") {
+    document.getElementById("dicePos3").style.marginBottom = "0%";
+  }
+  else {
+    document.getElementById("dicePos3").style.marginBottom = "-850%";
+  }
 }
 
-function moveDice4(){
-  document.getElementById("dicePos4").style.marginBottom = "-850%";
+function moveDice4() {
+  if(document.getElementById("dicePos4").style.marginBottom == "-850%") {
+    document.getElementById("dicePos4").style.marginBottom = "0%";
+  }
+  else {
+    document.getElementById("dicePos4").style.marginBottom = "-850%";
+  }
 }
