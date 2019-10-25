@@ -121,23 +121,39 @@ function rundeForteller(){
 // Sjekker score for alle rundet etter bonus
 function score(){
   if (runde == 7) {
-    ettPar();
+    midlertidig_poeng = like(mitt_kast, 2);
+    totalScore += midlertidig_poeng;
+    console.log("test score() " + totalScore);
+    console.log("test score() midlertidig_poeng " + midlertidig_poeng);
   }
 }
 
-function ettPar(){
-  var tall6 = 0;
-  var tall5 = 0;
-  var tall4 = 0;
-  var tall3 = 0;
-  var tall2 = 0;
-  var tall1 = 0;
-  for (var i = 0; i <= 4; i++) {
-    for (var y = 0; y <= 6; y++) {
-      if (mitt_kast[i] == y){
-        // Sett inn +antall her
-      }
-    }
+function like(mitt_kast, antall){
+  var verdi = 0;
+  if (sjekk(mitt_kast, 6) >= antall) {
+    verdi = antall * 6;
+    return verdi;
+  }
+  if (sjekk(mitt_kast, 5) >= antall) {
+    verdi = antall * 5;
+    return verdi;
+  }
+  if (sjekk(mitt_kast, 4) >= antall) {
+    verdi = antall * 4;
+    return verdi;
+  }
+  if (sjekk(mitt_kast, 3) >= antall) {
+    verdi = antall * 3;
+    return verdi;
+  }
+  if (sjekk(mitt_kast, 2) >= antall) {
+    verdi = antall * 2;
+    console.log("Test like2 " + verdi);
+    return verdi;
+  }
+  if (sjekk(mitt_kast, 1) >= antall) {
+    verdi = antall * 1;
+    return verdi;
   }
 }
 
@@ -188,6 +204,7 @@ function moveToTable(){
   let spiller1 = 1;
   let sendTilId = spiller1 + "-" + runde;
   console.log("Test moveToTable: " + sendTilId);
+  console.log("Test moveToTable midlertidig_poeng: " + midlertidig_poeng);
   document.getElementById(sendTilId).innerHTML = midlertidig_poeng;
 }
 
