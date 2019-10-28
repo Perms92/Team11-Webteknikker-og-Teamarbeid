@@ -24,6 +24,7 @@ function kasteKnapp() {
     score();
     moveToTable();
     if (runde == 15) {
+      moveToTable();
       alert("Spillet er ferdig! Din score ble " + totalScore +
       ". Bra jobba!")
     }
@@ -450,6 +451,9 @@ function moveToTable(){
   console.log("Test moveToTable: " + sendTilId);
   console.log("Test moveToTable midlertidig_poeng: " + midlertidig_poeng);
   document.getElementById(sendTilId).innerHTML = midlertidig_poeng;
+  if (runde == 15) {
+    document.getElementById('1-totalsum').innerHTML = totalScore;
+  }
 }
 
 function showDice(){
