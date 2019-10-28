@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Yatzy</title>
+    <link rel="icon" href="img/favicon.jpg" type="image/gif" sizes="16x16">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
     <link href="stylesheet.css" rel="stylesheet" type="text/css">
       <link href="https://fonts.googleapis.com/css?family=Be+Vietnam&display=swap" rel="stylesheet">
@@ -30,12 +31,14 @@
       </div>
 
       <div id="second">
-        <div id="brett"><p id="kast"></p>
-          <img height="40px" id="dicePos0" class="dices">
-          <img height="40px" id="dicePos1" class="dices">
-          <img height="40px" id="dicePos2" class="dices">
-          <img height="40px" id="dicePos3" class="dices">
-          <img height="40px" id="dicePos4" class="dices"><br>
+        <div id="brett">
+          <div id="rundeForteller"></div>
+          <p id="kast"></p>
+          <label for="0" onclick="moveDice0()"><img height="40px" id="dicePos0" class="dices"></label>
+          <label for="1" onclick="moveDice1()"><img height="40px" id="dicePos1" class="dices"></label>
+          <label for="2" onclick="moveDice2()"><img height="40px" id="dicePos2" class="dices"></label>
+          <label for="3" onclick="moveDice3()"><img height="40px" id="dicePos3" class="dices"></label>
+          <label for="4" onclick="moveDice4()"><img height="40px" id="dicePos4" class="dices"></label><br>
           <button onclick="playerName()" id="navneknapp">Spillernavn</button><br>
         </div>
         <button onclick="kasteKnapp()" id="kasteKnapp">Start spillet</button>
