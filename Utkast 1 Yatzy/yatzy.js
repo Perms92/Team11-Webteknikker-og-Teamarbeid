@@ -121,27 +121,45 @@ function rundeForteller(){
 // Sjekker score for alle rundet etter bonus
 function score(){
   if (runde == 7) {
+    midlertidig_poeng = 0;
     midlertidig_poeng = like(mitt_kast, 2);
     totalScore += midlertidig_poeng;
     console.log("test score() runde 7" + totalScore);
     console.log("test score() midlertidig_poeng " + midlertidig_poeng);
   }
   else if (runde == 8) {
+    midlertidig_poeng = 0;
     midlertidig_poeng = toPar(mitt_kast);
     totalScore += midlertidig_poeng;
     console.log("test score() runde 8 " + totalScore);
     console.log("test score() midlertidig_poeng " + midlertidig_poeng);
   }
   else if (runde == 9) {
+    midlertidig_poeng = 0;
     midlertidig_poeng = treLike();
     totalScore += midlertidig_poeng;
     console.log("test score() runde 9 " + totalScore);
     console.log("test score() midlertidig_poeng " + midlertidig_poeng);
   }
   else if (runde == 10) {
+    midlertidig_poeng = 0;
     midlertidig_poeng = fireLike();
     totalScore += midlertidig_poeng;
-    console.log("test score() runde 9 " + totalScore);
+    console.log("test score() runde 10 " + totalScore);
+    console.log("test score() midlertidig_poeng " + midlertidig_poeng);
+  }
+  else if (runde == (11 || 12)) {
+    midlertidig_poeng = 0;
+    midlertidig_poeng = straight();
+    totalScore += midlertidig_poeng;
+    console.log("test score() runde 11/12 " + totalScore);
+    console.log("test score() midlertidig_poeng " + midlertidig_poeng);
+  }
+  else if (runde == 13) {
+    midlertidig_poeng = 0;
+    midlertidig_poeng = hus();
+    totalScore += midlertidig_poeng;
+    console.log("test score() runde 11/12 " + totalScore);
     console.log("test score() midlertidig_poeng " + midlertidig_poeng);
   }
 }
@@ -153,27 +171,28 @@ function like(mitt_kast, antall){
     verdi = antall * 6;
     return verdi;
   }
-  if (sjekk(mitt_kast, 5) >= antall) {
+  else if (sjekk(mitt_kast, 5) >= antall) {
     verdi = antall * 5;
     return verdi;
   }
-  if (sjekk(mitt_kast, 4) >= antall) {
+  else if (sjekk(mitt_kast, 4) >= antall) {
     verdi = antall * 4;
     return verdi;
   }
-  if (sjekk(mitt_kast, 3) >= antall) {
+  else if (sjekk(mitt_kast, 3) >= antall) {
     verdi = antall * 3;
     return verdi;
   }
-  if (sjekk(mitt_kast, 2) >= antall) {
+  else if (sjekk(mitt_kast, 2) >= antall) {
     verdi = antall * 2;
     console.log("Test like2 " + verdi);
     return verdi;
   }
-  if (sjekk(mitt_kast, 1) >= antall) {
+  else if (sjekk(mitt_kast, 1) >= antall) {
     verdi = antall * 1;
     return verdi;
   }
+  return 0;
 }
 
 
@@ -184,11 +203,11 @@ let spiller1 = document.getElementById("spiller1");
 function sjekk(hand, tall){
   var antall = 0;
   for (var i = 0; i < hand.length; i++) {
-    console.log("Test for-løkke sjekk() " + i);
+    //console.log("Test for-løkke sjekk() " + i);
     if (hand[i] == tall) {
-      console.log("Test sjekk(), i: " + i + ", tall: " + tall);
+      //console.log("Test sjekk(), i: " + i + ", tall: " + tall);
       antall += 1;
-      console.log("Test sjekk() antall: "+ antall);
+      //console.log("Test sjekk() antall: "+ antall);
     }
   }
   return antall;
@@ -328,24 +347,37 @@ function fireLike(){
 
 function straight(){
   mitt_kast.sort();
-  for (var i = 0; i < 4; i++) {
-    if ((mitt_kast[i+1] - mitt_kast[i]) == 1) {
-      console.log("Test straight: Ja");
+  console.log("Test straight sort() " + mitt_kast);
+  if ((mitt_kast[0] == 1 && mitt_kast[4] == 5) || (mitt_kast[0] == 2 && mitt_kast[4] == 6)) {
+    console.log("Test straight 1-5/2-6");
+    for (var i = 0; i < 4; i++) {
+      console.log("Test straight [i]: " + i);
+      if ((mitt_kast[i+1] - mitt_kast[i]) == 1) {
+        console.log("Test straight: Ja");
+      }
+      else {
+        console.log("Test straight: Nei");
+        return 0;
+      }
     }
-    else {
-      console.log("Test straight: Nei");
-      return 0;
-    }
-  }
-  return mitt_kast.reduce((a, b) => a + b, 0);
-}
-
-function litenStraight(){
-  mitt_kast.sort();
-  if (mitt_kast[0] == 1 && mitt_kast[4] == 5) {
-    return straight();
+    let straightSum = mitt_kast.reduce((a, b) => a + b, 0);
+    console.log("Test straight reduce: " + straightSum);
+    return straightSum;
   }
   return 0;
+}
+
+function hus(){
+  mitt_kast.sort();
+  if (mitt_kast[0] == mitt_kast[1] && mitt_kast[2] == mitt_kast[4] && mitt_kast[1] != mitt_kast[2]) {
+    return mitt_kast.reduce((a, b) => a + b, 0);
+  }
+  else if (mitt_kast[0] == mitt_kast[2] && mitt_kast[3] == mitt_kast[4] && mitt_kast[2] != mitt_kast[3]) {
+    return mitt_kast.reduce((a, b) => a + b, 0);
+  }
+  else {
+    return 0;
+  }
 }
 
 function moveToTable(){
@@ -357,12 +389,12 @@ function moveToTable(){
 }
 
 function showDice(){
-  console.log("Test showDice() function");
+  //console.log("Test showDice() function");
   for (var i = 0; i <= 4; i++) {
     var diceName = "img/dice" + mitt_kast[i] + ".png";
     var showDiceId = "dicePos" + i;
-    console.log("Test showDice diceName " + diceName);
-    console.log("Test showDiceId " + showDiceId);
+    //console.log("Test showDice diceName " + diceName);
+    //console.log("Test showDiceId " + showDiceId);
     document.getElementById(showDiceId).src = diceName;
   }
 }
