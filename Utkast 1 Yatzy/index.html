@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Yatzy</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
     <link href="stylesheet.css" rel="stylesheet" type="text/css">
       <link href="https://fonts.googleapis.com/css?family=Be+Vietnam&display=swap" rel="stylesheet">
   </head>
@@ -36,6 +37,17 @@
             <input type="checkbox" id=3>
             <input type="checkbox" id=4>
           </div>-->
+        </div>
+      </div>
+
+      <div id="second">
+        <div id="brett"><p id="kast"></p>
+          <label for="0" onclick="moveDice0()"><img height="40px" id="dicePos0" class="dices"></label>
+          <label for="1" onclick="moveDice1()"><img height="40px" id="dicePos1" class="dices"></label>
+          <label for="2" onclick="moveDice2()"><img height="40px" id="dicePos2" class="dices"></label>
+          <label for="3" onclick="moveDice3()"><img height="40px" id="dicePos3" class="dices"></label>
+          <label for="4" onclick="moveDice4()"><img height="40px" id="dicePos4" class="dices"></label><br>
+          <button onclick="playerName()" id="navneknapp">Spillernavn</button><br>
         </div>
         <button onclick="kasteKnapp()" id="kasteKnapp">Start spillet</button>
       </div>
@@ -91,55 +103,56 @@
           </tr>
           <tr id="1par">
             <td>1 par</td>
-            <td id="1-par"></td>
-            <td id="2-par"></td>
+            <td id="1-7"></td>
+            <td id="2-7"></td>
           </tr>
           <tr id="2par">
             <td>2 par</td>
-            <td id="1-2par"></td>
-            <td id="2-2par"></td>
+            <td id="1-8"></td>
+            <td id="2-8"></td>
           </tr>
           <tr id="3like">
             <td>3 like</td>
-            <td id="1-3like"></td>
-            <td id="2-3like"></td>
+            <td id="1-9"></td>
+            <td id="2-9"></td>
           </tr>
           <tr id="4like">
             <td>4 like</td>
-            <td id="1-4like"></td>
-            <td id=""></td>
+            <td id="1-10"></td>
+            <td id="2-10"></td>
           </tr>
           <tr id="litenStraight">
             <td>Liten straight</td>
-            <td></td>
-            <td></td>
+            <td id="1-11"></td>
+            <td id="2-11"></td>
           </tr>
           <tr id="storStraight">
             <td>Stor straight</td>
-            <td></td>
-            <td></td>
+            <td id="1-12"></td>
+            <td id="2-12"></td>
           </tr>
           <tr id="hus">
             <td>Hus</td>
-            <td></td>
-            <td></td>
+            <td id="1-13"></td>
+            <td id="2-13"></td>
           </tr>
           <tr id="sjanse">
             <td>Sjanse</td>
-            <td></td>
-            <td></td>
+            <td id="1-14"></td>
+            <td id="2-14"></td>
           </tr>
           <tr id="yatzy">
             <td>Yatzy</td>
-            <td></td>
-            <td></td>
+            <td id="1-15"></td>
+            <td id="2-15"></td>
           </tr>
           <tr id="totalsum">
             <td>Totalsum</td>
-            <td></td>
-            <td></td>
+            <td id="1-totalsum"></td>
+            <td id="2-totalsum"></td>
           </tr>
         </table>
+        </div>
         </div>
       </div>
     </div>

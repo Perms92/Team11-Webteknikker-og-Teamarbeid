@@ -115,15 +115,20 @@ button {
 #dice {
   width: 130px;
   height: auto;
-  margin-bottom: -30px;
-  margin-top:-200px;
+  margin-bottom: -20px;
+  margin-top:-50px;
   cursor: pointer;
+
 }
 
 #logo {
   cursor: pointer;
   width: 250px;
   margin-bottom: -40px;
+}
+
+.dices:hover{
+  opacity: 0.5;
 }
 
 img:active {
@@ -143,9 +148,14 @@ th {
   background-color: #cfe0c3;
   color: #1f363d;
   padding: 10px;
+  border-bottom: 4px solid;
 }
 
 td {
   background-color: #B4B5B5;
   padding: 5px;
+}
+
+.dices {
+  margin-bottom: -125%;
 }

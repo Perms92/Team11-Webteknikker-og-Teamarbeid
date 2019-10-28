@@ -22,12 +22,15 @@ function kasteKnapp() {
       console.log("Test runde 1-7: " + runde);
       totalScore += faseEn(mitt_kast, runde);
       console.log("Test totalScore: " + totalScore);
+      if (runde == 6) {
+        bonus();
+      }
     }
     //console.log("Test 2 kasteKnapp()");
     x.innerHTML = "Start kast";
+    showDice();
     score();
     moveToTable();
-    showDice();
   }
   else if (x.innerHTML === "Start kast") {
     antallKast += 1;
@@ -59,6 +62,18 @@ function startKast(){
   //console.log("Test: antallKast startkast " + antallKast);
   // Returnerer arrayet med 5 terninger med random verdier
   document.getElementById("kast").innerHTML = mitt_kast;
+  document.getElementById("dicePos0").style.marginBottom = "0%";
+  document.getElementById("dicePos1").style.marginBottom = "0%";
+  document.getElementById("dicePos2").style.marginBottom = "0%";
+  document.getElementById("dicePos3").style.marginBottom = "0%";
+  document.getElementById("dicePos4").style.marginBottom = "0%";
+  /*var checks = document.querySelectorAll('#' + checkboxer + 'input[type="checkbox"]');
+    for(var i =0; i< checks.length;i++){
+        var check = checks[i];
+        if(!check.disabled){
+            check.checked = false;
+        }
+    }*/
 }
 
 
@@ -103,9 +118,64 @@ function rundeForteller(){
   }
 }
 
+// Sjekker score for alle rundet etter bonus
 function score(){
-  //console.log("Test score()");
+  if (runde == 7) {
+    midlertidig_poeng = like(mitt_kast, 2);
+    totalScore += midlertidig_poeng;
+    console.log("test score() runde 7" + totalScore);
+    console.log("test score() midlertidig_poeng " + midlertidig_poeng);
+  }
+  else if (runde == 8) {
+    midlertidig_poeng = toPar(mitt_kast);
+    totalScore += midlertidig_poeng;
+    console.log("test score() runde 8 " + totalScore);
+    console.log("test score() midlertidig_poeng " + midlertidig_poeng);
+  }
+  else if (runde == 9) {
+    midlertidig_poeng = treLike();
+    totalScore += midlertidig_poeng;
+    console.log("test score() runde 9 " + totalScore);
+    console.log("test score() midlertidig_poeng " + midlertidig_poeng);
+  }
+  else if (runde == 10) {
+    midlertidig_poeng = fireLike();
+    totalScore += midlertidig_poeng;
+    console.log("test score() runde 9 " + totalScore);
+    console.log("test score() midlertidig_poeng " + midlertidig_poeng);
+  }
 }
+
+
+function like(mitt_kast, antall){
+  var verdi = 0;
+  if (sjekk(mitt_kast, 6) >= antall) {
+    verdi = antall * 6;
+    return verdi;
+  }
+  if (sjekk(mitt_kast, 5) >= antall) {
+    verdi = antall * 5;
+    return verdi;
+  }
+  if (sjekk(mitt_kast, 4) >= antall) {
+    verdi = antall * 4;
+    return verdi;
+  }
+  if (sjekk(mitt_kast, 3) >= antall) {
+    verdi = antall * 3;
+    return verdi;
+  }
+  if (sjekk(mitt_kast, 2) >= antall) {
+    verdi = antall * 2;
+    console.log("Test like2 " + verdi);
+    return verdi;
+  }
+  if (sjekk(mitt_kast, 1) >= antall) {
+    verdi = antall * 1;
+    return verdi;
+  }
+}
+
 
 // Hva gjør denne?
 let spiller1 = document.getElementById("spiller1");
@@ -133,21 +203,156 @@ function faseEn(kast, verdi) {
   return midlertidig_poeng;
 }
 
-function bonus(poeng) {
-  bonuspoeng = 50;
-  let ikkeBonus = 0;
-  if (poeng >= 42) {
-    "Du har " + poeng + " og får " + bonuspoeng + "!"
+function bonus() {
+  var bonuspoeng = 50;
+  var ikkeBonus = 0;
+  if (totalScore >= 42) {
+    console.log("Du har " + totalScore + " og får " + bonuspoeng + "!");
+    document.getElementById("1-faseEn").innerHTML = totalScore;
+    document.getElementById("1-bonus").innerHTML = bonuspoeng;
+    totalScore += bonuspoeng;
   }
   else {
-    "Du har " + poeng + " det er ikke nok til å få bonus."
-  };
+    console.log("Du har " + totalScore + " det er ikke nok til å få bonus.");
+    document.getElementById("1-faseEn").innerHTML = totalScore;
+    document.getElementById("1-bonus").innerHTML = ikkeBonus;
+  }
+}
+
+function toPar(mitt_kast){
+  let tall6 = 0;
+  let tall5 = 0;
+  let tall4 = 0;
+  let tall3 = 0;
+  let tall2 = 0;
+  let tall1 = 0;
+
+  let antallToPar = 0;
+  let totalScoreToPar = 0;
+
+  // Grunnen til at denne inne ble forenklet i en for-løkke
+  // er fordi vi ikke kan .pop() ut verdiene vi bruker
+  // Disse verdiene må hentes for terningbildene
+  for (var i = 0; i < 5; i++) {
+    if (mitt_kast[i] == 6) {
+      tall6 += 1;
+      if (tall6 == 2) {
+        totalScoreToPar += (tall6 * 6);
+        antallToPar += 1;
+      }
+    }
+    if (mitt_kast[i] == 5) {
+      tall5 += 1;
+      if (tall5 == 2) {
+        totalScoreToPar += (tall5 * 5);
+        antallToPar += 1;
+      }
+    }
+    if (mitt_kast[i] == 4) {
+      tall4 += 1;
+      if (tall4 == 2) {
+        totalScoreToPar += (tall4 * 4);
+        antallToPar += 1;
+      }
+    }
+    if (mitt_kast[i] == 3) {
+      tall3 += 1;
+      if (tall3 == 2) {
+        totalScoreToPar += (tall3 * 3);
+        antallToPar += 1;
+      }
+    }
+    if (mitt_kast[i] == 2) {
+      tall2 += 1;
+      if (tall2 == 2) {
+        totalScoreToPar += (tall2 * 2);
+        antallToPar += 1;
+      }
+    }
+    if (mitt_kast[i] == 1) {
+      tall1 += 1;
+      if (tall1 == 2) {
+        totalScoreToPar += tall1;
+        antallToPar += 1;
+      }
+    }
+  }
+  if (antallToPar == 2) {
+    console.log("Test toPar score: " + totalScoreToPar);
+    return totalScoreToPar;
+  }
+  else {
+    console.log("Test toPar score 0: " + totalScoreToPar);
+    return 0;
+  }
+}
+
+function treLike(){
+  let treLikeSum = 0;
+  mitt_kast.sort();
+  console.log("Test trelike Sort() " + mitt_kast);
+  if (mitt_kast[0] == mitt_kast[2]) {
+    treLikeSum = mitt_kast[0] + mitt_kast[1] + mitt_kast[2];
+    return treLikeSum;
+  }
+  else if (mitt_kast[1] == mitt_kast[3]) {
+    treLikeSum = mitt_kast[1] + mitt_kast[2] + mitt_kast[3];
+    return treLikeSum;
+  }
+  else if (mitt_kast[2] == mitt_kast[4]) {
+    treLikeSum = mitt_kast[2] + mitt_kast[3] + mitt_kast[4];
+    return treLikeSum;
+  }
+  else {
+    return 0;
+  }
+}
+
+function fireLike(){
+  let firelikeSum = 0;
+  mitt_kast.sort();
+  console.log("Test fireLike sort() " + mitt_kast);
+  if (mitt_kast[0] == mitt_kast[3]) {
+    // Kunne laget for-løkke, men det blir flere linjer
+    firelikeSum = mitt_kast[0] + mitt_kast[1] + mitt_kast[2] + mitt_kast[3];
+    return firelikeSum;
+  }
+  else if (mitt_kast[1] == mitt_kast[4]) {
+    firelikeSum = mitt_kast[1] + mitt_kast[2] + mitt_kast[3] + mitt_kast[4];
+    return firelikeSum;
+  }
+  else {
+    return 0;
+  }
+}
+
+function straight(){
+  mitt_kast.sort();
+  for (var i = 0; i < 4; i++) {
+    if ((mitt_kast[i+1] - mitt_kast[i]) == 1) {
+      console.log("Test straight: Ja");
+    }
+    else {
+      console.log("Test straight: Nei");
+      return 0;
+    }
+  }
+  return mitt_kast.reduce((a, b) => a + b, 0);
+}
+
+function litenStraight(){
+  mitt_kast.sort();
+  if (mitt_kast[0] == 1 && mitt_kast[4] == 5) {
+    return straight();
+  }
+  return 0;
 }
 
 function moveToTable(){
   let spiller1 = 1;
   let sendTilId = spiller1 + "-" + runde;
   console.log("Test moveToTable: " + sendTilId);
+  console.log("Test moveToTable midlertidig_poeng: " + midlertidig_poeng);
   document.getElementById(sendTilId).innerHTML = midlertidig_poeng;
 }
 
@@ -162,15 +367,47 @@ function showDice(){
   }
 }
 
+function moveDice0() {
+  if(document.getElementById("dicePos0").style.marginBottom == "-850%") {
+    document.getElementById("dicePos0").style.marginBottom = "0%";
+  }
+  else {
+    document.getElementById("dicePos0").style.marginBottom = "-850%";
+  }
+}
 
-function playerName(){
-  text = String(prompt("Skriv inn ditt spillernavn her!"));
-  document.getElementById("spiller1").innerHTML += text + "";
-  text1 = String(prompt("Skriv inn ditt spillernavn her!"));
-  document.getElementById("spiller2").innerHTML += text1 + "";
-  document.getElementById('navneknapp').style.display="none";
-  document.getElementById("kasteKnapp").style.visibility="visible";
-  document.getElementById("brett").style.backgroundColor="#468f15";
-  document.getElementById("brett").style.backgroundImage="url('https://www.transparenttextures.com/patterns/60-lines.png')";
-  document.getElementById("brett").style.borderColor="saddlebrown #713F00";
+function moveDice1() {
+  if(document.getElementById("dicePos1").style.marginBottom == "-850%") {
+    document.getElementById("dicePos1").style.marginBottom = "0%";
+  }
+  else {
+    document.getElementById("dicePos1").style.marginBottom = "-850%";
+  }
+}
+
+function moveDice2() {
+  if(document.getElementById("dicePos2").style.marginBottom == "-850%") {
+    document.getElementById("dicePos2").style.marginBottom = "0%";
+  }
+  else {
+    document.getElementById("dicePos2").style.marginBottom = "-850%";
+  }
+}
+
+function moveDice3() {
+  if(document.getElementById("dicePos3").style.marginBottom == "-850%") {
+    document.getElementById("dicePos3").style.marginBottom = "0%";
+  }
+  else {
+    document.getElementById("dicePos3").style.marginBottom = "-850%";
+  }
+}
+
+function moveDice4() {
+  if(document.getElementById("dicePos4").style.marginBottom == "-850%") {
+    document.getElementById("dicePos4").style.marginBottom = "0%";
+  }
+  else {
+    document.getElementById("dicePos4").style.marginBottom = "-850%";
+  }
 }
