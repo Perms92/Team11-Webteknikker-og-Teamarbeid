@@ -38,6 +38,7 @@ function kasteKnapp() {
     x.innerHTML = "Neste kast";
     startKast();
     showDice();
+    
   }
   else if (x.innerHTML === "Start spillet") {
     antallKast += 1;
@@ -261,7 +262,12 @@ function playerName(){
 } */
 
 function moveDice0() {
-document.getElementById("dicePos0").style.marginBottom = "-550%";
+  if(document.getElementById("dicePos0").style.marginBottom == "-850%") {
+    document.getElementById("dicePos0").style.marginBottom = "0%";
+  }
+  else {
+    document.getElementById("dicePos0").style.marginBottom = "-850%";
+  }
 }
 
 function moveDice1() {
