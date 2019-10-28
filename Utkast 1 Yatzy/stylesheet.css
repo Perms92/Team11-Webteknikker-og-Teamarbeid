@@ -17,10 +17,11 @@ body {
   text-align: left;
   margin-left: 15%;
   margin-right: 15%;
+  font-size: 16px;
 }
 
 #second {
-  flex: 1;
+  flex: 1.25;
 }
 
 #third {
@@ -30,7 +31,7 @@ body {
 
 #brett {
   background-color: #C0DDBB;
-background-image: url("https://www.transparenttextures.com/patterns/60-lines.png");
+  background-image: url("https://www.transparenttextures.com/patterns/60-lines.png");
   border-radius: 10px;
   border: 18px solid;
   border-color: #A98559 #A47C4A;
@@ -139,7 +140,7 @@ img:active {
 table {
   min-width: 120px;
   text-align: center;
-  font-size: 10px;
+  font-size: 14px;
   display: flex;
   justify-content: space-around;
 }
@@ -160,6 +161,10 @@ td {
   margin-bottom: -125%;
 }
 
-#kast {
-  visibility: hidden;
+#rundeForteller {
+  font-size: 28px;
+  background-color:  lightgrey;
+  border-width: 5px;
+  border-style: outset;
+  border-color: #A98559 #A47C4A;
 }
