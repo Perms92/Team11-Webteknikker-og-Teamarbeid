@@ -67,14 +67,20 @@ function startKast(){
   document.getElementById("dicePos2").style.marginBottom = "0%";
   document.getElementById("dicePos3").style.marginBottom = "0%";
   document.getElementById("dicePos4").style.marginBottom = "0%";
+
+  document.getElementById(0).checked = false;
+  document.getElementById(1).checked = false;
+  document.getElementById(2).checked = false;
+  document.getElementById(3).checked = false;
+  document.getElementById(4).checked = false;
+
   /*var checks = document.querySelectorAll('#' + checkboxer + 'input[type="checkbox"]');
     for(var i =0; i< checks.length;i++){
         var check = checks[i];
         if(!check.disabled){
             check.checked = false;
-        }
-    }*/
-}
+        }*/
+  }
 
 
 // Bytter de terningene som ikke er huket i checkbox
@@ -110,11 +116,35 @@ function nytt_kast_indexer(){
 
 // Funksjonsnavnet er selvforklarende
 function rundeForteller(){
-  console.log("Du er på runde " + (runde));
-  if (runde < 7) {
-    for (i = 0; i <= 5; i++) {
-      console.log("Du vil nå ha " + runde + "-ere");
-    }
+  if (runde <= 6) {
+    document.getElementById("rundeForteller").innerHTML = "Du vil nå ha " + runde + "-ere";
+  }
+  else if (runde == 7) {
+    document.getElementById("rundeForteller").innerHTML = "Du vil nå ha ett par";
+  }
+  else if (runde == 8) {
+    document.getElementById("rundeForteller").innerHTML = "Du vil nå ha to par";
+  }
+  else if (runde == 9) {
+    document.getElementById("rundeForteller").innerHTML = "Du vil nå ha tre like";
+  }
+  else if (runde == 10) {
+    document.getElementById("rundeForteller").innerHTML = "Du vil nå ha fire like";
+  }
+  else if (runde == 11) {
+    document.getElementById("rundeForteller").innerHTML = "Du vil nå ha liten straight";
+  }
+  else if (runde == 12) {
+    document.getElementById("rundeForteller").innerHTML = "Du vil nå ha stor straight";
+  }
+  else if (runde == 13) {
+    document.getElementById("rundeForteller").innerHTML = "Du vil nå ha hus";
+  }
+  else if (runde == 14) {
+    document.getElementById("rundeForteller").innerHTML = "Sjanse!";
+  }
+  else if (runde == 15) {
+    document.getElementById("rundeForteller").innerHTML = "Du vil nå ha fem like - Yatzy!";
   }
 }
 
