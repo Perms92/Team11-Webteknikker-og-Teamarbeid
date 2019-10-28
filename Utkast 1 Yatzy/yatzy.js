@@ -135,17 +135,71 @@ function score(){
 }
 
 function toPar(mitt_kast){
-  ettPar = like(mitt_kast, 2)
-  if (ettPar > 0) {
-    var verdi = ettPar/2;
-    mitt_kast.pop(mitt_kast[verdi]);
-    mitt_kast.pop(mitt_kast[verdi]);
-    var andrePar = like(mitt_kast,2);
-    if (ettPar && andrePar && (ettPar != andrePar)) {
-      return (ettPar + andrePar);
+  let tall6 = 0;
+  let tall5 = 0;
+  let tall4 = 0;
+  let tall3 = 0;
+  let tall2 = 0;
+  let tall1 = 0;
+
+  let antallToPar = 0;
+  let totalScoreToPar = 0;
+
+  // Grunnen til at denne inne ble forenklet i en for-løkke
+  // er fordi vi ikke kan .pop() ut verdiene vi bruker
+  // Disse verdiene må hentes for terningbildene
+  for (var i = 0; i < 5; i++) {
+    if (mitt_kast[i] == 6) {
+      tall6 += 1;
+      if (tall6 == 2) {
+        totalScoreToPar += (tall6 * 6);
+        antallToPar += 1;
+      }
+    }
+    if (mitt_kast[i] == 5) {
+      tall5 += 1;
+      if (tall5 == 2) {
+        totalScoreToPar += (tall5 * 5);
+        antallToPar += 1;
+      }
+    }
+    if (mitt_kast[i] == 4) {
+      tall4 += 1;
+      if (tall4 == 2) {
+        totalScoreToPar += (tall4 * 4);
+        antallToPar += 1;
+      }
+    }
+    if (mitt_kast[i] == 3) {
+      tall3 += 1;
+      if (tall3 == 2) {
+        totalScoreToPar += (tall3 * 3);
+        antallToPar += 1;
+      }
+    }
+    if (mitt_kast[i] == 2) {
+      tall2 += 1;
+      if (tall2 == 2) {
+        totalScoreToPar += (tall2 * 2);
+        antallToPar += 1;
+      }
+    }
+    if (mitt_kast[i] == 1) {
+      tall1 += 1;
+      if (tall1 == 2) {
+        totalScoreToPar += tall1;
+        antallToPar += 1;
+      }
     }
   }
-  return 0;
+  if (antallToPar == 2) {
+    console.log("Test toPar score: " + totalScoreToPar);
+    return totalScoreToPar;
+  }
+  else {
+    console.log("Test toPar score 0: " + totalScoreToPar);
+    return 0;
+  }
 }
 
 function like(mitt_kast, antall){
