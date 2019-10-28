@@ -23,11 +23,11 @@ function kasteKnapp() {
     showDice();
     score();
     moveToTable();
-    if (runde == 15) {
+    /*if (runde == 15) {
       moveToTable();
       alert("Spillet er ferdig! Din score ble " + totalScore +
       ". Bra jobba!")
-    }
+    }*/
   }
   else if (x.innerHTML === "Start kast") {
     antallKast += 1;
@@ -408,12 +408,14 @@ function straight(){
       }
     }
     if (mitt_kast[0] == 1) {
+      midlertidig_poeng = 15;
       console.log("Test litenStraight return 15");
-      return 15;
+      return midlertidig_poeng;
     }
     else if (mitt_kast[4] == 6) {
+      midlertidig_poeng = 20;
       console.log("Test storStraight return 20");
-      return 20;
+      return midlertidig_poeng;
     }
   }
   return 0;
