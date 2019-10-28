@@ -18,19 +18,15 @@ function kasteKnapp() {
   else if (x.innerHTML === "Neste kast" && antallKast == 2) {
     antallKast = 0;
     nytt_kast_indexer();
-    if (runde < 7) {
-      console.log("Test runde 1-7: " + runde);
-      totalScore += faseEn(mitt_kast, runde);
-      console.log("Test totalScore: " + totalScore);
-      if (runde == 6) {
-        bonus();
-      }
-    }
     //console.log("Test 2 kasteKnapp()");
     x.innerHTML = "Start kast";
     showDice();
     score();
     moveToTable();
+    if (runde == 15) {
+      alert("Spillet er ferdig! Din score ble " + totalScore +
+      ". Bra jobba!")
+    }
   }
   else if (x.innerHTML === "Start kast") {
     antallKast += 1;
@@ -132,13 +128,13 @@ function rundeForteller(){
     document.getElementById("rundeForteller").innerHTML = "Du vil nå ha fire like";
   }
   else if (runde == 11) {
-    document.getElementById("rundeForteller").innerHTML = "Du vil nå ha liten straight";
+    document.getElementById("rundeForteller").innerHTML = "Du vil nå ha Liten Straight";
   }
   else if (runde == 12) {
-    document.getElementById("rundeForteller").innerHTML = "Du vil nå ha stor straight";
+    document.getElementById("rundeForteller").innerHTML = "Du vil nå ha Stor Straight";
   }
   else if (runde == 13) {
-    document.getElementById("rundeForteller").innerHTML = "Du vil nå ha hus";
+    document.getElementById("rundeForteller").innerHTML = "Du vil nå ha Fullt Hus";
   }
   else if (runde == 14) {
     document.getElementById("rundeForteller").innerHTML = "Sjanse!";
@@ -150,11 +146,19 @@ function rundeForteller(){
 
 // Sjekker score for alle rundet etter bonus
 function score(){
-  if (runde == 7) {
+  if (runde < 7) {
+    console.log("Test runde 1-7: " + runde);
+    totalScore += faseEn(mitt_kast, runde);
+    console.log("Test totalScore: " + totalScore);
+    if (runde == 6) {
+      bonus();
+    }
+  }
+  else if (runde == 7) {
     midlertidig_poeng = 0;
     midlertidig_poeng = like(mitt_kast, 2);
     totalScore += midlertidig_poeng;
-    console.log("test score() runde 7" + totalScore);
+    console.log("test score() runde 7 " + totalScore);
     console.log("test score() midlertidig_poeng " + midlertidig_poeng);
   }
   else if (runde == 8) {
@@ -182,14 +186,26 @@ function score(){
     midlertidig_poeng = 0;
     midlertidig_poeng = straight();
     totalScore += midlertidig_poeng;
-    console.log("test score() runde 11/12 " + totalScore);
+    console.log("test score() runde: " + runde + " score: " + totalScore);
     console.log("test score() midlertidig_poeng " + midlertidig_poeng);
   }
   else if (runde == 13) {
     midlertidig_poeng = 0;
     midlertidig_poeng = hus();
     totalScore += midlertidig_poeng;
-    console.log("test score() runde 11/12 " + totalScore);
+    console.log("test score() runde 13 " + totalScore);
+    console.log("test score() midlertidig_poeng " + midlertidig_poeng);
+  }
+  else if (runde == 14) {
+    midlertidig_poeng = sjanse();
+    totalScore += midlertidig_poeng;
+    console.log("test score() runde 14 " + totalScore);
+    console.log("test score() midlertidig_poeng " + midlertidig_poeng);
+  }
+  else if (runde == 15) {
+    midlertidig_poeng = yatzy();
+    totalScore += midlertidig_poeng;
+    console.log("test score() runde 14 " + totalScore);
     console.log("test score() midlertidig_poeng " + midlertidig_poeng);
   }
 }
@@ -390,24 +406,42 @@ function straight(){
         return 0;
       }
     }
-    let straightSum = mitt_kast.reduce((a, b) => a + b, 0);
-    console.log("Test straight reduce: " + straightSum);
-    return straightSum;
+    if (mitt_kast[0] == 1) {
+      console.log("Test litenStraight return 15");
+      return 15;
+    }
+    else if (mitt_kast[4] == 6) {
+      console.log("Test storStraight return 20");
+      return 20;
+    }
   }
   return 0;
 }
 
 function hus(){
   mitt_kast.sort();
-  if (mitt_kast[0] == mitt_kast[1] && mitt_kast[2] == mitt_kast[4] && mitt_kast[1] != mitt_kast[2]) {
+  if ((mitt_kast[0] == mitt_kast[1]) && (mitt_kast[2] == mitt_kast[4]) && (mitt_kast[1] != mitt_kast[2])) {
     return mitt_kast.reduce((a, b) => a + b, 0);
   }
-  else if (mitt_kast[0] == mitt_kast[2] && mitt_kast[3] == mitt_kast[4] && mitt_kast[2] != mitt_kast[3]) {
+  else if ((mitt_kast[0] == mitt_kast[2]) && (mitt_kast[3] == mitt_kast[4]) && (mitt_kast[2] != mitt_kast[3])) {
     return mitt_kast.reduce((a, b) => a + b, 0);
   }
   else {
     return 0;
   }
+}
+
+function sjanse(){
+  return mitt_kast.reduce((a, b) => a + b, 0);
+}
+
+function yatzy(){
+  mitt_kast.sort();
+  if (mitt_kast[0] == mitt_kast[4]) {
+    console.log("DU HAR YAAAAAATZYYYY!!");
+    return 50;
+  }
+  return 0;
 }
 
 function moveToTable(){
