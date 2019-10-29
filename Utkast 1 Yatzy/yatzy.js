@@ -23,10 +23,11 @@ function kasteKnapp() {
     showDice();
     score();
     moveToTable();
-    if (runde == 15) {
+    /*if (runde == 15) {
+      moveToTable();
       alert("Spillet er ferdig! Din score ble " + totalScore +
       ". Bra jobba!")
-    }
+    }*/
   }
   else if (x.innerHTML === "Start kast") {
     antallKast += 1;
@@ -34,9 +35,9 @@ function kasteKnapp() {
     x.innerHTML = "Neste kast";
     startKast();
     showDice();
-    
+
   }
-  else if (x.innerHTML === "Start spillet") {
+  else if (x.innerHTML === "Start runde 1") {
     antallKast += 1;
     //console.log("Test 5 kasteKnapp()");
     x.innerHTML = "Neste kast";
@@ -59,11 +60,19 @@ function startKast(){
   //console.log("Test: antallKast startkast " + antallKast);
   // Returnerer arrayet med 5 terninger med random verdier
   document.getElementById("kast").innerHTML = mitt_kast;
+  document.getElementById("dicePos0").style.transition = "all 0.5s";
   document.getElementById("dicePos0").style.marginBottom = "0%";
+  document.getElementById("dicePos1").style.transition = "all 0.5s";
   document.getElementById("dicePos1").style.marginBottom = "0%";
+  document.getElementById("dicePos2").style.transition = "all 0.5s";
   document.getElementById("dicePos2").style.marginBottom = "0%";
+  document.getElementById("dicePos3").style.transition = "all 0.5s";
   document.getElementById("dicePos3").style.marginBottom = "0%";
+  document.getElementById("dicePos4").style.transition = "all 0.5s";
   document.getElementById("dicePos4").style.marginBottom = "0%";
+  document.getElementById("rundeForteller").style.border="solid";
+  document.getElementById("rundeForteller").style.borderColor="#800000";
+  document.getElementById("rundeForteller").style.borderWidth="4px";
 
   document.getElementById(0).checked = false;
   document.getElementById(1).checked = false;
@@ -183,7 +192,7 @@ function score(){
     console.log("test score() runde 10 " + totalScore);
     console.log("test score() midlertidig_poeng " + midlertidig_poeng);
   }
-  else if (runde == (11 || 12)) {
+  else if (runde == 11 || runde == 12) {
     midlertidig_poeng = 0;
     midlertidig_poeng = straight();
     totalScore += midlertidig_poeng;
@@ -394,29 +403,41 @@ function fireLike(){
 
 function straight(){
   mitt_kast.sort();
-  console.log("Test straight sort() " + mitt_kast);
-  if ((mitt_kast[0] == 1 && mitt_kast[4] == 5) || (mitt_kast[0] == 2 && mitt_kast[4] == 6)) {
-    console.log("Test straight 1-5/2-6");
-    for (var i = 0; i < 4; i++) {
-      console.log("Test straight [i]: " + i);
-      if ((mitt_kast[i+1] - mitt_kast[i]) == 1) {
-        console.log("Test straight: Ja");
-      }
-      else {
-        console.log("Test straight: Nei");
-        return 0;
-      }
+  if ((mitt_kast[0] == 1) && (mitt_kast[4] == 5)) {
+     return litenStraight();
+  }
+  else if ((mitt_kast[0] == 2) && (mitt_kast[4] == 6)) {
+    return storStraight();
+  }
+  else {
+    return 0;
+  }
+}
+
+function litenStraight(){
+  for (var i = 0; i < 4; i++) {
+    if ((mitt_kast[i+1] - mitt_kast[i]) == 1) {
+      console.log("Test liten straight: Ja");
     }
-    if (mitt_kast[0] == 1) {
-      console.log("Test litenStraight return 15");
-      return 15;
-    }
-    else if (mitt_kast[4] == 6) {
-      console.log("Test storStraight return 20");
-      return 20;
+    else {
+      console.log("Test liten straight: Nei");
+      return 0;
     }
   }
-  return 0;
+  return 15;
+}
+
+function storStraight(){
+  for (var i = 0; i < 4; i++) {
+    if ((mitt_kast[i+1] - mitt_kast[i]) == 1) {
+      console.log("Test stor straight: Ja");
+    }
+    else {
+      console.log("Test stor straight: Nei");
+      return 0;
+    }
+  }
+  return 20;
 }
 
 function hus(){
@@ -451,6 +472,9 @@ function moveToTable(){
   console.log("Test moveToTable: " + sendTilId);
   console.log("Test moveToTable midlertidig_poeng: " + midlertidig_poeng);
   document.getElementById(sendTilId).innerHTML = midlertidig_poeng;
+  if (runde == 15) {
+    document.getElementById('1-totalsum').innerHTML = totalScore;
+  }
 }
 
 function showDice(){
@@ -490,7 +514,7 @@ function moveDice0() {
     document.getElementById("dicePos0").style.marginBottom = "0%";
   }
   else {
-    document.getElementById("dicePos0").style.marginBottom = "-850%";
+    document.getElementById("dicePos0").style.marginBottom ="-850%";
   }
 }
 
