@@ -35,7 +35,7 @@ function kasteKnapp() {
     x.innerHTML = "Neste kast";
     startKast();
     showDice();
-    
+
   }
   else if (x.innerHTML === "Start spillet") {
     antallKast += 1;
@@ -184,7 +184,7 @@ function score(){
     console.log("test score() runde 10 " + totalScore);
     console.log("test score() midlertidig_poeng " + midlertidig_poeng);
   }
-  else if (runde == (11 || 12)) {
+  else if (runde == 11 || runde == 12) {
     midlertidig_poeng = 0;
     midlertidig_poeng = straight();
     totalScore += midlertidig_poeng;
@@ -395,31 +395,36 @@ function fireLike(){
 
 function straight(){
   mitt_kast.sort();
-  console.log("Test straight sort() " + mitt_kast);
-  if ((mitt_kast[0] == 1 && mitt_kast[4] == 5) || (mitt_kast[0] == 2 && mitt_kast[4] == 6)) {
-    console.log("Test straight 1-5/2-6");
+}
+
+function litenStraight(){
+  if ((mitt_kast[0] == 1) && (mitt_kast[4] == 5)) {
     for (var i = 0; i < 4; i++) {
-      console.log("Test straight [i]: " + i);
       if ((mitt_kast[i+1] - mitt_kast[i]) == 1) {
-        console.log("Test straight: Ja");
+        console.log("Test liten straight: Ja");
+        return 15;
       }
       else {
-        console.log("Test straight: Nei");
+        console.log("Test liten straight: Nei");
         return 0;
       }
     }
-    if (mitt_kast[0] == 1) {
-      midlertidig_poeng = 15;
-      console.log("Test litenStraight return 15");
-      return midlertidig_poeng;
-    }
-    else if (mitt_kast[4] == 6) {
-      midlertidig_poeng = 20;
-      console.log("Test storStraight return 20");
-      return midlertidig_poeng;
+  }
+}
+
+function storStraight(){
+  if ((mitt_kast[0] == 2) && (mitt_kast[4] == 6)) {
+    for (var i = 0; i < 4; i++) {
+      if ((mitt_kast[i+1] - mitt_kast[i]) == 1) {
+        console.log("Test stor straight: Ja");
+        return 15;
+      }
+      else {
+        console.log("Test stor straight: Nei");
+        return 0;
+      }
     }
   }
-  return 0;
 }
 
 function hus(){
