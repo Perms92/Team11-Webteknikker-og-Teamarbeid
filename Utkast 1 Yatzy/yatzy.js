@@ -35,6 +35,7 @@ function kasteKnapp() {
     x.innerHTML = "Neste kast";
     startKast();
     showDice();
+    
   }
   else if (x.innerHTML === "Start spillet") {
     antallKast += 1;
@@ -468,6 +469,27 @@ function showDice(){
     document.getElementById(showDiceId).src = diceName;
   }
 }
+
+function playerName(){
+  text = String(prompt("Skriv inn ditt spillernavn her!"));
+  document.getElementById("spiller1").innerHTML += text + "";
+  text1 = String(prompt("Skriv inn ditt spillernavn her!"));
+  document.getElementById("spiller2").innerHTML += text1 + "";
+  document.getElementById('navneknapp').style.display="none";
+  document.getElementById("kasteKnapp").style.visibility="visible";
+  document.getElementById("brett").style.backgroundColor="#468f15";
+  document.getElementById("brett").style.backgroundImage="url('https://www.transparenttextures.com/patterns/60-lines.png')";
+  document.getElementById("brett").style.borderColor="saddlebrown #713F00";
+}
+
+ /* function moveDice0() {
+  if(document.getElementById("dicePos0").style.marginBottom == "-850%") {
+  document.getElementById("dicePos0").style.marginBottom = "0%";
+  }
+  else {
+  document.getElementById("dicePos0").style.marginBottom = "-850%";
+  }
+} */
 
 function moveDice0() {
   if(document.getElementById("dicePos0").style.marginBottom == "-850%") {
