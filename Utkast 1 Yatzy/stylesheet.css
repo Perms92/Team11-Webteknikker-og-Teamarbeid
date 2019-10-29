@@ -153,6 +153,10 @@ img:active {
   transition-duration: 0.5s;
 }
 
+h3 {
+  margin-top: -5%;
+}
+
 table {
   min-width: 120px;
   text-align: center;
