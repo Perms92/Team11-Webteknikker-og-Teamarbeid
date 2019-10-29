@@ -165,9 +165,10 @@ td {
   font-size: 28px;
   background-color:  lightgrey;
   border-width: 5px;
-  border-style: outset;
+  border-style: hidden;
   border-color: #A98559 #A47C4A;
   margin-top: 2.5%;
+
 }
 
 #kast {
