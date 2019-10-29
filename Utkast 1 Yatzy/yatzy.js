@@ -121,23 +121,22 @@ function rundeForteller() {
       "Du vil nå ha ett par";
   } else if (runde == 8) {
     document.getElementById("rundeForteller").innerHTML = "Du vil nå ha to par";
-  }
-  else if (runde == 9) {
-    document.getElementById("rundeForteller").innerHTML = "Du vil nå ha tre like";
-  }
-  else if (runde == 10) {
-    document.getElementById("rundeForteller").innerHTML = "Du vil nå ha fire like";
-  }
-  else if (runde == 11) {
-    document.getElementById("rundeForteller").innerHTML = "Du vil nå ha liten straight";
-  }
-  else if (runde == 12) {
-    document.getElementById("rundeForteller").innerHTML = "Du vil nå ha stor straight";
-  }
-  else if (runde == 13) {
-    document.getElementById("rundeForteller").innerHTML = "Du vil nå ha fullt hus";
-  }
-  else if (runde == 14) {
+  } else if (runde == 9) {
+    document.getElementById("rundeForteller").innerHTML =
+      "Du vil nå ha tre like";
+  } else if (runde == 10) {
+    document.getElementById("rundeForteller").innerHTML =
+      "Du vil nå ha fire like";
+  } else if (runde == 11) {
+    document.getElementById("rundeForteller").innerHTML =
+      "Du vil nå ha liten straight";
+  } else if (runde == 12) {
+    document.getElementById("rundeForteller").innerHTML =
+      "Du vil nå ha stor straight";
+  } else if (runde == 13) {
+    document.getElementById("rundeForteller").innerHTML =
+      "Du vil nå ha fullt hus";
+  } else if (runde == 14) {
     document.getElementById("rundeForteller").innerHTML = "Sjanse!";
   } else if (runde == 15) {
     document.getElementById("rundeForteller").innerHTML =
@@ -390,8 +389,7 @@ function litenStraight() {
       }
     }
     return 15;
-  }
-  else {
+  } else {
     return 0;
   }
 }
@@ -408,8 +406,7 @@ function storStraight() {
       }
     }
     return 20;
-  }
-  else {
+  } else {
     return 0;
   }
 }
@@ -505,44 +502,39 @@ function highScoreListe () {
 function moveDice0() {
   if (document.getElementById("dicePos0").style.marginBottom == "-850%") {
     document.getElementById("dicePos0").style.marginBottom = "0%";
-  }
-  else {
-    document.getElementById("dicePos0").style.marginBottom ="-850%";
+  } else {
+    document.getElementById("dicePos0").style.marginBottom = "-850%";
   }
 }
 
 function moveDice1() {
-  if(document.getElementById("dicePos1").style.marginBottom == "-850%") {
+  if (document.getElementById("dicePos1").style.marginBottom == "-850%") {
     document.getElementById("dicePos1").style.marginBottom = "5%";
-  }
-  else {
+  } else {
     document.getElementById("dicePos1").style.marginBottom = "-850%";
   }
 }
 
 function moveDice2() {
-  if(document.getElementById("dicePos2").style.marginBottom == "-850%") {
+  if (document.getElementById("dicePos2").style.marginBottom == "-850%") {
     document.getElementById("dicePos2").style.marginBottom = "5%";
-  }
-  else {
+  } else {
     document.getElementById("dicePos2").style.marginBottom = "-850%";
   }
 }
 
 function moveDice3() {
-  if(document.getElementById("dicePos3").style.marginBottom == "-850%") {
+  if (document.getElementById("dicePos3").style.marginBottom == "-850%") {
     document.getElementById("dicePos3").style.marginBottom = "5%";
-  }
-  else {
+  } else {
     document.getElementById("dicePos3").style.marginBottom = "-850%";
   }
 }
 
 function moveDice4() {
-  if(document.getElementById("dicePos4").style.marginBottom == "-850%") {
+  if (document.getElementById("dicePos4").style.marginBottom == "-850%") {
     document.getElementById("dicePos4").style.marginBottom = "5%";
-  }
-  else {
+  } else {
     document.getElementById("dicePos4").style.marginBottom = "-850%";
   }
 }
