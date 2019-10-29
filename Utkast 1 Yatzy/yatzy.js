@@ -28,7 +28,6 @@ function kasteKnapp() {
     x.innerHTML = "Neste kast";
     startKast();
     showDice();
-
   }
   else if (x.innerHTML === "Start runde 1") {
     antallKast += 1;
