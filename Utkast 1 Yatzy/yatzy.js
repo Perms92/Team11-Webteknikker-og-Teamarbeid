@@ -670,3 +670,7 @@ function moveDice4() {
     document.getElementById("dicePos4").style.marginBottom = "-850%";
   }
 }
+/*
+if (runde == 15) {
+  document.getElementById("kasteKnapp").style.visibility="hidden";
+} */
