@@ -5,7 +5,8 @@
     <title>Yatzy</title>
     <link rel="icon" href="img/favicon.jpg" type="image/gif" sizes="16x16">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
-    <link href="stylesheet.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" media='(min-width: 1025px)' type="text/css" href="stylesheet.css">
+  <link rel="stylesheet" type="text/css" media='(max-width: 1024px)' href="stylesheetmobile.css">
       <link href="https://fonts.googleapis.com/css?family=Be+Vietnam&display=swap" rel="stylesheet">
   </head>
   <body>
@@ -13,7 +14,7 @@
     <div id="container">
 
       <div id="first">
-        <h3><button onclick="regler()">Regler</button></h3>
+        <h3><button onclick="regler()" id="reglerButton">Regler</button></h3>
         <div id="regler">
           Meningen med spillet er å oppnå en høyest mulig poengsum. Poeng
           tildeles for 15 forskjellige terningkombinasjonstyper. I hver runde
