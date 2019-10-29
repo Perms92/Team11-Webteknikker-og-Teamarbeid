@@ -6,42 +6,26 @@ body {
 }
 
 #container {
-            height: inherit;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            grid-template-rows: 100px 1fr 1fr 100px;
-            grid-template-areas:
-              'h c c p'
-              'r c c p'
-              'm c c p'
-              'm c c p';
-            grid-gap: 10px;
-}
-#header {
-    grid-area: h;
-    justify-content: center;
-
+  display: flex;
 }
 
 #first {
-  grid-area: m;
-
+  flex: 1;
 }
 
 #regler {
-  grid-area: r;
   text-align: left;
   margin-left: 15%;
   margin-right: 15%;
+  font-size: 16px;
 }
 
 #second {
-grid-area: c;
-top: 20px;
+  flex: 1.25;
 }
 
 #third {
-grid-area: p;
+  flex: 1;
 
 }
 
@@ -156,7 +140,7 @@ img:active {
 table {
   min-width: 120px;
   text-align: center;
-  font-size: 10px;
+  font-size: 14px;
   display: flex;
   justify-content: space-around;
 }
@@ -175,4 +159,22 @@ td {
 
 .dices {
   margin-bottom: -125%;
+}
+
+#rundeForteller {
+  font-size: 28px;
+  background-color:  lightgrey;
+  border-width: 5px;
+  border-style: hidden;
+  border-color: #A98559 #A47C4A;
+  margin-top: 2.5%;
+
+}
+
+#kast {
+  visibility: hidden;
+}
+
+#checkboxer {
+  visibility: hidden;
 }

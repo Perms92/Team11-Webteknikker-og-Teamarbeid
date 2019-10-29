@@ -96,7 +96,7 @@ function nyttKast(indekser){
 // Definerer hvilke indekser som skal kastes på nytt
 function nytt_kast_indexer(){
   var nyeTerninger = [];
-  for (var i = 0; i < 4; i++) {
+  for (var i = 0; i <= 4; i++) {
     if (document.getElementById(i).checked) {
         nyeTerninger[i] = 1;
     }
@@ -402,8 +402,9 @@ function litenStraight(){
         return 0;
       }
     }
+    return 15;
   }
-  return 15;
+  return 0;
 }
 
 function storStraight(){
@@ -418,8 +419,9 @@ function storStraight(){
         return 0;
       }
     }
+    return 20;
   }
-  return 20;
+  return 0;
 }
 
 function hus(){
@@ -482,7 +484,10 @@ function playerName(){
   document.getElementById("brett").style.borderColor="saddlebrown #713F00";
 }
 
-var spillerNavn;
+
+
+//jeg kodet i blinde :-(, aner ikke hva jeg skal gjøre, RIP <3
+/*var spillerNavn;
 var resultat ={};
 var highScore = [];
 
@@ -493,17 +498,7 @@ function highScoreListe () {
   highScore.sort(function(a,b) {return (b.score- a.score)});
 
   $('#score1').text(highScoreListe[0].player + "- totalScore: " + highScoreListe[0].totalScore);
-};
-
-
- /* function moveDice0() {
-  if(document.getElementById("dicePos0").style.marginBottom == "-850%") {
-  document.getElementById("dicePos0").style.marginBottom = "0%";
-  }
-  else {
-  document.getElementById("dicePos0").style.marginBottom = "-850%";
-  }
-} */
+};*/
 
 function moveDice0() {
   if(document.getElementById("dicePos0").style.marginBottom == "-850%") {
