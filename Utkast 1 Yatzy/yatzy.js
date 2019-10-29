@@ -30,6 +30,7 @@ function kasteKnapp() {
     x.innerHTML = "Neste kast";
     startKast();
     showDice();
+
   }
   else if (x.innerHTML === "Start runde 1") {
     antallKast += 1;
@@ -65,8 +66,8 @@ function startKast(){
   document.getElementById("dicePos4").style.transition = "all 0.5s";
   document.getElementById("dicePos4").style.marginBottom = "0%";
   document.getElementById("rundeForteller").style.border="solid";
-  document.getElementById("rundeForteller").style.borderColor="#6E4103";
-  document.getElementById("rundeForteller").style.borderWidth="5px";
+  document.getElementById("rundeForteller").style.borderColor="#800000";
+  document.getElementById("rundeForteller").style.borderWidth="4px";
 
   document.getElementById(0).checked = false;
   document.getElementById(1).checked = false;
@@ -428,7 +429,7 @@ function storStraight(){
     }
     return 20;
   }
-  return 0;
+  return 20;
 }
 
 function hus(){
@@ -512,7 +513,7 @@ function moveDice0() {
     document.getElementById("dicePos0").style.marginBottom = "0%";
   }
   else {
-    document.getElementById("dicePos0").style.marginBottom = "-850%";
+    document.getElementById("dicePos0").style.marginBottom ="-850%";
   }
 }
 
