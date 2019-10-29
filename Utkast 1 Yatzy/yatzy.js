@@ -429,7 +429,7 @@ function storStraight(){
     }
     return 20;
   }
-  return 20;
+  return 0;
 }
 
 function hus(){
