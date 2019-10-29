@@ -2,7 +2,12 @@ var mitt_kast = [];
 var midlertidig_poeng = 0;
 var antallKast = 0;
 var runde = 0;
-var totalScore = 0;
+var totalScore1 = 0;
+var totalScore2 = 0;
+var antallSpillere = 1;
+var spiller1 = "";
+var spiller2 = "";
+var hvemSinTur = 1;
 
 // En felles funksjon som endrer teksten på kasteknappen,
 // teller runder, og kjører spillet
@@ -24,6 +29,12 @@ function kasteKnapp() {
     score();
     moveToTable();
     fakeYatzy();
+    if (hvemSinTur == 1 && antallSpillere == 2) {
+      hvemSinTur = 2;
+    }
+    else if (hvemSinTur == 2) {
+      hvemSinTur = 1;
+    }
   }
   else if (x.innerHTML === "Start kast") {
     antallKast += 1;
@@ -33,10 +44,14 @@ function kasteKnapp() {
     showDice();
   }
   else if (x.innerHTML === "Start runde 1") {
-    let spiller1 = document.getElementById("spiller1").innerHTML;
-    let spiller2 = document.getElementById("spiller2").innerHTML;
-    console.log("Test boolean spiller 1 " + Boolean(spiller1));
-    console.log("Test boolean spiller 2 " + Boolean(spiller2));
+    spiller1 = document.getElementById("spiller1").innerHTML;
+    spiller2 = document.getElementById("spiller2").innerHTML;
+    console.log("Test spiller 1 " + spiller1);
+    console.log("Test spiller 2 " + spiller2);
+    if (spiller2 != "") {
+      antallSpillere = 2;
+    }
+    console.log("Test antallSpillere " + antallSpillere);
     antallKast += 1;
     //console.log("Test 5 kasteKnapp()");
     x.innerHTML = "Neste kast";
@@ -48,8 +63,13 @@ function kasteKnapp() {
 // Oppretter første kast hver runde
 function startKast() {
   //console.log("Test antallKast startKast() " + antallKast);
-  runde += 1;
-  rundeForteller();
+  if (hvemSinTur == 1) {
+    runde += 1;
+    rundeForteller(spiller1);
+  }
+  else if (hvemSinTur == 2) {
+    rundeForteller(spiller2);
+  }
   // Lager 5 indekser/terninger
   for (i = 0; i <= 4; i++) {
     // Setter random tall 1-6 på hver indeks/terning
@@ -78,13 +98,6 @@ function startKast() {
   document.getElementById(2).checked = false;
   document.getElementById(3).checked = false;
   document.getElementById(4).checked = false;
-
-  /*var checks = document.querySelectorAll('#' + checkboxer + 'input[type="checkbox"]');
-    for(var i =0; i< checks.length;i++){
-        var check = checks[i];
-        if(!check.disabled){
-            check.checked = false;
-        }*/
 }
 
 // Bytter de terningene som ikke er huket i checkbox
@@ -117,94 +130,193 @@ function nytt_kast_indexer() {
 }
 
 // Funksjonsnavnet er selvforklarende
-function rundeForteller() {
+function rundeForteller(spiller) {
   if (runde <= 6) {
     document.getElementById("rundeForteller").innerHTML =
-      "Du vil nå ha " + runde + "-ere";
-  } else if (runde == 7) {
+      spiller + " sin tur." + "<br />" + " Du vil nå ha " + runde + "-ere";
+  }
+  else if (runde == 7) {
     document.getElementById("rundeForteller").innerHTML =
-      "Du vil nå ha ett par";
-  } else if (runde == 8) {
-    document.getElementById("rundeForteller").innerHTML = "Du vil nå ha to par";
-  } else if (runde == 9) {
+      spiller + " sin tur." + "<br />" + " Du vil nå ha ett par";
+  }
+  else if (runde == 8) {
     document.getElementById("rundeForteller").innerHTML =
-      "Du vil nå ha tre like";
-  } else if (runde == 10) {
+    spiller + " sin tur." + "<br />" + " Du vil nå ha to par";
+  }
+  else if (runde == 9) {
     document.getElementById("rundeForteller").innerHTML =
-      "Du vil nå ha fire like";
-  } else if (runde == 11) {
+    spiller + " sin tur." + "<br />" + " Du vil nå ha tre like";
+  }
+  else if (runde == 10) {
     document.getElementById("rundeForteller").innerHTML =
-      "Du vil nå ha liten straight";
-  } else if (runde == 12) {
+    spiller + " sin tur." + "<br />" + " Du vil nå ha fire like";
+  }
+  else if (runde == 11) {
     document.getElementById("rundeForteller").innerHTML =
-      "Du vil nå ha stor straight";
-  } else if (runde == 13) {
+    spiller + " sin tur." + "<br />" + " Du vil nå ha liten straight";
+  }
+  else if (runde == 12) {
     document.getElementById("rundeForteller").innerHTML =
-      "Du vil nå ha fullt hus";
-  } else if (runde == 14) {
-    document.getElementById("rundeForteller").innerHTML = "Sjanse!";
-  } else if (runde == 15) {
+    spiller + " sin tur." + "<br />" + " Du vil nå ha stor straight";
+  }
+  else if (runde == 13) {
     document.getElementById("rundeForteller").innerHTML =
-      "Du vil nå ha fem like - Yatzy!";
+    spiller + " sin tur." + "<br />" + " Du vil nå ha fullt hus";
+  }
+  else if (runde == 14) {
+    document.getElementById("rundeForteller").innerHTML =
+    spiller + " sin tur." + "<br />" + " Sjanse!";
+  }
+  else if (runde == 15) {
+    document.getElementById("rundeForteller").innerHTML =
+    spiller + " sin tur." + "<br />" + " Du vil nå ha fem like - Yatzy!";
   }
 }
 
 // Sjekker score for alle rundet etter bonus
 function score() {
-  console.log("Test let spiller1 " + spiller1);
+  console.log("Test let spiller1 score " + spiller1);
+  console.log("Test let spiller2 score " + spiller2);
   midlertidig_poeng = 0;
   if (runde < 7) {
-    console.log("Test runde 1-7: " + runde);
-    totalScore += faseEn(mitt_kast, runde);
-    console.log("Test totalScore: " + totalScore);
+    console.log("Test runde 1-6: " + runde);
+    if (hvemSinTur == 1) {
+      totalScore1 += faseEn(mitt_kast, runde);
+      console.log("Test totalScore1: " + totalScore1);
+    }
+    else if (hvemSinTur == 2) {
+      totalScore2 += faseEn(mitt_kast, runde);
+      console.log("Test totalScore2: " + totalScore1);
+    }
     if (runde == 6) {
       bonus();
     }
-  } else if (runde == 7) {
-    midlertidig_poeng = like(mitt_kast, 2);
-    totalScore += midlertidig_poeng;
-    console.log("test score() runde 7 " + totalScore);
-    console.log("test score() midlertidig_poeng " + midlertidig_poeng);
-  } else if (runde == 8) {
-    midlertidig_poeng = toPar(mitt_kast);
-    totalScore += midlertidig_poeng;
-    console.log("test score() runde 8 " + totalScore);
-    console.log("test score() midlertidig_poeng " + midlertidig_poeng);
-  } else if (runde == 9) {
-    midlertidig_poeng = treLike();
-    totalScore += midlertidig_poeng;
-    console.log("test score() runde 9 " + totalScore);
-    console.log("test score() midlertidig_poeng " + midlertidig_poeng);
-  } else if (runde == 10) {
-    midlertidig_poeng = fireLike();
-    totalScore += midlertidig_poeng;
-    console.log("test score() runde 10 " + totalScore);
-    console.log("test score() midlertidig_poeng " + midlertidig_poeng);
-  } else if (runde == 11) {
-    midlertidig_poeng = litenStraight();
-    totalScore += midlertidig_poeng;
-    console.log("test score() runde: " + runde + " score: " + totalScore);
-    console.log("test score() midlertidig_poeng " + midlertidig_poeng);
-  } else if (runde == 12) {
-    midlertidig_poeng = storStraight();
-    totalScore += midlertidig_poeng;
-    console.log("test score() runde: " + runde + " score: " + totalScore);
-    console.log("test score() midlertidig_poeng " + midlertidig_poeng);
-  } else if (runde == 13) {
-    midlertidig_poeng = hus();
-    totalScore += midlertidig_poeng;
-    console.log("test score() runde 13 " + totalScore);
-    console.log("test score() midlertidig_poeng " + midlertidig_poeng);
-  } else if (runde == 14) {
-    midlertidig_poeng = sjanse();
-    totalScore += midlertidig_poeng;
-    console.log("test score() runde 14 " + totalScore);
-    console.log("test score() midlertidig_poeng " + midlertidig_poeng);
-  } else if (runde == 15) {
-    midlertidig_poeng = yatzy();
-    totalScore += midlertidig_poeng;
-    console.log("test score() runde 14 " + totalScore);
-    console.log("test score() midlertidig_poeng " + midlertidig_poeng);
+  }
+  else if (runde == 7) {
+    if (hvemSinTur == 1) {
+      midlertidig_poeng = like(mitt_kast, 2);
+      totalScore1 += midlertidig_poeng;
+      console.log("test score() runde 7 " + totalScore1);
+      console.log("test score() midlertidig_poeng " + midlertidig_poeng);
+    }
+    else if (hvemSinTur == 2) {
+      midlertidig_poeng = like(mitt_kast, 2);
+      totalScore2 += midlertidig_poeng;
+      console.log("test score() runde 7 " + totalScore2);
+      console.log("test score() midlertidig_poeng " + midlertidig_poeng);
+    }
+  }
+  else if (runde == 8) {
+    if (hvemSinTur == 1) {
+      midlertidig_poeng = toPar(mitt_kast);;
+      totalScore1 += midlertidig_poeng;
+      console.log("test score() runde 8 " + totalScore1);
+      console.log("test score() midlertidig_poeng " + midlertidig_poeng);
+    }
+    else if (hvemSinTur == 2) {
+      midlertidig_poeng = toPar(mitt_kast);
+      totalScore2 += midlertidig_poeng;
+      console.log("test score() runde 8 " + totalScore2);
+      console.log("test score() midlertidig_poeng " + midlertidig_poeng);
+    }
+  }
+  else if (runde == 9) {
+    if (hvemSinTur == 1) {
+      midlertidig_poeng = treLike();
+      totalScore1 += midlertidig_poeng;
+      console.log("test score() runde 9 " + totalScore1);
+      console.log("test score() midlertidig_poeng " + midlertidig_poeng);
+    }
+    else if (hvemSinTur == 2) {
+      midlertidig_poeng = treLike();
+      totalScore2 += midlertidig_poeng;
+      console.log("test score() runde 9 " + totalScore2);
+      console.log("test score() midlertidig_poeng " + midlertidig_poeng);
+    }
+  }
+  else if (runde == 10) {
+    if (hvemSinTur == 1) {
+      midlertidig_poeng = fireLike();
+      totalScore1 += midlertidig_poeng;
+      console.log("test score() runde 10 " + totalScore1);
+      console.log("test score() midlertidig_poeng " + midlertidig_poeng);
+    }
+    else if (hvemSinTur == 2) {
+      midlertidig_poeng = fireLike();
+      totalScore2 += midlertidig_poeng;
+      console.log("test score() runde 10 " + totalScore2);
+      console.log("test score() midlertidig_poeng " + midlertidig_poeng);
+    }
+  }
+  else if (runde == 11) {
+    if (hvemSinTur == 1) {
+      midlertidig_poeng = litenStraight();
+      totalScore1 += midlertidig_poeng;
+      console.log("test score() runde 11 " + totalScore1);
+      console.log("test score() midlertidig_poeng " + midlertidig_poeng);
+    }
+    else if (hvemSinTur == 2) {
+      midlertidig_poeng = litenStraight();
+      totalScore2 += midlertidig_poeng;
+      console.log("test score() runde 11 " + totalScore2);
+      console.log("test score() midlertidig_poeng " + midlertidig_poeng);
+    }
+  }
+  else if (runde == 12) {
+    if (hvemSinTur == 1) {
+      midlertidig_poeng = storStraight();
+      totalScore1 += midlertidig_poeng;
+      console.log("test score() runde 12 " + totalScore1);
+      console.log("test score() midlertidig_poeng " + midlertidig_poeng);
+    }
+    else if (hvemSinTur == 2) {
+      midlertidig_poeng = storStraight();
+      totalScore2 += midlertidig_poeng;
+      console.log("test score() runde 12 " + totalScore2);
+      console.log("test score() midlertidig_poeng " + midlertidig_poeng);
+    }
+  }
+  else if (runde == 13) {
+    if (hvemSinTur == 1) {
+      midlertidig_poeng = hus();
+      totalScore1 += midlertidig_poeng;
+      console.log("test score() runde 13 " + totalScore1);
+      console.log("test score() midlertidig_poeng " + midlertidig_poeng);
+    }
+    else if (hvemSinTur == 2) {
+      midlertidig_poeng = hus();
+      totalScore2 += midlertidig_poeng;
+      console.log("test score() runde 13 " + totalScore2);
+      console.log("test score() midlertidig_poeng " + midlertidig_poeng);
+    }
+  }
+  else if (runde == 14) {
+    if (hvemSinTur == 1) {
+      midlertidig_poeng = sjanse();
+      totalScore1 += midlertidig_poeng;
+      console.log("test score() runde 14 " + totalScore1);
+      console.log("test score() midlertidig_poeng " + midlertidig_poeng);
+    }
+    else if (hvemSinTur == 2) {
+      midlertidig_poeng = sjanse();
+      totalScore2 += midlertidig_poeng;
+      console.log("test score() runde 14 " + totalScore2);
+      console.log("test score() midlertidig_poeng " + midlertidig_poeng);
+    }
+  }
+  else if (runde == 15) {
+    if (hvemSinTur == 1) {
+      midlertidig_poeng = yatzy();
+      totalScore1 += midlertidig_poeng;
+      console.log("test score() runde 15 " + totalScore1);
+      console.log("test score() midlertidig_poeng " + midlertidig_poeng);
+    }
+    else if (hvemSinTur == 2) {
+      midlertidig_poeng = yatzy();
+      totalScore2 += midlertidig_poeng;
+      console.log("test score() runde 15 " + totalScore2);
+      console.log("test score() midlertidig_poeng " + midlertidig_poeng);
+    }
   }
 }
 
@@ -266,15 +378,27 @@ function faseEn(kast, verdi) {
 function bonus() {
   var bonuspoeng = 50;
   var ikkeBonus = 0;
-  if (totalScore >= 42) {
-    console.log("Du har " + totalScore + " og får " + bonuspoeng + "!");
-    document.getElementById("1-faseEn").innerHTML = totalScore;
+  if (totalScore1 >= 42 && hvemSinTur == 1) {
+    console.log("Du har " + totalScore1 + " og får " + bonuspoeng + "!");
+    document.getElementById("1-faseEn").innerHTML = totalScore1;
     document.getElementById("1-bonus").innerHTML = bonuspoeng;
-    totalScore += bonuspoeng;
-  } else {
-    console.log("Du har " + totalScore + " det er ikke nok til å få bonus.");
-    document.getElementById("1-faseEn").innerHTML = totalScore;
+    totalScore1 += bonuspoeng;
+  }
+  else if (totalScore2 >= 42 && hvemSinTur == 2) {
+    console.log("Du har " + totalScore2 + " og får " + bonuspoeng + "!");
+    document.getElementById("2-faseEn").innerHTML = totalScore2;
+    document.getElementById("2-bonus").innerHTML = bonuspoeng;
+    totalScore2 += bonuspoeng;
+  }
+  else if (totalScore1 < 42 && hvemSinTur == 1) {
+    console.log("Du har " + totalScore1 + " det er ikke nok til å få bonus.");
+    document.getElementById("1-faseEn").innerHTML = totalScore1;
     document.getElementById("1-bonus").innerHTML = ikkeBonus;
+  }
+  else {
+    console.log("Du har " + totalScore2 + " det er ikke nok til å få bonus.");
+    document.getElementById("2-faseEn").innerHTML = totalScore2;
+    document.getElementById("2-bonus").innerHTML = ikkeBonus;
   }
 }
 
@@ -456,13 +580,16 @@ function fakeYatzy(){
 }
 
 function moveToTable(){
-  let spiller1 = 1;
-  let sendTilId = spiller1 + "-" + runde;
+  let spiller = hvemSinTur;
+  let sendTilId = spiller + "-" + runde;
   console.log("Test moveToTable: " + sendTilId);
   console.log("Test moveToTable midlertidig_poeng: " + midlertidig_poeng);
   document.getElementById(sendTilId).innerHTML = midlertidig_poeng;
-  if (runde == 15) {
-    document.getElementById("1-totalsum").innerHTML = totalScore;
+  if (runde == 15 && hvemSinTur == 1) {
+    document.getElementById("1-totalsum").innerHTML = totalScore1;
+  }
+  else if (runde == 15 && hvemSinTur == 2) {
+    document.getElementById("2-totalsum").innerHTML = totalScore2;
   }
 }
 
