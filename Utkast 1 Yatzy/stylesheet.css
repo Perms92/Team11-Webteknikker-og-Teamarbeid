@@ -37,6 +37,7 @@ body {
   border-color: #A98559 #A47C4A;
   padding: 0px 50px 250px 50px;
   margin-bottom: -110px;
+  margin-top: 4%;
 }
 
 #kast {
@@ -47,7 +48,7 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 26px;
+  font-size: 20px;
 }
 
 button {
@@ -153,12 +154,19 @@ img:active {
   transition-duration: 0.5s;
 }
 
+h3 {
+  margin-top: 4%;
+  /*position: fixed;*/
+}
+
 table {
   min-width: 120px;
   text-align: center;
   font-size: 14px;
   display: flex;
   justify-content: space-around;
+  /*position: fixed;
+  margin-top: -10%;*/
 }
 
 th {
@@ -186,7 +194,7 @@ td {
 #rundeForteller {
   font-size: 28px;
   color: black;
-  background-color:  lightgrey;
+  background-color: lightgrey;
   opacity: 1.0;
   border-radius: 5px;
   border-width: 1px;
