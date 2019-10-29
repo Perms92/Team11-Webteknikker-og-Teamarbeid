@@ -23,11 +23,6 @@ function kasteKnapp() {
     showDice();
     score();
     moveToTable();
-    /*if (runde == 15) {
-      moveToTable();
-      alert("Spillet er ferdig! Din score ble " + totalScore +
-      ". Bra jobba!")
-    }*/
   }
   else if (x.innerHTML === "Start kast") {
     antallKast += 1;
@@ -71,8 +66,8 @@ function startKast(){
   document.getElementById("dicePos4").style.transition = "all 0.5s";
   document.getElementById("dicePos4").style.marginBottom = "0%";
   document.getElementById("rundeForteller").style.border="solid";
-  document.getElementById("rundeForteller").style.borderColor="#6E4103";
-  document.getElementById("rundeForteller").style.borderWidth="5px";
+  document.getElementById("rundeForteller").style.borderColor="#800000";
+  document.getElementById("rundeForteller").style.borderWidth="4px";
 
   document.getElementById(0).checked = false;
   document.getElementById(1).checked = false;
@@ -156,6 +151,7 @@ function rundeForteller(){
 
 // Sjekker score for alle rundet etter bonus
 function score(){
+  midlertidig_poeng = 0;
   if (runde < 7) {
     console.log("Test runde 1-7: " + runde);
     totalScore += faseEn(mitt_kast, runde);
@@ -165,42 +161,42 @@ function score(){
     }
   }
   else if (runde == 7) {
-    midlertidig_poeng = 0;
     midlertidig_poeng = like(mitt_kast, 2);
     totalScore += midlertidig_poeng;
     console.log("test score() runde 7 " + totalScore);
     console.log("test score() midlertidig_poeng " + midlertidig_poeng);
   }
   else if (runde == 8) {
-    midlertidig_poeng = 0;
     midlertidig_poeng = toPar(mitt_kast);
     totalScore += midlertidig_poeng;
     console.log("test score() runde 8 " + totalScore);
     console.log("test score() midlertidig_poeng " + midlertidig_poeng);
   }
   else if (runde == 9) {
-    midlertidig_poeng = 0;
     midlertidig_poeng = treLike();
     totalScore += midlertidig_poeng;
     console.log("test score() runde 9 " + totalScore);
     console.log("test score() midlertidig_poeng " + midlertidig_poeng);
   }
   else if (runde == 10) {
-    midlertidig_poeng = 0;
     midlertidig_poeng = fireLike();
     totalScore += midlertidig_poeng;
     console.log("test score() runde 10 " + totalScore);
     console.log("test score() midlertidig_poeng " + midlertidig_poeng);
   }
-  else if (runde == (11 || 12)) {
-    midlertidig_poeng = 0;
-    midlertidig_poeng = straight();
+  else if (runde == 11) {
+    midlertidig_poeng = litenStraight();
+    totalScore += midlertidig_poeng;
+    console.log("test score() runde: " + runde + " score: " + totalScore);
+    console.log("test score() midlertidig_poeng " + midlertidig_poeng);
+  }
+  else if (runde == 12) {
+    midlertidig_poeng = storStraight();
     totalScore += midlertidig_poeng;
     console.log("test score() runde: " + runde + " score: " + totalScore);
     console.log("test score() midlertidig_poeng " + midlertidig_poeng);
   }
   else if (runde == 13) {
-    midlertidig_poeng = 0;
     midlertidig_poeng = hus();
     totalScore += midlertidig_poeng;
     console.log("test score() runde 13 " + totalScore);
@@ -401,33 +397,39 @@ function fireLike(){
   }
 }
 
-function straight(){
+function litenStraight(){
   mitt_kast.sort();
-  console.log("Test straight sort() " + mitt_kast);
-  if ((mitt_kast[0] == 1 && mitt_kast[4] == 5) || (mitt_kast[0] == 2 && mitt_kast[4] == 6)) {
-    console.log("Test straight 1-5/2-6");
+  console.log("Test mitt_kast.sort() litenStraight " + mitt_kast);
+  if ((mitt_kast[0] == 1) && (mitt_kast[4] == 5)) {
     for (var i = 0; i < 4; i++) {
-      console.log("Test straight [i]: " + i);
       if ((mitt_kast[i+1] - mitt_kast[i]) == 1) {
-        console.log("Test straight: Ja");
+        console.log("Test liten straight: Ja");
       }
       else {
-        console.log("Test straight: Nei");
+        console.log("Test liten straight: Nei");
         return 0;
       }
     }
-    if (mitt_kast[0] == 1) {
-      midlertidig_poeng = 15;
-      console.log("Test litenStraight return 15");
-      return midlertidig_poeng;
-    }
-    else if (mitt_kast[4] == 6) {
-      midlertidig_poeng = 20;
-      console.log("Test storStraight return 20");
-      return midlertidig_poeng;
-    }
+    return 15;
   }
   return 0;
+}
+
+function storStraight(){
+  mitt_kast.sort();
+  if ((mitt_kast[0] == 2) && (mitt_kast[4] == 6)) {
+    for (var i = 0; i < 4; i++) {
+      if ((mitt_kast[i+1] - mitt_kast[i]) == 1) {
+        console.log("Test stor straight: Ja");
+      }
+      else {
+        console.log("Test stor straight: Nei");
+        return 0;
+      }
+    }
+    return 20;
+  }
+  return 20;
 }
 
 function hus(){
@@ -490,27 +492,34 @@ function playerName(){
   document.getElementById("brett").style.borderColor="saddlebrown #713F00";
 }
 
- /* function moveDice0() {
-  if(document.getElementById("dicePos0").style.marginBottom == "-850%") {
-  document.getElementById("dicePos0").style.marginBottom = "0%";
-  }
-  else {
-  document.getElementById("dicePos0").style.marginBottom = "-850%";
-  }
-} */
+
+
+//jeg kodet i blinde :-(, aner ikke hva jeg skal gjøre, RIP <3
+/*var spillerNavn;
+var resultat ={};
+var highScore = [];
+
+function highScoreListe () {
+  spillerNavn = $('#nameTag').text();
+  resultat = {spiller: playerName, score: totalScore};
+  highScore.push(resultat);
+  highScore.sort(function(a,b) {return (b.score- a.score)});
+
+  $('#score1').text(highScoreListe[0].player + "- totalScore: " + highScoreListe[0].totalScore);
+};*/
 
 function moveDice0() {
   if(document.getElementById("dicePos0").style.marginBottom == "-850%") {
     document.getElementById("dicePos0").style.marginBottom = "0%";
   }
   else {
-    document.getElementById("dicePos0").style.marginBottom = "-850%";
+    document.getElementById("dicePos0").style.marginBottom ="-850%";
   }
 }
 
 function moveDice1() {
   if(document.getElementById("dicePos1").style.marginBottom == "-850%") {
-    document.getElementById("dicePos1").style.marginBottom = "0%";
+    document.getElementById("dicePos1").style.marginBottom = "5%";
   }
   else {
     document.getElementById("dicePos1").style.marginBottom = "-850%";
@@ -519,7 +528,7 @@ function moveDice1() {
 
 function moveDice2() {
   if(document.getElementById("dicePos2").style.marginBottom == "-850%") {
-    document.getElementById("dicePos2").style.marginBottom = "0%";
+    document.getElementById("dicePos2").style.marginBottom = "5%";
   }
   else {
     document.getElementById("dicePos2").style.marginBottom = "-850%";
@@ -528,7 +537,7 @@ function moveDice2() {
 
 function moveDice3() {
   if(document.getElementById("dicePos3").style.marginBottom == "-850%") {
-    document.getElementById("dicePos3").style.marginBottom = "0%";
+    document.getElementById("dicePos3").style.marginBottom = "5%";
   }
   else {
     document.getElementById("dicePos3").style.marginBottom = "-850%";
@@ -537,7 +546,7 @@ function moveDice3() {
 
 function moveDice4() {
   if(document.getElementById("dicePos4").style.marginBottom == "-850%") {
-    document.getElementById("dicePos4").style.marginBottom = "0%";
+    document.getElementById("dicePos4").style.marginBottom = "5%";
   }
   else {
     document.getElementById("dicePos4").style.marginBottom = "-850%";

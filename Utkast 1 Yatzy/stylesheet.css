@@ -177,18 +177,27 @@ td {
   padding: 5px;
 }
 
-.dices {
-  margin-bottom: -125%;
+#terninger {
+  font-size: 28px;
+  opacity: 1.0;
+  border-radius: 5px;
+  border-width: 1px;
+  border-style: hidden;
+  margin-top: 2.5%;
+  margin-bottom: 0%;
 }
 
 #rundeForteller {
   font-size: 28px;
+  color: black;
   background-color:  lightgrey;
-  border-width: 5px;
-  /*border-style: hidden;
-  border-color: #6E4103;*/
+  opacity: 1.0;
+  border-radius: 5px;
+  border-width: 1px;
+  border-style: hidden;
   margin-top: 2.5%;
-
+  user-drag: none;
+  user-select: none;
 }
 
 #kast {
@@ -197,4 +206,8 @@ td {
 
 #checkboxer {
   visibility: hidden;
+}
+
+.dices:hover {
+  opacity: 0.8;
 }
