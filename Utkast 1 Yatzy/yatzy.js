@@ -54,12 +54,19 @@ function startKast(){
   //console.log("Test: antallKast startkast " + antallKast);
   // Returnerer arrayet med 5 terninger med random verdier
   document.getElementById("kast").innerHTML = mitt_kast;
+  document.getElementById("dicePos0").style.transition = "all 0.5s";
   document.getElementById("dicePos0").style.marginBottom = "0%";
+  document.getElementById("dicePos1").style.transition = "all 0.5s";
   document.getElementById("dicePos1").style.marginBottom = "0%";
+  document.getElementById("dicePos2").style.transition = "all 0.5s";
   document.getElementById("dicePos2").style.marginBottom = "0%";
+  document.getElementById("dicePos3").style.transition = "all 0.5s";
   document.getElementById("dicePos3").style.marginBottom = "0%";
+  document.getElementById("dicePos4").style.transition = "all 0.5s";
   document.getElementById("dicePos4").style.marginBottom = "0%";
-  document.getElementById("rundeForteller").style.border="outset";
+  document.getElementById("rundeForteller").style.border="solid";
+  document.getElementById("rundeForteller").style.borderColor="#6E4103";
+  document.getElementById("rundeForteller").style.borderWidth="5px";
 
   document.getElementById(0).checked = false;
   document.getElementById(1).checked = false;
@@ -125,13 +132,13 @@ function rundeForteller(){
     document.getElementById("rundeForteller").innerHTML = "Du vil nå ha fire like";
   }
   else if (runde == 11) {
-    document.getElementById("rundeForteller").innerHTML = "Du vil nå ha Liten Straight";
+    document.getElementById("rundeForteller").innerHTML = "Du vil nå ha liten straight";
   }
   else if (runde == 12) {
-    document.getElementById("rundeForteller").innerHTML = "Du vil nå ha Stor Straight";
+    document.getElementById("rundeForteller").innerHTML = "Du vil nå ha stor straight";
   }
   else if (runde == 13) {
-    document.getElementById("rundeForteller").innerHTML = "Du vil nå ha Fullt Hus";
+    document.getElementById("rundeForteller").innerHTML = "Du vil nå ha fullt hus";
   }
   else if (runde == 14) {
     document.getElementById("rundeForteller").innerHTML = "Sjanse!";
