@@ -96,7 +96,7 @@ function nyttKast(indekser){
 // Definerer hvilke indekser som skal kastes på nytt
 function nytt_kast_indexer(){
   var nyeTerninger = [];
-  for (var i = 0; i < 4; i++) {
+  for (var i = 0; i <= 4; i++) {
     if (document.getElementById(i).checked) {
         nyeTerninger[i] = 1;
     }
