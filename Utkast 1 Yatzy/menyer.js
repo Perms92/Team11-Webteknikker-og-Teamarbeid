@@ -8,21 +8,21 @@ function regler(){
 }
 
 function playerName(){
-  spiller1 = String(prompt("Skriv inn spiller 1 her!"));
+  spiller1 = String(prompt("Skriv inn spiller 1 her"));
   let erTomt = "true";
   while (erTomt == "true") {
     try {
-      if (spiller1 == "") throw "Spiller 1 må ha ett navn.";
+      if (spiller1 == "") throw "Spiller 1 må ha et navn, dummen!";
       if (spiller1 != "") {
         erTomt = "false";
       }
     }
     catch(err) {
-      spiller1 = String(prompt(err + " Skriv inn spiller 1 her!"));
+      spiller1 = String(prompt(err));
     }
   }
   document.getElementById("spiller1").innerHTML = spiller1 + "";
-  spiller2 = String(prompt("Skriv inn spiller 2 eller la stå åpen!"));
+  spiller2 = String(prompt("Skriv inn spiller 2 eller la stå åpen"));
   document.getElementById("spiller2").innerHTML = spiller2 + "";
   document.getElementById('navneknapp').style.display="none";
   document.getElementById("kasteKnapp").style.visibility="visible";
