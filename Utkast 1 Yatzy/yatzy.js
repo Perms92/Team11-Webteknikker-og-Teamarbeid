@@ -390,7 +390,9 @@ function litenStraight() {
     }
     return 15;
   }
-  return 0;
+  else {
+    return 0;
+  }
 }
 
 function storStraight() {
@@ -406,7 +408,9 @@ function storStraight() {
     }
     return 20;
   }
-  return 0;
+  else {
+    return 0;
+  }
 }
 
 function hus() {
