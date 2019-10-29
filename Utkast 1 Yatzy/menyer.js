@@ -1,10 +1,22 @@
-function regler(){
+let hidden = true;
+function regler() {
   var x = document.getElementById("regler");
-  if (x.style.display === "none") {
+  // STUDASS TANKER :)
+  // x.style,display = "none"; ved eventuelt onload, da vil den fungere igjen
+  if (!hidden) {
+    x.style.display = "none";
+    hidden = true;
+  } else {
+    x.style.display = "block";
+    hidden = false;
+  }
+  //STUDASS FERDIG
+  /*  if (x.style.display == "none") {
     x.style.display = "block";
   } else {
     x.style.display = "none";
   }
+  */
 }
 
 function playerName(){
