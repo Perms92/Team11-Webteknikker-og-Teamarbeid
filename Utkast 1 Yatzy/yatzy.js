@@ -23,6 +23,7 @@ function kasteKnapp() {
     showDice();
     score();
     moveToTable();
+    fakeYatzy();
   }
   else if (x.innerHTML === "Start kast") {
     antallKast += 1;
@@ -66,8 +67,8 @@ function startKast(){
   document.getElementById("dicePos4").style.transition = "all 0.5s";
   document.getElementById("dicePos4").style.marginBottom = "0%";
   document.getElementById("rundeForteller").style.border="solid";
-  document.getElementById("rundeForteller").style.borderColor="#800000";
-  document.getElementById("rundeForteller").style.borderWidth="4px";
+  document.getElementById("rundeForteller").style.borderColor="saddlebrown";
+  document.getElementById("rundeForteller").style.borderWidth="5px";
 
   document.getElementById(0).checked = false;
   document.getElementById(1).checked = false;
@@ -412,7 +413,9 @@ function litenStraight(){
     }
     return 15;
   }
-  return 0;
+  else {
+    return 0;
+  }
 }
 
 function storStraight(){
@@ -429,7 +432,9 @@ function storStraight(){
     }
     return 20;
   }
-  return 20;
+  else {
+    return 0;
+  }
 }
 
 function hus(){
@@ -456,6 +461,13 @@ function yatzy(){
     return 50;
   }
   return 0;
+}
+
+function fakeYatzy(){
+  mitt_kast.sort();
+  if (mitt_kast[0] == mitt_kast[4] && runde >= 14) {
+    alert("Yatzy!! Beklager, men det telles ikke denne gang.");
+  }
 }
 
 function moveToTable(){
