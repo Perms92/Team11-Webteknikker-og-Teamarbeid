@@ -14,7 +14,8 @@ function kasteKnapp() {
     //console.log("Test 1 kasteKnapp()");
     nytt_kast_indexer();
     showDice();
-  } else if (x.innerHTML === "Neste kast" && antallKast == 2) {
+  }
+  else if (x.innerHTML === "Neste kast" && antallKast == 2) {
     antallKast = 0;
     nytt_kast_indexer();
     //console.log("Test 2 kasteKnapp()");
@@ -32,6 +33,10 @@ function kasteKnapp() {
     showDice();
   }
   else if (x.innerHTML === "Start runde 1") {
+    let spiller1 = document.getElementById("spiller1").innerHTML;
+    let spiller2 = document.getElementById("spiller2").innerHTML;
+    console.log("Test boolean spiller 1 " + Boolean(spiller1));
+    console.log("Test boolean spiller 2 " + Boolean(spiller2));
     antallKast += 1;
     //console.log("Test 5 kasteKnapp()");
     x.innerHTML = "Neste kast";
@@ -146,6 +151,7 @@ function rundeForteller() {
 
 // Sjekker score for alle rundet etter bonus
 function score() {
+  console.log("Test let spiller1 " + spiller1);
   midlertidig_poeng = 0;
   if (runde < 7) {
     console.log("Test runde 1-7: " + runde);
@@ -226,9 +232,6 @@ function like(mitt_kast, antall) {
   }
   return 0;
 }
-
-// Hva gjør denne?
-let spiller1 = document.getElementById("spiller1");
 
 // Sjekker hvor mange av tall x er i kastet
 function sjekk(hand, tall) {
