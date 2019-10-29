@@ -18,19 +18,16 @@ function kasteKnapp() {
   else if (x.innerHTML === "Neste kast" && antallKast == 2) {
     antallKast = 0;
     nytt_kast_indexer();
-    if (runde < 7) {
-      console.log("Test runde 1-7: " + runde);
-      totalScore += faseEn(mitt_kast, runde);
-      console.log("Test totalScore: " + totalScore);
-      if (runde == 6) {
-        bonus();
-      }
-    }
     //console.log("Test 2 kasteKnapp()");
     x.innerHTML = "Start kast";
     showDice();
     score();
     moveToTable();
+    /*if (runde == 15) {
+      moveToTable();
+      alert("Spillet er ferdig! Din score ble " + totalScore +
+      ". Bra jobba!")
+    }*/
   }
   else if (x.innerHTML === "Start kast") {
     antallKast += 1;
@@ -38,6 +35,7 @@ function kasteKnapp() {
     x.innerHTML = "Neste kast";
     startKast();
     showDice();
+    
   }
   else if (x.innerHTML === "Start spillet") {
     antallKast += 1;
@@ -132,13 +130,13 @@ function rundeForteller(){
     document.getElementById("rundeForteller").innerHTML = "Du vil nå ha fire like";
   }
   else if (runde == 11) {
-    document.getElementById("rundeForteller").innerHTML = "Du vil nå ha liten straight";
+    document.getElementById("rundeForteller").innerHTML = "Du vil nå ha Liten Straight";
   }
   else if (runde == 12) {
-    document.getElementById("rundeForteller").innerHTML = "Du vil nå ha stor straight";
+    document.getElementById("rundeForteller").innerHTML = "Du vil nå ha Stor Straight";
   }
   else if (runde == 13) {
-    document.getElementById("rundeForteller").innerHTML = "Du vil nå ha hus";
+    document.getElementById("rundeForteller").innerHTML = "Du vil nå ha Fullt Hus";
   }
   else if (runde == 14) {
     document.getElementById("rundeForteller").innerHTML = "Sjanse!";
@@ -150,28 +148,66 @@ function rundeForteller(){
 
 // Sjekker score for alle rundet etter bonus
 function score(){
-  if (runde == 7) {
+  if (runde < 7) {
+    console.log("Test runde 1-7: " + runde);
+    totalScore += faseEn(mitt_kast, runde);
+    console.log("Test totalScore: " + totalScore);
+    if (runde == 6) {
+      bonus();
+    }
+  }
+  else if (runde == 7) {
+    midlertidig_poeng = 0;
     midlertidig_poeng = like(mitt_kast, 2);
     totalScore += midlertidig_poeng;
-    console.log("test score() runde 7" + totalScore);
+    console.log("test score() runde 7 " + totalScore);
     console.log("test score() midlertidig_poeng " + midlertidig_poeng);
   }
   else if (runde == 8) {
+    midlertidig_poeng = 0;
     midlertidig_poeng = toPar(mitt_kast);
     totalScore += midlertidig_poeng;
     console.log("test score() runde 8 " + totalScore);
     console.log("test score() midlertidig_poeng " + midlertidig_poeng);
   }
   else if (runde == 9) {
+    midlertidig_poeng = 0;
     midlertidig_poeng = treLike();
     totalScore += midlertidig_poeng;
     console.log("test score() runde 9 " + totalScore);
     console.log("test score() midlertidig_poeng " + midlertidig_poeng);
   }
   else if (runde == 10) {
+    midlertidig_poeng = 0;
     midlertidig_poeng = fireLike();
     totalScore += midlertidig_poeng;
-    console.log("test score() runde 9 " + totalScore);
+    console.log("test score() runde 10 " + totalScore);
+    console.log("test score() midlertidig_poeng " + midlertidig_poeng);
+  }
+  else if (runde == (11 || 12)) {
+    midlertidig_poeng = 0;
+    midlertidig_poeng = straight();
+    totalScore += midlertidig_poeng;
+    console.log("test score() runde: " + runde + " score: " + totalScore);
+    console.log("test score() midlertidig_poeng " + midlertidig_poeng);
+  }
+  else if (runde == 13) {
+    midlertidig_poeng = 0;
+    midlertidig_poeng = hus();
+    totalScore += midlertidig_poeng;
+    console.log("test score() runde 13 " + totalScore);
+    console.log("test score() midlertidig_poeng " + midlertidig_poeng);
+  }
+  else if (runde == 14) {
+    midlertidig_poeng = sjanse();
+    totalScore += midlertidig_poeng;
+    console.log("test score() runde 14 " + totalScore);
+    console.log("test score() midlertidig_poeng " + midlertidig_poeng);
+  }
+  else if (runde == 15) {
+    midlertidig_poeng = yatzy();
+    totalScore += midlertidig_poeng;
+    console.log("test score() runde 14 " + totalScore);
     console.log("test score() midlertidig_poeng " + midlertidig_poeng);
   }
 }
@@ -183,24 +219,24 @@ function like(mitt_kast, antall){
     verdi = antall * 6;
     return verdi;
   }
-  if (sjekk(mitt_kast, 5) >= antall) {
+  else if (sjekk(mitt_kast, 5) >= antall) {
     verdi = antall * 5;
     return verdi;
   }
-  if (sjekk(mitt_kast, 4) >= antall) {
+  else if (sjekk(mitt_kast, 4) >= antall) {
     verdi = antall * 4;
     return verdi;
   }
-  if (sjekk(mitt_kast, 3) >= antall) {
+  else if (sjekk(mitt_kast, 3) >= antall) {
     verdi = antall * 3;
     return verdi;
   }
-  if (sjekk(mitt_kast, 2) >= antall) {
+  else if (sjekk(mitt_kast, 2) >= antall) {
     verdi = antall * 2;
     console.log("Test like2 " + verdi);
     return verdi;
   }
-  if (sjekk(mitt_kast, 1) >= antall) {
+  else if (sjekk(mitt_kast, 1) >= antall) {
     verdi = antall * 1;
     return verdi;
   }
@@ -215,11 +251,11 @@ let spiller1 = document.getElementById("spiller1");
 function sjekk(hand, tall){
   var antall = 0;
   for (var i = 0; i < hand.length; i++) {
-    console.log("Test for-løkke sjekk() " + i);
+    //console.log("Test for-løkke sjekk() " + i);
     if (hand[i] == tall) {
-      console.log("Test sjekk(), i: " + i + ", tall: " + tall);
+      //console.log("Test sjekk(), i: " + i + ", tall: " + tall);
       antall += 1;
-      console.log("Test sjekk() antall: "+ antall);
+      //console.log("Test sjekk() antall: "+ antall);
     }
   }
   return antall;
@@ -359,22 +395,55 @@ function fireLike(){
 
 function straight(){
   mitt_kast.sort();
-  for (var i = 0; i < 4; i++) {
-    if ((mitt_kast[i+1] - mitt_kast[i]) == 1) {
-      console.log("Test straight: Ja");
+  console.log("Test straight sort() " + mitt_kast);
+  if ((mitt_kast[0] == 1 && mitt_kast[4] == 5) || (mitt_kast[0] == 2 && mitt_kast[4] == 6)) {
+    console.log("Test straight 1-5/2-6");
+    for (var i = 0; i < 4; i++) {
+      console.log("Test straight [i]: " + i);
+      if ((mitt_kast[i+1] - mitt_kast[i]) == 1) {
+        console.log("Test straight: Ja");
+      }
+      else {
+        console.log("Test straight: Nei");
+        return 0;
+      }
     }
-    else {
-      console.log("Test straight: Nei");
-      return 0;
+    if (mitt_kast[0] == 1) {
+      midlertidig_poeng = 15;
+      console.log("Test litenStraight return 15");
+      return midlertidig_poeng;
+    }
+    else if (mitt_kast[4] == 6) {
+      midlertidig_poeng = 20;
+      console.log("Test storStraight return 20");
+      return midlertidig_poeng;
     }
   }
+  return 0;
+}
+
+function hus(){
+  mitt_kast.sort();
+  if ((mitt_kast[0] == mitt_kast[1]) && (mitt_kast[2] == mitt_kast[4]) && (mitt_kast[1] != mitt_kast[2])) {
+    return mitt_kast.reduce((a, b) => a + b, 0);
+  }
+  else if ((mitt_kast[0] == mitt_kast[2]) && (mitt_kast[3] == mitt_kast[4]) && (mitt_kast[2] != mitt_kast[3])) {
+    return mitt_kast.reduce((a, b) => a + b, 0);
+  }
+  else {
+    return 0;
+  }
+}
+
+function sjanse(){
   return mitt_kast.reduce((a, b) => a + b, 0);
 }
 
-function litenStraight(){
+function yatzy(){
   mitt_kast.sort();
-  if (mitt_kast[0] == 1 && mitt_kast[4] == 5) {
-    return straight();
+  if (mitt_kast[0] == mitt_kast[4]) {
+    console.log("DU HAR YAAAAAATZYYYY!!");
+    return 50;
   }
   return 0;
 }
@@ -385,18 +454,42 @@ function moveToTable(){
   console.log("Test moveToTable: " + sendTilId);
   console.log("Test moveToTable midlertidig_poeng: " + midlertidig_poeng);
   document.getElementById(sendTilId).innerHTML = midlertidig_poeng;
+  if (runde == 15) {
+    document.getElementById('1-totalsum').innerHTML = totalScore;
+  }
 }
 
 function showDice(){
-  console.log("Test showDice() function");
+  //console.log("Test showDice() function");
   for (var i = 0; i <= 4; i++) {
     var diceName = "img/dice" + mitt_kast[i] + ".png";
     var showDiceId = "dicePos" + i;
-    console.log("Test showDice diceName " + diceName);
-    console.log("Test showDiceId " + showDiceId);
+    //console.log("Test showDice diceName " + diceName);
+    //console.log("Test showDiceId " + showDiceId);
     document.getElementById(showDiceId).src = diceName;
   }
 }
+
+function playerName(){
+  text = String(prompt("Skriv inn ditt spillernavn her!"));
+  document.getElementById("spiller1").innerHTML += text + "";
+  text1 = String(prompt("Skriv inn ditt spillernavn her!"));
+  document.getElementById("spiller2").innerHTML += text1 + "";
+  document.getElementById('navneknapp').style.display="none";
+  document.getElementById("kasteKnapp").style.visibility="visible";
+  document.getElementById("brett").style.backgroundColor="#468f15";
+  document.getElementById("brett").style.backgroundImage="url('https://www.transparenttextures.com/patterns/60-lines.png')";
+  document.getElementById("brett").style.borderColor="saddlebrown #713F00";
+}
+
+ /* function moveDice0() {
+  if(document.getElementById("dicePos0").style.marginBottom == "-850%") {
+  document.getElementById("dicePos0").style.marginBottom = "0%";
+  }
+  else {
+  document.getElementById("dicePos0").style.marginBottom = "-850%";
+  }
+} */
 
 function moveDice0() {
   if(document.getElementById("dicePos0").style.marginBottom == "-850%") {
