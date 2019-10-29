@@ -18,3 +18,5 @@ function playerName(){
   document.getElementById("brett").style.backgroundImage="url('https://www.transparenttextures.com/patterns/60-lines.png')";
   document.getElementById("brett").style.borderColor="saddlebrown #713F00";
 }
+
+
