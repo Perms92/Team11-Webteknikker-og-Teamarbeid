@@ -529,6 +529,7 @@ function yatzy() {
   mitt_kast.sort();
   if (mitt_kast[0] == mitt_kast[4]) {
     console.log("DU HAR YAAAAAATZYYYY!!");
+    alert("DU HAR FÅTT YATZY!!!");
     return 50;
   }
   return 0;
@@ -536,9 +537,11 @@ function yatzy() {
 
 function fakeYatzy() {
   mitt_kast.sort();
-  console.log("Test fakeYatzy() " + mitt_kast);
-  if (mitt_kast[0] == mitt_kast[4] && runde <= 14) {
-    console.log("Test fakeYatzy() skusess");
+  if (
+    (((mitt_kast[0] == mitt_kast[1]) == mitt_kast[2]) == mitt_kast[3]) ==
+      mitt_kast[4] &&
+    runde <= 14
+  ) {
     alert("Yatzy!! Beklager, men det telles ikke denne gang.");
   }
 }
