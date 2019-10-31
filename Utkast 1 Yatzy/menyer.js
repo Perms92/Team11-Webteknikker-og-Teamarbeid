@@ -17,6 +17,20 @@ function regler() {
   */
 }
 
+let hiddenPop = true;
+function visHighscore() {
+  var y = document.getElementById("popUpContainer");
+  var hsPopUp = document.getElementById("hsPopUp");
+
+  if (!hiddenPop) {
+    y.style.display = "none";
+    hiddenPop = true;
+  } else {
+    y.style.display = "block";
+    hiddenPop = false;
+  }
+}
+
 function playerName() {
   spiller1 = String(prompt("Skriv inn spiller 1 her"));
   let erTomt = "true";
@@ -40,3 +54,59 @@ function playerName() {
     "url('https://www.transparenttextures.com/patterns/60-lines.png')";
   document.getElementById("brett").style.borderColor = "saddlebrown #713F00";
 }
+
+let testpersoner = [
+  { navn: "Peder", score: 123 },
+  { navn: "Andy", score: 156 }
+];
+
+//Husk å fjerne testpersoner
+
+localStorage.setItem("highscores", JSON.stringify(testpersoner));
+
+console.log(JSON.parse(localStorage.getItem("highscores")));
+
+function sorterer(pers1, pers2) {
+  if (pers1.score > pers2.score) {
+    return -1;
+  } else if (pers2.score > pers1.score) {
+    return 1;
+  }
+  return 0;
+}
+
+function localSet(person, score) {
+  //henter data fra localStorage, legger til den nye personen, sorterer og lagrer den
+  //let before = JSON.parse(localStorage.getItem("highscore"));
+  let hs = localGet();
+  let nyPerson = {
+    navn: person,
+    score: score
+  };
+
+  //Legger til ny person før listen sorteres og lagres
+  hs.push(nyPerson);
+  //Sorterer listen før den lagres
+  hs.sort(sorterer);
+
+  //Lagrer listen
+  localStorage.setItem("highscores", JSON.stringify(hs));
+}
+
+//localSet("mina", 200);
+
+function localGet() {
+  return JSON.parse(localStorage.getItem("highscores")).sort(sorterer);
+}
+
+function renderHighscores() {
+  let highscores = localGet();
+  console.log(highscores);
+  for (let person of highscores) {
+    let li = document.createElement("li");
+    li.textContent = person.navn + " har score: " + person.score;
+    document.getElementById("hs").append(li);
+  }
+}
+
+renderHighscores();

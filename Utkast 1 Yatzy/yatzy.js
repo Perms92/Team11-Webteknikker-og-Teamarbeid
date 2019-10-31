@@ -583,20 +583,6 @@ function playerName() {
   document.getElementById("brett").style.borderColor = "saddlebrown #713F00";
 }
 
-//jeg kodet i blinde :-(, aner ikke hva jeg skal gjøre, RIP <3
-/*var spillerNavn;
-var resultat ={};
-var highScore = [];
-
-function highScoreListe () {
-  spillerNavn = $('#nameTag').text();
-  resultat = {spiller: playerName, score: totalScore};
-  highScore.push(resultat);
-  highScore.sort(function(a,b) {return (b.score- a.score)});
-
-  $('#score1').text(highScoreListe[0].player + "- totalScore: " + highScoreListe[0].totalScore);
-};*/
-
 function moveDice0() {
   if (document.getElementById("dicePos0").style.marginBottom == "-850%") {
     document.getElementById("dicePos0").style.marginBottom = "0%";
