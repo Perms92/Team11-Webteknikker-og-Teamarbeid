@@ -51,6 +51,22 @@ p {
   font-size: 20px;
 }
 
+#gaTilbake {
+  padding: 10px;
+  display: inline-block;
+  font-size: 14px;
+  cursor: pointer;
+  border: 2px solid black;
+  border-color: saddlebrown;
+  background-color: #808080;
+  opacity: 0.7;
+  font-family: "Be Vietnam", sans-serif;
+  font-weight: 700;
+  color: #ffffff;
+  border-radius: 5px;
+  text-align: center;
+}
+
 button {
   padding: 20px;
   display: inline-block;
