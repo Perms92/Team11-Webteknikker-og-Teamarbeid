@@ -285,11 +285,17 @@ function score() {
       totalScore1 += midlertidig_poeng;
       console.log("test score() runde 15 " + totalScore1);
       console.log("test score() midlertidig_poeng " + midlertidig_poeng);
+      if (antallSpillere == 1) {
+        document.getElementById("kasteKnapp").style.visibility = "hidden";
+        resetSpill();
+      }
     } else if (hvemSinTur == 2) {
       midlertidig_poeng = yatzy();
       totalScore2 += midlertidig_poeng;
       console.log("test score() runde 15 " + totalScore2);
       console.log("test score() midlertidig_poeng " + midlertidig_poeng);
+      document.getElementById("kasteKnapp").style.visibility = "hidden";
+      resetSpill();
     }
   }
 }
@@ -629,7 +635,7 @@ function moveDice4() {
     document.getElementById("dicePos4").style.marginBottom = "-850%";
   }
 }
-/*
-if (runde == 15) {
-  document.getElementById("kasteKnapp").style.visibility = "hidden";
-}*/
+
+function resetSpill() {
+  var x = document.getElementById("kasteKnapp");
+}
