@@ -17,14 +17,18 @@
         <h1><img src="img/logo.png" alt="Logo" id="logo" onclick="window.location.href = 'index.html';"><br>
           <img src="img/dice.png" alt="Dices" id="dice" onclick="window.location.href = 'index.html';"></h1>
         <br><br><br>
-        <h3><button onclick="regler()">Regler</button></h3>
+        <h3><button onclick="regler()" class="knappVenstreSide">Regler</button></h3>
 
         <div id="regler">
-          Meningen med spillet er å oppnå en høyest mulig poengsum. Poeng
-          tildeles for 15 forskjellige terningkombinasjonstyper. I hver runde
-          får hver spiller inntil tre kast for å oppnå én av disse typene.
-          Bortsett fra i det første kastet, kan spilleren velge å legge til side
-          et antall av terningene og kaste kun de resterende.
+          Få høyest mulig poengsum på Yatzy! Trykk på terningene for å beholde dem,
+          slik at de ikke ruller. Du får tre kast per kategori.
+          Trenger du en liten oppfriskning på reglene? <br> <br>
+          - Liten straight er 1-5 <br>
+          - Stor straight er 2-6 <br>
+          - Fullt hus er 3 like + 2 like <br>
+          - På sjanse skal du få høyest mulig tall på alle terningene <br>
+          - På Yatzy skal du få 5 like <br> <br>
+          Lykke til!
           <div id="checkboxer">
             <input type="checkbox" id=0>
             <input type="checkbox" id=1>
@@ -35,7 +39,7 @@
 
 
         </div>
-        <button type="button" name="button" onclick="visHighscore()">Highscore
+        <button onclick="visHighscore()" class="knappVenstreSide">Highscore
         </button>
       </div>
       <div id="popUpContainer">
@@ -58,9 +62,9 @@
           <label for="4" onclick="moveDice4()"><img height="40px" id="dicePos4" class="dices" draggable="false"></label>
           <br>
 
-          <button onclick="playerName()" id="navneknapp">START SPILL</button><br>
+          <button onclick="playerName()" id="navneknapp" class="knappBrett">START SPILL</button><br>
         </div>
-        <button onclick="kasteKnapp()" id="kasteKnapp">Start runde 1</button>
+        <button onclick="kasteKnapp()" id="kasteKnapp" class="knappBrett">Start runde 1</button>
       </div>
 
       <div id="third">
