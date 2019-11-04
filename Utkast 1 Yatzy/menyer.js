@@ -36,7 +36,7 @@ function playerName() {
   let erTomt = "true";
   while (erTomt == "true") {
     try {
-      if (spiller1 == "") throw "Spiller 1 må ha et navn, dummen!";
+      if (spiller1 == "" || spiller1 == "null") throw "Spiller 1 må ha et navn, dummen!";
       if (spiller1 != "") {
         erTomt = "false";
       }
@@ -46,6 +46,9 @@ function playerName() {
   }
   document.getElementById("spiller1").innerHTML = spiller1 + "";
   spiller2 = String(prompt("Skriv inn spiller 2 eller la stå åpen"));
+  if (spiller2 == "null") {
+    spiller2 = "";
+  }
   document.getElementById("spiller2").innerHTML = spiller2 + "";
   document.getElementById("navneknapp").style.display = "none";
   document.getElementById("kasteKnapp").style.visibility = "visible";
