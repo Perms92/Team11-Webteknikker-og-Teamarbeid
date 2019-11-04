@@ -30,8 +30,11 @@ function kasteKnapp() {
     fakeYatzy();
     if (hvemSinTur == 1 && antallSpillere == 2) {
       hvemSinTur = 2;
+      rundeForteller(spiller2);
     } else if (hvemSinTur == 2) {
+      runde += 1;
       hvemSinTur = 1;
+      rundeForteller(spiller1);
     }
   } else if (x.innerHTML === "Start kast") {
     antallKast += 1;
@@ -59,7 +62,7 @@ function kasteKnapp() {
 // Oppretter første kast hver runde
 function startKast() {
   //console.log("Test antallKast startKast() " + antallKast);
-  if (hvemSinTur == 1) {
+  if (hvemSinTur == 1 && runde == 0) {
     runde += 1;
     rundeForteller(spiller1);
   } else if (hvemSinTur == 2) {
