@@ -36,6 +36,10 @@ function kasteKnapp() {
       hvemSinTur = 1;
       rundeForteller(spiller1);
     }
+    else if (hvemSinTur == 1 && antallSpillere == 1) {
+      runde += 1;
+      rundeForteller(spiller1);
+    }
   } else if (x.innerHTML === "Start kast") {
     antallKast += 1;
     //console.log("Test 4 kasteKnapp()");
