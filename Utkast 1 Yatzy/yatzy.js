@@ -4,9 +4,13 @@ var antallKast = 0;
 var runde = 0;
 var totalScore1 = 0;
 var totalScore2 = 0;
+var totalScore3 = 0;
+var totalScore4 = 0;
 var antallSpillere = 1;
 var spiller1 = "";
 var spiller2 = "";
+var spiller3 = "";
+var spiller4 = "";
 var hvemSinTur = 1;
 
 // En felles funksjon som endrer teksten på kasteknappen,
@@ -28,18 +32,18 @@ function kasteKnapp() {
     score();
     moveToTable();
     fakeYatzy();
-    if (hvemSinTur == 1 && antallSpillere == 2) {
-      hvemSinTur = 2;
-      rundeForteller(spiller2);
-    } else if (hvemSinTur == 2) {
+
+    if (hvemSinTur != antallSpillere) {
+      hvemSinTur += 1;
+      var spiller = "spiller" + hvemSinTur;
+      rundeForteller(spiller);
+    }
+    else if (hvemSinTur == antallSpillere) {
       runde += 1;
       hvemSinTur = 1;
       rundeForteller(spiller1);
     }
-    else if (hvemSinTur == 1 && antallSpillere == 1) {
-      runde += 1;
-      rundeForteller(spiller1);
-    }
+
     if (runde == 16) {
       x.innerHTML = "Nytt spill";
     }
@@ -50,12 +54,20 @@ function kasteKnapp() {
     startKast();
     showDice();
   } else if (x.innerHTML === "Start runde 1" || x.innerHTML === "Nytt spill") {
-    resetSpill();
+    if (x.innerHTML === "Nytt spill") {
+      resetSpill();
+    }
     spiller1 = document.getElementById("spiller1").innerHTML;
     spiller2 = document.getElementById("spiller2").innerHTML;
+    spiller3 = document.getElementById("spiller3").innerHTML;
+    spiller4 = document.getElementById("spiller4").innerHTML;
     console.log("Test spiller 1 " + spiller1);
     console.log("Test spiller 2 " + spiller2);
-    if (spiller2 != "") {
+    if (spiller4 != "") {
+      antallSpillere = 4;
+    } else if (spiller3 != "") {
+      antallSpillere = 3;
+    } else if (spiller2 != "") {
       antallSpillere = 2;
     }
     console.log("Test antallSpillere " + antallSpillere);
@@ -73,8 +85,6 @@ function startKast() {
   if (hvemSinTur == 1 && runde == 0) {
     runde += 1;
     rundeForteller(spiller1);
-  } else if (hvemSinTur == 2) {
-    rundeForteller(spiller2);
   }
   // Lager 5 indekser/terninger
   for (i = 0; i <= 4; i++) {
@@ -183,6 +193,12 @@ function score() {
     } else if (hvemSinTur == 2) {
       totalScore2 += faseEn(mitt_kast, runde);
       console.log("Test totalScore2: " + totalScore1);
+    } else if (hvemSinTur == 3) {
+      totalScore3 += faseEn(mitt_kast, runde);
+      console.log("Test totalScore3: " + totalScore3);
+    } else if (hvemSinTur == 4) {
+      totalScore4 += faseEn(mitt_kast, runde);
+      console.log("Test totalScore4: " + totalScore4);
     }
     if (runde == 6) {
       bonus();
@@ -191,109 +207,127 @@ function score() {
     if (hvemSinTur == 1) {
       midlertidig_poeng = like(mitt_kast, 2);
       totalScore1 += midlertidig_poeng;
-      console.log("test score() runde 7 " + totalScore1);
-      console.log("test score() midlertidig_poeng " + midlertidig_poeng);
     } else if (hvemSinTur == 2) {
       midlertidig_poeng = like(mitt_kast, 2);
       totalScore2 += midlertidig_poeng;
-      console.log("test score() runde 7 " + totalScore2);
-      console.log("test score() midlertidig_poeng " + midlertidig_poeng);
+    } else if (hvemSinTur == 3) {
+      midlertidig_poeng = like(mitt_kast, 3);
+      totalScore3 += midlertidig_poeng;
+    } else if (hvemSinTur == 4) {
+      midlertidig_poeng = like(mitt_kast, 4);
+      totalScore4 += midlertidig_poeng;
     }
   } else if (runde == 8) {
     if (hvemSinTur == 1) {
       midlertidig_poeng = toPar(mitt_kast);
       totalScore1 += midlertidig_poeng;
-      console.log("test score() runde 8 " + totalScore1);
-      console.log("test score() midlertidig_poeng " + midlertidig_poeng);
     } else if (hvemSinTur == 2) {
       midlertidig_poeng = toPar(mitt_kast);
       totalScore2 += midlertidig_poeng;
-      console.log("test score() runde 8 " + totalScore2);
-      console.log("test score() midlertidig_poeng " + midlertidig_poeng);
+    } else if (hvemSinTur == 3) {
+      midlertidig_poeng = toPar(mitt_kast);
+      totalScore3 += midlertidig_poeng;
+    } else if (hvemSinTur == 4) {
+      midlertidig_poeng = toPar(mitt_kast);
+      totalScore4 += midlertidig_poeng;
     }
   } else if (runde == 9) {
     if (hvemSinTur == 1) {
       midlertidig_poeng = treLike();
       totalScore1 += midlertidig_poeng;
-      console.log("test score() runde 9 " + totalScore1);
-      console.log("test score() midlertidig_poeng " + midlertidig_poeng);
     } else if (hvemSinTur == 2) {
       midlertidig_poeng = treLike();
       totalScore2 += midlertidig_poeng;
-      console.log("test score() runde 9 " + totalScore2);
-      console.log("test score() midlertidig_poeng " + midlertidig_poeng);
+    } else if (hvemSinTur == 3) {
+      midlertidig_poeng = treLike();
+      totalScore3 += midlertidig_poeng;
+    } else if (hvemSinTur == 4) {
+      midlertidig_poeng = treLike();
+      totalScore4 += midlertidig_poeng;
     }
   } else if (runde == 10) {
     if (hvemSinTur == 1) {
       midlertidig_poeng = fireLike();
       totalScore1 += midlertidig_poeng;
-      console.log("test score() runde 10 " + totalScore1);
-      console.log("test score() midlertidig_poeng " + midlertidig_poeng);
     } else if (hvemSinTur == 2) {
       midlertidig_poeng = fireLike();
       totalScore2 += midlertidig_poeng;
-      console.log("test score() runde 10 " + totalScore2);
-      console.log("test score() midlertidig_poeng " + midlertidig_poeng);
+    } else if (hvemSinTur == 3) {
+      midlertidig_poeng = fireLike();
+      totalScore3 += midlertidig_poeng;
+    } else if (hvemSinTur == 4) {
+      midlertidig_poeng = fireLike();
+      totalScore4 += midlertidig_poeng;
     }
   } else if (runde == 11) {
     if (hvemSinTur == 1) {
       midlertidig_poeng = litenStraight();
       totalScore1 += midlertidig_poeng;
-      console.log("test score() runde 11 " + totalScore1);
-      console.log("test score() midlertidig_poeng " + midlertidig_poeng);
     } else if (hvemSinTur == 2) {
       midlertidig_poeng = litenStraight();
       totalScore2 += midlertidig_poeng;
-      console.log("test score() runde 11 " + totalScore2);
-      console.log("test score() midlertidig_poeng " + midlertidig_poeng);
+    } else if (hvemSinTur == 3) {
+      midlertidig_poeng = litenStraight();
+      totalScore3 += midlertidig_poeng;
+    } else if (hvemSinTur == 4) {
+      midlertidig_poeng = litenStraight();
+      totalScore4 += midlertidig_poeng;
     }
   } else if (runde == 12) {
     if (hvemSinTur == 1) {
       midlertidig_poeng = storStraight();
       totalScore1 += midlertidig_poeng;
-      console.log("test score() runde 12 " + totalScore1);
-      console.log("test score() midlertidig_poeng " + midlertidig_poeng);
     } else if (hvemSinTur == 2) {
       midlertidig_poeng = storStraight();
       totalScore2 += midlertidig_poeng;
-      console.log("test score() runde 12 " + totalScore2);
-      console.log("test score() midlertidig_poeng " + midlertidig_poeng);
+    } else if (hvemSinTur == 3) {
+      midlertidig_poeng = storStraight();
+      totalScore3 += midlertidig_poeng;
+    } else if (hvemSinTur == 4) {
+      midlertidig_poeng = storStraight();
+      totalScore4 += midlertidig_poeng;
     }
   } else if (runde == 13) {
     if (hvemSinTur == 1) {
       midlertidig_poeng = hus();
       totalScore1 += midlertidig_poeng;
-      console.log("test score() runde 13 " + totalScore1);
-      console.log("test score() midlertidig_poeng " + midlertidig_poeng);
     } else if (hvemSinTur == 2) {
       midlertidig_poeng = hus();
       totalScore2 += midlertidig_poeng;
-      console.log("test score() runde 13 " + totalScore2);
-      console.log("test score() midlertidig_poeng " + midlertidig_poeng);
+    } else if (hvemSinTur == 3) {
+      midlertidig_poeng = hus();
+      totalScore3 += midlertidig_poeng;
+    } else if (hvemSinTur == 4) {
+      midlertidig_poeng = hus();
+      totalScore4 += midlertidig_poeng;
     }
   } else if (runde == 14) {
     if (hvemSinTur == 1) {
       midlertidig_poeng = sjanse();
       totalScore1 += midlertidig_poeng;
-      console.log("test score() runde 14 " + totalScore1);
-      console.log("test score() midlertidig_poeng " + midlertidig_poeng);
     } else if (hvemSinTur == 2) {
       midlertidig_poeng = sjanse();
       totalScore2 += midlertidig_poeng;
-      console.log("test score() runde 14 " + totalScore2);
-      console.log("test score() midlertidig_poeng " + midlertidig_poeng);
+    } else if (hvemSinTur == 3) {
+      midlertidig_poeng = sjanse();
+      totalScore3 += midlertidig_poeng;
+    } else if (hvemSinTur == 4) {
+      midlertidig_poeng = sjanse();
+      totalScore4 += midlertidig_poeng;
     }
   } else if (runde == 15) {
     if (hvemSinTur == 1) {
       midlertidig_poeng = yatzy();
       totalScore1 += midlertidig_poeng;
-      console.log("test score() runde 15 " + totalScore1);
-      console.log("test score() midlertidig_poeng " + midlertidig_poeng);
     } else if (hvemSinTur == 2) {
       midlertidig_poeng = yatzy();
       totalScore2 += midlertidig_poeng;
-      console.log("test score() runde 15 " + totalScore2);
-      console.log("test score() midlertidig_poeng " + midlertidig_poeng);
+    } else if (hvemSinTur == 3) {
+      midlertidig_poeng = yatzy();
+      totalScore3 += midlertidig_poeng;
+    } else if (hvemSinTur == 4) {
+      midlertidig_poeng = yatzy();
+      totalScore4 += midlertidig_poeng;
     }
   }
 }
@@ -356,25 +390,56 @@ function faseEn(kast, verdi) {
 function bonus() {
   var bonuspoeng = 50;
   var ikkeBonus = 0;
-  if (totalScore1 >= 42 && hvemSinTur == 1) {
-    console.log("Du har " + totalScore1 + " og får " + bonuspoeng + "!");
+
+  if (hvemSinTur == 1) {
+    document.getElementById("1-faseEn").innerHTML = totalScore1;
+    if (totalScore1 >= 42) {
+      document.getElementById("1-bonus").innerHTML = bonuspoeng;
+      totalScore1 += bonuspoeng;
+    } else {
+      document.getElementById("1-bonus").innerHTML = ikkeBonus;
+    }
+  } else if (hvemSinTur == 2) {
+    document.getElementById("2-faseEn").innerHTML = totalScore2;
+    if (totalScore2 >= 42) {
+      document.getElementById("2-bonus").innerHTML = bonuspoeng;
+      totalScore2 += bonuspoeng;
+    } else {
+      document.getElementById("2-bonus").innerHTML = ikkeBonus;
+    }
+  } else if (hvemSinTur == 3) {
+    document.getElementById("3-faseEn").innerHTML = totalScore3;
+    if (totalScore3 >= 42) {
+      document.getElementById("3-bonus").innerHTML = bonuspoeng;
+      totalScore3 += bonuspoeng;
+    } else {
+      document.getElementById("3-bonus").innerHTML = ikkeBonus;
+    }
+  } else if (hvemSinTur == 4) {
+    document.getElementById("4-faseEn").innerHTML = totalScore4;
+    if (totalScore4 >= 42) {
+      document.getElementById("2-bonus").innerHTML = bonuspoeng;
+      totalScore4 += bonuspoeng;
+    } else {
+      document.getElementById("4-bonus").innerHTML = ikkeBonus;
+    }
+  }
+
+  /*if (totalScore1 >= 42 && hvemSinTur == 1) {
     document.getElementById("1-faseEn").innerHTML = totalScore1;
     document.getElementById("1-bonus").innerHTML = bonuspoeng;
     totalScore1 += bonuspoeng;
   } else if (totalScore2 >= 42 && hvemSinTur == 2) {
-    console.log("Du har " + totalScore2 + " og får " + bonuspoeng + "!");
     document.getElementById("2-faseEn").innerHTML = totalScore2;
     document.getElementById("2-bonus").innerHTML = bonuspoeng;
     totalScore2 += bonuspoeng;
   } else if (totalScore1 < 42 && hvemSinTur == 1) {
-    console.log("Du har " + totalScore1 + " det er ikke nok til å få bonus.");
     document.getElementById("1-faseEn").innerHTML = totalScore1;
     document.getElementById("1-bonus").innerHTML = ikkeBonus;
   } else {
-    console.log("Du har " + totalScore2 + " det er ikke nok til å få bonus.");
     document.getElementById("2-faseEn").innerHTML = totalScore2;
     document.getElementById("2-bonus").innerHTML = ikkeBonus;
-  }
+  }*/
 }
 
 function toPar(mitt_kast) {
@@ -559,11 +624,22 @@ function moveToTable() {
   console.log("Test moveToTable: " + sendTilId);
   console.log("Test moveToTable midlertidig_poeng: " + midlertidig_poeng);
   document.getElementById(sendTilId).innerHTML = midlertidig_poeng;
-  if (runde == 15 && hvemSinTur == 1) {
+  if (runde == 15) {
+    if (hvemSinTur == 1) {
+      document.getElementById("1-totalsum").innerHTML = totalScore1;
+    } else if (hvemSinTur == 2) {
+      document.getElementById("2-totalsum").innerHTML = totalScore2;
+    } else if (hvemSinTur == 3) {
+      document.getElementById("3-totalsum").innerHTML = totalScore3;
+    } else if (hvemSinTur == 4) {
+      document.getElementById("4-totalsum").innerHTML = totalScore4;
+    }
+  }
+  /*if (runde == 15 && hvemSinTur == 1) {
     document.getElementById("1-totalsum").innerHTML = totalScore1;
   } else if (runde == 15 && hvemSinTur == 2) {
     document.getElementById("2-totalsum").innerHTML = totalScore2;
-  }
+  }*/
 }
 
 function showDice() {
@@ -575,19 +651,6 @@ function showDice() {
     //console.log("Test showDiceId " + showDiceId);
     document.getElementById(showDiceId).src = diceName;
   }
-}
-
-function playerName() {
-  text = String(prompt("Skriv inn ditt spillernavn her!"));
-  document.getElementById("spiller1").innerHTML += text + "";
-  text1 = String(prompt("Skriv inn ditt spillernavn her!"));
-  document.getElementById("spiller2").innerHTML += text1 + "";
-  document.getElementById("navneknapp").style.display = "none";
-  document.getElementById("kasteKnapp").style.visibility = "visible";
-  document.getElementById("brett").style.backgroundColor = "#468f15";
-  document.getElementById("brett").style.backgroundImage =
-    "url('https://www.transparenttextures.com/patterns/60-lines.png')";
-  document.getElementById("brett").style.borderColor = "saddlebrown #713F00";
 }
 
 function moveDice0() {
@@ -636,11 +699,15 @@ function resetSpill() {
   runde = 0;
   totalScore1 = 0;
   totalScore2 = 0;
+  totalScore3 = 0;
+  totalScore4 = 0;
   antallSpillere = 1;
   spiller1 = "";
   spiller2 = "";
+  spiller3 = "";
+  spiller4 = "";
   hvemSinTur = 1;
-  for (var i = 1; i <= 2; i++) {
+  for (var i = 1; i <= 4; i++) {
     for (var y = 1; y < 16; y++) {
       console.log("Test resetSpill y + i: " + y + ", " + i);
       document.getElementById(i + "-" + y).innerHTML = "";
