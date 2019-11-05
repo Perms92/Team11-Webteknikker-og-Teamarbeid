@@ -35,8 +35,7 @@ function kasteKnapp() {
       runde += 1;
       hvemSinTur = 1;
       rundeForteller(spiller1);
-    }
-    else if (hvemSinTur == 1 && antallSpillere == 1) {
+    } else if (hvemSinTur == 1 && antallSpillere == 1) {
       runde += 1;
       rundeForteller(spiller1);
     }
@@ -95,7 +94,7 @@ function startKast() {
   document.getElementById("dicePos4").style.transition = "all 0.5s";
   document.getElementById("dicePos4").style.marginBottom = "0%";
   document.getElementById("rundeForteller").style.border = "solid";
-  document.getElementById("rundeForteller").style.borderColor = "saddlebrown";
+  document.getElementById("rundeForteller").style.borderColor = "black";
   document.getElementById("rundeForteller").style.borderWidth = "5px";
 
   document.getElementById(0).checked = false;
@@ -548,7 +547,11 @@ function yatzy() {
 
 function fakeYatzy() {
   mitt_kast.sort();
-  if (mitt_kast[0] == mitt_kast [1] == mitt_kast [2] == mitt_kast [3] == mitt_kast[4] && runde <= 14) {
+  if (
+    (((mitt_kast[0] == mitt_kast[1]) == mitt_kast[2]) == mitt_kast[3]) ==
+      mitt_kast[4] &&
+    runde <= 14
+  ) {
     alert("Yatzy!! Beklager, men det telles ikke denne gang.");
   }
 }
@@ -587,7 +590,7 @@ function playerName() {
   document.getElementById("brett").style.backgroundColor = "#468f15";
   document.getElementById("brett").style.backgroundImage =
     "url('https://www.transparenttextures.com/patterns/60-lines.png')";
-  document.getElementById("brett").style.borderColor = "saddlebrown #713F00";
+  document.getElementById("brett").style.borderColor = "black";
 }
 
 function moveDice0() {

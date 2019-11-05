@@ -36,7 +36,8 @@ function playerName() {
   let erTomt = "true";
   while (erTomt == "true") {
     try {
-      if (spiller1 == "" || spiller1 == "null") throw "Spiller 1 må ha et navn, dummen!";
+      if (spiller1 == "" || spiller1 == "null")
+        throw "Spiller 1 må ha et navn, dummen!";
       if (spiller1 != "") {
         erTomt = "false";
       }
@@ -52,10 +53,10 @@ function playerName() {
   document.getElementById("spiller2").innerHTML = spiller2 + "";
   document.getElementById("navneknapp").style.display = "none";
   document.getElementById("kasteKnapp").style.visibility = "visible";
-  document.getElementById("brett").style.backgroundColor = "#468f15";
+  document.getElementById("brett").style.backgroundColor = "#af0404";
   document.getElementById("brett").style.backgroundImage =
     "url('https://www.transparenttextures.com/patterns/60-lines.png')";
-  document.getElementById("brett").style.borderColor = "saddlebrown #713F00";
+  document.getElementById("brett").style.borderColor = "#414141";
 }
 
 /*let testpersoner = [
