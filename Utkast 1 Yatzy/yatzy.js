@@ -41,7 +41,7 @@ function kasteKnapp() {
       rundeForteller(spiller1);
     }
     if (runde == 16) {
-      resetSpill();
+      x.innerHTML = "Nytt spill";
     }
   } else if (x.innerHTML === "Start kast") {
     antallKast += 1;
@@ -50,6 +50,7 @@ function kasteKnapp() {
     startKast();
     showDice();
   } else if (x.innerHTML === "Start runde 1" || x.innerHTML === "Nytt spill") {
+    resetSpill();
     spiller1 = document.getElementById("spiller1").innerHTML;
     spiller2 = document.getElementById("spiller2").innerHTML;
     console.log("Test spiller 1 " + spiller1);
@@ -293,7 +294,6 @@ function score() {
       totalScore2 += midlertidig_poeng;
       console.log("test score() runde 15 " + totalScore2);
       console.log("test score() midlertidig_poeng " + midlertidig_poeng);
-      document.getElementById("kasteKnapp").style.visibility = "hidden";
     }
   }
 }
@@ -631,7 +631,6 @@ function moveDice4() {
 }
 
 function resetSpill() {
-  var x = document.getElementById("kasteKnapp");
   midlertidig_poeng = 0;
   antallKast = 0;
   runde = 0;
@@ -641,5 +640,13 @@ function resetSpill() {
   spiller1 = "";
   spiller2 = "";
   hvemSinTur = 1;
-  x.innerHTML = "Nytt spill";
+  for (var i = 1; i <= 2; i++) {
+    for (var y = 1; y < 16; y++) {
+      console.log("Test resetSpill y + i: " + y + ", " + i);
+      document.getElementById(i + "-" + y).innerHTML = "";
+    }
+    document.getElementById(i + "-faseEn").innerHTML = "";
+    document.getElementById(i + "-bonus").innerHTML = "";
+    document.getElementById(i + "-totalsum").innerHTML = "";
+  }
 }
