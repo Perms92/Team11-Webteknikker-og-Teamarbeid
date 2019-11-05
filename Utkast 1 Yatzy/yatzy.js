@@ -90,7 +90,7 @@ function startKast() {
   document.getElementById("dicePos4").style.transition = "all 0.5s";
   document.getElementById("dicePos4").style.marginBottom = "0%";
   document.getElementById("rundeForteller").style.border="solid";
-  document.getElementById("rundeForteller").style.borderColor="saddlebrown";
+  document.getElementById("rundeForteller").style.borderColor="red";
   document.getElementById("rundeForteller").style.borderWidth="5px";
 
   document.getElementById(0).checked = false;
@@ -590,6 +590,7 @@ function moveToTable(){
   }
   else if (runde == 15 && hvemSinTur == 2) {
     document.getElementById("2-totalsum").innerHTML = totalScore2;
+    document.getElementById("kasteKnapp").style.display="none";
   }
 }
 
@@ -614,7 +615,7 @@ function playerName() {
   document.getElementById("brett").style.backgroundColor = "#468f15";
   document.getElementById("brett").style.backgroundImage =
     "url('https://www.transparenttextures.com/patterns/60-lines.png')";
-  document.getElementById("brett").style.borderColor = "saddlebrown #713F00";
+  document.getElementById("brett").style.borderColor = "#000000 #010101";
 }
 
 //jeg kodet i blinde :-(, aner ikke hva jeg skal gjøre, RIP <3
@@ -641,7 +642,7 @@ function moveDice0() {
 
 function moveDice1() {
   if (document.getElementById("dicePos1").style.marginBottom == "-850%") {
-    document.getElementById("dicePos1").style.marginBottom = "5%";
+    document.getElementById("dicePos1").style.marginBottom = "0%";
   } else {
     document.getElementById("dicePos1").style.marginBottom = "-850%";
   }
@@ -649,28 +650,24 @@ function moveDice1() {
 
 function moveDice2() {
   if (document.getElementById("dicePos2").style.marginBottom == "-850%") {
-    document.getElementById("dicePos2").style.marginBottom = "5%";
+    document.getElementById("dicePos2").style.marginBottom = "0%";
   } else {
     document.getElementById("dicePos2").style.marginBottom = "-850%";
   }
 }
 
 function moveDice3() {
-  if (document.getElementById("dicePos3").style.marginBottom == "-850%") {
-    document.getElementById("dicePos3").style.marginBottom = "5%";
+  if (document.getElementById("dicePos3").style.marginBottom == "-450%") {
+    document.getElementById("dicePos3").style.marginBottom = "0%";
   } else {
-    document.getElementById("dicePos3").style.marginBottom = "-850%";
+    document.getElementById("dicePos3").style.marginBottom = "-450%";
   }
 }
 
 function moveDice4() {
-  if (document.getElementById("dicePos4").style.marginBottom == "-850%") {
-    document.getElementById("dicePos4").style.marginBottom = "5%";
+  if (document.getElementById("dicePos4").style.marginBottom == "-450%") {
+    document.getElementById("dicePos4").style.marginBottom = "0%";
   } else {
-    document.getElementById("dicePos4").style.marginBottom = "-850%";
+    document.getElementById("dicePos4").style.marginBottom = "-450%";
   }
 }
-/*
-if (runde == 15) {
-  document.getElementById("kasteKnapp").style.visibility="hidden";
-} */

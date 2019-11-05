@@ -7,8 +7,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
     <link rel="stylesheet" media='(min-width: 1025px)' type="text/css" href="stylesheet.css">
   <link rel="stylesheet" type="text/css" media='(max-width: 1024px)' href="stylesheetmobile.css">
-      <link href="https://fonts.googleapis.com/css?family=Be+Vietnam&display=swap" rel="stylesheet">
-  </head>
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">  </head>
   <body>
     <div id="container">
 
@@ -17,14 +16,18 @@
         <h1><img src="img/logo.png" alt="Logo" id="logo" onclick="window.location.href = 'index.html';"><br>
           <img src="img/dice.png" alt="Dices" id="dice" onclick="window.location.href = 'index.html';"></h1>
         <br><br><br>
-        <h3><button onclick="regler()">Regler</button></h3>
+        <h3><button onclick="regler()" class="knappVenstreSide">Regler</button></h3>
 
         <div id="regler">
-          Meningen med spillet er å oppnå en høyest mulig poengsum. Poeng
-          tildeles for 15 forskjellige terningkombinasjonstyper. I hver runde
-          får hver spiller inntil tre kast for å oppnå én av disse typene.
-          Bortsett fra i det første kastet, kan spilleren velge å legge til side
-          et antall av terningene og kaste kun de resterende.
+          Få høyest mulig poengsum på Yatzy! Trykk på terningene for å beholde dem,
+          slik at de ikke ruller. Du får tre kast per kategori.
+          Trenger du en liten oppfriskning på reglene? <br> <br>
+          - Liten straight er 1-5 <br>
+          - Stor straight er 2-6 <br>
+          - Fullt hus er 3 like + 2 like <br>
+          - På sjanse skal du få høyest mulig tall på alle terningene <br>
+          - På Yatzy skal du få 5 like <br> <br>
+          Lykke til!
           <div id="checkboxer">
             <input type="checkbox" id=0>
             <input type="checkbox" id=1>
@@ -32,8 +35,20 @@
             <input type="checkbox" id=3>
             <input type="checkbox" id=4>
           </div>
+
+
         </div>
+        <button onclick="visHighscore()" class="knappVenstreSide">Highscore
+        </button>
       </div>
+      <div id="popUpContainer">
+
+      <div id="hsPopUp">
+        <ol id="hs">
+        </ol>
+        <button type="button" name="button" onclick="visHighscore()" id="gaTilbake">Gå tilbake</button>
+      </div>
+    </div>
 
       <div id="second">
         <div id="brett">
@@ -46,9 +61,12 @@
           <label for="4" onclick="moveDice4()"><img height="40px" id="dicePos4" class="dices" draggable="false"></label>
           <br>
 
-          <button onclick="playerName()" id="navneknapp">START SPILL</button><br>
+            <button onclick="playerName()" id="navneknapp" class="knappBrett"><img src="img/logo.png" alt="Logo" id="logo">
+            <br><img src="img/dice.png" alt="Dices" id="dice">
+            <br><br>START SPILL</button><br>
+
         </div>
-        <button onclick="kasteKnapp()" id="kasteKnapp">Start runde 1</button>
+        <button onclick="kasteKnapp()" id="kasteKnapp" class="knappBrett">Start runde 1</button>
       </div>
 
       <div id="third">
@@ -160,6 +178,16 @@
     <script src="menyer.js"></script>
     <br>
     <br>
-    <p>© NTNU Digital Forretningsutvikling 2019</p>
+    <p>© NTNU Digital Forretningsutvikling høsten 2019</p>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <!--  <script src="/__/firebase/7.2.3/firebase-app.js"></script> -->
+
+    <!-- : Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+  <!--  <script src="/__/firebase/7.2.3/firebase-analytics.js"></script> -->
+
+    <!-- Initialize Firebase -->
+  <!--  <script src="/__/firebase/init.js"></script> -->
   </body>
 </html>
