@@ -106,7 +106,7 @@ function startKast() {
   document.getElementById("dicePos4").style.transition = "all 0.5s";
   document.getElementById("dicePos4").style.marginBottom = "0%";
   document.getElementById("rundeForteller").style.border = "solid";
-  document.getElementById("rundeForteller").style.borderColor = "saddlebrown";
+  document.getElementById("rundeForteller").style.borderColor = "black";
   document.getElementById("rundeForteller").style.borderWidth = "5px";
 
   document.getElementById(0).checked = false;
@@ -613,7 +613,11 @@ function yatzy() {
 
 function fakeYatzy() {
   mitt_kast.sort();
-  if (mitt_kast[0] == mitt_kast [1] == mitt_kast [2] == mitt_kast [3] == mitt_kast[4] && runde <= 14) {
+  if (
+    (((mitt_kast[0] == mitt_kast[1]) == mitt_kast[2]) == mitt_kast[3]) ==
+      mitt_kast[4] &&
+    runde <= 14
+  ) {
     alert("Yatzy!! Beklager, men det telles ikke denne gang.");
   }
 }
