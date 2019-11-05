@@ -51,14 +51,18 @@ function playerName() {
     spiller2 = "";
   }
   document.getElementById("spiller2").innerHTML = spiller2 + "";
-  spiller3 = String(prompt("Skriv inn spiller 3 eller la stå åpen"));
-  if (spiller3 == "null") {
-    spiller3 = "";
-  }
-  document.getElementById("spiller3").innerHTML = spiller3 + "";
-  spiller4 = String(prompt("Skriv inn spiller 4 eller la stå åpen"));
-  if (spiller4 == "null") {
-    spiller4 = "";
+  if (spiller2 != "") {
+    spiller3 = String(prompt("Skriv inn spiller 3 eller la stå åpen"));
+    if (spiller3 == "null") {
+      spiller3 = "";
+    }
+    document.getElementById("spiller3").innerHTML = spiller3 + "";
+    if (spiller3 != "") {
+      spiller4 = String(prompt("Skriv inn spiller 4 eller la stå åpen"));
+      if (spiller4 == "null") {
+        spiller4 = "";
+      }
+    }
   }
   document.getElementById("spiller4").innerHTML = spiller4 + "";
   document.getElementById("navneknapp").style.display = "none";
