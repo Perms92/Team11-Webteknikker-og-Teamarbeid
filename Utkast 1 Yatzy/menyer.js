@@ -67,10 +67,10 @@ function playerName() {
   document.getElementById("spiller4").innerHTML = spiller4 + "";
   document.getElementById("navneknapp").style.display = "none";
   document.getElementById("kasteKnapp").style.visibility = "visible";
-  document.getElementById("brett").style.backgroundColor = "#af0404";
+  document.getElementById("brett").style.backgroundColor = "#bd1c00";
   document.getElementById("brett").style.backgroundImage =
     "url('https://www.transparenttextures.com/patterns/60-lines.png')";
-  document.getElementById("brett").style.borderColor = "#414141";
+  document.getElementById("brett").style.borderColor = "#5c5c5c #4d4d4d";
 }
 
 /*let testpersoner = [
