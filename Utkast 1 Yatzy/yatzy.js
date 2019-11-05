@@ -40,13 +40,16 @@ function kasteKnapp() {
       runde += 1;
       rundeForteller(spiller1);
     }
+    if (runde == 16) {
+      resetSpill();
+    }
   } else if (x.innerHTML === "Start kast") {
     antallKast += 1;
     //console.log("Test 4 kasteKnapp()");
     x.innerHTML = "Neste kast";
     startKast();
     showDice();
-  } else if (x.innerHTML === "Start runde 1") {
+  } else if (x.innerHTML === "Start runde 1" || x.innerHTML === "Nytt spill") {
     spiller1 = document.getElementById("spiller1").innerHTML;
     spiller2 = document.getElementById("spiller2").innerHTML;
     console.log("Test spiller 1 " + spiller1);
@@ -285,17 +288,12 @@ function score() {
       totalScore1 += midlertidig_poeng;
       console.log("test score() runde 15 " + totalScore1);
       console.log("test score() midlertidig_poeng " + midlertidig_poeng);
-      if (antallSpillere == 1) {
-        document.getElementById("kasteKnapp").style.visibility = "hidden";
-        resetSpill();
-      }
     } else if (hvemSinTur == 2) {
       midlertidig_poeng = yatzy();
       totalScore2 += midlertidig_poeng;
       console.log("test score() runde 15 " + totalScore2);
       console.log("test score() midlertidig_poeng " + midlertidig_poeng);
       document.getElementById("kasteKnapp").style.visibility = "hidden";
-      resetSpill();
     }
   }
 }
@@ -550,11 +548,7 @@ function yatzy() {
 
 function fakeYatzy() {
   mitt_kast.sort();
-  if (
-    (((mitt_kast[0] == mitt_kast[1]) == mitt_kast[2]) == mitt_kast[3]) ==
-      mitt_kast[4] &&
-    runde <= 14
-  ) {
+  if (mitt_kast[0] == mitt_kast [1] == mitt_kast [2] == mitt_kast [3] == mitt_kast[4] && runde <= 14) {
     alert("Yatzy!! Beklager, men det telles ikke denne gang.");
   }
 }
@@ -638,4 +632,14 @@ function moveDice4() {
 
 function resetSpill() {
   var x = document.getElementById("kasteKnapp");
+  midlertidig_poeng = 0;
+  antallKast = 0;
+  runde = 0;
+  totalScore1 = 0;
+  totalScore2 = 0;
+  antallSpillere = 1;
+  spiller1 = "";
+  spiller2 = "";
+  hvemSinTur = 1;
+  x.innerHTML = "Nytt spill";
 }
