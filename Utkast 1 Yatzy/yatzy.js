@@ -571,7 +571,7 @@ function yatzy() {
 }
 
 function fakeYatzy(){
-  mitt_kast.sort();
+
   if (mitt_kast[0] == mitt_kast [1] == mitt_kast [2] == mitt_kast [3] == mitt_kast[4] && runde <= 14) {
     alert("Yatzy!! Beklager, men det telles ikke denne gang.");
   }
@@ -583,6 +583,10 @@ function moveToTable(){
   console.log("Test moveToTable: " + sendTilId);
   console.log("Test moveToTable midlertidig_poeng: " + midlertidig_poeng);
   document.getElementById(sendTilId).innerHTML = midlertidig_poeng;
+  if (runde == 15)
+  {
+    document.get("")
+  }
   if (runde == 15 && hvemSinTur == 1) {
     document.getElementById("1-totalsum").innerHTML = totalScore1;
   }
@@ -669,6 +673,14 @@ function moveDice4() {
   }
 }
 /*
-if (runde == 15) {
+if (spiller2 != "") {
+  document.getElementById("avatar").visibility = "visible";
+} */
+
+/*
+if (spiller2 == "" && runde == 15) {
+  document.getElementById("kasteKnapp").style.visibility="hidden";
+}
+else if (spiller2 != "" && runder == 30) {
   document.getElementById("kasteKnapp").style.visibility="hidden";
 } */

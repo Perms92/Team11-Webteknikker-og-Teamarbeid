@@ -214,3 +214,28 @@ td {
 .dices:hover {
   opacity: 0.8;
 }
+.avatar {
+  padding: 10px;
+  width: 74px;
+  height: 74px;
+  border-radius: 50%;
+}
+/* top-left border-radius */
+table tr:first-child th:first-child {
+  border-top-left-radius: 8px;
+}
+
+/* top-right border-radius */
+table tr:first-child th:last-child {
+  border-top-right-radius: 8px;
+}
+
+/* bottom-left border-radius */
+table tr:last-child td:first-child {
+  border-bottom-left-radius: 8px;
+}
+
+/* bottom-right border-radius */
+table tr:last-child td:last-child {
+  border-bottom-right-radius: 8px;
+}
