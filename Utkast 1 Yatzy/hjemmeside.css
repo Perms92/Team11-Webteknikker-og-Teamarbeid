@@ -1,6 +1,37 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
+div {
+  border: 2px solid rgb(113, 115, 130);
+}
+#container {
+  height: inherit;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 100px 1fr 1fr 100px;
+  grid-template-areas:
+    'h h h h'
+    'c c c c'
+    'c c c c'
+    'f f f f';
+  grid-gap: 10px;
+}
+#header {
+  grid-area: h;
+  justify-content: center;
+}
+
+#toggleButtons {
+  margin: auto;
+  margin-top: 100px;
+  grid-area: c;
+}
+#fancyStartButton {
+  grid-area: f;
+}
 button {
-  background-color: ; /* Green */
-  border: 1px solid green;
+  border: 2px solid rgb(113, 115, 130);
   color: white;
   padding: 15px 32px;
   text-align: center;
@@ -8,7 +39,6 @@ button {
   display: inline-block;
   font-size: 24px;
   cursor: pointer;
-  float: left;
   margin: 0;
 }
 
@@ -34,4 +64,13 @@ background-color: rgb(247, 252, 140);
   background-color: rgb(255, 185, 110);
   border-top-right-radius: 25px;
   border-bottom-right-radius: 25px;
+}
+input {
+  height: 16px;
+  width: 150px;
+  display: block;
+  margin-top: 2px;
+}
+#playerNames {
+  margin: 0 auto;
 }
