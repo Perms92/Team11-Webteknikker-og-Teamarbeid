@@ -35,8 +35,13 @@ function kasteKnapp() {
 
     if (hvemSinTur != antallSpillere) {
       hvemSinTur += 1;
-      var spiller = "spiller" + hvemSinTur;
-      rundeForteller(spiller);
+      if (hvemSinTur == 2) {
+        rundeForteller(spiller2);
+      } else if (hvemSinTur == 3) {
+        rundeForteller(spiller3);
+      } else if (hvemSinTur == 4) {
+        rundeForteller(spiller4);
+      }
     }
     else if (hvemSinTur == antallSpillere) {
       runde += 1;
