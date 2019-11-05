@@ -2,7 +2,8 @@ body {
   margin: 0;
   text-align: center;
   font-family: "Be Vietnam", sans-serif;
-  background: url(img/pattern5.png);
+  background-color: #e6e6e6;
+  background-image: url("https://www.transparenttextures.com/patterns/gplay.png");
 }
 
 #container {
@@ -34,7 +35,7 @@ body {
   background-image: url("https://www.transparenttextures.com/patterns/60-lines.png");
   border-radius: 10px;
   border: 18px solid;
-  border-color: #a98559 #a47c4a;
+  border-color: #000000 #141414;
   padding: 0px 50px 250px 50px;
   margin-bottom: -110px;
   margin-top: 4%;
@@ -51,20 +52,65 @@ p {
   font-size: 20px;
 }
 
-button {
-  padding: 20px;
+#gaTilbake {
+  padding: 10px;
   display: inline-block;
-  font-size: 24px;
+  font-size: 14px;
   cursor: pointer;
-  border: 4px solid;
-  border-color: saddlebrown;
-  background-color: #808080;
+  border: 2px solid black;
+  border-color: #ff0900;
+  background-color: #ffffff;
   opacity: 0.7;
   font-family: "Be Vietnam", sans-serif;
   font-weight: 700;
   color: #ffffff;
   border-radius: 5px;
   text-align: center;
+  color: black;
+}
+
+#gaTilbake:hover {
+  transform: scale(1.05);
+  transition-duration: 1.2s;
+  background: url(img/pattern5.png);
+  background-color: #d2d2d2;
+  border-color: #ff0900;
+  color: black;
+}
+
+.knappVenstreSide {
+  display: inline-block;
+  font-size: 24px;
+  cursor: pointer;
+  border: 4px solid;
+  border-color: #ff0900;
+  background-color: #ffffff;
+  opacity: 0.7;
+  font-family: "Be Vietnam", sans-serif;
+  font-weight: 700;
+  color: black;
+  border-radius: 5px;
+  text-align: center;
+  width: 200px;
+  height: 80px;
+  padding: 20px;
+  margin: 10px;
+}
+
+.knappBrett {
+  padding: 20px;
+  display: inline-block;
+  font-size: 24px;
+  cursor: pointer;
+  border: 4px solid #ff0900;
+  background-color: #808080;
+  opacity: 0.7;
+  font-family: "Be Vietnam", sans-serif;
+  font-weight: 700;
+  color: #000000;
+  border-radius: 5px;
+  text-align: center;
+  margin: 10px;
 }
 
 button:hover {
@@ -72,7 +118,7 @@ button:hover {
   transition-duration: 1.2s;
   background: url(img/pattern5.png);
   background-color: #d2d2d2;
-  border-color: saddlebrown;
+  border-color: #ff0900;
   color: black;
 }
 
@@ -88,15 +134,16 @@ button:active {
   font-size: 24px;
   cursor: pointer;
   border: 4px solid;
-  border-color: saddlebrown;
-  background-color: #808080;
+  border-color: #ff0900;
+  background-color: #ffffff;
   opacity: 1;
   font-family: "Be Vietnam", sans-serif;
   font-weight: 700;
-  color: #ffffff;
+  color: #000000;
   border-radius: 5px;
   text-align: center;
   visibility: hidden;
+  margin: auto;
 }
 
 #kasteKnapp:hover {
@@ -104,7 +151,7 @@ button:active {
   transition-duration: 1.2s;
   background: url(img/pattern5.png);
   background-color: #d2d2d2;
-  border-color: saddlebrown;
+  border-color: #ff0900;
   color: black;
 }
 
@@ -112,6 +159,7 @@ button:active {
   transform: scale(1.1);
   cursor: default;
   transition-duration: 0.5s;
+  border-color: #ff0900;
 }
 
 #navneknapp {
@@ -121,13 +169,14 @@ button:active {
   top: 0;
   left: 0;
   right: 0;
-  background-color: black;
+  background-color: white;
   z-index: 2;
   margin: 0;
   padding: 0;
-  opacity: 0.7;
+  opacity: 0.8;
   border: 5px;
-  font-size: 40px;
+  font-size: 46px;
+  color: black;
 }
 
 #dice {
@@ -169,15 +218,18 @@ table {
 }
 
 th {
-  background-color: #cfe0c3;
-  color: #1f363d;
+  background-color: #414141;
+  color: #ffffff;
   padding: 10px;
-  border-bottom: 4px solid;
+  border-bottom: 7px solid #ff0900;
+  /*border: 1px solid #1f363d;*/
 }
 
 td {
-  background-color: #b4b5b5;
+  background-color: #ffffff;
   padding: 5px;
+  /*border: 1px solid #1f363d;*/
+  border-bottom: 0.5px solid #000000;
 }
 
 #terninger {
@@ -220,6 +272,51 @@ td {
   height: 74px;
   border-radius: 50%;
 }
+
+#hsPopUp {
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 500px;
+  width: 500px;
+  border: 1px solid black;
+  background-color: white;
+}
+
+#popUpContainer {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(204, 204, 204, 0.5);
+  position: absolute;
+  display: none;
+}
+
+@media (max-width: 800px) {
+  #container {
+    display: grid;
+  }
+  #first {
+    flex: 1;
+  }
+  #second {
+    flex: 1;
+  }
+
+  #third {
+    flex: 0.5;
+  }
+  #gaTilbake {
+    display: none;
+  }
+  #logo {
+    width: 200px;
+    margin: auto;
+  }
+}
+
 /* top-left border-radius */
 table tr:first-child th:first-child {
   border-top-left-radius: 8px;

@@ -7,8 +7,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
     <link rel="stylesheet" media='(min-width: 1025px)' type="text/css" href="stylesheet.css">
   <link rel="stylesheet" type="text/css" media='(max-width: 1024px)' href="stylesheetmobile.css">
-      <link href="https://fonts.googleapis.com/css?family=Be+Vietnam&display=swap" rel="stylesheet">
-  </head>
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">  </head>
   <body>
     <div id="container">
 
@@ -17,14 +16,18 @@
         <h1><img src="img/logo.png" alt="Logo" id="logo" onclick="window.location.href = 'index.html';"><br>
           <img src="img/dice.png" alt="Dices" id="dice" onclick="window.location.href = 'index.html';"></h1>
         <br><br><br>
-        <h3><button onclick="regler()">Regler</button></h3>
+        <h3><button onclick="regler()" class="knappVenstreSide">Regler</button></h3>
 
         <div id="regler">
-          Meningen med spillet er å oppnå en høyest mulig poengsum. Poeng
-          tildeles for 15 forskjellige terningkombinasjonstyper. I hver runde
-          får hver spiller inntil tre kast for å oppnå én av disse typene.
-          Bortsett fra i det første kastet, kan spilleren velge å legge til side
-          et antall av terningene og kaste kun de resterende.
+          Få høyest mulig poengsum på Yatzy! Trykk på terningene for å beholde dem,
+          slik at de ikke ruller. Du får tre kast per kategori.
+          Trenger du en liten oppfriskning på reglene? <br> <br>
+          - Liten straight er 1-5 <br>
+          - Stor straight er 2-6 <br>
+          - Fullt hus er 3 like + 2 like <br>
+          - På sjanse skal du få høyest mulig tall på alle terningene <br>
+          - På Yatzy skal du få 5 like <br> <br>
+          Lykke til!
           <div id="checkboxer">
             <input type="checkbox" id=0>
             <input type="checkbox" id=1>
@@ -32,8 +35,20 @@
             <input type="checkbox" id=3>
             <input type="checkbox" id=4>
           </div>
+
+
         </div>
+        <button onclick="visHighscore()" class="knappVenstreSide">Highscore
+        </button>
       </div>
+      <div id="popUpContainer">
+
+      <div id="hsPopUp">
+        <ol id="hs">
+        </ol>
+        <button type="button" name="button" onclick="visHighscore()" id="gaTilbake">Gå tilbake</button>
+      </div>
+    </div>
 
       <div id="second">
         <div id="brett">
@@ -46,9 +61,12 @@
           <label for="4" onclick="moveDice4()"><img height="40px" id="dicePos4" class="dices" draggable="false"></label>
           <br>
 
-          <button onclick="playerName()" id="navneknapp">START SPILL</button><br>
+          <button onclick="playerName()" id="navneknapp" class="knappBrett"><img src="img/logo.png" alt="Logo" id="logo">
+            <br><img src="img/dice.png" alt="Dices" id="dice" >
+            <br><br>START SPILL</button><br>
+
         </div>
-        <button onclick="kasteKnapp()" id="kasteKnapp">Start runde 1</button>
+        <button onclick="kasteKnapp()" id="kasteKnapp" class="knappBrett">Start runde 1</button>
       </div>
 
       <div id="third">
@@ -59,96 +77,134 @@
             </th>
             <th id="spiller1"></th>
             <th id="spiller2"></th>
+            <th id="spiller3"></th>
+            <th id="spiller4"></th>
           </tr>
           <tr id="enere">
             <td>Enere</td>
             <td id="1-1"></td>
             <td id="2-1"></td>
+            <td id="3-1"></td>
+            <td id="4-1"></td>
           </tr>
           <tr id="toere">
             <td>Toere</td>
             <td id="1-2"></td>
             <td id="2-2"></td>
+            <td id="3-2"></td>
+            <td id="4-2"></td>
           </tr>
           <tr id="treere">
             <td>Treere</td>
             <td id="1-3"></td>
             <td id="2-3"></td>
+            <td id="3-3"></td>
+            <td id="4-3"></td>
           </tr>
           <tr id="firere">
             <td>Firere</td>
             <td id="1-4"></td>
             <td id="2-4"></td>
+            <td id="3-4"></td>
+            <td id="4-4"></td>
           </tr>
           <tr id="femmere">
             <td>Femmere</td>
             <td id="1-5"></td>
             <td id="2-5"></td>
+            <td id="3-5"></td>
+            <td id="4-5"></td>
           </tr>
           <tr id="seksere">
             <td>Seksere</td>
             <td id="1-6"></td>
             <td id="2-6"></td>
+            <td id="3-6"></td>
+            <td id="4-6"></td>
           </tr>
           <tr id="sum">
             <td><b>Sum</b></td>
             <td id="1-faseEn"></td>
             <td id="2-faseEn"></td>
+            <td id="3-faseEn"></td>
+            <td id="4-faseEn"></td>
           </tr>
           <tr id="bonus">
             <td><b>Bonus</b></td>
             <td id="1-bonus"></td>
             <td id="2-bonus"></td>
+            <td id="3-bonus"></td>
+            <td id="4-bonus"></td>
           </tr>
           <tr id="1par">
             <td>1 par</td>
             <td id="1-7"></td>
             <td id="2-7"></td>
+            <td id="3-7"></td>
+            <td id="4-7"></td>
           </tr>
           <tr id="2par">
             <td>2 par</td>
             <td id="1-8"></td>
             <td id="2-8"></td>
+            <td id="3-8"></td>
+            <td id="4-8"></td>
           </tr>
           <tr id="3like">
             <td>3 like</td>
             <td id="1-9"></td>
             <td id="2-9"></td>
+            <td id="3-9"></td>
+            <td id="4-9"></td>
           </tr>
           <tr id="4like">
             <td>4 like</td>
             <td id="1-10"></td>
             <td id="2-10"></td>
+            <td id="3-10"></td>
+            <td id="4-10"></td>
           </tr>
           <tr id="litenStraight">
             <td>Liten straight</td>
             <td id="1-11"></td>
             <td id="2-11"></td>
+            <td id="3-11"></td>
+            <td id="4-11"></td>
           </tr>
           <tr id="storStraight">
             <td>Stor straight</td>
             <td id="1-12"></td>
             <td id="2-12"></td>
+            <td id="3-12"></td>
+            <td id="4-12"></td>
           </tr>
           <tr id="hus">
             <td>Hus</td>
             <td id="1-13"></td>
             <td id="2-13"></td>
+            <td id="3-13"></td>
+            <td id="4-13"></td>
           </tr>
           <tr id="sjanse">
             <td>Sjanse</td>
             <td id="1-14"></td>
             <td id="2-14"></td>
+            <td id="3-14"></td>
+            <td id="4-14"></td>
           </tr>
           <tr id="yatzy">
             <td>Yatzy</td>
             <td id="1-15"></td>
             <td id="2-15"></td>
+            <td id="3-15"></td>
+            <td id="4-15"></td>
           </tr>
           <tr id="totalsum">
             <td>Totalsum</td>
             <td id="1-totalsum"></td>
             <td id="2-totalsum"></td>
+            <td id="3-totalsum"></td>
+            <td id="4-totalsum"></td>
           </tr>
         </table>
         </div>
@@ -160,6 +216,6 @@
     <script src="menyer.js"></script>
     <br>
     <br>
-    <p>© NTNU Digital Forretningsutvikling 2019</p>
+    <p>© NTNU Digital Forretningsutvikling høsten 2019</p>
   </body>
 </html>
