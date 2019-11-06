@@ -134,7 +134,7 @@ button:active {
   font-size: 24px;
   cursor: pointer;
   border: 4px solid;
-  border-color: #ff0900;
+  border-color: #4d4d4d;
   background-color: #ffffff;
   opacity: 1;
   font-family: "Be Vietnam", sans-serif;
@@ -151,7 +151,7 @@ button:active {
   transition-duration: 1.2s;
   background: url(img/pattern5.png);
   background-color: #d2d2d2;
-  border-color: #ff0900;
+  border-color: #4d4d4d;
   color: black;
 }
 
@@ -159,7 +159,7 @@ button:active {
   transform: scale(1.1);
   cursor: default;
   transition-duration: 0.5s;
-  border-color: #ff0900;
+  border-color: #4d4d4d;
 }
 
 #navneknapp {
@@ -218,7 +218,7 @@ table {
 }
 
 th {
-  background-color: #414141;
+  background-color: #4d4d4d;
   color: #ffffff;
   padding: 10px;
   border-bottom: 7px solid #ff0900;
