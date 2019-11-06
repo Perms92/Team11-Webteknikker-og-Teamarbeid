@@ -16,7 +16,7 @@
         <h1><img src="img/logo.png" alt="Logo" id="logo" onclick="window.location.href = 'index.html';"><br>
           <img src="img/dice.png" alt="Dices" id="dice" onclick="window.location.href = 'index.html';"></h1>
         <br><br><br>
-        <h3><button onclick="regler()" class="knappVenstreSide">Regler</button></h3>
+        <h3><button onclick="regler()" class="knappVenstreSide" id="reglerButton">Regler</button></h3>
 
         <div id="regler">
           Få høyest mulig poengsum på Yatzy! Trykk på terningene for å beholde dem,
@@ -38,7 +38,7 @@
 
 
         </div>
-        <button onclick="visHighscore()" class="knappVenstreSide">Highscore
+        <button onclick="visHighscore()" id="highscoreId" class="knappVenstreSide">Highscore
         </button>
       </div>
       <div id="popUpContainer">
@@ -46,7 +46,19 @@
       <div id="hsPopUp">
         <ol id="hs">
         </ol>
-        <button type="button" name="button" onclick="visHighscore()" id="gaTilbake">Gå tilbake</button>
+        <button type="button" name="button" onclick="visHighscore()" id="gaTilbakeHs">Gå tilbake</button>
+      </div>
+    </div>
+
+    <div id="finalScore">
+      <div id="finalScorePopUp">
+        <ol id="finalScoreListe">
+          <li id="plass1"></li>
+          <li id="plass2"></li>
+          <li id="plass3"></li>
+          <li id="plass4"></li>
+        </ol>
+          <button type="button" name="button" onclick="finalScore()" id="gaTilbakeFinalScore">Gå tilbake</button>
       </div>
     </div>
 
@@ -61,8 +73,8 @@
           <label for="4" onclick="moveDice4()"><img height="40px" id="dicePos4" class="dices" draggable="false"></label>
           <br>
 
-          <button onclick="playerName()" id="navneknapp" class="knappBrett"><img src="img/logo.png" alt="Logo" id="logo">
-            <br><img src="img/dice.png" alt="Dices" id="dice" >
+            <button onclick="playerName()" id="navneknapp" class="knappBrett"><img src="img/logo.png" alt="Logo" id="logo">
+            <br><img src="img/dice.png" alt="Dices" id="dice">
             <br><br>START SPILL</button><br>
 
         </div>
@@ -214,7 +226,6 @@
 
     <script src="yatzy.js"></script>
     <script src="menyer.js"></script>
-    <br>
     <br>
     <p>© NTNU Digital Forretningsutvikling høsten 2019</p>
   </body>
