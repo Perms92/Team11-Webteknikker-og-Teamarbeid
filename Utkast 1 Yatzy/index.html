@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" media='(max-width: 1024px)' href="stylesheetmobile.css">
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
   </head>
-  <body>
+  <body onload="settSpillernavn()">
     <div id="container">
 
       <div id="first">
@@ -59,7 +59,8 @@
           <li id="plass3"></li>
           <li id="plass4"></li>
         </ol>
-          <button type="button" name="button" onclick="finalScore()" id="gaTilbakeFinalScore">Gå tilbake</button>
+          <button type="button" id="nyeSpillere" onclick="finalScore(this.id)">Nye spillere</button>
+          <button type="button" id="spillPaNytt" onclick="finalScore(this.id)">Spill på nytt</button>
       </div>
     </div>
 
