@@ -71,7 +71,7 @@ p {
   display: inline-block;
   font-size: 14px;
   cursor: pointer;
-  border: 2px solid black;
+  border: 4px solid black;
   border-color: #ff0900;
   background-color: #ffffff;
   opacity: 0.7;
@@ -81,6 +81,8 @@ p {
   border-radius: 5px;
   text-align: center;
   color: black;
+  position: absolute;
+  bottom: 10px;
 }
 
 #gaTilbake:hover {
@@ -131,7 +133,7 @@ p {
   margin: 10px;
 }
 
-.knappBrett {
+/*.knappBrett {
   padding: 20px;
   display: inline-block;
   font-size: 24px;
@@ -145,7 +147,7 @@ p {
   border-radius: 5px;
   text-align: center;
   margin: 10px;
-}
+}*/
 
 button:hover {
   transform: scale(1.05);
@@ -318,7 +320,10 @@ td {
   height: 500px;
   width: 500px;
   border: 1px solid black;
-  background-color: white;
+  background-color: #ffffff;
+  border-radius: 10px;
+  border: 3px solid #ff0900;
+  opacity: 1;
 }
 
 #popUpContainer {
@@ -331,7 +336,7 @@ td {
 
 #terninger {
   font-size: 6rem;
-  opacity: 1.0;
+  opacity: 1;
   border-radius: 1rem;
   border-width: 0.3rem;
   border-style: hidden;
@@ -370,29 +375,6 @@ td {
   width: 500px;
   border: 1px solid black;
   background-color: white;
-}
-
-@media (max-width: 800px) {
-  #container {
-    display: grid;
-  }
-  #first {
-    flex: 1;
-  }
-  #second {
-    flex: 1;
-  }
-
-  #third {
-    flex: 0.5;
-  }
-  #gaTilbake {
-    display: none;
-  }
-  #logo {
-    width: 200px;
-    margin: auto;
-  }
 }
 
 /* top-left border-radius */
