@@ -31,14 +31,14 @@ body {
 }
 
 #brett {
-  background-color: #000000;
+  background-color: #b03434;
   background-image: url("https://www.transparenttextures.com/patterns/60-lines.png");
   border-radius: 10px;
   border: 18px solid;
   border-color: #000000 #141414;
   padding: 0% 5% 46% 5%;
   margin-bottom: -110px;
-  margin-top: 4%;
+  margin-top: 0px;
 }
 
 #rundeForteller {
@@ -185,7 +185,7 @@ button:active {
   transition-duration: 1.2s;
   background: url(img/pattern5.png);
   background-color: #d2d2d2;
-  border-color: #ff0900;
+  border-color: #4d4d4d;
   color: black;
 }
 
@@ -193,7 +193,7 @@ button:active {
   transform: scale(1.1);
   cursor: default;
   transition-duration: 0.5s;
-  border-color: #ff0900;
+  border-color: #4d4d4d;
 }
 
 #navneknapp {
@@ -219,6 +219,7 @@ button:active {
   margin-bottom: -20%;
   margin-top: -20%;
   cursor: pointer;
+
 }
 
 #logo {
@@ -248,7 +249,7 @@ table {
 }
 
 th {
-  background-color: #414141;
+  background-color: #4d4d4d;
   color: #ffffff;
   padding: 10px;
   border-bottom: 7px solid #ff0900;
@@ -284,7 +285,24 @@ td {
 .dices:hover {
   opacity: 0.8;
 }
-
+.avatar {
+  padding: 10px;
+  width: 9rem;
+  height: 9rem;
+  border-radius: 50%;
+  display: block;
+  margin-bottom: -10%;
+}
+.avatar:hover {
+  width: 11rem;
+  height: 11rem;
+}
+.spiller {
+  margin-bottom: 0;
+}
+#header{
+  display: flex;
+}
 #hsPopUp {
   margin: auto;
   position: absolute;
