@@ -17,17 +17,17 @@ function regler() {
   */
 }
 
-let hiddenPop = true;
+let hiddenPopHs = true;
 function visHighscore() {
   var y = document.getElementById("popUpContainer");
   var hsPopUp = document.getElementById("hsPopUp");
 
-  if (!hiddenPop) {
+  if (!hiddenPopHs) {
     y.style.display = "none";
-    hiddenPop = true;
+    hiddenPopHs = true;
   } else {
     y.style.display = "block";
-    hiddenPop = false;
+    hiddenPopHs = false;
   }
 }
 
