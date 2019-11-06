@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <title></title>
+<<<<<<< HEAD
     <link rel="stylesheet" type ="text/css" href ="hjemmeside.css">
 
   </head>
@@ -28,6 +29,41 @@
       </div>
 
   <script src="yatzy.js"></script>
+
+
+    <link rel="stylesheet" type="text/css" href="hjemmeside.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap"
+      rel="stylesheet"
+    />
+    <script src="hjemmeside.js"></script>
+  </head>
+  <body>
+    <img src="img/logo.png" alt="Logo" id="logo"><br>
+    <img src="img/dice.png" alt="Dices" id="dice"></h1>
+    <div id="container">
+    <br><br><br>
+      <div id="header"></div>
+      <div id="toggleButtons">
+        <button id="onePlayer" onclick="oneGo()">1P</button>
+        <button id="twoPlayer" onclick="twoGo()">2P</button>
+        <button id="threePlayer" onclick="threeGo()">3P</button>
+        <button id="fourPlayer" onclick="fourGo()">4P</button><br /><br />
+        <button id="play" onclick="startSpill()">Spill</button>
+
+        <div id="playerNames">
+          <p id="1">Spiller 1</p>
+          <input type="text" id="playerOne" class="singleplayer" /><br />
+          <p id="2">Spiller 2</p>
+          <input type="text" id="playerTwo" class="multiplayer" /><br />
+          <p id="3">Spiller 3</p>
+          <input type="text" id="playerThree" class="multiplayer" /><br />
+          <p id="4">Spiller 4</p>
+          <input type="text" id="playerFour" class="multiplayer" /><br />
+        </div>
+      </div>
+      <div id="fancyStartButton"><button id="start"></button></div>
+    </div>
 
   </body>
 </html>
