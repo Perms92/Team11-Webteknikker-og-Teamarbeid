@@ -31,11 +31,11 @@ body {
 }
 
 #brett {
-  background-color: #c0ddbb;
+  background-color: #b03434;
   background-image: url("https://www.transparenttextures.com/patterns/60-lines.png");
   border-radius: 10px;
   border: 18px solid;
-  border-color: #000000 #141414;
+  border-color: #5d5d5d #414141;
   padding: 0px 50px 250px 50px;
   margin-bottom: -110px;
   margin-top: 0px;
@@ -142,7 +142,6 @@ button:active {
   color: #000000;
   border-radius: 5px;
   text-align: center;
-  visibility: hidden;
   margin: auto;
 }
 

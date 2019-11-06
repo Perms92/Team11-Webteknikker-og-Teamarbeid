@@ -32,6 +32,7 @@ function visHighscore() {
 }
 
 function playerName() {
+  /*
   spiller1 = String(prompt("Skriv inn spiller 1 her"));
   let erTomt = "true";
   while (erTomt == "true") {
@@ -72,7 +73,7 @@ function playerName() {
     "url('https://www.transparenttextures.com/patterns/60-lines.png')";
   document.getElementById("brett").style.borderColor = "#414141";
 }
-
+*/
 /*let testpersoner = [
   { navn: "Peder", score: 123 },
   { navn: "Andy", score: 156 }
