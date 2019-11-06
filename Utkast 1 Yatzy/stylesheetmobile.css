@@ -1,17 +1,18 @@
 body {
   margin: 0;
   text-align: center;
-  font-family: 'Be Vietnam', sans-serif;
-  background: url(img/pattern5.png);
+  font-family: "Be Vietnam", sans-serif;
+  background-image: url("https://www.transparenttextures.com/patterns/gplay.png");
+  background-color: #e6e6e6;
 }
 
 #brett {
-  background-color: #C0DDBB;
+  background-color: #b03434;
   background-image: url("https://www.transparenttextures.com/patterns/60-lines.png");
   border-radius: 1rem;
   border: 1.5rem solid;
-  border-color: #A98559 #A47C4A;
-  height: 130rem;
+  border-color: #5d5d5d #4e4e4e;
+  height: 110rem;
   width: 70rem;
   margin-right: 25%;
 }
@@ -20,33 +21,88 @@ body {
   margin-top: 60%;
 }
 
-#dicePos0, #dicePos1, #dicePos2, #dicePos3, #dicePos4 {
+#dicePos0,
+#dicePos1,
+#dicePos2,
+#dicePos3,
+#dicePos4 {
   width: 13rem;
   height: auto;
 }
 
-button {
+#gaTilbake {
+  padding: 5rem;
+  display: inline-block;
+  font-size: 6rem;
+  cursor: pointer;
+  border: 0.8rem solid black;
+  border-color: #ff0900;
+  background-color: #ffffff;
+  opacity: 0.7;
+  font-family: "Be Vietnam", sans-serif;
+  font-weight: 700;
+  color: #ffffff;
+  border-radius: 1rem;
+  text-align: center;
+  color: black;
+  position: absolute;
+  bottom: 10px;
+}
+
+#gaTilbake:hover {
+  transform: scale(1.05);
+  transition-duration: 1.2s;
+  background: url(img/pattern5.png);
+  background-color: #d2d2d2;
+  border-color: #ff0900;
+  color: black;
+}
+
+.knappVenstreSide {
+  display: inline-block;
+  font-size: 3rem;
+  cursor: pointer;
+  border: 0.8rem solid;
+  border-color: #ff0900;
+  background-color: #ffffff;
+  opacity: 0.7;
+  font-family: "Be Vietnam", sans-serif;
+  font-weight: 700;
+  color: black;
+  border-radius: 5px;
+  text-align: center;
+  width: 25rem;
+  height: 12rem;
+  padding: 2rem;
+  margin: 0;
+}
+
+/*.knappBrett {
   padding: 5rem;
   display: inline-block;
   font-size: 6rem;
   cursor: pointer;
   border: 0.8rem solid;
-  border-color: saddlebrown;
-  background-color:#808080;
-  opacity: 0.8;
-  font-family: 'Be Vietnam', sans-serif;
+  border-color: #ff0900;
+  background-color: #ffffff;
+  opacity: 0.7;
+  font-family: "Be Vietnam", sans-serif;
   font-weight: 700;
-  color: #FFFFFF;
+  color: #ffffff;
   border-radius: 1rem;
   text-align: center;
-}
+  width: 50rem;
+  height: 12rem;
+  padding: 2rem;
+  margin: 2.5rem;
+}*/
 
 button:hover {
   transform: scale(1.05);
   transition-duration: 1.2s;
   background: url(img/pattern5.png);
   background-color: #d2d2d2;
-  border-color: saddlebrown;
+  border-color: #ff0900;
   color: black;
 }
 
@@ -72,53 +128,50 @@ button:active {
   width: 20rem;
   height: auto;
   margin-bottom: -5rem;
-  margin-top:-15rem;
+  margin-left: 55rem;
+  margin-top: -5rem;
   cursor: pointer;
-
 }
 
 #logo {
   cursor: pointer;
   width: 40rem;
-  margin-bottom: -4rem;
+  margin-left: 55rem;
+  margin-bottom: -10rem;
+  padding: 0;
 }
-
 
 #kasteKnapp {
-    padding: 5rem;
-    display: inline-block;
-    font-size: 6rem;
-    cursor: pointer;
-    border: 0.8rem solid;
-    margin-top: 0rem;
-    margin-left: -30rem;
-    border-color: saddlebrown;
-    background-color:#808080;
-    opacity: 1;
-    font-family: 'Be Vietnam', sans-serif;
-    font-weight: 700;
-    color: #FFFFFF;
-    width: 70%;
-    height: auto;
-    border-radius: 1rem;
-    text-align: center;
-    visibility: hidden;
-    cursor: pointer;
-}
-
-#kasteKnapp:hover {
-  transform: scale(1.05);
-  transition-duration: 1.2s;
-  background: url(img/pattern5.png);
-  background-color: #d2d2d2;
-  border-color: saddlebrown;
-  color: black;
+  display: inline-block;
+  font-size: 6rem;
+  cursor: pointer;
+  border: 0.8rem solid;
+  margin-top: 0rem;
+  margin-left: -30rem;
+  border-color: #ff0900;
+  background-color: #ffffff;
+  opacity: 1;
+  font-family: "Be Vietnam", sans-serif;
+  font-weight: 700;
+  color: #000000;
+  width: 70%;
+  height: auto;
+  border-radius: 1rem;
+  text-align: center;
+  cursor: pointer;
+  width: 94%;
+  height: 20rem;
+  padding: 5rem;
+  margin: 1rem;
 }
 
 #kasteKnapp:active {
-  transform: scale(1.1);
-  cursor: default;
+  transform: scale(1.05);
   transition-duration: 0.5s;
+  background: url(img/pattern5.png);
+  background-color: #d2d2d2;
+  border-color: #4d4d4d;
+  color: black;
 }
 
 #navneknapp {
@@ -128,7 +181,7 @@ button:active {
   top: 0;
   left: 0;
   right: 0;
-  background-color: black;
+  background-color: white;
   z-index: 2;
   margin: 0;
   padding: 0;
@@ -144,10 +197,10 @@ img:active {
 
 table {
   width: 30rem;
-  margin-left: 70rem;
-  margin-top: -155rem;
-  min-width: 30%;
-  max-width: 30%;
+  margin-left: 75rem;
+  margin-top: -138rem;
+  min-width: 20%;
+  max-width: 20%;
   text-align: center;
   font-size: 3rem;
   display: flex;
@@ -155,21 +208,38 @@ table {
 }
 
 th {
-  background-color: #cfe0c3;
-  color: #1f363d;
+  background-color: #4d4d4d;
+  color: #ffffff;
   padding: 10px;
-  border-bottom: 4px solid;
+  border-bottom: 4px solid #ff0900;
 }
 
 td {
-  background-color: #B4B5B5;
+  background-color: #ffffff;
   padding: 5px;
   text-align: left;
+  border-bottom: 0.5px solid #000000;
+}
+
+#spiller1::before {
+  content: "1";
+}
+
+#spiller2::before {
+  content: "2";
+}
+
+#spiller3::before {
+  content: "3";
+}
+
+#spiller4::before {
+  content: "4";
 }
 
 #terninger {
   font-size: 6rem;
-  opacity: 1.0;
+  opacity: 1;
   border-radius: 1rem;
   border-width: 0.3rem;
   border-style: hidden;
@@ -180,8 +250,8 @@ td {
 #rundeForteller {
   font-size: 6rem;
   color: black;
-  background-color:  lightgrey;
-  opacity: 1.0;
+  background-color: lightgrey;
+  opacity: 1;
   border-radius: 1rem;
   border-width: 0.2rem;
   border-style: hidden;
@@ -198,7 +268,12 @@ td {
   display: none;
 }
 
-#spiller1, #spiller2 {
+#highscoreId {
+  display: none;
+}
+
+#spiller1,
+#spiller2 {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -207,4 +282,117 @@ td {
 
 h3 {
   visibility: hidden;
+}
+
+.dices:active {
+  opacity: 0.8;
+  border: 2px solid;
+  border-color: yellow;
+  border-radius: 8px;
+}
+#hsPopUp {
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 500px;
+  width: 500px;
+  border: 1px solid black;
+  background-color: #ffffff;
+  border-radius: 10px;
+  border: 3px solid #ff0900;
+  opacity: 1;
+}
+
+#popUpContainer {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(204, 204, 204, 0.5);
+  position: absolute;
+  display: none;
+}
+
+/*@media (max-width: 800px) {
+  #container {
+    display: flex;
+  }
+  #first {
+    flex: 1;
+  }
+  #second {
+    flex: 1;
+  }
+
+  #third {
+    flex: 0.5;
+  }
+  #gaTilbake {
+    display: none;
+  }
+}*/
+
+#finalScore {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(204, 204, 204, 0.5);
+  position: absolute;
+  display: none;
+}
+
+#finalScorePopUp {
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 500px;
+  width: 500px;
+  border: 1px solid black;
+  background-color: white;
+}
+
+#header {
+  display: flex;
+}
+
+.avatar {
+  padding: 10px;
+  width: 16rem;
+  height: auto;
+  border-radius: 50%;
+  display: block;
+  margin-bottom: -10%;
+  margin-top: -130%;
+  transition-duration: 0.5s;
+}
+.avatar:hover {
+  width: 11rem;
+  height: 11rem;
+  transition-duration: 0.5s;
+}
+
+.spiller {
+  font-size: 4rem;
+}
+/* top-left border-radius */
+table tr:first-child th:first-child {
+  border-top-left-radius: 8px;
+}
+
+/* top-right border-radius */
+table tr:first-child th:last-child {
+  border-top-right-radius: 8px;
+}
+
+/* bottom-left border-radius */
+table tr:last-child td:first-child {
+  border-bottom-left-radius: 8px;
+}
+
+/* bottom-right border-radius */
+table tr:last-child td:last-child {
+  border-bottom-right-radius: 8px;
 }

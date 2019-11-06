@@ -6,17 +6,18 @@
     <link rel="icon" href="img/favicon.jpg" type="image/gif" sizes="16x16">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
     <link rel="stylesheet" media='(min-width: 1025px)' type="text/css" href="stylesheet.css">
-  <link rel="stylesheet" type="text/css" media='(max-width: 1024px)' href="stylesheetmobile.css">
-  <link href="https://fonts.googleapis.com/css?family=Heebo&display=swap" rel="stylesheet">  </head>
-  <body>
+    <link rel="stylesheet" type="text/css" media='(max-width: 1024px)' href="stylesheetmobile.css">
+    <link href="https://fonts.googleapis.com/css?family=Heebo&display=swap" rel="stylesheet">
+  </head>
+  <body onload="settSpillernavn()">
     <div id="container">
 
       <div id="first">
-
-        <h1><img src="img/logo.png" alt="Logo" id="logo" onclick="window.location.href = 'index.html';"><br>
+        <h1>
+          <img src="img/logo.png" alt="Logo" id="logo" onclick="window.location.href = 'index.html';"><br>
           <img src="img/dice.png" alt="Dices" id="dice" onclick="window.location.href = 'index.html';"></h1>
         <br><br><br>
-        <h3><button onclick="regler()" class="knappVenstreSide">Regler</button></h3>
+        <h3><button onclick="regler()" class="knappVenstreSide" id="reglerButton">Regler</button></h3>
 
         <div id="regler">
           Få høyest mulig poengsum på Yatzy! Trykk på terningene for å beholde dem,
@@ -38,7 +39,7 @@
 
 
         </div>
-        <button onclick="visHighscore()" class="knappVenstreSide">Highscore
+        <button onclick="visHighscore()" id="highscoreId" class="knappVenstreSide">Highscore
         </button>
       </div>
       <div id="popUpContainer">
@@ -46,14 +47,32 @@
       <div id="hsPopUp">
         <ol id="hs">
         </ol>
-        <button type="button" name="button" onclick="visHighscore()" id="gaTilbake">Gå tilbake</button>
+        <button type="button" name="button" onclick="visHighscore()" id="gaTilbakeHs">Gå tilbake</button>
+      </div>
+    </div>
+
+    <div id="finalScore">
+      <div id="finalScorePopUp">
+        <ol id="finalScoreListe">
+          <li id="plass1"></li>
+          <li id="plass2"></li>
+          <li id="plass3"></li>
+          <li id="plass4"></li>
+        </ol>
+          <button type="button" id="nyeSpillere" onclick="finalScore(this.id)">Nye spillere</button>
+          <button type="button" id="spillPaNytt" onclick="finalScore(this.id)">Spill på nytt</button>
       </div>
     </div>
 
       <div id="second">
+        <div id="header">
+          <div id="avatar1"><img src="img/avatarFox.png" class="avatar"><p class="spiller">Spiller 1</p></div>
+          <div id="avatar2"><img src="img/avatarGorilla.png" class="avatar"><p class="spiller">Spiller 2</p></div>
+          <div id="avatar3"><img src="img/avatarBear.png" class="avatar"><p class="spiller">Spiller 3</p></div>
+          <div id="avatar4"><img src="img/avatarGiraffe.png" class="avatar"><p class="spiller">Spiller 4</p></div>
+        </div>
         <div id="brett">
           <div id="rundeForteller"></div>
-          <p id="kast"></p>
           <label for="0" onclick="moveDice0()"><img height="40px" id="dicePos0" class="dices" draggable="false"></label>
           <label for="1" onclick="moveDice1()"><img height="40px" id="dicePos1" class="dices" draggable="false"></label>
           <label for="2" onclick="moveDice2()"><img height="40px" id="dicePos2" class="dices" draggable="false"></label>
@@ -61,16 +80,16 @@
           <label for="4" onclick="moveDice4()"><img height="40px" id="dicePos4" class="dices" draggable="false"></label>
           <br>
 
-          <button onclick="playerName()" id="navneknapp" class="knappBrett"><img src="img/logo.png" alt="Logo" id="logo">
-            <br><img src="img/dice.png" alt="Dices" id="dice" >
-            <br><br>START SPILL</button><br>
+            <!--<button onclick="playerName()" id="navneknapp" class="knappBrett"><img src="img/logo.png" alt="Logo" id="logo">
+            <br><img src="img/dice.png" alt="Dices" id="dice">
+            <br><br>START SPILL</button><br>-->
 
         </div>
         <button onclick="kasteKnapp()" id="kasteKnapp" class="knappBrett">Start runde 1</button>
       </div>
 
       <div id="third">
-        <h3>Poengoversikt</h3>
+        <h3>Poengsum</h3>
         <table>
           <tr>
             <th> Deltakere
@@ -214,8 +233,8 @@
 
     <script src="yatzy.js"></script>
     <script src="menyer.js"></script>
-    <br>
-    <br>
+    <script src="hjemmeside.js"></script>
+    <br> <p id="kast"></p>
     <p>© NTNU Digital Forretningsutvikling høsten 2019</p>
   </body>
 </html>

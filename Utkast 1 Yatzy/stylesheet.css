@@ -2,8 +2,8 @@ body {
   margin: 0;
   text-align: center;
   font-family: 'Heebo', sans-serif;
-  background-color: #e6e6e6;
-  background-image: url("https://www.transparenttextures.com/patterns/gplay.png");
+  background-color: #ffffff;
+  background-image: url("https://www.transparenttextures.com/patterns/60-lines.png");
 }
 
 #container {
@@ -31,18 +31,32 @@ body {
 }
 
 #brett {
-  background-color: #c0ddbb;
+  background-color: #b03434;
   background-image: url("https://www.transparenttextures.com/patterns/60-lines.png");
   border-radius: 10px;
   border: 18px solid;
-  border-color: #000000 #141414;
-  padding: 0px 50px 250px 50px;
-  margin-bottom: -110px;
-  margin-top: 4%;
+  border-color: #5d5d5d #4e4e4e;
+  padding: 0% 5% 60% 5%;
+  margin-bottom: -10rem;
+  margin-top: 1rem;
+}
+
+#rundeForteller {
+  font-size: 28px;
+  color: black;
+  background-color: lightgrey;
+  opacity: 1;
+  border-radius: 5px;
+  border-width: 1px;
+  border-style: hidden;
+  margin-top: 0%;
+  margin-bottom: 5%;
+  user-drag: none;
+  user-select: none;
 }
 
 #kast {
-  margin-top: 50%;
+  display: none;
 }
 
 p {
@@ -57,7 +71,7 @@ p {
   display: inline-block;
   font-size: 14px;
   cursor: pointer;
-  border: 2px solid black;
+  border: 4px solid black;
   border-color: #ff0900;
   background-color: #ffffff;
   opacity: 0.7;
@@ -67,6 +81,8 @@ p {
   border-radius: 5px;
   text-align: center;
   color: black;
+  position: absolute;
+  bottom: 10px;
 }
 
 #gaTilbake:hover {
@@ -74,7 +90,7 @@ p {
   transition-duration: 1.2s;
   background: url(img/pattern5.png);
   background-color: #d2d2d2;
-  border-color: #ff0900;
+  border-color: saddlebrown;
   color: black;
 }
 
@@ -102,6 +118,26 @@ p {
   display: inline-block;
   font-size: 24px;
   cursor: pointer;
+  border: 4px solid;
+  border-color: #ff0900;
+  background-color: #ffffff;
+  opacity: 0.7;
+  font-family: "Be Vietnam", sans-serif;
+  font-weight: 700;
+  color: black;
+  border-radius: 5px;
+  text-align: center;
+  width: 200px;
+  height: 80px;
+  padding: 20px;
+  margin: 10px;
+}
+
+/*.knappBrett {
+  padding: 20px;
+  display: inline-block;
+  font-size: 24px;
+  cursor: pointer;
   border: 4px solid #ff0900;
   background-color: #808080;
   opacity: 0.7;
@@ -111,7 +147,7 @@ p {
   border-radius: 5px;
   text-align: center;
   margin: 10px;
-}
+}*/
 
 button:hover {
   transform: scale(1.05);
@@ -120,12 +156,16 @@ button:hover {
   background-color: #d2d2d2;
   border-color: #ff0900;
   color: black;
+  outline: none;
 }
 
 button:active {
   transform: scale(1.1);
   cursor: default;
   transition-duration: 0.5s;
+  border: 4px solid;
+  border-color: gold;
+  outline: none;
 }
 
 #kasteKnapp {
@@ -142,8 +182,8 @@ button:active {
   color: #000000;
   border-radius: 5px;
   text-align: center;
-  visibility: hidden;
-  margin: auto;
+  margin-top: 0%;
+  outline: none;
 }
 
 #kasteKnapp:hover {
@@ -151,15 +191,17 @@ button:active {
   transition-duration: 1.2s;
   background: url(img/pattern5.png);
   background-color: #d2d2d2;
-  border-color: #ff0900;
+  border-color: #4d4d4d;
   color: black;
+  outline: none;
 }
 
 #kasteKnapp:active {
   transform: scale(1.1);
   cursor: default;
   transition-duration: 0.5s;
-  border-color: #ff0900;
+  border-color: #gold;
+  outline: none;
 }
 
 #navneknapp {
@@ -180,11 +222,12 @@ button:active {
 }
 
 #dice {
-  width: 130px;
+  width: 16rem;
   height: auto;
-  margin-bottom: -20px;
-  margin-top: -50px;
+  margin-bottom: -20%;
+  margin-top: -20%;
   cursor: pointer;
+
 }
 
 #logo {
@@ -193,10 +236,10 @@ button:active {
   margin-bottom: -40px;
 }
 
-.dices:hover {
-  opacity: 0.5;
+#logo:hover {
+  transform:scale(1.1);
+  transition-duration: 0.3s;
 }
-
 img:active {
   transform: scale(1.2);
   transition-duration: 0.5s;
@@ -218,7 +261,7 @@ table {
 }
 
 th {
-  background-color: #414141;
+  background-color: #4d4d4d;
   color: #ffffff;
   padding: 10px;
   border-bottom: 7px solid #ff0900;
@@ -232,7 +275,7 @@ td {
   border-bottom: 0.5px solid #000000;
 }
 
-#terninger {
+/* #terninger {
   font-size: 28px;
   opacity: 1;
   border-radius: 5px;
@@ -241,19 +284,7 @@ td {
   margin-top: 2.5%;
   margin-bottom: 0%;
 }
-
-#rundeForteller {
-  font-size: 28px;
-  color: black;
-  background-color: lightgrey;
-  opacity: 1;
-  border-radius: 5px;
-  border-width: 1px;
-  border-style: hidden;
-  margin-top: 2.5%;
-  user-drag: none;
-  user-select: none;
-}
+*/
 
 #kast {
   visibility: hidden;
@@ -266,6 +297,36 @@ td {
 .dices:hover {
   opacity: 0.8;
 }
+.avatar {
+  padding: 10px;
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50%;
+  display: block;
+  margin-bottom: -10%;
+  transition-duration: 0.5s;
+}
+.avatar:hover {
+  width: 9.5rem;
+  height: 9.5rem;
+  transition-duration: 0.5s;
+
+}
+.spiller {
+  margin-bottom: 0;
+}
+#header {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 10%;
+  margin-left: 10%;
+}
+
+#avatar1:hover, #avatar2:hover, #avatar3:hover, #avatar4:hover {
+  font-weight: 600;
+  transition-delay: 0.1s;
+  transition-duration: 0s;
+}
 
 #hsPopUp {
   margin: auto;
@@ -277,7 +338,10 @@ td {
   height: 500px;
   width: 500px;
   border: 1px solid black;
-  background-color: white;
+  background-color: #ffffff;
+  border-radius: 10px;
+  border: 3px solid #ff0900;
+  opacity: 1;
 }
 
 #popUpContainer {
@@ -288,27 +352,47 @@ td {
   display: none;
 }
 
-@media (max-width: 800px) {
-  #container {
-    display: grid;
-  }
-  #first {
-    flex: 1;
-  }
-  #second {
-    flex: 1;
-  }
+#terninger {
+  font-size: 6rem;
+  opacity: 1;
+  border-radius: 1rem;
+  border-width: 0.3rem;
+  border-style: hidden;
+  margin-top: 0%;
+  margin-bottom: 0%;
+}
 
-  #third {
-    flex: 0.5;
-  }
-  #gaTilbake {
-    display: none;
-  }
-  #logo {
-    width: 200px;
-    margin: auto;
-  }
+.dices {
+  width: 5rem;
+  height: auto;
+}
+
+.dices:active {
+  opacity: 0.8;
+  border: 2px solid;
+  border-color: yellow;
+  border-radius: 8px;
+}
+
+#finalScore {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(204, 204, 204, 0.5);
+  position: absolute;
+  display: none;
+}
+
+#finalScorePopUp {
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 500px;
+  width: 500px;
+  border: 1px solid black;
+  background-color: white;
 }
 
 /* top-left border-radius */
