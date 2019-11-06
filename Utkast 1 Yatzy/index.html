@@ -72,7 +72,6 @@
         </div>
         <div id="brett">
           <div id="rundeForteller"></div>
-          <p id="kast"></p>
           <label for="0" onclick="moveDice0()"><img height="40px" id="dicePos0" class="dices" draggable="false"></label>
           <label for="1" onclick="moveDice1()"><img height="40px" id="dicePos1" class="dices" draggable="false"></label>
           <label for="2" onclick="moveDice2()"><img height="40px" id="dicePos2" class="dices" draggable="false"></label>
@@ -83,9 +82,10 @@
             <!--<button onclick="playerName()" id="navneknapp" class="knappBrett"><img src="img/logo.png" alt="Logo" id="logo">
             <br><img src="img/dice.png" alt="Dices" id="dice">
             <br><br>START SPILL</button><br>-->
-
+          <button onclick="kasteKnapp()" id="kasteKnapp" class="knappBrett">Start runde 1</button>
         </div>
-        <button onclick="kasteKnapp()" id="kasteKnapp" class="knappBrett">Start runde 1</button>
+        <p id="footer">© NTNU Digital Forretningsutvikling høsten 2019</p>
+        <p id="kast"></p>
       </div>
 
       <div id="third">
@@ -234,6 +234,5 @@
     <script src="yatzy.js"></script>
     <script src="menyer.js"></script>
     <br>
-    <p>© NTNU Digital Forretningsutvikling høsten 2019</p>
   </body>
 </html>
