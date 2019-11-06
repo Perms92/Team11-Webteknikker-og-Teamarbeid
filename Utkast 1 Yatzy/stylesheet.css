@@ -35,7 +35,7 @@ body {
   background-image: url("https://www.transparenttextures.com/patterns/60-lines.png");
   border-radius: 10px;
   border: 18px solid;
-  border-color: #000000 #141414;
+  border-color: #5d5d5d #4e4e4e;
   padding: 0% 5% 46% 5%;
   margin-bottom: -110px;
   margin-top: 0px;
@@ -176,7 +176,6 @@ button:active {
   color: #000000;
   border-radius: 5px;
   text-align: center;
-  visibility: hidden;
   margin-top: 0%;
 }
 
@@ -228,6 +227,10 @@ button:active {
   margin-bottom: -40px;
 }
 
+#logo:hover {
+  transform:scale(1.1);
+  transition-duration: 0.3s;
+}
 img:active {
   transform: scale(1.2);
   transition-duration: 0.5s;
@@ -292,10 +295,12 @@ td {
   border-radius: 50%;
   display: block;
   margin-bottom: -10%;
+  transition-duration: 0.5s;
 }
 .avatar:hover {
   width: 11rem;
   height: 11rem;
+  transition-duration: 0.5s;
 }
 .spiller {
   margin-bottom: 0;
