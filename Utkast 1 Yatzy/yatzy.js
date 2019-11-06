@@ -7,10 +7,6 @@ var totalScore2 = 0;
 var totalScore3 = 0;
 var totalScore4 = 0;
 var antallSpillere = 1;
-var spiller1 = "";
-var spiller2 = "";
-var spiller3 = "";
-var spiller4 = "";
 var hvemSinTur = 1;
 
 // En felles funksjon som endrer teksten på kasteknappen,
@@ -748,3 +744,36 @@ function finalScore() {
     hiddenPopFinalScore = false;
   }
 }
+
+//Funksjoner for hjemmesiden
+function oneGo() {
+  /* document.getElementsByClassName("multiplayer").style.visibility = "hidden";*/
+   document.getElementById("playerTwo").style.visibility = "hidden";
+   document.getElementById("playerThree").style.visibility = "hidden";
+   document.getElementById("playerFour").style.visibility = "hidden";
+}
+function twoGo() {
+   document.getElementById("playerTwo").style.visibility = "visible";
+   document.getElementById("playerThree").style.visibility = "hidden";
+   document.getElementById("playerFour").style.visibility = "hidden";
+}
+function threeGo() {
+   document.getElementById("playerTwo").style.visibility = "visible";
+   document.getElementById("playerThree").style.visibility = "visible";
+   document.getElementById("playerFour").style.visibility = "hidden";
+}
+function fourGo() {
+   document.getElementById("playerTwo").style.visibility = "visible";
+   document.getElementById("playerThree").style.visibility = "visible";
+   document.getElementById("playerFour").style.visibility = "visible";
+}
+function playerName() {
+   let spiller1 = document.getElementById("playerOne").value;
+   let spiller2 = document.getElementById("playerTwo").value;
+   let spiller3 = document.getElementById("playerThree").value;
+   let spiller4 = document.getElementById("playerFour").value;
+}
+var spiller1 = "";
+var spiller2 = "";
+var spiller3 = "";
+var spiller4 = "";
