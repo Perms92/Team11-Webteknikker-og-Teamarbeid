@@ -672,42 +672,42 @@ function showDice() {
 }
 
 function moveDice0() {
-  if (document.getElementById("dicePos0").style.marginBottom == "-850%") {
+  if (document.getElementById("dicePos0").style.marginBottom == "-550%") {
     document.getElementById("dicePos0").style.marginBottom = "0%";
   } else {
-    document.getElementById("dicePos0").style.marginBottom = "-850%";
+    document.getElementById("dicePos0").style.marginBottom = "-550%";
   }
 }
 
 function moveDice1() {
-  if (document.getElementById("dicePos1").style.marginBottom == "-850%") {
+  if (document.getElementById("dicePos1").style.marginBottom == "-550%") {
     document.getElementById("dicePos1").style.marginBottom = "0%";
   } else {
-    document.getElementById("dicePos1").style.marginBottom = "-850%";
+    document.getElementById("dicePos1").style.marginBottom = "-550%";
   }
 }
 
 function moveDice2() {
-  if (document.getElementById("dicePos2").style.marginBottom == "-850%") {
+  if (document.getElementById("dicePos2").style.marginBottom == "-550%") {
     document.getElementById("dicePos2").style.marginBottom = "0%";
   } else {
-    document.getElementById("dicePos2").style.marginBottom = "-850%";
+    document.getElementById("dicePos2").style.marginBottom = "-550%";
   }
 }
 
 function moveDice3() {
-  if (document.getElementById("dicePos3").style.marginBottom == "-450%") {
+  if (document.getElementById("dicePos3").style.marginBottom == "-550%") {
     document.getElementById("dicePos3").style.marginBottom = "0%";
   } else {
-    document.getElementById("dicePos3").style.marginBottom = "-450%";
+    document.getElementById("dicePos3").style.marginBottom = "-550%";
   }
 }
 
 function moveDice4() {
-  if (document.getElementById("dicePos4").style.marginBottom == "-450%") {
+  if (document.getElementById("dicePos4").style.marginBottom == "-550%") {
     document.getElementById("dicePos4").style.marginBottom = "0%";
   } else {
-    document.getElementById("dicePos4").style.marginBottom = "-450%";
+    document.getElementById("dicePos4").style.marginBottom = "-550%";
   }
 }
 

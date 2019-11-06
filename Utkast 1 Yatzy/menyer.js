@@ -76,7 +76,7 @@ function visHighscore() {
   document.getElementById("brett").style.backgroundColor = "#bd1c00";
   document.getElementById("brett").style.backgroundImage =
     "url('https://www.transparenttextures.com/patterns/60-lines.png')";
-  document.getElementById("brett").style.borderColor = "#414141";
+  document.getElementById("brett").style.borderColor = "#5d5d5d #414141";
 }
 */
 /*let testpersoner = [
