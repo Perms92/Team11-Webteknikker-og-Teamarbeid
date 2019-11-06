@@ -640,17 +640,6 @@ function moveToTable() {
         finalScoreListe.sort(function(a, b){return b-a});
       }
     }
-  }
-  /*if (runde == 15 && hvemSinTur == 1) {
-    document.getElementById("1-totalsum").innerHTML = totalScore1;
-  } else if (runde == 15 && hvemSinTur == 2) {
-    document.getElementById("2-totalsum").innerHTML = totalScore2;
-<<<<<<< HEAD
-    document.getElementById("kasteKnapp").style.display="none";
-  }
-=======
-  }*/
->>>>>>> perms
 }
 
 function showDice() {
@@ -662,20 +651,6 @@ function showDice() {
     //console.log("Test showDiceId " + showDiceId);
     document.getElementById(showDiceId).src = diceName;
   }
-}
-
-<<<<<<< HEAD
-function playerName() {
-  text = String(prompt("Skriv inn ditt spillernavn her!"));
-  document.getElementById("spiller1").innerHTML += text + "";
-  text1 = String(prompt("Skriv inn ditt spillernavn her!"));
-  document.getElementById("spiller2").innerHTML += text1 + "";
-  document.getElementById("navneknapp").style.display = "none";
-  document.getElementById("kasteKnapp").style.visibility = "visible";
-  document.getElementById("brett").style.backgroundColor = "#468f15";
-  document.getElementById("brett").style.backgroundImage =
-    "url('https://www.transparenttextures.com/patterns/60-lines.png')";
-  document.getElementById("brett").style.borderColor = "#000000 #010101";
 }
 
 =======

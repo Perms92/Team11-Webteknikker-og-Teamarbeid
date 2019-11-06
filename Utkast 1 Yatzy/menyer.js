@@ -17,17 +17,17 @@ function regler() {
   */
 }
 
-let hiddenPop = true;
+let hiddenPopHs = true;
 function visHighscore() {
   var y = document.getElementById("popUpContainer");
   var hsPopUp = document.getElementById("hsPopUp");
 
-  if (!hiddenPop) {
+  if (!hiddenPopHs) {
     y.style.display = "none";
-    hiddenPop = true;
+    hiddenPopHs = true;
   } else {
     y.style.display = "block";
-    hiddenPop = false;
+    hiddenPopHs = false;
   }
 }
 
@@ -51,11 +51,64 @@ function playerName() {
     spiller2 = "";
   }
   document.getElementById("spiller2").innerHTML = spiller2 + "";
-  document.getElementById('navneknapp').style.display="none";
-  document.getElementById("kasteKnapp").style.visibility="visible";
-  document.getElementById("brett").style.backgroundColor="#730400";
-  document.getElementById("brett").style.backgroundImage="url('https://www.transparenttextures.com/patterns/60-lines.png')";
-  document.getElementById("brett").style.borderColor="#3d3d3d #2b2b2b";
+  if (spiller2 != "") {
+    spiller3 = String(prompt("Skriv inn spiller 3 eller la stå åpen"));
+    if (spiller3 == "null") {
+      spiller3 = "";
+    }
+    document.getElementById("spiller3").innerHTML = spiller3 + "";
+    if (spiller3 != "") {
+      spiller4 = String(prompt("Skriv inn spiller 4 eller la stå åpen"));
+      if (spiller4 == "null") {
+        spiller4 = "";
+      }
+    }
+  }
+  document.getElementById("spiller4").innerHTML = spiller4 + "";
+  document.getElementById("navneknapp").style.display = "none";
+  document.getElementById("kasteKnapp").style.visibility = "visible";
+  document.getElementById("brett").style.backgroundColor = "#af0404";
+  document.getElementById("brett").style.backgroundImage =
+    "url('https://www.transparenttextures.com/patterns/60-lines.png')";
+  document.getElementById("brett").style.borderColor = "#414141";
+}
+
+/*let testpersoner = [
+  { navn: "Peder", score: 123 },
+  { navn: "Andy", score: 156 }
+];
+
+//Husk å fjerne testpersoner
+
+localStorage.setItem("highscores", JSON.stringify(testpersoner));
+
+console.log(JSON.parse(localStorage.getItem("highscores")));
+
+function sorterer(pers1, pers2) {
+  if (pers1.score > pers2.score) {
+    return -1;
+  } else if (pers2.score > pers1.score) {
+    return 1;
+  }
+  return 0;
+}
+
+function localSet(person, score) {
+  //henter data fra localStorage, legger til den nye personen, sorterer og lagrer den
+  //let before = JSON.parse(localStorage.getItem("highscore"));
+  let hs = localGet();
+  let nyPerson = {
+    navn: person,
+    score: score
+  };
+
+  //Legger til ny person før listen sorteres og lagres
+  hs.push(nyPerson);
+  //Sorterer listen før den lagres
+  hs.sort(sorterer);
+
+  //Lagrer listen
+  localStorage.setItem("highscores", JSON.stringify(hs));
 }
 
 //localSet("mina", 200);
