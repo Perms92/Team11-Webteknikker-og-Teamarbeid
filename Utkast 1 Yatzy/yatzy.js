@@ -653,8 +653,6 @@ function showDice() {
   }
 }
 
-=======
->>>>>>> perms
 function moveDice0() {
   if (document.getElementById("dicePos0").style.marginBottom == "-850%") {
     document.getElementById("dicePos0").style.marginBottom = "0%";
