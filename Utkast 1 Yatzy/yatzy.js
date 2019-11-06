@@ -38,8 +38,7 @@ function kasteKnapp() {
       } else if (hvemSinTur == 4) {
         rundeForteller(spiller4);
       }
-    }
-    else if (hvemSinTur == antallSpillere) {
+    } else if (hvemSinTur == antallSpillere) {
       runde += 1;
       hvemSinTur = 1;
       rundeForteller(spiller1);
@@ -628,7 +627,9 @@ function moveToTable() {
         finalScoreListe[1] = totalScore2;
         finalScoreListe[2] = totalScore3;
         finalScoreListe[3] = totalScore4;
-        finalScoreListe.sort(function(a, b){return b-a});
+        finalScoreListe.sort(function(a, b) {
+          return b - a;
+        });
         document.getElementById("plass1").innerHTML = finalScoreListe[0];
         document.getElementById("plass2").innerHTML = finalScoreListe[1];
         document.getElementById("plass3").innerHTML = finalScoreListe[2];
@@ -637,19 +638,24 @@ function moveToTable() {
         finalScoreListe[0] = totalScore1;
         finalScoreListe[1] = totalScore2;
         finalScoreListe[2] = totalScore3;
-        finalScoreListe.sort(function(a, b){return b-a});
+        finalScoreListe.sort(function(a, b) {
+          return b - a;
+        });
         document.getElementById("plass1").innerHTML = finalScoreListe[0];
         document.getElementById("plass2").innerHTML = finalScoreListe[1];
         document.getElementById("plass3").innerHTML = finalScoreListe[2];
       } else if (antallSpillere == 2) {
         finalScoreListe[0] = totalScore1;
         finalScoreListe[1] = totalScore2;
-        finalScoreListe.sort(function(a, b){return b-a});
+        finalScoreListe.sort(function(a, b) {
+          return b - a;
+        });
         document.getElementById("plass1").innerHTML = finalScoreListe[0];
         document.getElementById("plass2").innerHTML = finalScoreListe[1];
       } else if (antallSpillere == 1) {
         finalScoreListe[0] = totalScore1;
-        document.getElementById("plass1").innerHTML = spiller1 + " fikk: " + finalScoreListe[0] + " poeng";
+        document.getElementById("plass1").innerHTML =
+          spiller1 + " fikk: " + finalScoreListe[0] + " poeng";
       }
       console.log("Test finalScoreListe " + finalScoreListe);
     }
