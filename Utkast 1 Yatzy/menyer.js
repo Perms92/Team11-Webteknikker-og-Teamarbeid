@@ -80,7 +80,7 @@ function visHighscore() {
   document.getElementById("brett").style.borderColor = "#5d5d5d #414141";
 }
 */
-/*let testpersoner = [
+let testpersoner = [
   { navn: "Peder", score: 123 },
   { navn: "Andy", score: 156 }
 ];

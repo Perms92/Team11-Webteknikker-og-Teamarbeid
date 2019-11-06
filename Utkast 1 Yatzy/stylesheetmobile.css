@@ -7,11 +7,11 @@ body {
 }
 
 #brett {
-  background-color: #000000;
+  background-color: #b03434;
   background-image: url("https://www.transparenttextures.com/patterns/60-lines.png");
   border-radius: 1rem;
   border: 1.5rem solid;
-  border-color: #000000 #141414;
+  border-color: #5d5d5d #4e4e4e;
   height: 110rem;
   width: 70rem;
   margin-right: 25%;
@@ -128,6 +128,7 @@ button:active {
   width: 20rem;
   height: auto;
   margin-bottom: -5rem;
+  margin-left: 55rem;
   margin-top: -5rem;
   cursor: pointer;
 }
@@ -135,6 +136,7 @@ button:active {
 #logo {
   cursor: pointer;
   width: 40rem;
+  margin-left: 55rem;
   margin-bottom: -10rem;
   padding: 0;
 }
@@ -156,7 +158,6 @@ button:active {
   height: auto;
   border-radius: 1rem;
   text-align: center;
-  visibility: hidden;
   cursor: pointer;
   width: 94%;
   height: 20rem;
@@ -164,19 +165,13 @@ button:active {
   margin: 1rem;
 }
 
-#kasteKnapp:hover {
+#kasteKnapp:active {
   transform: scale(1.05);
-  transition-duration: 1.2s;
+  transition-duration: 0.5s;
   background: url(img/pattern5.png);
   background-color: #d2d2d2;
   border-color: #4d4d4d;
   color: black;
-}
-
-#kasteKnapp:active {
-  transform: scale(1.1);
-  cursor: default;
-  transition-duration: 0.5s;
 }
 
 #navneknapp {
@@ -202,10 +197,10 @@ img:active {
 
 table {
   width: 30rem;
-  margin-left: 70rem;
-  margin-top: -137rem;
-  min-width: 30%;
-  max-width: 30%;
+  margin-left: 75rem;
+  margin-top: -138rem;
+  min-width: 20%;
+  max-width: 20%;
   text-align: center;
   font-size: 3rem;
   display: flex;
@@ -224,6 +219,22 @@ td {
   padding: 5px;
   text-align: left;
   border-bottom: 0.5px solid #000000;
+}
+
+#spiller1::before {
+  content: "1";
+}
+
+#spiller2::before {
+  content: "2";
+}
+
+#spiller3::before {
+  content: "3";
+}
+
+#spiller4::before {
+  content: "4";
 }
 
 #terninger {
@@ -343,6 +354,29 @@ h3 {
   background-color: white;
 }
 
+#header {
+  display: flex;
+}
+
+.avatar {
+  padding: 10px;
+  width: 16rem;
+  height: auto;
+  border-radius: 50%;
+  display: block;
+  margin-bottom: -10%;
+  margin-top: -130%;
+  transition-duration: 0.5s;
+}
+.avatar:hover {
+  width: 11rem;
+  height: 11rem;
+  transition-duration: 0.5s;
+}
+
+.spiller {
+  font-size: 4rem;
+}
 /* top-left border-radius */
 table tr:first-child th:first-child {
   border-top-left-radius: 8px;

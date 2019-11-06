@@ -97,15 +97,15 @@ function startKast() {
   //console.log("Test: antallKast startkast " + antallKast);
   // Returnerer arrayet med 5 terninger med random verdier
   document.getElementById("kast").innerHTML = mitt_kast;
-  document.getElementById("dicePos0").style.transition = "all 0.5s";
+  document.getElementById("dicePos0").style.transition = "all 0.3s";
   document.getElementById("dicePos0").style.marginBottom = "0%";
-  document.getElementById("dicePos1").style.transition = "all 0.5s";
+  document.getElementById("dicePos1").style.transition = "all 0.3s";
   document.getElementById("dicePos1").style.marginBottom = "0%";
-  document.getElementById("dicePos2").style.transition = "all 0.5s";
+  document.getElementById("dicePos2").style.transition = "all 0.3s";
   document.getElementById("dicePos2").style.marginBottom = "0%";
-  document.getElementById("dicePos3").style.transition = "all 0.5s";
+  document.getElementById("dicePos3").style.transition = "all 0.3s";
   document.getElementById("dicePos3").style.marginBottom = "0%";
-  document.getElementById("dicePos4").style.transition = "all 0.5s";
+  document.getElementById("dicePos4").style.transition = "all 0.3s";
   document.getElementById("dicePos4").style.marginBottom = "0%";
   document.getElementById("rundeForteller").style.border = "solid";
   document.getElementById("rundeForteller").style.borderColor = "black";
@@ -678,42 +678,42 @@ function showDice() {
 }
 
 function moveDice0() {
-  if (document.getElementById("dicePos0").style.marginBottom == "-550%") {
+  if (document.getElementById("dicePos0").style.marginBottom == "-770%") {
     document.getElementById("dicePos0").style.marginBottom = "0%";
   } else {
-    document.getElementById("dicePos0").style.marginBottom = "-550%";
+    document.getElementById("dicePos0").style.marginBottom = "-770%";
   }
 }
 
 function moveDice1() {
-  if (document.getElementById("dicePos1").style.marginBottom == "-550%") {
+  if (document.getElementById("dicePos1").style.marginBottom == "-770%") {
     document.getElementById("dicePos1").style.marginBottom = "0%";
   } else {
-    document.getElementById("dicePos1").style.marginBottom = "-550%";
+    document.getElementById("dicePos1").style.marginBottom = "-770%";
   }
 }
 
 function moveDice2() {
-  if (document.getElementById("dicePos2").style.marginBottom == "-550%") {
+  if (document.getElementById("dicePos2").style.marginBottom == "-770%") {
     document.getElementById("dicePos2").style.marginBottom = "0%";
   } else {
-    document.getElementById("dicePos2").style.marginBottom = "-550%";
+    document.getElementById("dicePos2").style.marginBottom = "-770%";
   }
 }
 
 function moveDice3() {
-  if (document.getElementById("dicePos3").style.marginBottom == "-550%") {
+  if (document.getElementById("dicePos3").style.marginBottom == "-770%") {
     document.getElementById("dicePos3").style.marginBottom = "0%";
   } else {
-    document.getElementById("dicePos3").style.marginBottom = "-550%";
+    document.getElementById("dicePos3").style.marginBottom = "-770%";
   }
 }
 
 function moveDice4() {
-  if (document.getElementById("dicePos4").style.marginBottom == "-550%") {
+  if (document.getElementById("dicePos4").style.marginBottom == "-770%") {
     document.getElementById("dicePos4").style.marginBottom = "0%";
   } else {
-    document.getElementById("dicePos4").style.marginBottom = "-550%";
+    document.getElementById("dicePos4").style.marginBottom = "-770%";
   }
 }
 
