@@ -2,9 +2,10 @@ html, body {
   height: 100%;
   margin: 0;
 }
+/*
 div {
   border: 2px solid rgb(113, 115, 130);
-}
+} */
 #container {
   height: inherit;
   display: grid;
@@ -19,7 +20,6 @@ div {
 }
 #header {
   grid-area: h;
-  justify-content: center;
 }
 
 #toggleButtons {
@@ -31,8 +31,8 @@ div {
   grid-area: f;
 }
 button {
-  border: 2px solid rgb(113, 115, 130);
-  color: white;
+  /*border: 2px solid rgb(113, 115, 130);*/
+  color: rgb(75, 71, 71);
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
@@ -44,10 +44,6 @@ button {
 
 button:not(:last-child) {
   border-right: none; /* Prevent double borders */
-}
-
-button:hover {
-  background-color: #3e8e41;
 }
 #onePlayer {
   background-color: rgb(143, 230, 230);
@@ -65,12 +61,24 @@ background-color: rgb(247, 252, 140);
   border-top-right-radius: 25px;
   border-bottom-right-radius: 25px;
 }
+#play{
+  background-color: rgb(255, 170, 58);
+}
+button:hover {
+  background-color: #828e82;
+}
 input {
   height: 16px;
   width: 150px;
   display: block;
   margin-top: 2px;
 }
+#1, #2, #3, #4 {
+  display: none;
+}
 #playerNames {
   margin: 0 auto;
+}
+.multiplayer {
+  visibility: hidden;
 }
