@@ -93,15 +93,15 @@ function startKast() {
   //console.log("Test: antallKast startkast " + antallKast);
   // Returnerer arrayet med 5 terninger med random verdier
   document.getElementById("kast").innerHTML = mitt_kast;
-  document.getElementById("dicePos0").style.transition = "all 0.5s";
+  document.getElementById("dicePos0").style.transition = "all 0.3s";
   document.getElementById("dicePos0").style.marginBottom = "0%";
-  document.getElementById("dicePos1").style.transition = "all 0.5s";
+  document.getElementById("dicePos1").style.transition = "all 0.3s";
   document.getElementById("dicePos1").style.marginBottom = "0%";
-  document.getElementById("dicePos2").style.transition = "all 0.5s";
+  document.getElementById("dicePos2").style.transition = "all 0.3s";
   document.getElementById("dicePos2").style.marginBottom = "0%";
-  document.getElementById("dicePos3").style.transition = "all 0.5s";
+  document.getElementById("dicePos3").style.transition = "all 0.3s";
   document.getElementById("dicePos3").style.marginBottom = "0%";
-  document.getElementById("dicePos4").style.transition = "all 0.5s";
+  document.getElementById("dicePos4").style.transition = "all 0.3s";
   document.getElementById("dicePos4").style.marginBottom = "0%";
   document.getElementById("rundeForteller").style.border = "solid";
   document.getElementById("rundeForteller").style.borderColor = "black";
@@ -610,6 +610,7 @@ function moveToTable() {
   console.log("Test moveToTable: " + sendTilId);
   console.log("Test moveToTable midlertidig_poeng: " + midlertidig_poeng);
   document.getElementById(sendTilId).innerHTML = midlertidig_poeng;
+  // legge til animasjon
   if (runde == 15) {
     if (hvemSinTur == 1) {
       document.getElementById("1-totalsum").innerHTML = totalScore1;
@@ -657,7 +658,6 @@ function moveToTable() {
         document.getElementById("plass1").innerHTML =
           spiller1 + " fikk: " + finalScoreListe[0] + " poeng";
       }
-      console.log("Test finalScoreListe " + finalScoreListe);
     }
   }
 }
@@ -674,42 +674,42 @@ function showDice() {
 }
 
 function moveDice0() {
-  if (document.getElementById("dicePos0").style.marginBottom == "-550%") {
+  if (document.getElementById("dicePos0").style.marginBottom == "-770%") {
     document.getElementById("dicePos0").style.marginBottom = "0%";
   } else {
-    document.getElementById("dicePos0").style.marginBottom = "-550%";
+    document.getElementById("dicePos0").style.marginBottom = "-770%";
   }
 }
 
 function moveDice1() {
-  if (document.getElementById("dicePos1").style.marginBottom == "-550%") {
+  if (document.getElementById("dicePos1").style.marginBottom == "-770%") {
     document.getElementById("dicePos1").style.marginBottom = "0%";
   } else {
-    document.getElementById("dicePos1").style.marginBottom = "-550%";
+    document.getElementById("dicePos1").style.marginBottom = "-770%";
   }
 }
 
 function moveDice2() {
-  if (document.getElementById("dicePos2").style.marginBottom == "-550%") {
+  if (document.getElementById("dicePos2").style.marginBottom == "-770%") {
     document.getElementById("dicePos2").style.marginBottom = "0%";
   } else {
-    document.getElementById("dicePos2").style.marginBottom = "-550%";
+    document.getElementById("dicePos2").style.marginBottom = "-770%";
   }
 }
 
 function moveDice3() {
-  if (document.getElementById("dicePos3").style.marginBottom == "-550%") {
+  if (document.getElementById("dicePos3").style.marginBottom == "-770%") {
     document.getElementById("dicePos3").style.marginBottom = "0%";
   } else {
-    document.getElementById("dicePos3").style.marginBottom = "-550%";
+    document.getElementById("dicePos3").style.marginBottom = "-770%";
   }
 }
 
 function moveDice4() {
-  if (document.getElementById("dicePos4").style.marginBottom == "-550%") {
+  if (document.getElementById("dicePos4").style.marginBottom == "-770%") {
     document.getElementById("dicePos4").style.marginBottom = "0%";
   } else {
-    document.getElementById("dicePos4").style.marginBottom = "-550%";
+    document.getElementById("dicePos4").style.marginBottom = "-770%";
   }
 }
 

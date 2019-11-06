@@ -65,7 +65,7 @@
 
       <div id="second">
         <div id="header">
-          <div id="avatar1"><img src="img/avatarFox.png" class="avatar"><p id="spiller1">Spiller 1</p></div>
+          <div id="avatar1"><img src="img/avatarFox.png" class="avatar"><p class="spiller">Spiller 1</p></div>
           <div id="avatar2"><img src="img/avatarGorilla.png" class="avatar"><p class="spiller">Spiller 2</p></div>
           <div id="avatar3"><img src="img/avatarBear.png" class="avatar"><p class="spiller">Spiller 3</p></div>
           <div id="avatar4"><img src="img/avatarGiraffe.png" class="avatar"><p class="spiller">Spiller 4</p></div>
@@ -82,10 +82,9 @@
             <!--<button onclick="playerName()" id="navneknapp" class="knappBrett"><img src="img/logo.png" alt="Logo" id="logo">
             <br><img src="img/dice.png" alt="Dices" id="dice">
             <br><br>START SPILL</button><br>-->
-          <button onclick="kasteKnapp()" id="kasteKnapp" class="knappBrett">Start runde 1</button>
+
         </div>
-        <p id="footer">© NTNU Digital Forretningsutvikling høsten 2019</p>
-        <p id="kast"></p>
+        <button onclick="kasteKnapp()" id="kasteKnapp" class="knappBrett">Start runde 1</button>
       </div>
 
       <div id="third">
@@ -233,6 +232,8 @@
 
     <script src="yatzy.js"></script>
     <script src="menyer.js"></script>
-    <br>
+    <script src="hjemmeside.js"></script>
+    <br> <p id="kast"></p>
+    <p>© NTNU Digital Forretningsutvikling høsten 2019</p>
   </body>
 </html>
