@@ -31,8 +31,8 @@ function visHighscore() {
   }
 }
 
-function playerName() {
-  spiller1 = String(prompt("Skriv inn spiller 1 her"));
+/*function playerName() {*/
+  /*spiller1 = String(prompt("Skriv inn spiller 1 her"));
   let erTomt = "true";
   while (erTomt == "true") {
     try {
@@ -64,14 +64,20 @@ function playerName() {
       }
     }
   }
-  document.getElementById("spiller4").innerHTML = spiller4 + "";
-  document.getElementById("navneknapp").style.display = "none";
+  document.getElementById("spiller4").innerHTML = spiller4 + "";*/
+  /*let spillerEn = document.getElementById("playerOne").value;
+  console.log("Test hjemmesideSpiller1 " + spillerEn);
+  let spillerTo = document.getElementById("playerTwo");
+  let spillerTre = document.getElementById("playerThree");
+  let spillerFire = document.getElementById("playerFour");
+  href="index.html";*/
+  /*document.getElementById("navneknapp").style.display = "none";
   document.getElementById("kasteKnapp").style.visibility = "visible";
   document.getElementById("brett").style.backgroundColor = "#bd1c00";
   document.getElementById("brett").style.backgroundImage =
     "url('https://www.transparenttextures.com/patterns/60-lines.png')";
   document.getElementById("brett").style.borderColor = "#5c5c5c #4d4d4d";
-}
+}*/
 
 /*let testpersoner = [
   { navn: "Peder", score: 123 },
