@@ -633,12 +633,24 @@ function moveToTable() {
         finalScoreListe[2] = totalScore3;
         finalScoreListe[3] = totalScore4;
         finalScoreListe.sort(function(a, b){return b-a});
+        document.getElementById("plass2").innerHTML = finalScoreListe[1];
+        document.getElementById("plass3").innerHTML = finalScoreListe[2];
+        document.getElementById("plass4").innerHTML = finalScoreListe[3];
       } else if (antallSpillere == 3) {
         finalScoreListe[0] = totalScore1;
         finalScoreListe[1] = totalScore2;
         finalScoreListe[2] = totalScore3;
         finalScoreListe.sort(function(a, b){return b-a});
+        document.getElementById("plass2").innerHTML = finalScoreListe[1];
+        document.getElementById("plass3").innerHTML = finalScoreListe[2];
+      } else if (antallSpillere == 2) {
+        finalScoreListe[0] = totalScore1;
+        finalScoreListe[1] = totalScore2;
+        finalScoreListe.sort(function(a, b){return b-a});
+        document.getElementById("plass2").innerHTML = finalScoreListe[1];
       }
+      document.getElementById("plass1").innerHTML = finalScoreListe[0];
+      console.log("Test finalScoreListe " + finalScoreListe);
     }
   }
   /*if (runde == 15 && hvemSinTur == 1) {
