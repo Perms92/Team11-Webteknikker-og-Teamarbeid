@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
     <link rel="stylesheet" media='(min-width: 1025px)' type="text/css" href="stylesheet.css">
     <link rel="stylesheet" type="text/css" media='(max-width: 1024px)' href="stylesheetmobile.css">
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">  
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
   </head>
   <body>
     <div id="container">
@@ -47,7 +47,19 @@
       <div id="hsPopUp">
         <ol id="hs">
         </ol>
-        <button type="button" name="button" onclick="visHighscore()" id="gaTilbake">Gå tilbake</button>
+        <button type="button" name="button" onclick="visHighscore()" id="gaTilbakeHs">Gå tilbake</button>
+      </div>
+    </div>
+
+    <div id="finalScore">
+      <div id="finalScorePopUp">
+        <ol id="finalScoreListe">
+          <li id="plass1"></li>
+          <li id="plass2"></li>
+          <li id="plass3"></li>
+          <li id="plass4"></li>
+        </ol>
+          <button type="button" name="button" onclick="finalScore()" id="gaTilbakeFinalScore">Gå tilbake</button>
       </div>
     </div>
 
@@ -67,10 +79,10 @@
           <label for="3" onclick="moveDice3()"><img height="40px" id="dicePos3" class="dices" draggable="false"></label>
           <label for="4" onclick="moveDice4()"><img height="40px" id="dicePos4" class="dices" draggable="false"></label>
           <br>
-          <!---
-          <button onclick="playerName()" id="navneknapp" class="knappBrett"><img src="img/logo.png" alt="Logo" id="logo">
-            <br><img src="img/dice.png" alt="Dices" id="dice" >
-            <br><br>START SPILL</button><br> -->
+
+            <!--<button onclick="playerName()" id="navneknapp" class="knappBrett"><img src="img/logo.png" alt="Logo" id="logo">
+            <br><img src="img/dice.png" alt="Dices" id="dice">
+            <br><br>START SPILL</button><br>-->
 
         </div>
         <button onclick="kasteKnapp()" id="kasteKnapp" class="knappBrett">Start runde 1</button>

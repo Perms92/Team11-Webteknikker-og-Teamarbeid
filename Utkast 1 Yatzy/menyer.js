@@ -17,23 +17,22 @@ function regler() {
   */
 }
 
-let hiddenPop = true;
+let hiddenPopHs = true;
 function visHighscore() {
   var y = document.getElementById("popUpContainer");
   var hsPopUp = document.getElementById("hsPopUp");
 
-  if (!hiddenPop) {
+  if (!hiddenPopHs) {
     y.style.display = "none";
-    hiddenPop = true;
+    hiddenPopHs = true;
   } else {
     y.style.display = "block";
-    hiddenPop = false;
+    hiddenPopHs = false;
   }
 }
 
-function playerName() {
-  /*
-  spiller1 = String(prompt("Skriv inn spiller 1 her"));
+/*function playerName() {*/
+  /*spiller1 = String(prompt("Skriv inn spiller 1 her"));
   let erTomt = "true";
   while (erTomt == "true") {
     try {
@@ -65,10 +64,16 @@ function playerName() {
       }
     }
   }
-  document.getElementById("spiller4").innerHTML = spiller4 + "";
-  document.getElementById("navneknapp").style.display = "none";
+  document.getElementById("spiller4").innerHTML = spiller4 + "";*/
+  /*let spillerEn = document.getElementById("playerOne").value;
+  console.log("Test hjemmesideSpiller1 " + spillerEn);
+  let spillerTo = document.getElementById("playerTwo");
+  let spillerTre = document.getElementById("playerThree");
+  let spillerFire = document.getElementById("playerFour");
+  href="index.html";*/
+  /*document.getElementById("navneknapp").style.display = "none";
   document.getElementById("kasteKnapp").style.visibility = "visible";
-  document.getElementById("brett").style.backgroundColor = "#af0404";
+  document.getElementById("brett").style.backgroundColor = "#bd1c00";
   document.getElementById("brett").style.backgroundImage =
     "url('https://www.transparenttextures.com/patterns/60-lines.png')";
   document.getElementById("brett").style.borderColor = "#414141";

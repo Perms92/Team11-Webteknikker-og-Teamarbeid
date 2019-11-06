@@ -60,14 +60,13 @@ function kasteKnapp() {
     showDice();
   } else if (x.innerHTML === "Start runde 1" || x.innerHTML === "Nytt spill") {
     if (x.innerHTML === "Nytt spill") {
+      finalScore();
       resetSpill();
     }
     spiller1 = document.getElementById("spiller1").innerHTML;
     spiller2 = document.getElementById("spiller2").innerHTML;
     spiller3 = document.getElementById("spiller3").innerHTML;
     spiller4 = document.getElementById("spiller4").innerHTML;
-    console.log("Test spiller 1 " + spiller1);
-    console.log("Test spiller 2 " + spiller2);
     if (spiller4 != "") {
       antallSpillere = 4;
     } else if (spiller3 != "") {
@@ -75,7 +74,6 @@ function kasteKnapp() {
     } else if (spiller2 != "") {
       antallSpillere = 2;
     }
-    console.log("Test antallSpillere " + antallSpillere);
     antallKast += 1;
     //console.log("Test 5 kasteKnapp()");
     x.innerHTML = "Neste kast";
@@ -429,22 +427,6 @@ function bonus() {
       document.getElementById("4-bonus").innerHTML = ikkeBonus;
     }
   }
-
-  /*if (totalScore1 >= 42 && hvemSinTur == 1) {
-    document.getElementById("1-faseEn").innerHTML = totalScore1;
-    document.getElementById("1-bonus").innerHTML = bonuspoeng;
-    totalScore1 += bonuspoeng;
-  } else if (totalScore2 >= 42 && hvemSinTur == 2) {
-    document.getElementById("2-faseEn").innerHTML = totalScore2;
-    document.getElementById("2-bonus").innerHTML = bonuspoeng;
-    totalScore2 += bonuspoeng;
-  } else if (totalScore1 < 42 && hvemSinTur == 1) {
-    document.getElementById("1-faseEn").innerHTML = totalScore1;
-    document.getElementById("1-bonus").innerHTML = ikkeBonus;
-  } else {
-    document.getElementById("2-faseEn").innerHTML = totalScore2;
-    document.getElementById("2-bonus").innerHTML = ikkeBonus;
-  }*/
 }
 
 function toPar(mitt_kast) {
@@ -643,12 +625,39 @@ function moveToTable() {
     } else if (hvemSinTur == 4) {
       document.getElementById("4-totalsum").innerHTML = totalScore4;
     }
+    if (hvemSinTur == antallSpillere) {
+      let finalScoreListe = [];
+      if (antallSpillere == 4) {
+        finalScoreListe[0] = totalScore1;
+        finalScoreListe[1] = totalScore2;
+        finalScoreListe[2] = totalScore3;
+        finalScoreListe[3] = totalScore4;
+        finalScoreListe.sort(function(a, b){return b-a});
+        document.getElementById("plass1").innerHTML = finalScoreListe[0];
+        document.getElementById("plass2").innerHTML = finalScoreListe[1];
+        document.getElementById("plass3").innerHTML = finalScoreListe[2];
+        document.getElementById("plass4").innerHTML = finalScoreListe[3];
+      } else if (antallSpillere == 3) {
+        finalScoreListe[0] = totalScore1;
+        finalScoreListe[1] = totalScore2;
+        finalScoreListe[2] = totalScore3;
+        finalScoreListe.sort(function(a, b){return b-a});
+        document.getElementById("plass1").innerHTML = finalScoreListe[0];
+        document.getElementById("plass2").innerHTML = finalScoreListe[1];
+        document.getElementById("plass3").innerHTML = finalScoreListe[2];
+      } else if (antallSpillere == 2) {
+        finalScoreListe[0] = totalScore1;
+        finalScoreListe[1] = totalScore2;
+        finalScoreListe.sort(function(a, b){return b-a});
+        document.getElementById("plass1").innerHTML = finalScoreListe[0];
+        document.getElementById("plass2").innerHTML = finalScoreListe[1];
+      } else if (antallSpillere == 1) {
+        finalScoreListe[0] = totalScore1;
+        document.getElementById("plass1").innerHTML = spiller1 + " fikk: " + finalScoreListe[0] + " poeng";
+      }
+      console.log("Test finalScoreListe " + finalScoreListe);
+    }
   }
-  /*if (runde == 15 && hvemSinTur == 1) {
-    document.getElementById("1-totalsum").innerHTML = totalScore1;
-  } else if (runde == 15 && hvemSinTur == 2) {
-    document.getElementById("2-totalsum").innerHTML = totalScore2;
-  }*/
 }
 
 function showDice() {
@@ -672,7 +681,7 @@ function moveDice0() {
 
 function moveDice1() {
   if (document.getElementById("dicePos1").style.marginBottom == "-850%") {
-    document.getElementById("dicePos1").style.marginBottom = "5%";
+    document.getElementById("dicePos1").style.marginBottom = "0%";
   } else {
     document.getElementById("dicePos1").style.marginBottom = "-850%";
   }
@@ -680,25 +689,25 @@ function moveDice1() {
 
 function moveDice2() {
   if (document.getElementById("dicePos2").style.marginBottom == "-850%") {
-    document.getElementById("dicePos2").style.marginBottom = "5%";
+    document.getElementById("dicePos2").style.marginBottom = "0%";
   } else {
     document.getElementById("dicePos2").style.marginBottom = "-850%";
   }
 }
 
 function moveDice3() {
-  if (document.getElementById("dicePos3").style.marginBottom == "-850%") {
-    document.getElementById("dicePos3").style.marginBottom = "5%";
+  if (document.getElementById("dicePos3").style.marginBottom == "-450%") {
+    document.getElementById("dicePos3").style.marginBottom = "0%";
   } else {
-    document.getElementById("dicePos3").style.marginBottom = "-850%";
+    document.getElementById("dicePos3").style.marginBottom = "-450%";
   }
 }
 
 function moveDice4() {
-  if (document.getElementById("dicePos4").style.marginBottom == "-850%") {
-    document.getElementById("dicePos4").style.marginBottom = "5%";
+  if (document.getElementById("dicePos4").style.marginBottom == "-450%") {
+    document.getElementById("dicePos4").style.marginBottom = "0%";
   } else {
-    document.getElementById("dicePos4").style.marginBottom = "-850%";
+    document.getElementById("dicePos4").style.marginBottom = "-450%";
   }
 }
 
@@ -718,11 +727,24 @@ function resetSpill() {
   hvemSinTur = 1;
   for (var i = 1; i <= 4; i++) {
     for (var y = 1; y < 16; y++) {
-      console.log("Test resetSpill y + i: " + y + ", " + i);
       document.getElementById(i + "-" + y).innerHTML = "";
     }
     document.getElementById(i + "-faseEn").innerHTML = "";
     document.getElementById(i + "-bonus").innerHTML = "";
     document.getElementById(i + "-totalsum").innerHTML = "";
+  }
+}
+
+let hiddenPopFinalScore = true;
+function finalScore() {
+  var y = document.getElementById("finalScore");
+  var finalScorePopUp = document.getElementById("finalScorePopUp");
+
+  if (!hiddenPopFinalScore) {
+    y.style.display = "none";
+    hiddenPopFinalScore = true;
+  } else {
+    y.style.display = "block";
+    hiddenPopFinalScore = false;
   }
 }
