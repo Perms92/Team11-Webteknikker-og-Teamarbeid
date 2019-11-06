@@ -2,8 +2,8 @@ body {
   margin: 0;
   text-align: center;
   font-family: "Be Vietnam", sans-serif;
-  background-color: #878787;
-  background-image: url("https://www.transparenttextures.com/patterns/gplay.png");
+  background-color: #ffffff;
+  background-image: url("https://www.transparenttextures.com/patterns/60-lines.png");
 }
 
 #container {
@@ -36,9 +36,23 @@ body {
   border-radius: 10px;
   border: 18px solid;
   border-color: #000000 #141414;
-  padding: 0px 50px 250px 50px;
+  padding: 0% 5% 46% 5%;
   margin-bottom: -110px;
   margin-top: 4%;
+}
+
+#rundeForteller {
+  font-size: 28px;
+  color: black;
+  background-color: lightgrey;
+  opacity: 1;
+  border-radius: 5px;
+  border-width: 1px;
+  border-style: hidden;
+  margin-top: 0%;
+  margin-bottom: -20%;
+  user-drag: none;
+  user-select: none;
 }
 
 #kast {
@@ -163,7 +177,7 @@ button:active {
   border-radius: 5px;
   text-align: center;
   visibility: hidden;
-  margin: auto;
+  margin-top: 0%;
 }
 
 #kasteKnapp:hover {
@@ -200,10 +214,10 @@ button:active {
 }
 
 #dice {
-  width: 130px;
+  width: 16rem;
   height: auto;
-  margin-bottom: -20px;
-  margin-top: -50px;
+  margin-bottom: -20%;
+  margin-top: -20%;
   cursor: pointer;
 }
 
@@ -211,10 +225,6 @@ button:active {
   cursor: pointer;
   width: 250px;
   margin-bottom: -40px;
-}
-
-.dices:hover {
-  opacity: 0.5;
 }
 
 img:active {
@@ -252,7 +262,7 @@ td {
   border-bottom: 0.5px solid #000000;
 }
 
-#terninger {
+/* #terninger {
   font-size: 28px;
   opacity: 1;
   border-radius: 5px;
@@ -261,19 +271,7 @@ td {
   margin-top: 2.5%;
   margin-bottom: 0%;
 }
-
-#rundeForteller {
-  font-size: 28px;
-  color: black;
-  background-color: lightgrey;
-  opacity: 1;
-  border-radius: 5px;
-  border-width: 1px;
-  border-style: hidden;
-  margin-top: 2.5%;
-  user-drag: none;
-  user-select: none;
-}
+*/
 
 #kast {
   visibility: hidden;
@@ -314,12 +312,12 @@ td {
   border-radius: 1rem;
   border-width: 0.3rem;
   border-style: hidden;
-  margin-top: 2.5%;
+  margin-top: 0%;
   margin-bottom: 0%;
 }
 
 .dices {
-  width: 6rem;
+  width: 5rem;
   height: auto;
 }
 
