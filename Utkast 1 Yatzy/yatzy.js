@@ -37,8 +37,7 @@ function kasteKnapp() {
       hvemSinTur += 1;
       var spiller = "spiller" + hvemSinTur;
       rundeForteller(spiller);
-    }
-    else if (hvemSinTur == antallSpillere) {
+    } else if (hvemSinTur == antallSpillere) {
       runde += 1;
       hvemSinTur = 1;
       rundeForteller(spiller1);
