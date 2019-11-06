@@ -725,7 +725,15 @@ function resetSpill() {
   totalScore2 = 0;
   totalScore3 = 0;
   totalScore4 = 0;
-  antallSpillere = 1;
+  if (localStorage["spiller4"] != "") {
+    antallSpillere = 4;
+  } else if (localStorage["spiller3"] != "") {
+    antallSpillere = 3;
+  } else if (localStorage["spiller2"] != "") {
+    antallSpillere = 2;
+  } else {
+    antallSpillere = 1;
+  }
   spiller1 = "";
   spiller2 = "";
   spiller3 = "";
@@ -742,15 +750,21 @@ function resetSpill() {
 }
 
 let hiddenPopFinalScore = true;
-function finalScore() {
+
+function finalScore(nyttEllerGjenta) {
   var y = document.getElementById("finalScore");
   var finalScorePopUp = document.getElementById("finalScorePopUp");
 
   if (!hiddenPopFinalScore) {
     y.style.display = "none";
     hiddenPopFinalScore = true;
+    if (nyttEllerGjenta == "nyeSpillere") {
+      location.replace("hjemmeside.html");
+    }
+    console.log("Test nyttEllerGjenta: " + nyttEllerGjenta);
   } else {
     y.style.display = "block";
     hiddenPopFinalScore = false;
+    console.log("Test nyttEllerGjenta: " + nyttEllerGjenta);
   }
 }
