@@ -208,3 +208,10 @@ td {
 h3 {
   visibility: hidden;
 }
+
+.dices:active {
+  opacity: 0.8;
+  border: 2px solid;
+  border-color: yellow;
+  border-radius: 8px;
+}

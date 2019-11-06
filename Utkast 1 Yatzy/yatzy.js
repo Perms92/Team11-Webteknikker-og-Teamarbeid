@@ -652,12 +652,6 @@ function moveToTable() {
       document.getElementById("plass1").innerHTML = finalScoreListe[0];
       console.log("Test finalScoreListe " + finalScoreListe);
     }
-  }
-  /*if (runde == 15 && hvemSinTur == 1) {
-    document.getElementById("1-totalsum").innerHTML = totalScore1;
-  } else if (runde == 15 && hvemSinTur == 2) {
-    document.getElementById("2-totalsum").innerHTML = totalScore2;
-  }*/
 }
 
 function showDice() {
@@ -681,7 +675,7 @@ function moveDice0() {
 
 function moveDice1() {
   if (document.getElementById("dicePos1").style.marginBottom == "-850%") {
-    document.getElementById("dicePos1").style.marginBottom = "5%";
+    document.getElementById("dicePos1").style.marginBottom = "0%";
   } else {
     document.getElementById("dicePos1").style.marginBottom = "-850%";
   }
@@ -689,25 +683,25 @@ function moveDice1() {
 
 function moveDice2() {
   if (document.getElementById("dicePos2").style.marginBottom == "-850%") {
-    document.getElementById("dicePos2").style.marginBottom = "5%";
+    document.getElementById("dicePos2").style.marginBottom = "0%";
   } else {
     document.getElementById("dicePos2").style.marginBottom = "-850%";
   }
 }
 
 function moveDice3() {
-  if (document.getElementById("dicePos3").style.marginBottom == "-850%") {
-    document.getElementById("dicePos3").style.marginBottom = "5%";
+  if (document.getElementById("dicePos3").style.marginBottom == "-450%") {
+    document.getElementById("dicePos3").style.marginBottom = "0%";
   } else {
-    document.getElementById("dicePos3").style.marginBottom = "-850%";
+    document.getElementById("dicePos3").style.marginBottom = "-450%";
   }
 }
 
 function moveDice4() {
-  if (document.getElementById("dicePos4").style.marginBottom == "-850%") {
-    document.getElementById("dicePos4").style.marginBottom = "5%";
+  if (document.getElementById("dicePos4").style.marginBottom == "-450%") {
+    document.getElementById("dicePos4").style.marginBottom = "0%";
   } else {
-    document.getElementById("dicePos4").style.marginBottom = "-850%";
+    document.getElementById("dicePos4").style.marginBottom = "-450%";
   }
 }
 
