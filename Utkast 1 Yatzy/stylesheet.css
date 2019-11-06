@@ -38,7 +38,7 @@ body {
   border-color: #000000 #141414;
   padding: 0px 50px 250px 50px;
   margin-bottom: -110px;
-  margin-top: 4%;
+  margin-top: 0px;
 }
 
 #kast {
@@ -202,9 +202,10 @@ button:active {
 #dice {
   width: 130px;
   height: auto;
-  margin-bottom: -20px;
-  margin-top: -50px;
+  margin-bottom: -20%;
+  margin-top: -20%;
   cursor: pointer;
+
 }
 
 #logo {
@@ -286,7 +287,24 @@ td {
 .dices:hover {
   opacity: 0.8;
 }
-
+.avatar {
+  padding: 10px;
+  width: 9rem;
+  height: 9rem;
+  border-radius: 50%;
+  display: block;
+  margin-bottom: -10%;
+}
+.avatar:hover {
+  width: 11rem;
+  height: 11rem;
+}
+.spiller {
+  margin-bottom: 0;
+}
+#header{
+  display: flex;
+}
 #hsPopUp {
   margin: auto;
   position: absolute;

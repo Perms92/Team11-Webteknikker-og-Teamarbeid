@@ -6,14 +6,15 @@
     <link rel="icon" href="img/favicon.jpg" type="image/gif" sizes="16x16">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
     <link rel="stylesheet" media='(min-width: 1025px)' type="text/css" href="stylesheet.css">
-  <link rel="stylesheet" type="text/css" media='(max-width: 1024px)' href="stylesheetmobile.css">
-  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">  </head>
+    <link rel="stylesheet" type="text/css" media='(max-width: 1024px)' href="stylesheetmobile.css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">  
+  </head>
   <body>
     <div id="container">
 
       <div id="first">
-
-        <h1><img src="img/logo.png" alt="Logo" id="logo" onclick="window.location.href = 'index.html';"><br>
+        <h1>
+          <img src="img/logo.png" alt="Logo" id="logo" onclick="window.location.href = 'index.html';"><br>
           <img src="img/dice.png" alt="Dices" id="dice" onclick="window.location.href = 'index.html';"></h1>
         <br><br><br>
         <h3><button onclick="regler()" class="knappVenstreSide">Regler</button></h3>
@@ -63,6 +64,12 @@
     </div>
 
       <div id="second">
+        <div id="header">
+          <div><img src="img/avatarFox.png" id="avatar1" class="avatar"><p class="spiller">Spiller 1</p></div>
+          <div id="avatar2"><img src="img/avatarGorilla.png" class="avatar"><p class="spiller">Spiller 2</p></div>
+          <div id="avatar3"><img src="img/avatarBear.png" class="avatar"><p class="spiller">Spiller 3</p></div>
+          <div id="avatar4"><img src="img/avatarGiraffe.png" class="avatar"><p class="spiller">Spiller 4</p></div>
+        </div>
         <div id="brett">
           <div id="rundeForteller"></div>
           <p id="kast"></p>
@@ -82,7 +89,7 @@
       </div>
 
       <div id="third">
-        <h3>Poengoversikt</h3>
+        <h3>Poengsum</h3>
         <table>
           <tr>
             <th> Deltakere
