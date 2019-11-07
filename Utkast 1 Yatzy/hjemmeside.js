@@ -39,4 +39,9 @@ function settSpillernavn() {
   document.getElementById("spiller2").innerHTML = localStorage["spiller2"];
   document.getElementById("spiller3").innerHTML = localStorage["spiller3"];
   document.getElementById("spiller4").innerHTML = localStorage["spiller4"];
+  document.getElementById("avatar1").innerHTML = localStorage["spiller1"];
+  document.getElementById("avatar2").innerHTML = localStorage["spiller2"];
+  document.getElementById("avatar3").innerHTML = localStorage["spiller3"];
+  document.getElementById("avatar4").innerHTML = localStorage["spiller4"];
+  console.log("Test localStorage " + localStorage["spiller1"]);
 }

@@ -1,7 +1,7 @@
 body {
   margin: 0;
   text-align: center;
-  font-family: "Be Vietnam", sans-serif;
+  font-family: 'Heebo', sans-serif;
   background-color: #ffffff;
   background-image: url("https://www.transparenttextures.com/patterns/60-lines.png");
 }
@@ -51,6 +51,7 @@ body {
   border-style: hidden;
   margin-top: 0%;
   margin-bottom: 5%;
+  user-drag: none;
   user-select: none;
 }
 
@@ -65,7 +66,7 @@ p {
   font-size: 20px;
 }
 
-#gaTilbake {
+#gaTilbakeHs {
   padding: 10px;
   display: inline-block;
   font-size: 14px;
@@ -74,7 +75,7 @@ p {
   border-color: #ff0900;
   background-color: #ffffff;
   opacity: 0.7;
-  font-family: "Be Vietnam", sans-serif;
+  font-family: 'Heebo', sans-serif;
   font-weight: 700;
   color: #ffffff;
   border-radius: 5px;
@@ -84,7 +85,7 @@ p {
   bottom: 10px;
 }
 
-#gaTilbake:hover {
+#gaTilbakeHs:hover {
   transform: scale(1.05);
   transition-duration: 1.2s;
   background: url(img/pattern5.png);
@@ -101,7 +102,7 @@ p {
   border-color: #ff0900;
   background-color: #ffffff;
   opacity: 0.7;
-  font-family: "Be Vietnam", sans-serif;
+  font-family: 'Heebo', sans-serif;
   font-weight: 700;
   color: black;
   border-radius: 5px;
@@ -140,7 +141,7 @@ p {
   border: 4px solid #ff0900;
   background-color: #808080;
   opacity: 0.7;
-  font-family: "Be Vietnam", sans-serif;
+  font-family: 'Heebo', sans-serif;
   font-weight: 700;
   color: #000000;
   border-radius: 5px;
@@ -176,7 +177,7 @@ button:active {
   border-color: #ff0900;
   background-color: #ffffff;
   opacity: 1;
-  font-family: "Be Vietnam", sans-serif;
+  font-family: 'Heebo', sans-serif;
   font-weight: 700;
   color: #000000;
   border-radius: 5px;
@@ -226,7 +227,6 @@ button:active {
   margin-bottom: -20%;
   margin-top: -20%;
   cursor: pointer;
-  padding: 0;
 }
 
 #logo {
@@ -236,7 +236,7 @@ button:active {
 }
 
 #logo:hover {
-  transform:scale(1.1);
+  transform: scale(1.1);
   transition-duration: 0.3s;
 }
 img:active {
@@ -309,7 +309,6 @@ td {
   width: 9.5rem;
   height: 9.5rem;
   transition-duration: 0.5s;
-
 }
 .spiller {
   margin-bottom: 0;
@@ -321,13 +320,16 @@ td {
   margin-left: 10%;
 }
 
-#avatar1:hover, #avatar2:hover, #avatar3:hover, #avatar4:hover {
+#avatar1:hover,
+#avatar2:hover,
+#avatar3:hover,
+#avatar4:hover {
   font-weight: 600;
   transition-delay: 0.1s;
   transition-duration: 0s;
 }
 
-#hsPopUp {
+#hsPopUp,  {
   margin: auto;
   position: absolute;
   top: 0;
@@ -343,7 +345,7 @@ td {
   opacity: 1;
 }
 
-#popUpContainer {
+#popUpContainer, #finalScore {
   width: 100%;
   height: 100%;
   background-color: rgba(204, 204, 204, 0.5);
@@ -373,14 +375,6 @@ td {
   border-radius: 8px;
 }
 
-#finalScore {
-  width: 100%;
-  height: 100%;
-  background-color: rgba(204, 204, 204, 0.5);
-  position: absolute;
-  display: none;
-}
-
 #finalScorePopUp {
   margin: auto;
   position: absolute;
@@ -393,9 +387,7 @@ td {
   border: 1px solid black;
   background-color: white;
 }
-#footer {
-  margin-top: 20%;
-}
+
 /* top-left border-radius */
 table tr:first-child th:first-child {
   border-top-left-radius: 8px;

@@ -7,13 +7,17 @@ var totalScore2 = 0;
 var totalScore3 = 0;
 var totalScore4 = 0;
 var antallSpillere = 1;
+var spiller1 = "";
+var spiller2 = "";
+var spiller3 = "";
+var spiller4 = "";
 var hvemSinTur = 1;
-//(en funksjon som putter inn spillere i p spillere og th spillere)
 // En felles funksjon som endrer teksten på kasteknappen,
 // teller runder, og kjører spillet
 function kasteKnapp() {
-
   //console.log("Test mitt_kast " + mitt_kast);
+  var diceroll = document.getElementById("rollsound");
+  diceroll.play();
   var x = document.getElementById("kasteKnapp");
   if (x.innerHTML === "Neste kast" && antallKast != 2) {
     antallKast += 1;
@@ -39,13 +43,12 @@ function kasteKnapp() {
       } else if (hvemSinTur == 4) {
         rundeForteller(spiller4);
       }
-    }
-    else if (hvemSinTur == antallSpillere) {
+    } else if (hvemSinTur == antallSpillere) {
       runde += 1;
       hvemSinTur = 1;
       rundeForteller(spiller1);
     }
-
+    viseHvemSinTur();
     if (runde == 16) {
       x.innerHTML = "Nytt spill";
     }
@@ -100,15 +103,15 @@ function startKast() {
   //console.log("Test: antallKast startkast " + antallKast);
   // Returnerer arrayet med 5 terninger med random verdier
   document.getElementById("kast").innerHTML = mitt_kast;
-  document.getElementById("dicePos0").style.transition = "all 0.5s";
+  document.getElementById("dicePos0").style.transition = "all 0.3s";
   document.getElementById("dicePos0").style.marginBottom = "0%";
-  document.getElementById("dicePos1").style.transition = "all 0.5s";
+  document.getElementById("dicePos1").style.transition = "all 0.3s";
   document.getElementById("dicePos1").style.marginBottom = "0%";
-  document.getElementById("dicePos2").style.transition = "all 0.5s";
+  document.getElementById("dicePos2").style.transition = "all 0.3s";
   document.getElementById("dicePos2").style.marginBottom = "0%";
-  document.getElementById("dicePos3").style.transition = "all 0.5s";
+  document.getElementById("dicePos3").style.transition = "all 0.3s";
   document.getElementById("dicePos3").style.marginBottom = "0%";
-  document.getElementById("dicePos4").style.transition = "all 0.5s";
+  document.getElementById("dicePos4").style.transition = "all 0.3s";
   document.getElementById("dicePos4").style.marginBottom = "0%";
   document.getElementById("rundeForteller").style.border = "solid";
   document.getElementById("rundeForteller").style.borderColor = "black";
@@ -617,6 +620,7 @@ function moveToTable() {
   console.log("Test moveToTable: " + sendTilId);
   console.log("Test moveToTable midlertidig_poeng: " + midlertidig_poeng);
   document.getElementById(sendTilId).innerHTML = midlertidig_poeng;
+  // legge til animasjon
   if (runde == 15) {
     if (hvemSinTur == 1) {
       document.getElementById("1-totalsum").innerHTML = totalScore1;
@@ -634,7 +638,9 @@ function moveToTable() {
         finalScoreListe[1] = totalScore2;
         finalScoreListe[2] = totalScore3;
         finalScoreListe[3] = totalScore4;
-        finalScoreListe.sort(function(a, b){return b-a});
+        finalScoreListe.sort(function(a, b) {
+          return b - a;
+        });
         document.getElementById("plass1").innerHTML = finalScoreListe[0];
         document.getElementById("plass2").innerHTML = finalScoreListe[1];
         document.getElementById("plass3").innerHTML = finalScoreListe[2];
@@ -643,21 +649,25 @@ function moveToTable() {
         finalScoreListe[0] = totalScore1;
         finalScoreListe[1] = totalScore2;
         finalScoreListe[2] = totalScore3;
-        finalScoreListe.sort(function(a, b){return b-a});
+        finalScoreListe.sort(function(a, b) {
+          return b - a;
+        });
         document.getElementById("plass1").innerHTML = finalScoreListe[0];
         document.getElementById("plass2").innerHTML = finalScoreListe[1];
         document.getElementById("plass3").innerHTML = finalScoreListe[2];
       } else if (antallSpillere == 2) {
         finalScoreListe[0] = totalScore1;
         finalScoreListe[1] = totalScore2;
-        finalScoreListe.sort(function(a, b){return b-a});
+        finalScoreListe.sort(function(a, b) {
+          return b - a;
+        });
         document.getElementById("plass1").innerHTML = finalScoreListe[0];
         document.getElementById("plass2").innerHTML = finalScoreListe[1];
       } else if (antallSpillere == 1) {
         finalScoreListe[0] = totalScore1;
-        document.getElementById("plass1").innerHTML = spiller1 + " fikk: " + finalScoreListe[0] + " poeng";
+        document.getElementById("plass1").innerHTML =
+          spiller1 + " fikk: " + finalScoreListe[0] + " poeng";
       }
-      console.log("Test finalScoreListe " + finalScoreListe);
     }
   }
 }
@@ -682,39 +692,39 @@ function moveDice0() {
   if (document.getElementById("dicePos0").style.marginBottom == "-550%") {
     document.getElementById("dicePos0").style.marginBottom = "0%";
   } else {
-    document.getElementById("dicePos0").style.marginBottom = "-550%";
+    document.getElementById("dicePos0").style.marginBottom = "-770%";
   }
 }
 
 function moveDice1() {
-  if (document.getElementById("dicePos1").style.marginBottom == "-550%") {
+  if (document.getElementById("dicePos1").style.marginBottom == "-770%") {
     document.getElementById("dicePos1").style.marginBottom = "0%";
   } else {
-    document.getElementById("dicePos1").style.marginBottom = "-550%";
+    document.getElementById("dicePos1").style.marginBottom = "-770%";
   }
 }
 
 function moveDice2() {
-  if (document.getElementById("dicePos2").style.marginBottom == "-550%") {
+  if (document.getElementById("dicePos2").style.marginBottom == "-770%") {
     document.getElementById("dicePos2").style.marginBottom = "0%";
   } else {
-    document.getElementById("dicePos2").style.marginBottom = "-550%";
+    document.getElementById("dicePos2").style.marginBottom = "-770%";
   }
 }
 
 function moveDice3() {
-  if (document.getElementById("dicePos3").style.marginBottom == "-550%") {
+  if (document.getElementById("dicePos3").style.marginBottom == "-770%") {
     document.getElementById("dicePos3").style.marginBottom = "0%";
   } else {
-    document.getElementById("dicePos3").style.marginBottom = "-550%";
+    document.getElementById("dicePos3").style.marginBottom = "-770%";
   }
 }
 
 function moveDice4() {
-  if (document.getElementById("dicePos4").style.marginBottom == "-550%") {
+  if (document.getElementById("dicePos4").style.marginBottom == "-770%") {
     document.getElementById("dicePos4").style.marginBottom = "0%";
   } else {
-    document.getElementById("dicePos4").style.marginBottom = "-550%";
+    document.getElementById("dicePos4").style.marginBottom = "-770%";
   }
 }
 
@@ -728,17 +738,21 @@ function resetSpill() {
   totalScore4 = 0;
   if (localStorage["spiller4"] != "") {
     antallSpillere = 4;
+    spiller2 = localStorage["spiller2"];
+    spiller3 = localStorage["spiller3"];
+    spiller4 = localStorage["spiller4"];
+    document.getElementById("avatar1").innerHTML = localStorage["spiller1"];
   } else if (localStorage["spiller3"] != "") {
     antallSpillere = 3;
+    spiller2 = localStorage["spiller2"];
+    spiller3 = localStorage["spiller3"];
   } else if (localStorage["spiller2"] != "") {
     antallSpillere = 2;
+    spiller2 = localStorage["spiller2"];
   } else {
     antallSpillere = 1;
   }
-  spiller1 = "";
-  spiller2 = "";
-  spiller3 = "";
-  spiller4 = "";
+  spiller1 = localStorage["spiller1"];
   hvemSinTur = 1;
   for (var i = 1; i <= 4; i++) {
     for (var y = 1; y < 16; y++) {
@@ -768,4 +782,11 @@ function finalScore(nyttEllerGjenta) {
     hiddenPopFinalScore = false;
     console.log("Test nyttEllerGjenta: " + nyttEllerGjenta);
   }
+}
+
+function viseHvemSinTur() {
+  let y = "avatar" + hvemSinTur;
+  document.getElementsByClassName("avatar").style.opacity="0.7";
+  document.getElementById("y").style.transform="1.1";
+  document.getElementById("y").style.opacity="1";
 }
