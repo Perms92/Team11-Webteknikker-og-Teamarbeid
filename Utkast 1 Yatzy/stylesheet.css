@@ -51,6 +51,7 @@ body {
   border-style: hidden;
   margin-top: 0%;
   margin-bottom: 5%;
+  user-drag: none;
   user-select: none;
 }
 
@@ -386,9 +387,7 @@ td {
   border: 1px solid black;
   background-color: white;
 }
-#footer {
-  margin-top: 20%;
-}
+
 /* top-left border-radius */
 table tr:first-child th:first-child {
   border-top-left-radius: 8px;
