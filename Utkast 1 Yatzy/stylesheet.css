@@ -71,7 +71,7 @@ p {
   font-size: 20px;
 }
 
-#gaTilbake {
+.litenKnapp {
   padding: 10px;
   display: inline-block;
   font-size: 14px;
@@ -86,16 +86,15 @@ p {
   border-radius: 5px;
   text-align: center;
   color: black;
-  position: absolute;
-  bottom: 10px;
+  position: static;
 }
 
-#gaTilbake:hover {
+.litenKnapp:hover {
   transform: scale(1.05);
   transition-duration: 1.2s;
   background: url(img/pattern5.png);
   background-color: #d2d2d2;
-  border-color: saddlebrown;
+  border-color: #ff0900;
   color: black;
 }
 
@@ -364,7 +363,8 @@ td {
   opacity: 1;
 }
 
-#popUpContainer, #finalScore {
+#popUpContainer,
+#finalScore {
   width: 100%;
   height: 100%;
   background-color: rgba(204, 204, 204, 0.5);
@@ -409,20 +409,20 @@ td {
 
 /* top-left border-radius */
 table tr:first-child th:first-child {
-  border-top-left-radius: 2px;
+  border-top-left-radius: 4px;
 }
 
 /* top-right border-radius */
 table tr:first-child th:last-child {
-  border-top-right-radius: 2px;
+  border-top-right-radius: 4px;
 }
 
 /* bottom-left border-radius */
 table tr:last-child td:first-child {
-  border-bottom-left-radius: 2px;
+  border-bottom-left-radius: 4px;
 }
 
 /* bottom-right border-radius */
 table tr:last-child td:last-child {
-  border-bottom-right-radius: 2px;
+  border-bottom-right-radius: 4px;
 }
