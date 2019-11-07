@@ -12,11 +12,12 @@ var spiller2 = "";
 var spiller3 = "";
 var spiller4 = "";
 var hvemSinTur = 1;
-
 // En felles funksjon som endrer teksten på kasteknappen,
 // teller runder, og kjører spillet
 function kasteKnapp() {
   //console.log("Test mitt_kast " + mitt_kast);
+  var diceroll = document.getElementById("rollsound");
+  diceroll.play();
   var x = document.getElementById("kasteKnapp");
   if (x.innerHTML === "Neste kast" && antallKast != 2) {
     antallKast += 1;
@@ -47,7 +48,7 @@ function kasteKnapp() {
       hvemSinTur = 1;
       rundeForteller(spiller1);
     }
-
+    viseHvemSinTur();
     if (runde == 16) {
       x.innerHTML = "Nytt spill";
     }
@@ -773,5 +774,8 @@ function finalScore(nyttEllerGjenta) {
 }
 
 function viseHvemSinTur() {
-  return hvemSinTur;
+  let y = "avatar" + hvemSinTur;
+  document.getElementsByClassName("avatar").style.opacity="0.7";
+  document.getElementById("y").style.transform="1.1";
+  document.getElementById("y").style.opacity="1";
 }
