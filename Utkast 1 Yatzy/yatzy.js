@@ -731,6 +731,7 @@ function resetSpill() {
     spiller2 = localStorage["spiller2"];
     spiller3 = localStorage["spiller3"];
     spiller4 = localStorage["spiller4"];
+    document.getElementById("avatar1").innerHTML = localStorage["spiller1"];
   } else if (localStorage["spiller3"] != "") {
     antallSpillere = 3;
     spiller2 = localStorage["spiller2"];
