@@ -384,6 +384,8 @@ td {
   right: 0;
   height: 500px;
   width: 500px;
+  min-width: 100%;
+  min-height: 100%;
 }
 
 #finalScorePopUp {
