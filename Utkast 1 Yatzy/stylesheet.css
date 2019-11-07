@@ -310,9 +310,6 @@ td {
   height: 9.5rem;
   transition-duration: 0.5s;
 }
-.spiller {
-  margin-bottom: 0;
-}
 #header {
   display: flex;
   justify-content: space-between;
