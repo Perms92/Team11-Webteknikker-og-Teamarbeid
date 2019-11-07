@@ -724,17 +724,20 @@ function resetSpill() {
   totalScore4 = 0;
   if (localStorage["spiller4"] != "") {
     antallSpillere = 4;
+    spiller2 = localStorage["spiller2"];
+    spiller3 = localStorage["spiller3"];
+    spiller4 = localStorage["spiller4"];
   } else if (localStorage["spiller3"] != "") {
     antallSpillere = 3;
+    spiller2 = localStorage["spiller2"];
+    spiller3 = localStorage["spiller3"];
   } else if (localStorage["spiller2"] != "") {
     antallSpillere = 2;
+    spiller2 = localStorage["spiller2"];
   } else {
     antallSpillere = 1;
   }
-  spiller1 = "";
-  spiller2 = "";
-  spiller3 = "";
-  spiller4 = "";
+  spiller1 = localStorage["spiller1"];
   hvemSinTur = 1;
   for (var i = 1; i <= 4; i++) {
     for (var y = 1; y < 16; y++) {
