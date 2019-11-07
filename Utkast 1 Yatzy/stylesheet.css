@@ -182,6 +182,7 @@ button:active {
   border-radius: 5px;
   text-align: center;
   margin-top: 0%;
+  margin-bottom: 5%;
   outline: none;
 }
 
@@ -200,7 +201,6 @@ button:active {
   cursor: default;
   transition-duration: 0.5s;
   border-color: #gold;
-  outline: none;
 }
 
 #navneknapp {

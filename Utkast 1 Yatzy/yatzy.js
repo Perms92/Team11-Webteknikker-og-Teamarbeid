@@ -81,9 +81,10 @@ function kasteKnapp() {
 
 // Oppretter første kast hver runde
 function startKast() {
-  var pHub = document.getElementById("intro"); 
- 
-    pHub.play(); 
+  //husk å fjern!!!
+  var pHub = document.getElementById("intro");
+
+    pHub.play();
 
   //console.log("Test antallKast startKast() " + antallKast);
   if (hvemSinTur == 1 && runde == 0) {
@@ -673,6 +674,11 @@ function showDice() {
 }
 
 function moveDice0() {
+  /*
+  var drop = document.getElementById("diceSound");
+
+  drop.play(); */
+
   if (document.getElementById("dicePos0").style.marginBottom == "-550%") {
     document.getElementById("dicePos0").style.marginBottom = "0%";
   } else {
@@ -762,42 +768,4 @@ function finalScore(nyttEllerGjenta) {
     hiddenPopFinalScore = false;
     console.log("Test nyttEllerGjenta: " + nyttEllerGjenta);
   }
-}
-
-//Funksjoner for hjemmesiden
-function oneGo() {
-  /* document.getElementsByClassName("multiplayer").style.visibility = "hidden";*/
-   document.getElementById("playerTwo").style.visibility = "hidden";
-   document.getElementById("playerThree").style.visibility = "hidden";
-   document.getElementById("playerFour").style.visibility = "hidden";
-}
-function twoGo() {
-   document.getElementById("playerTwo").style.visibility = "visible";
-   document.getElementById("playerThree").style.visibility = "hidden";
-   document.getElementById("playerFour").style.visibility = "hidden";
-}
-function threeGo() {
-   document.getElementById("playerTwo").style.visibility = "visible";
-   document.getElementById("playerThree").style.visibility = "visible";
-   document.getElementById("playerFour").style.visibility = "hidden";
-}
-function fourGo() {
-   document.getElementById("playerTwo").style.visibility = "visible";
-   document.getElementById("playerThree").style.visibility = "visible";
-   document.getElementById("playerFour").style.visibility = "visible";
-}
-let spillere = [];
-var totalScore1 = 0;
-var totalScore2 = 0;
-var totalScore3 = 0;
-var totalScore4 = 0;
-
-function playerName() {
-   let spiller1 = document.getElementById("playerOne").value;
-   let spiller2 = document.getElementById("playerTwo").value;
-   let spiller3 = document.getElementById("playerThree").value;
-   let spiller4 = document.getElementById("playerFour").value;
-   for (i=0;i<3;i++) {
-
-   }
 }

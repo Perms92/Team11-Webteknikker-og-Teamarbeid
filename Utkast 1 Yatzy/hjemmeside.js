@@ -1,3 +1,5 @@
+//let antallSpillere = 1;
+
 function oneGo() {
    /* document.getElementsByClassName("multiplayer").style.visibility = "hidden";*/
     document.getElementById("playerTwo").style.visibility = "hidden";
