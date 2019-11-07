@@ -3,37 +3,60 @@
   <head>
     <meta charset="utf-8" />
     <title></title>
-    <link rel="stylesheet" type ="text/css" href ="hjemmeside.css">
-
+    <link rel="stylesheet" type="text/css" href="hjemmeside.css" />
   </head>
   <body>
-  <div id="container">
-    <div id="toggleButtons">
-      <button id="onePlayer" onclick="oneGo()">1P</button>
-      <button id="twoPlayer" onclick="twoGo()">2P</button>
-      <button id="threePlayer" onclick="threeGo()">3P</button>
-      <button id="fourPlayer" onclick="fourGo()">4P</button><br><br>
-      <button id="play" onclick="play()">Spill</button>
-
-
-      <div id="playerNames">
-        <p id="hjemmesideSpiller1">Spiller 1</p>
-        <input type="text" id="playerOne" class="singleplayer"><br>
-        <p id="hjemmesideSpiller2">Spiller 2</p>
-        <input type="text" id="playerTwo" class="multiplayer"><br>
-        <p id="hjemmesideSpiller3">Spiller 3</p>
-        <input type="text" id="playerThree" class="multiplayer"><br>
-        <p id="hjemmesideSpiller4">Spiller 4</p>
-        <input type="text" id="playerFour" class="multiplayer"><br>
-      </div>
-      <div id="fancyStartButton"><button id="start"></button></div>
-    </div>
-    <div id="fancyStartButton"><button id="start"></button></div>
+    <div id="bildeLogo">
+          <img src="img/logo.png" alt="Logo" id="logo" /><br />
+    <img src="img/dice.png" alt="Dices" id="dice" onclick="window.location.href = 'index.html';"></h1>
   </div>
+    <div id="container">
+      <div id="toggleButtons">
+        <button id="onePlayer" onclick="oneGo()">1P</button>
+        <button id="twoPlayer" onclick="twoGo()">2P</button>
+        <button id="threePlayer" onclick="threeGo()">3P</button>
+        <button id="fourPlayer" onclick="fourGo()">4P</button><br /><br />
+        <button id="play" onclick="play()">Spill</button>
 
-  <script src="hjemmeside.js"></script>
-  <script src="yatzy.js"></script>
-  <script src="menyer.js"></script>
+        <div id="playerNames">
+          <p id="hjemmesideSpiller1">Spiller 1</p>
+          <input
+            type="text"
+            id="playerOne"
+            class="singleplayer"
+            placeholder="Navn"
+          /><br />
+          <p id="hjemmesideSpiller2" class="multiplayer" >Spiller 2</p>
+          <input
+            type="text"
+            id="playerTwo"
+            class="multiplayer"
+            placeholder="Navn"
+          /><br />
+          <p id="hjemmesideSpiller3" class="multiplayer" >Spiller 3</p>
+          <input
+            type="text"
+            id="playerThree"
+            class="multiplayer"
+            placeholder="Navn"
+          /><br />
+          <p id="hjemmesideSpiller4" class="multiplayer" >Spiller 4</p>
+          <input
+            type="text"
+            id="playerFour"
+            class="multiplayer"
+            placeholder="Navn"
+          /><br />
+        </div>
+        <!--  <div id="fancyStartButton"><button id="start"></button></div> -->
+      </div>
+      <!--<div id="fancyStartButton"><button id="start"></button></div>-->
+    </div>
+    <p>© NTNU Digital Forretningsutvikling høsten 2019</p>
+    <br>
 
+    <script src="hjemmeside.js"></script>
+    <script src="yatzy.js"></script>
+    <script src="menyer.js"></script>
   </body>
 </html>
