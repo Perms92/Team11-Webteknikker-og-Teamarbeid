@@ -771,3 +771,7 @@ function finalScore(nyttEllerGjenta) {
     console.log("Test nyttEllerGjenta: " + nyttEllerGjenta);
   }
 }
+
+function viseHvemSinTur() {
+  return hvemSinTur;
+}

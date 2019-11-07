@@ -14,8 +14,14 @@
 
       <div id="first">
         <h1>
-          <img src="img/logo.png" alt="Logo" id="logo" onclick="window.location.href = 'index.html';"><br>
-          <img src="img/dice.png" alt="Dices" id="dice" onclick="window.location.href = 'index.html';"></h1>
+          <img src="img/logo.png" alt="Logo" id="logo" onclick="getlotrRolled()"><br>
+          <img src="img/dice.png" alt="Dices" id="dice" onclick="getlotrRolled()"></h1>
+          <div id="lotrRolled">
+            <div id="popUplotr">
+              <video width="300" height="540" controls autoplay muted>
+                <source src="film/lotr.mp4" type="video/mp4"></video>
+            </div>
+          </div>
         <br><br><br>
         <h3><button onclick="regler()" class="knappVenstreSide" id="reglerButton">Regler</button></h3>
 
