@@ -7,9 +7,11 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
     <link rel="stylesheet" media='(min-width: 1025px)' type="text/css" href="stylesheet.css">
     <link rel="stylesheet" type="text/css" media='(max-width: 1024px)' href="stylesheetmobile.css">
-    <link href="https://fonts.googleapis.com/css?family=Heebo&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic|Open+Sans+Condensed:300|Pontano+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Rajdhani&display=swap" rel="stylesheet">
   </head>
-  <body onload="settSpillernavn()">
+  <body>
+    <button type="button" name="button">Halla</button>
     <div id="container">
 
       <div id="first">
@@ -17,7 +19,7 @@
           <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank"><img src="img/logo.png" alt="Logo" id="logo" ></a><br>
           <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank"><img src="img/dice.png" alt="Dices" id="dice"></a></h1>
         <br><br><br>
-        <h3><button onclick="regler()" class="knappVenstreSide" id="reglerButton">Regler</button></h3>
+        <button onclick="regler()" class="knappVenstreSide" id="reglerButton">Regler</button>
 
         <div id="regler">
           Få høyest mulig poengsum på Yatzy! Trykk på terningene for å beholde dem,
@@ -60,8 +62,7 @@
           <li id="plass3"></li>
           <li id="plass4"></li>
         </ol>
-          <button type="button" id="nyeSpillere" onclick="finalScore(this.id)">Nye spillere</button>
-          <button type="button" id="spillPaNytt" onclick="finalScore(this.id)">Spill på nytt</button>
+          <button type="button" name="button" onclick="finalScore()" id="gaTilbakeFinalScore">Gå tilbake</button>
       </div>
     </div>
 

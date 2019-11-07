@@ -139,8 +139,9 @@ function startKast() {
   document.getElementById("dicePos4").style.transition = "all 0.3s";
   document.getElementById("dicePos4").style.marginBottom = "0%";
   document.getElementById("rundeForteller").style.border = "solid";
-  document.getElementById("rundeForteller").style.borderColor = "black";
-  document.getElementById("rundeForteller").style.borderWidth = "5px";
+  document.getElementById("rundeForteller").style.borderColor = "#DBAD6A";
+  document.getElementById("rundeForteller").style.borderWidth = "0px 0px 2px 0px";
+  document.getElementById("rundeForteller").style.padding = "1%";
 
   document.getElementById(0).checked = false;
   document.getElementById(1).checked = false;
