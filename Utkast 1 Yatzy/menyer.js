@@ -31,20 +31,6 @@ function visHighscore() {
   }
 }
 
-let hiddenlotrRolled = true;
-function getlotrRolled() {
-  var y = document.getElementById("lotrRolled");
-  var hsPopUp = document.getElementById("popUplotr");
-
-  if (!hiddenlotrRolled) {
-    y.style.display = "none";
-    hiddenlotrRolled = true;
-  } else {
-    y.style.display = "block";
-    hiddenlotrRolled = false;
-  }
-}
-
 /* function playerName() {
 
   spiller1 = String(prompt("Skriv inn spiller 1 her"));
