@@ -11,14 +11,15 @@
   <body>
     <div id="bildeLogo">
           <img src="img/logo.png" alt="Logo" id="logo" /><br />
-    <img src="img/dice.png" alt="Dices" id="dice" onclick="window.location.href = 'index.html';"></h1>
+    <img src="img/dice.png" alt="Dices" id="dice" onclick="window.location.href = 'hjemmeside.html';">
   </div>
     <div id="container">
-      <div id="toggleButtons">
+      <div id="toggleButtons"><div class="kol4">
         <button id="onePlayer" onclick="oneGo()">Singleplayer</button>
         <button id="twoPlayer" onclick="twoGo()">Two-player</button>
         <button id="threePlayer" onclick="threeGo()">Three-player</button>
         <button id="fourPlayer" onclick="fourGo()">Four-player</button><br /><br />
+      </div>
 
         <div id="playerNames">
           <p id="hjemmesideSpiller1" class="singleplayer" >Spiller 1</p>
@@ -51,12 +52,8 @@
             class="multiplayer"
             placeholder="Navn"
           /><br />
-<button id="play" onclick="play()">Spill</button>
-        </div>
-        <!--  <div id="fancyStartButton"><button id="start"></button></div> -->
-      </div>
-      <!--<div id="fancyStartButton"><button id="start"></button></div>-->
-    </div>
+          <button id="play" onclick="play()">Spill</button>
+        </div><br><br><br>
     <p>© NTNU Digital Forretningsutvikling høsten 2019</p>
     <br>
 

@@ -10,30 +10,28 @@ body {
 div {
   border: 2px solid rgb(113, 115, 130);
 } */
-#container {
-  height: inherit;
+body {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: 100px 1fr 1fr 100px;
-  grid-template-areas:
-    "h h h h"
-    "c c c c"
-    "c c c c"
-    "f f f f";
+  grid-template-rows: repeat(4, 1fr);
   grid-gap: 10px;
+  max-width: 100%;
 }
 
-#header {
-  grid-area: h;
+#container {
+  margin-bottom: -240px;
 }
 
-#toggleButtons {
-  margin: auto;
-  grid-area: c;
+.kol1 {
+  grid-column: span 1;
 }
-
-#fancyStartButton {
-  grid-area: f;
+.kol2 {
+  grid-column: span 2;
+}
+.kol3 {
+  grid-column: span 3;
+}
+.kol4 {
+  grid-column: span 4;
 }
 
 button {
@@ -48,8 +46,8 @@ button {
   font-size: 24px;
   cursor: pointer;
   margin: -0.3%;
-  border-color: #DBAF6A;
-  font-family: 'Rajdhani', sans-serif;
+  border-color: #dbaf6a;
+  font-family: "Rajdhani", sans-serif;
   font-weight: 700;
   background-color: #9a9a9a;
   background-image: url("https://www.transparenttextures.com/patterns/diagmonds.png");
@@ -74,7 +72,10 @@ p {
   border-bottom-left-radius: 25px;
 }
 
-#onePlayer:focus, #twoPlayer:focus, #threePlayer:focus, #fourPlayer:focus {
+#onePlayer:focus,
+#twoPlayer:focus,
+#threePlayer:focus,
+#fourPlayer:focus {
   transform: scale(1.2);
 }
 
@@ -100,7 +101,7 @@ p {
   border-color: #ff0900;
   background-color: #ffffff;
   opacity: 0.7;
-  font-family: 'Rajdhani', sans-serif;
+  font-family: "Rajdhani", sans-serif;
   font-weight: 700;
   color: black;
   border-radius: 5px;
