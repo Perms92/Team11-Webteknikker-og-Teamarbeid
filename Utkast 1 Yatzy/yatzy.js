@@ -120,7 +120,8 @@ function startKast() {
   document.getElementById("dicePos4").style.marginBottom = "0%";
   document.getElementById("rundeForteller").style.border = "solid";
   document.getElementById("rundeForteller").style.borderColor = "#DBAD6A";
-  document.getElementById("rundeForteller").style.borderWidth = "0px 0px 2px 0px";
+  document.getElementById("rundeForteller").style.borderWidth =
+    "0px 0px 2px 0px";
   document.getElementById("rundeForteller").style.padding = "1%";
 
   document.getElementById(0).checked = false;
@@ -638,6 +639,7 @@ function saveHighScore(navn, score) {
   localSet(navn, score);
   renderHighscores();
 }
+
 function sorterer(pers1, pers2) {
   if (pers1.score > pers2.score) {
     return -1;
@@ -668,7 +670,6 @@ function localSet(person, score) {
   localStorage.setItem("highscores", JSON.stringify(hs));
 }
 
-//localSet("mina", 200);
 function localGet() {
   if (localStorage.getItem("highscores")) {
     return JSON.parse(localStorage.getItem("highscores")).sort(sorterer);
@@ -692,6 +693,7 @@ function renderHighscores() {
 
 renderHighscores();
 // HIGHSCORE over
+
 function moveToTable() {
   let spiller = hvemSinTur;
   let spillere = [];
@@ -893,10 +895,10 @@ function finalScore(nyttEllerGjenta) {
   }
 }
 
-function viseHvemSinTur() {
+function viseHvemSinTur(hvemSinTur) {
   let y = "avatar" + hvemSinTur;
   console.log("Test viseHvemSinTur: " + y);
-  /*document.getElementsByClassName("avatar").style.opacity="0.7";
+  document.getElementsByClassName("avatar").style.opacity="0.7";
   document.getElementById("y").style.transform="1.1";
   document.getElementById("y").style.opacity="1";
 }
