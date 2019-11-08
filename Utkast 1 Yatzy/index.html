@@ -5,13 +5,13 @@
     <title>Yatzy</title>
     <link rel="icon" href="img/favicon.jpg" type="image/gif" sizes="16x16">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
-    <link rel="stylesheet" media='(min-width: 1025px)' type="text/css" href="stylesheet.css">
+    <link rel="stylesheet" id="stylesheet" media='(min-width: 1025px)' type="text/css" href="stylesheet.css">
     <link rel="stylesheet" type="text/css" media='(max-width: 1024px)' href="stylesheetmobile.css">
     <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic|Open+Sans+Condensed:300|Pontano+Sans&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Rajdhani&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Bhai|Bree+Serif|Bungee+Shade|Comfortaa|Exo|Rajdhani|Righteous&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cinzel|Playfair+Display+SC&display=swap" rel="stylesheet">
   </head>
   <body>
-    <button type="button" name="button">Halla</button>
     <div id="container">
 
       <div id="first">
@@ -43,7 +43,9 @@
         </div>
         <button onclick="visHighscore()" id="highscoreId" class="knappVenstreSide">Highscore</button><br>
         <button type="button" id="resetKnapp" class="knappVenstreSide" onclick="resetSpill()">Restart Spill</button>
-        <button type="button" id="nyeSpillereKnapp" class="knappVenstreSide" onclick="window.location.href = 'hjemmeside.html';">Nye Spillere</button>
+        <button type="button" id="nyeSpillereKnapp" class="knappVenstreSide" onclick="window.location.href = 'hjemmeside.html';">Nye Spillere</button> <br>
+        <button onclick="setStyleSheet('stylesheet.css')" href="#" class="modebutton">Light Mode</button>
+        <button onclick="setStyleSheet('stylesheet2.css')" href="#" class="modebutton">Dark Mode</button>
       </div>
       <div id="popUpContainer">
 

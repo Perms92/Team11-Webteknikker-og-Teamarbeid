@@ -134,4 +134,18 @@ function renderHighscores() {
   }
 }
 
+/* function changeCSS() {
+let y =
+  if (document.getElementById("stylesheet1") == "stylesheet.css"){
+    document.getElementById("stylesheet1") = "stylesheet2.css";
+  } else {
+    document.getElementById("stylesheet1")="stylesheet.css";
+  }
+} */
+
+function setStyleSheet(url){
+       var stylesheet = document.getElementById("stylesheet");
+       stylesheet.setAttribute('href', url);
+    }
+
 renderHighscores();
