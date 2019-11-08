@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic|Open+Sans+Condensed:300|Pontano+Sans&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Rajdhani&display=swap" rel="stylesheet">
   </head>
-  <body>
+  <body onload="randomAvatar()">
     <button type="button" name="button">Halla</button>
     <div id="container">
 
@@ -68,10 +68,10 @@
 
       <div id="second">
         <div id="header">
-          <div><img src="img/avatarBear.png" class="avatar"><p id="img1">Spiller 1</p></div>
-          <div><img src="img/avatarCat.png" class="avatar"><p id="img2">Spiller 2</p></div>
-          <div><img src="img/avatarFox.png" class="avatar"><p id="img3">Spiller 3</p></div>
-          <div><img src="img/avatarGorilla.png" class="avatar"><p id="img4">Spiller 4</p></div>
+          <div><img id="imgAvatar1" class="avatar"><p id="avatar1">Spiller 1</p></div>
+          <div><img id="imgAvatar2" class="avatar"><p id="avatar2">Spiller 2</p></div>
+          <div><img id="imgAvatar3" class="avatar"><p id="avatar3">Spiller 3</p></div>
+          <div><img id="imgAvatar4" class="avatar"><p id="avatar4">Spiller 4</p></div>
         </div>
         <div id="brett">
           <div id="rundeForteller"></div>
@@ -93,7 +93,7 @@
       </div>
 
       <div id="third">
-        <h3>Poengsum</h3>
+        <img src="img/Poengsum.png" height="50px"></img>
         <table>
           <tr>
             <th> Deltakere

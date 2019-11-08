@@ -1,28 +1,30 @@
-//let antallSpillere = 1;
+let oneP = document.getElementById("playerOne");
+let twoP = document.getElementById("playerTwo");
+let threeP = document.getElementById("playerThree");
+let fourP = document.getElementById("playerFour");
 
 function oneGo() {
-   /* document.getElementsByClassName("multiplayer").style.visibility = "hidden";*/
-    document.getElementById("playerTwo").style.visibility = "hidden";
-    document.getElementById("playerThree").style.visibility = "hidden";
-    document.getElementById("playerFour").style.visibility = "hidden";
+  twoP.style.visibility = "hidden";
+  threeP.style.visibility = "hidden";
+  fourP.style.visibility = "hidden";
 }
 
 function twoGo() {
-    document.getElementById("playerTwo").style.visibility = "visible";
-    document.getElementById("playerThree").style.visibility = "hidden";
-    document.getElementById("playerFour").style.visibility = "hidden";
+  twoP.style.visibility = "visible";
+  threeP.style.visibility = "hidden";
+  fourP.style.visibility = "hidden";
 }
 
 function threeGo() {
-    document.getElementById("playerTwo").style.visibility = "visible";
-    document.getElementById("playerThree").style.visibility = "visible";
-    document.getElementById("playerFour").style.visibility = "hidden";
+  twoP.style.visibility = "visible";
+  threeP.style.visibility = "visible";
+  fourP.style.visibility = "hidden";
 }
 
 function fourGo() {
-    document.getElementById("playerTwo").style.visibility = "visible";
-    document.getElementById("playerThree").style.visibility = "visible";
-    document.getElementById("playerFour").style.visibility = "visible";
+  twoP.style.visibility = "visible";
+  threeP.style.visibility = "visible";
+  fourP.style.visibility = "visible";
 }
 
 function play() {

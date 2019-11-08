@@ -13,28 +13,7 @@ var spiller3 = "";
 var spiller4 = "";
 var hvemSinTur = 1;
 var drop = document.getElementById("diceSound");
-/*let avatars = ["img/avatarBear.png", 
-"img/avatarCat.png", 
-"img/avatarFox.png", 
-"img/avatarGiraffe.png", 
-"img/avatarGorilla.png", 
-"img/avatarKoala.png", 
-"img/avatarPanda.png", 
-"img/avatarPug.png"];
 
-function randomAvatar() {
-  let avatar1 = document.getElementById("img1");
-  let avatar2 = document.getElementById("img2");
-  let avatar3 = document.getElementById("img3");
-  let avatar4 = document.getElementById("img4");
-  
-      let randomIndex = Math.floor(Math.random() * 7) // [0, 7>
-      // random index blir et av tallene 0, 1, 2, 3, 4, 5, 6,
-      avatar1.src = avatars[randomIndex];
-      avatar2.src = avatars[randomIndex];
-      avatar3.src = avatars[randomIndex];
-      avatar4.src = avatars[randomIndex];
-  } */
 // En felles funksjon som endrer teksten på kasteknappen,
 // teller runder, og kjører spillet
 function kasteKnapp() {
@@ -216,23 +195,17 @@ function rundeForteller(spiller) {
 
 // Sjekker score for alle rundet etter bonus
 function score() {
-  console.log("Test let spiller1 score " + spiller1);
-  console.log("Test let spiller2 score " + spiller2);
+
   midlertidig_poeng = 0;
   if (runde < 7) {
-    console.log("Test runde 1-6: " + runde);
     if (hvemSinTur == 1) {
       totalScore1 += faseEn(mitt_kast, runde);
-      console.log("Test totalScore1: " + totalScore1);
     } else if (hvemSinTur == 2) {
       totalScore2 += faseEn(mitt_kast, runde);
-      console.log("Test totalScore2: " + totalScore1);
     } else if (hvemSinTur == 3) {
       totalScore3 += faseEn(mitt_kast, runde);
-      console.log("Test totalScore3: " + totalScore3);
     } else if (hvemSinTur == 4) {
       totalScore4 += faseEn(mitt_kast, runde);
-      console.log("Test totalScore4: " + totalScore4);
     }
     if (runde == 6) {
       bonus();
