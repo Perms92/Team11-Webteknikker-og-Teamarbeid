@@ -1,28 +1,61 @@
 body {
   margin: 0;
   text-align: center;
-  font-family: 'Heebo', sans-serif;
-  background-color: #e6e6e6;
+  background-color: #ffffff;
+  font-family: "Pontano Sans", sans-serif;
+  background-image: url("https://www.transparenttextures.com/patterns/diamond-upholstery.png");
   height: 100%;
-  background-image: url("https://www.transparenttextures.com/patterns/gplay.png");
 }
-.multiplayer {
-  visibility: hidden;
+/*
+div {
+  border: 2px solid rgb(113, 115, 130);
+} */
+#container {
+  height: inherit;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 100px 1fr 1fr 100px;
+  grid-template-areas:
+    "h h h h"
+    "c c c c"
+    "c c c c"
+    "f f f f";
+  grid-gap: 10px;
+}
+
+#header {
+  grid-area: h;
 }
 #toggleButtons {
   margin: auto;
+  grid-area: c;
 }
+
+#fancyStartButton {
+  grid-area: f;
+}
+
 button {
-  /*border: 2px solid rgb(113, 115, 130);*/
+  border: 2px solid rgb(113, 115, 130);
   color: rgb(75, 71, 71);
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
+  width: 15rem;
+  height: 10rem;
   display: inline-block;
   font-size: 24px;
   cursor: pointer;
-  margin: 0;
-  margin-top: 10%;
+  margin: -0.3%;
+  border-color: #DBAF6A;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  background-color: #9a9a9a;
+  background-image: url("https://www.transparenttextures.com/patterns/diagmonds.png");
+  opacity: 1;
+  font-weight: 600;
+  color: white;
+  border-radius: 2px;
 }
 
 button:not(:last-child) {
@@ -31,27 +64,33 @@ button:not(:last-child) {
 
 p {
   letter-spacing: 2px;
+  display: inline;
 }
+
 #onePlayer {
   background-color: #ff0900;
   border-top-left-radius: 25px;
   border-bottom-left-radius: 25px;
-  color: #000000;
 }
+
+#onePlayer:focus, #twoPlayer:focus, #threePlayer:focus, #fourPlayer:focus {
+  transform: scale(1.2);
+}
+
 #twoPlayer {
   background-color: #c21807;
-  color: #000000;
 }
+
 #threePlayer {
   background-color: #960018;
-  color: #000000;
 }
+
 #fourPlayer {
   background-color: #7c0a02;
   border-top-right-radius: 25px;
   border-bottom-right-radius: 25px;
-  color: #000000;
 }
+
 #play {
   display: inline-block;
   font-size: 24px;
@@ -60,7 +99,7 @@ p {
   border-color: #ff0900;
   background-color: #ffffff;
   opacity: 0.7;
-  font-family: "Be Vietnam", sans-serif;
+  font-family: 'Rajdhani', sans-serif;
   font-weight: 700;
   color: black;
   border-radius: 5px;
@@ -93,16 +132,10 @@ input {
   margin-top: 2px;
   box-sizing: border-box;
   border-radius: 4px;
-  font-size: small;
   justify-content: center;
   font-size: 20px;
 }
-#1,
-#2,
-#3,
-#4 {
-  display: none;
-}
+
 #playerNames {
   margin: 0 auto;
 }
