@@ -215,6 +215,7 @@ button:active {
   border-radius: 1px;
   text-align: center;
   margin-top: 0%;
+  margin-bottom: 5%;
   outline: none;
 }
 
@@ -351,9 +352,6 @@ td {
   transition-duration: 0.5s;
 
 }
-.spiller {
-  margin-bottom: 0;
-}
 #header {
   display: flex;
   justify-content: space-between;
@@ -367,7 +365,7 @@ td {
   transition-duration: 0s;
 }
 
-#hsPopUp {
+#hsPopUp,  {
   margin: auto;
   position: absolute;
   top: 0;

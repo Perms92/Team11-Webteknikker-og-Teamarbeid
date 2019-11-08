@@ -1,3 +1,5 @@
+//let antallSpillere = 1;
+
 function oneGo() {
    /* document.getElementsByClassName("multiplayer").style.visibility = "hidden";*/
     document.getElementById("playerTwo").style.visibility = "hidden";
@@ -23,15 +25,23 @@ function fourGo() {
     document.getElementById("playerFour").style.visibility = "visible";
 }
 
-/*function play() {
-  let spillerEn = document.getElementById("playerOne").value;
-  console.log("Test hjemmesideSpiller1 " + spillerEn);
-  let spillerTo = document.getElementById("playerTwo");
-  let spillerTre = document.getElementById("playerThree");
-  let spillerFire = document.getElementById("playerFour");
-  document.getElementById("spiller1").innerHTML = spillerEn + "";
-  document.getElementById("spiller2").innerHTML = spillerTo + "";
-  document.getElementById("spiller3").innerHTML = spillerTre + "";
-  document.getElementById("spiller4").innerHTML = spillerFire + "";
-  href="index.html";
-}*/
+function play() {
+  localStorage["spiller1"] = document.getElementById("playerOne").value;
+  localStorage["spiller2"] = document.getElementById("playerTwo").value;
+  localStorage["spiller3"] = document.getElementById("playerThree").value;
+  localStorage["spiller4"] = document.getElementById("playerFour").value;
+
+  location.replace("index.html");
+}
+
+function settSpillernavn() {
+  document.getElementById("spiller1").innerHTML = localStorage["spiller1"];
+  document.getElementById("spiller2").innerHTML = localStorage["spiller2"];
+  document.getElementById("spiller3").innerHTML = localStorage["spiller3"];
+  document.getElementById("spiller4").innerHTML = localStorage["spiller4"];
+  document.getElementById("avatar1").innerHTML = localStorage["spiller1"];
+  document.getElementById("avatar2").innerHTML = localStorage["spiller2"];
+  document.getElementById("avatar3").innerHTML = localStorage["spiller3"];
+  document.getElementById("avatar4").innerHTML = localStorage["spiller4"];
+  console.log("Test localStorage " + localStorage["spiller1"]);
+}
