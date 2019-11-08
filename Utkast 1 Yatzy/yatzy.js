@@ -12,8 +12,8 @@ var spiller2 = "";
 var spiller3 = "";
 var spiller4 = "";
 var hvemSinTur = 1;
+var drop = document.getElementById("diceSound");
 let hiddenPopFinalScore = true;
-var map = {};
 
 // En felles funksjon som endrer teksten på kasteknappen,
 // teller runder, og kjører spillet
@@ -117,10 +117,10 @@ function startKast() {
   document.getElementById("dicePos3").style.marginBottom = "0%";
   document.getElementById("dicePos4").style.transition = "all 0.3s";
   document.getElementById("dicePos4").style.marginBottom = "0%";
+  //putter styling av rundeforteller i js slik at man ikke ser deler av rundefortelleren før start spill er trykket
   document.getElementById("rundeForteller").style.border = "solid";
   document.getElementById("rundeForteller").style.borderColor = "#DBAD6A";
-  document.getElementById("rundeForteller").style.borderWidth =
-    "0px 0px 2px 0px";
+  document.getElementById("rundeForteller").style.borderWidth = "0px 0px 2px 0px";
   document.getElementById("rundeForteller").style.padding = "1%";
 
   document.getElementById(0).checked = false;
@@ -445,7 +445,7 @@ function toPar(mitt_kast) {
   let antallToPar = 0;
   let totalScoreToPar = 0;
 
-  // Grunnen til at denne inne ble forenklet i en for-løkke
+  // Grunnen til at denne ikke ble forenklet i en for-løkke
   // er fordi vi ikke kan .pop() ut verdiene vi bruker
   // Disse verdiene må hentes for terningbildene
   for (var i = 0; i < 5; i++) {
@@ -614,79 +614,6 @@ function fakeYatzy() {
   }
 }
 
-function regScoreBtn(score) {
-  console.log("KNAPEN FIKK TALLET: " + score + " DET ER NAVNET " + map[score]);
-  let btn = document.createElement("BUTTON");
-  //ENDRE TEKSTEN I IKNAPPEN HER
-  btn.textContent = "Registrer Highscore";
-  // ------------------------
-  console.log(map);
-  let name = map[score];
-  btn.onclick = () => {
-    saveHighScore(name, score);
-  };
-  return btn;
-}
-
-function saveHighScore(navn, score) {
-  localSet(navn, score);
-  renderHighscores();
-}
-
-function sorterer(pers1, pers2) {
-  if (pers1.score > pers2.score) {
-    return -1;
-  } else if (pers2.score > pers1.score) {
-    return 1;
-  }
-  return 0;
-}
-
-function localSet(person, score) {
-  //henter data fra localStorage, legger til den nye personen, sorterer og lagrer den
-  //let before = JSON.parse(localStorage.getItem("highscore"));
-  hs = [];
-  if (localGet() != undefined) {
-    let hs = localGet();
-  }
-  let nyPerson = {
-    navn: person,
-    score: score
-  };
-
-  //Legger til ny person før listen sorteres og lagres
-  hs.push(nyPerson);
-  //Sorterer listen før den lagres
-  hs.sort(sorterer);
-
-  //Lagrer listen
-  localStorage.setItem("highscores", JSON.stringify(hs));
-}
-
-function localGet() {
-  if (localStorage.getItem("highscores")) {
-    return JSON.parse(localStorage.getItem("highscores")).sort(sorterer);
-  }
-}
-
-/*function renderHighscores() {
-  let highscores = localGet();
-  console.log(highscores);
-  while (hs.firstChild) {
-    hs.removeChild(hs.firstChild);
-  }
-  if (highscores) {
-    for (let person of highscores) {
-      let li = document.createElement("li");
-      li.textContent = person.navn + " har score: " + person.score;
-      document.getElementById("hs").append(li);
-    }
-  }
-}
-
-renderHighscores();*/
-// HIGHSCORE over
-
 function moveToTable() {
   let spiller = hvemSinTur;
   let spillere = [];
@@ -719,7 +646,6 @@ function moveToTable() {
         for (let l = 0; l < antallSpillere; l++) {
           map[finalScoreListe[l]] = localStorage["spiller" + (l + 1)];
         }
-        console.log(map);
         finalScoreListe.sort(function(a, b) {
           return b - a;
         });
@@ -766,9 +692,9 @@ function moveToTable() {
         knappeplass.insertBefore(navn, knappeplass.firstChild);
         console.log(finalScoreListe);
         knappeplass.appendChild(regScoreBtn(finalScoreListe[k], map));
-      }
-      console.log(map);
     }
+    console.log(map);
+  }
   }
 }
 
@@ -788,7 +714,7 @@ function moveDice0() {
     document.getElementById("dicePos0").style.marginBottom = "0%";
     drop.play();
   } else {
-    document.getElementById("dicePos0").style.marginBottom = "-770%";
+    document.getElementById("dicePos" + i).style.marginBottom = "-770%";
     drop.play();
   }
 }
@@ -887,10 +813,8 @@ function finalScore(nyttEllerGjenta) {
     console.log("Test nyttEllerGjenta: " + nyttEllerGjenta);
   }
 }
-
-function viseHvemSinTur(hvemSinTur) {
+function viseHvemSinTur() {
   let y = "avatar" + hvemSinTur;
-  console.log("Test viseHvemSinTur: " + y);
   document.getElementsByClassName("avatar").style.opacity="0.7";
   document.getElementById("y").style.transform="1.1";
   document.getElementById("y").style.opacity="1";
