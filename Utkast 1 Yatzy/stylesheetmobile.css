@@ -1,20 +1,23 @@
 body {
   margin: 0;
   text-align: center;
-  font-family: "Heebo", sans-serif;
-  background-image: url("https://www.transparenttextures.com/patterns/gplay.png");
-  background-color: #e6e6e6;
+  font-family: 'Pontano Sans', sans-serif;
+  background-color: #ffffff;
+  background-image: url("https://www.transparenttextures.com/patterns/diamond-upholstery.png");
 }
 
 #brett {
-  background-color: #b03434;
+  background-color: #D20900;
   background-image: url("https://www.transparenttextures.com/patterns/60-lines.png");
   border-radius: 1rem;
   border: 1.5rem solid;
   border-color: #5d5d5d #4e4e4e;
   height: 110rem;
   width: 70rem;
-  margin-right: 25%;
+}
+#regler, .knappVenstreSide {
+float: right;
+margin-bottom: -1%;
 }
 
 #kast {
@@ -148,12 +151,13 @@ button:active {
   border: 0.8rem solid;
   margin-top: 0rem;
   margin-left: -30rem;
-  border-color: #ff0900;
-  background-color: #ffffff;
+  border-color: #DBAD6A;
+  background-color: #3d3d3d;
+  background-image: url("https://www.transparenttextures.com/patterns/diagmonds.png");
   opacity: 1;
-  font-family: "Be Vietnam", sans-serif;
+  font-family: "Rajdhani", sans-serif;
   font-weight: 700;
-  color: #000000;
+  color: white;
   width: 70%;
   height: auto;
   border-radius: 1rem;
@@ -166,12 +170,10 @@ button:active {
 }
 
 #kasteKnapp:active {
-  transform: scale(1.05);
-  transition-duration: 0.5s;
-  background: url(img/pattern5.png);
-  background-color: #d2d2d2;
-  border-color: #4d4d4d;
-  color: black;
+  transform: scale(1.0);
+  transition-duration: 0.2s;
+  border-color: #ffc061;
+  color: #FFE161;
 }
 
 #navneknapp {
@@ -249,23 +251,42 @@ td {
 
 #rundeForteller {
   font-size: 6rem;
-  color: black;
-  background-color: lightgrey;
+  color: white;
+  background-color: #a80600;
+  background-image: url("https://www.transparenttextures.com/patterns/60-lines.png");
   opacity: 1;
+  font-weight: 100;
+  font-family: "Pontano Sans", sans-serif;
   border-radius: 1rem;
-  border-width: 0.2rem;
+  border-width: 1rem;
   border-style: hidden;
   margin-top: 0.1rem;
   user-drag: none;
   user-select: none;
+  border-bottom: 1px solid gold;
 }
 
 #reglerButton {
-  display: none;
-}
-
-#regler {
-  display: none;
+  display: inline-block;
+  font-size: 6rem;
+  cursor: pointer;
+  border: 0.8rem solid;
+  border-color: #DBAD6A;
+  background-color: #3d3d3d;
+  background-image: url("https://www.transparenttextures.com/patterns/diagmonds.png");
+  opacity: 1;
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 700;
+  color: white;
+  width: 70%;
+  height: auto;
+  border-radius: 1rem;
+  text-align: center;
+  cursor: pointer;
+  width: 94%;
+  height: 20rem;
+  padding: 5rem;
+  margin: 1rem;
 }
 
 #highscoreId {
