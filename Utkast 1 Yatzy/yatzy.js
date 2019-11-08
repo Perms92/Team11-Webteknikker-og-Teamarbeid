@@ -669,7 +669,7 @@ function localGet() {
   }
 }
 
-function renderHighscores() {
+/*function renderHighscores() {
   let highscores = localGet();
   console.log(highscores);
   while (hs.firstChild) {
@@ -684,7 +684,7 @@ function renderHighscores() {
   }
 }
 
-renderHighscores();
+renderHighscores();*/
 // HIGHSCORE over
 
 function moveToTable() {
