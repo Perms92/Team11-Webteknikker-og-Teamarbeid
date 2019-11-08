@@ -878,10 +878,10 @@ function finalScore(nyttEllerGjenta) {
   }
 }
 
-function viseHvemSinTur() {
+function viseHvemSinTur(hvemSinTur) {
   let y = "avatar" + hvemSinTur;
   console.log("Test viseHvemSinTur: " + y);
-  /*document.getElementsByClassName("avatar").style.opacity="0.7";
-  document.getElementById("y").style.transform="1.1";
-  document.getElementById("y").style.opacity="1";*/
+  document.getElementsByClassName("avatar").style.opacity = "0.7";
+  document.getElementById("y").style.transform = "1.1";
+  document.getElementById("y").style.opacity = "1";
 }
