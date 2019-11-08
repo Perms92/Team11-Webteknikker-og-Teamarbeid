@@ -189,6 +189,5 @@ function shuffle(avatars) {
     avatars[currentIndex] = avatars[randomIndex];
     avatars[randomIndex] = temporaryValue;
   }
-  console.log("Test shuffle avatars: " + avatars);
   return avatars;
 }

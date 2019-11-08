@@ -19,36 +19,41 @@
         <button id="play" onclick="play()">Spill</button>
 
         <div id="playerNames">
+          <form>
           <p id="hjemmesideSpiller1">Spiller 1</p>
           <input
             type="text"
             id="playerOne"
             class="singleplayer"
-            placeholder="Navn"
-            type="submit"
-          /><br />
+            placeholder="Navn 1"
+            required
+          /><br>
           <p id="hjemmesideSpiller2" class="multiplayer" >Spiller 2</p>
           <input
             type="text"
             id="playerTwo"
             class="multiplayer"
-            placeholder="Navn"
+            placeholder="Navn 2"
             required
-          /><br />
+          /><br>
           <p id="hjemmesideSpiller3" class="multiplayer" >Spiller 3</p>
           <input
             type="text"
             id="playerThree"
             class="multiplayer"
-            placeholder="Navn"
-          /><br />
+            placeholder="Navn 3"
+            required
+          /><br>
           <p id="hjemmesideSpiller4" class="multiplayer" >Spiller 4</p>
           <input
             type="text"
             id="playerFour"
             class="multiplayer"
-            placeholder="Navn"
-          /><br />
+            placeholder="Navn 4"
+            required
+          /><br>
+          <input value="Start spill" onsubmit="play()" type="submit">
+        </form>
         </div>
         <!--  <div id="fancyStartButton"><button id="start"></button></div> -->
       </div>
