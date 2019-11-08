@@ -148,4 +148,45 @@ function setStyleSheet(url){
        stylesheet.setAttribute('href', url);
     }
 
-renderHighscores();
+
+let avatars = ["img/avatarBear.png",
+    "img/avatarCat.png",
+    "img/avatarFox.png",
+    "img/avatarGiraffe.png",
+    "img/avatarGorilla.png",
+    "img/avatarKoala.png",
+    "img/avatarPanda.png",
+    "img/avatarPug.png"];
+
+function tildelBilde() {
+  avatars = shuffle(avatars);
+
+  let avatarEn = document.getElementById("imgAvatar1");
+  let avatarTo = document.getElementById("imgAvatar2");
+  let avatarTre = document.getElementById("imgAvatar3");
+  let avatarFire = document.getElementById("imgAvatar4");
+
+  avatarEn.src = avatars[0];
+  avatarTo.src = avatars[1];
+  avatarTre.src = avatars[2];
+  avatarFire.src = avatars[3];
+}
+
+function shuffle(avatars) {
+  var currentIndex = avatars.length, temporaryValue, randomIndex;
+
+// While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = avatars[currentIndex];
+    avatars[currentIndex] = avatars[randomIndex];
+    avatars[randomIndex] = temporaryValue;
+  }
+  console.log("Test shuffle avatars: " + avatars);
+  return avatars;
+}
