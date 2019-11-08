@@ -4,58 +4,76 @@
     <meta charset="utf-8" />
     <title></title>
     <link rel="stylesheet" type="text/css" href="hjemmeside.css" />
-    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic|Open+Sans+Condensed:300|Pontano+Sans&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Baloo+Bhai|Bree+Serif|Bungee+Shade|Comfortaa|Exo|Rajdhani|Righteous&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Cinzel|Playfair+Display+SC&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css?family=Nanum+Gothic|Open+Sans+Condensed:300|Pontano+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Baloo+Bhai|Bree+Serif|Bungee+Shade|Comfortaa|Exo|Rajdhani|Righteous&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Cinzel|Playfair+Display+SC&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div id="bildeLogo">
-          <img src="img/logo.png" alt="Logo" id="logo" /><br />
-    <img src="img/dice.png" alt="Dices" id="dice" onclick="window.location.href = 'hjemmeside.html';">
-  </div>
+      <img src="img/logo.png" alt="Logo" id="logo" /><br />
+      <img
+        src="img/dice.png"
+        alt="Dices"
+        id="dice"
+        onclick="window.location.href = 'hjemmeside.html';"
+      />
+    </div>
     <div id="container">
-      <div id="toggleButtons"><div class="kol4">
-        <button id="onePlayer" onclick="oneGo()">Singleplayer</button>
-        <button id="twoPlayer" onclick="twoGo()">Two-player</button>
-        <button id="threePlayer" onclick="threeGo()">Three-player</button>
-        <button id="fourPlayer" onclick="fourGo()">Four-player</button><br /><br />
-      </div>
-
-        <div id="playerNames">
-          <p id="hjemmesideSpiller1" class="singleplayer" >Spiller 1</p>
+      <div class="kol4">
+        <div id="onePlayer">
+          <button id="onePlayer" onclick="oneGo()">Singleplayer</button>
           <input
             type="text"
             id="playerOne"
             class="singleplayer"
-            placeholder="Navn"
+            placeholder="Spiller 1"
             required
-          /><br />
-          <p id="hjemmesideSpiller2" class="multiplayer" >Spiller 2</p>
+          />
+        </div>
+        <div id="twoPlayer">
+          <button id="twoPlayer" onclick="twoGo()">Two-player</button>
           <input
             type="text"
             id="playerTwo"
             class="multiplayer"
-            placeholder="Navn"
+            placeholder="Spiller 2"
             required
-          /><br />
-          <p id="hjemmesideSpiller3" class="multiplayer" >Spiller 3</p>
+          />
+        </div>
+        <div id="threePlayer">
+          <button id="threePlayer" onclick="threeGo()">Three-player</button>
           <input
             type="text"
             id="playerThree"
             class="multiplayer"
-            placeholder="Navn"
-          /><br />
-          <p id="hjemmesideSpiller4" class="multiplayer" >Spiller 4</p>
+            placeholder="Spiller 3"
+          />
+        </div>
+        <div id="fourPlayer">
+          <button id="fourPlayer" onclick="fourGo()">Four-player</button>
           <input
             type="text"
             id="playerFour"
             class="multiplayer"
-            placeholder="Navn"
-          /><br />
-          <button id="play" onclick="play()">Spill</button>
-        </div><br><br><br>
+            placeholder="Spiller 4"
+          />
+        </div>
+      </div>
+
+      <button id="play" onclick="play()">Spill</button>
+    </div>
+    <br /><br /><br />
     <p>© NTNU Digital Forretningsutvikling høsten 2019</p>
-    <br>
+    <br />
 
     <script src="hjemmeside.js"></script>
     <script src="yatzy.js"></script>
