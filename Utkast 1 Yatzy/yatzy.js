@@ -714,7 +714,7 @@ function moveDice0() {
     document.getElementById("dicePos0").style.marginBottom = "0%";
     drop.play();
   } else {
-    document.getElementById("dicePos" + i).style.marginBottom = "-770%";
+    document.getElementById("dicePos0").style.marginBottom = "-770%";
     drop.play();
   }
 }
