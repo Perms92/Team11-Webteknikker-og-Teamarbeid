@@ -289,7 +289,7 @@ h3 {
 table {
   min-width: 120px;
   text-align: center;
-  font-size: 14px;
+  font-size: 1.3rem;
   display: flex;
   justify-content: space-around;
   /*position: fixed;
