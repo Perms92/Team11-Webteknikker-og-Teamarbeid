@@ -197,23 +197,17 @@ function rundeForteller(spiller) {
 
 // Sjekker score for alle rundet etter bonus
 function score() {
-  console.log("Test let spiller1 score " + spiller1);
-  console.log("Test let spiller2 score " + spiller2);
+
   midlertidig_poeng = 0;
   if (runde < 7) {
-    console.log("Test runde 1-6: " + runde);
     if (hvemSinTur == 1) {
       totalScore1 += faseEn(mitt_kast, runde);
-      console.log("Test totalScore1: " + totalScore1);
     } else if (hvemSinTur == 2) {
       totalScore2 += faseEn(mitt_kast, runde);
-      console.log("Test totalScore2: " + totalScore1);
     } else if (hvemSinTur == 3) {
       totalScore3 += faseEn(mitt_kast, runde);
-      console.log("Test totalScore3: " + totalScore3);
     } else if (hvemSinTur == 4) {
       totalScore4 += faseEn(mitt_kast, runde);
-      console.log("Test totalScore4: " + totalScore4);
     }
     if (runde == 6) {
       bonus();
