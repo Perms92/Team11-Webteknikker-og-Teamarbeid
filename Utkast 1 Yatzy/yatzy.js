@@ -37,7 +37,6 @@ function kasteKnapp() {
     score();
     moveToTable();
     fakeYatzy();
-    randomAvatar();
 
     if (hvemSinTur != antallSpillere) {
       hvemSinTur += 1;
@@ -90,9 +89,9 @@ function kasteKnapp() {
 // Oppretter første kast hver runde
 function startKast() {
   //husk å fjern!!!
- // var pHub = document.getElementById("intro");
+ var pHub = document.getElementById("intro");
 
-   // pHub.play();
+   pHub.play();
 
   //console.log("Test antallKast startKast() " + antallKast);
   if (hvemSinTur == 1 && runde == 0) {
@@ -894,7 +893,7 @@ function finalScore(nyttEllerGjenta) {
 }
 
 function viseHvemSinTur() {
-  let y = "avatar" + hvemSinTur;
+  let y = "imgAavatar" + hvemSinTur;
   console.log("Test viseHvemSinTur: " + y);
   document.getElementsByClassName("avatar").style.opacity="0.7";
   document.getElementById("y").style.transform="1.1";
