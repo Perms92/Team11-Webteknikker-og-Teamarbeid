@@ -1,5 +1,13 @@
+let isTwoGo = false;
+let isThreeGo = false;
+let isFourGo = false;
+
+
 function oneGo() {
-  /* document.getElementsByClassName("multiplayer").style.visibility = "hidden";*/
+  isTwoGo = false;
+  isThreeGo = false;
+  isFourGo = false;
+
   document.getElementById("playerTwo").style.visibility = "hidden";
   document.getElementById("playerThree").style.visibility = "hidden";
   document.getElementById("playerFour").style.visibility = "hidden";
@@ -9,21 +17,31 @@ function oneGo() {
 }
 
 function twoGo() {
+  isThreeGo = false;
+  isFourGo = false;
+
   document.getElementById("playerTwo").style.visibility = "visible";
   document.getElementById("hjemmesideSpiller2").style.visibility = "visible";
   document.getElementById("playerThree").style.visibility = "hidden";
   document.getElementById("playerFour").style.visibility = "hidden";
   document.getElementById("hjemmesideSpiller3").style.visibility = "hidden";
   document.getElementById("hjemmesideSpiller4").style.visibility = "hidden";
+
+    isTwoGo = true;
 }
 
 function threeGo() {
+  isFourGo = false;
+
   document.getElementById("playerTwo").style.visibility = "visible";
   document.getElementById("playerThree").style.visibility = "visible";
   document.getElementById("hjemmesideSpiller2").style.visibility = "visible";
   document.getElementById("hjemmesideSpiller3").style.visibility = "visible";
   document.getElementById("playerFour").style.visibility = "hidden";
   document.getElementById("hjemmesideSpiller4").style.visibility = "hidden";
+
+  isTwoGo = true;
+  isThreeGo = true;
 }
 
 function fourGo() {
@@ -33,13 +51,33 @@ function fourGo() {
   document.getElementById("hjemmesideSpiller2").style.visibility = "visible";
   document.getElementById("hjemmesideSpiller3").style.visibility = "visible";
   document.getElementById("hjemmesideSpiller4").style.visibility = "visible";
+
+  isTwoGo = true;
+  isThreeGo = true;
+  isFourGo = true;
 }
 
 function play() {
+  if (isFourGo) {
+    localStorage["spiller4"] = document.getElementById("playerFour").value;
+    try {
+      if(localStorage["spiller4"] == "")  throw "empty";
+    }
+    catch(err) {
+      document.getElementById("hjemmesideSpiller1").style.color = "red";
+    }
+  }
+
+  if (isThreeGo) {
+    localStorage["spiller3"] = document.getElementById("playerThree").value;
+  }
+
+  if (isTwoGo) {
+    localStorage["spiller2"] = document.getElementById("playerTwo").value;
+  }
+
   localStorage["spiller1"] = document.getElementById("playerOne").value;
-  localStorage["spiller2"] = document.getElementById("playerTwo").value;
-  localStorage["spiller3"] = document.getElementById("playerThree").value;
-  localStorage["spiller4"] = document.getElementById("playerFour").value;
+
   //localStorage["spillere"] = [localStorage["spiller1"], localStorage["spiller2"], ]
 
   location.replace("index.html");
