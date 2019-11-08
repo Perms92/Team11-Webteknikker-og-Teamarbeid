@@ -37,7 +37,6 @@ function kasteKnapp() {
     score();
     moveToTable();
     fakeYatzy();
-    randomAvatar();
 
     if (hvemSinTur != antallSpillere) {
       hvemSinTur += 1;
