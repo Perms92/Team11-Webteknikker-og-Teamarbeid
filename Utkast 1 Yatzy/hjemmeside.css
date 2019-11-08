@@ -73,9 +73,6 @@ p {
   color: #000000;
 }
 #play {
-  background-color: rgb(255, 170, 58);
-}
-#play {
   display: inline-block;
   font-size: 24px;
   cursor: pointer;

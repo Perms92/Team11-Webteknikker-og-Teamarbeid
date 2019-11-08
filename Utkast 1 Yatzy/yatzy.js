@@ -21,6 +21,7 @@ function kasteKnapp() {
   //console.log("Test mitt_kast " + mitt_kast);
   var diceroll = document.getElementById("rollsound");
   diceroll.play();
+
   var x = document.getElementById("kasteKnapp");
   if (x.innerHTML === "Neste kast" && antallKast != 2) {
     antallKast += 1;
@@ -36,6 +37,7 @@ function kasteKnapp() {
     score();
     moveToTable();
     fakeYatzy();
+    randomAvatar();
 
     if (hvemSinTur != antallSpillere) {
       hvemSinTur += 1;
@@ -87,6 +89,11 @@ function kasteKnapp() {
 
 // Oppretter første kast hver runde
 function startKast() {
+  //husk å fjern!!!
+ // var pHub = document.getElementById("intro");
+
+   // pHub.play();
+
   //console.log("Test antallKast startKast() " + antallKast);
   if (hvemSinTur == 1 && runde == 0) {
     runde += 1;
@@ -780,44 +787,54 @@ function showDice() {
     document.getElementById(showDiceId).src = diceName;
   }
 }
-
 function moveDice0() {
+
   if (document.getElementById("dicePos0").style.marginBottom == "-770%") {
     document.getElementById("dicePos0").style.marginBottom = "0%";
+    drop.play();
   } else {
     document.getElementById("dicePos0").style.marginBottom = "-770%";
+    drop.play();
   }
 }
 
 function moveDice1() {
   if (document.getElementById("dicePos1").style.marginBottom == "-770%") {
     document.getElementById("dicePos1").style.marginBottom = "0%";
+    drop.play();
   } else {
     document.getElementById("dicePos1").style.marginBottom = "-770%";
+    drop.play();
   }
 }
 
 function moveDice2() {
   if (document.getElementById("dicePos2").style.marginBottom == "-770%") {
     document.getElementById("dicePos2").style.marginBottom = "0%";
+    drop.play();
   } else {
     document.getElementById("dicePos2").style.marginBottom = "-770%";
+    drop.play();
   }
 }
 
 function moveDice3() {
   if (document.getElementById("dicePos3").style.marginBottom == "-770%") {
     document.getElementById("dicePos3").style.marginBottom = "0%";
+    drop.play();
   } else {
     document.getElementById("dicePos3").style.marginBottom = "-770%";
+    drop.play();
   }
 }
 
 function moveDice4() {
   if (document.getElementById("dicePos4").style.marginBottom == "-770%") {
     document.getElementById("dicePos4").style.marginBottom = "0%";
+    drop.play();
   } else {
     document.getElementById("dicePos4").style.marginBottom = "-770%";
+    drop.play();
   }
 }
 
@@ -881,5 +898,5 @@ function viseHvemSinTur() {
   console.log("Test viseHvemSinTur: " + y);
   /*document.getElementsByClassName("avatar").style.opacity="0.7";
   document.getElementById("y").style.transform="1.1";
-  document.getElementById("y").style.opacity="1";*/
+  document.getElementById("y").style.opacity="1";
 }
