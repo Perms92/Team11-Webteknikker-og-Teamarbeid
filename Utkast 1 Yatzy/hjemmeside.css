@@ -27,6 +27,7 @@ div {
 #header {
   grid-area: h;
 }
+
 #toggleButtons {
   margin: auto;
   grid-area: c;
@@ -155,6 +156,9 @@ input {
 
 #playerNames {
   margin: 0 auto;
+}
+.multiplayer {
+  visibility: hidden;
 }
 
 #logo {

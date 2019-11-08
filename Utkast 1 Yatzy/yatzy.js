@@ -39,6 +39,7 @@ function kasteKnapp() {
     fakeYatzy();
 
     if (hvemSinTur != antallSpillere) {
+      console.log("Test hvemSinTur og ikke antallSpillere: " + hvemSinTur + ", " + antallSpillere);
       hvemSinTur += 1;
       if (hvemSinTur == 2) {
         rundeForteller(spiller2);
@@ -48,6 +49,7 @@ function kasteKnapp() {
         rundeForteller(spiller4);
       }
     } else if (hvemSinTur == antallSpillere) {
+      console.log("Test hvemSinTur og ikke antallSpillere: " + hvemSinTur + ", " + antallSpillere);
       runde += 1;
       hvemSinTur = 1;
       rundeForteller(spiller1);
@@ -88,11 +90,6 @@ function kasteKnapp() {
 
 // Oppretter første kast hver runde
 function startKast() {
-  //husk å fjern!!!
- var pHub = document.getElementById("intro");
-
-   pHub.play();
-
   //console.log("Test antallKast startKast() " + antallKast);
   if (hvemSinTur == 1 && runde == 0) {
     runde += 1;
