@@ -12,29 +12,9 @@ var spiller2 = "";
 var spiller3 = "";
 var spiller4 = "";
 var hvemSinTur = 1;
-var drop = document.getElementById("diceSound");
-/*let avatars = ["img/avatarBear.png", 
-"img/avatarCat.png", 
-"img/avatarFox.png", 
-"img/avatarGiraffe.png", 
-"img/avatarGorilla.png", 
-"img/avatarKoala.png", 
-"img/avatarPanda.png", 
-"img/avatarPug.png"];
+let hiddenPopFinalScore = true;
+var map = {};
 
-function randomAvatar() {
-  let avatar1 = document.getElementById("img1");
-  let avatar2 = document.getElementById("img2");
-  let avatar3 = document.getElementById("img3");
-  let avatar4 = document.getElementById("img4");
-  
-      let randomIndex = Math.floor(Math.random() * 7) // [0, 7>
-      // random index blir et av tallene 0, 1, 2, 3, 4, 5, 6,
-      avatar1.src = avatars[randomIndex];
-      avatar2.src = avatars[randomIndex];
-      avatar3.src = avatars[randomIndex];
-      avatar4.src = avatars[randomIndex];
-  } */
 // En felles funksjon som endrer teksten på kasteknappen,
 // teller runder, og kjører spillet
 function kasteKnapp() {
@@ -640,8 +620,81 @@ function fakeYatzy() {
   }
 }
 
+function regScoreBtn(score) {
+  console.log("KNAPEN FIKK TALLET: " + score + " DET ER NAVNET " + map[score]);
+  let btn = document.createElement("BUTTON");
+  //ENDRE TEKSTEN I IKNAPPEN HER
+  btn.textContent = "Registrer Highscore";
+  // ------------------------
+  console.log(map);
+  let name = map[score];
+  btn.onclick = () => {
+    saveHighScore(name, score);
+  };
+  return btn;
+}
+
+function saveHighScore(navn, score) {
+  localSet(navn, score);
+  renderHighscores();
+}
+function sorterer(pers1, pers2) {
+  if (pers1.score > pers2.score) {
+    return -1;
+  } else if (pers2.score > pers1.score) {
+    return 1;
+  }
+  return 0;
+}
+
+function localSet(person, score) {
+  //henter data fra localStorage, legger til den nye personen, sorterer og lagrer den
+  //let before = JSON.parse(localStorage.getItem("highscore"));
+  hs = [];
+  if (localGet() != undefined) {
+    let hs = localGet();
+  }
+  let nyPerson = {
+    navn: person,
+    score: score
+  };
+
+  //Legger til ny person før listen sorteres og lagres
+  hs.push(nyPerson);
+  //Sorterer listen før den lagres
+  hs.sort(sorterer);
+
+  //Lagrer listen
+  localStorage.setItem("highscores", JSON.stringify(hs));
+}
+
+//localSet("mina", 200);
+function localGet() {
+  if (localStorage.getItem("highscores")) {
+    return JSON.parse(localStorage.getItem("highscores")).sort(sorterer);
+  }
+}
+
+function renderHighscores() {
+  let highscores = localGet();
+  console.log(highscores);
+  while (hs.firstChild) {
+    hs.removeChild(hs.firstChild);
+  }
+  if (highscores) {
+    for (let person of highscores) {
+      let li = document.createElement("li");
+      li.textContent = person.navn + " har score: " + person.score;
+      document.getElementById("hs").append(li);
+    }
+  }
+}
+
+renderHighscores();
+// HIGHSCORE over
 function moveToTable() {
   let spiller = hvemSinTur;
+  let spillere = [];
   let sendTilId = spiller + "-" + runde;
   console.log("Test moveToTable: " + sendTilId);
   console.log("Test moveToTable midlertidig_poeng: " + midlertidig_poeng);
@@ -659,11 +712,19 @@ function moveToTable() {
     }
     if (hvemSinTur == antallSpillere) {
       let finalScoreListe = [];
+      spillere[finalScoreListe[0]] = localStorage["spiller1"];
+      spillere[finalScoreListe[1]] = localStorage["spiller2"];
+      spillere[finalScoreListe[2]] = localStorage["spiller3"];
+      spillere[finalScoreListe[3]] = localStorage["spiller4"];
       if (antallSpillere == 4) {
         finalScoreListe[0] = totalScore1;
         finalScoreListe[1] = totalScore2;
         finalScoreListe[2] = totalScore3;
         finalScoreListe[3] = totalScore4;
+        for (let l = 0; l < antallSpillere; l++) {
+          map[finalScoreListe[l]] = localStorage["spiller" + (l + 1)];
+        }
+        console.log(map);
         finalScoreListe.sort(function(a, b) {
           return b - a;
         });
@@ -675,6 +736,9 @@ function moveToTable() {
         finalScoreListe[0] = totalScore1;
         finalScoreListe[1] = totalScore2;
         finalScoreListe[2] = totalScore3;
+        for (let l = 0; l < antallSpillere; l++) {
+          map[finalScoreListe[l]] = localStorage["spiller" + (l + 1)];
+        }
         finalScoreListe.sort(function(a, b) {
           return b - a;
         });
@@ -684,6 +748,9 @@ function moveToTable() {
       } else if (antallSpillere == 2) {
         finalScoreListe[0] = totalScore1;
         finalScoreListe[1] = totalScore2;
+        for (let l = 0; l < antallSpillere; l++) {
+          map[finalScoreListe[l]] = localStorage["spiller" + (l + 1)];
+        }
         finalScoreListe.sort(function(a, b) {
           return b - a;
         });
@@ -691,9 +758,21 @@ function moveToTable() {
         document.getElementById("plass2").innerHTML = finalScoreListe[1];
       } else if (antallSpillere == 1) {
         finalScoreListe[0] = totalScore1;
+        for (let l = 0; l < antallSpillere; l++) {
+          map[finalScoreListe[l]] = localStorage["spiller" + (l + 1)];
+        }
         document.getElementById("plass1").innerHTML =
           spiller1 + " fikk: " + finalScoreListe[0] + " poeng";
       }
+      for (let k = 0; k < antallSpillere; k++) {
+        let knappeplass = document.getElementById("plass" + (k + 1));
+        let navn = document.createElement("span");
+        navn.textContent = map[finalScoreListe[k]];
+        knappeplass.insertBefore(navn, knappeplass.firstChild);
+        console.log(finalScoreListe);
+        knappeplass.appendChild(regScoreBtn(finalScoreListe[k], map));
+      }
+      console.log(map);
     }
   }
 }
@@ -767,6 +846,7 @@ function resetSpill() {
   totalScore2 = 0;
   totalScore3 = 0;
   totalScore4 = 0;
+  map = {};
   if (localStorage["spiller4"] != "") {
     antallSpillere = 4;
     spiller2 = localStorage["spiller2"];
@@ -795,8 +875,6 @@ function resetSpill() {
   }
 }
 
-let hiddenPopFinalScore = true;
-
 function finalScore(nyttEllerGjenta) {
   var y = document.getElementById("finalScore");
   var finalScorePopUp = document.getElementById("finalScorePopUp");
@@ -817,6 +895,7 @@ function finalScore(nyttEllerGjenta) {
 
 function viseHvemSinTur() {
   let y = "avatar" + hvemSinTur;
+  console.log("Test viseHvemSinTur: " + y);
   document.getElementsByClassName("avatar").style.opacity="0.7";
   document.getElementById("y").style.transform="1.1";
   document.getElementById("y").style.opacity="1";
