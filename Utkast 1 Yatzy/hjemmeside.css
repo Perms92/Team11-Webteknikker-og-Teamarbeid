@@ -6,6 +6,7 @@ body {
   background-image: url("https://www.transparenttextures.com/patterns/diamond-upholstery.png");
   height: 100%;
 }
+
 /*
 div {
   border: 2px solid rgb(113, 115, 130);
@@ -42,8 +43,8 @@ button {
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
-  width: 15rem;
-  height: 10rem;
+  width: 18rem;
+  height: 6rem;
   display: inline-block;
   font-size: 24px;
   cursor: pointer;
@@ -74,8 +75,17 @@ p {
   border-bottom-left-radius: 25px;
 }
 
+#onePlayer:hover, #twoPlayer:hover, #threePlayer:hover, #fourPlayer:hover {
+ background-color: white;
+}
+
+#onePlayer:active, #twoPlayer:active, #threePlayer:active, #fourPlayer:active {
+  transform: scale(1.03);
+}
+
 #onePlayer:focus, #twoPlayer:focus, #threePlayer:focus, #fourPlayer:focus {
-  transform: scale(1.2);
+  transform: scale(1.08);
+outline: none;
 }
 
 #twoPlayer {
@@ -94,44 +104,51 @@ p {
 
 #play {
   display: inline-block;
-  font-size: 24px;
+  font-size: 2.5rem;
   cursor: pointer;
-  border: 4px solid;
-  border-color: #ff0900;
-  background-color: #ffffff;
-  opacity: 0.7;
+  border: 0.3rem solid;
+  border-color: #DBAD6A;
+  background-color: #3d3d3d;
+  background-image: url("https://www.transparenttextures.com/patterns/diagmonds.png");
+  opacity: 1;
   font-family: 'Rajdhani', sans-serif;
-  font-weight: 700;
-  color: black;
-  border-radius: 5px;
+  font-weight: 600;
+  color: white;
+  border-radius: 3%;
   text-align: center;
-  width: 200px;
-  height: 80px;
-  padding: 20px;
-  margin: 10px;
+  width: 28rem;
+  height: 6rem;
+  margin:-6%;
+  outline: none;
 }
 
 #play:hover {
-  transform: scale(1.05);
-  transition-duration: 1.2s;
-  background: url(img/pattern5.png);
-  background-color: #d2d2d2;
-  border-color: #ff0900;
-  color: black;
+  transform: scale(1.02);
+  transition-duration: 0.2s;
+  background-color: #6e6e6e;
+  border-color: #eac080;
+  color: white;
+  font-weight: 700;
+  outline: none;
 }
 
 #play:active {
-  transform: scale(1.1);
+  transform: scale(1.07);
   cursor: default;
   transition-duration: 0.5s;
+  border-color: #ffc061;
+  color: #FFE161;
+  outline: none;
 }
 
 input {
-  height: 30px;
-  width: 150px;
+  height: 3rem;
+  width: 7rem;
   display: inline-block;
+  font-family: "Pontano Sans", sans-serif;
   margin-top: 2px;
   box-sizing: border-box;
+  text-align: center;
   border-radius: 4px;
   justify-content: center;
   font-size: 20px;
