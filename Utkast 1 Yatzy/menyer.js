@@ -172,6 +172,13 @@ function tildelBilde() {
   avatarTre.src = avatars[2];
   avatarFire.src = avatars[3];
 }
+function antallAvatarer() {
+  if (antallSpillere == 1) {
+    avatarTo.style.display = hidden;
+    avatarTre.style.display = hidden;
+    avatarFire.style.display = hidden;
+  }
+}
 
 function shuffle(avatars) {
   var currentIndex = avatars.length,
@@ -189,6 +196,5 @@ function shuffle(avatars) {
     avatars[currentIndex] = avatars[randomIndex];
     avatars[randomIndex] = temporaryValue;
   }
-  console.log("Test shuffle avatars: " + avatars);
   return avatars;
 }

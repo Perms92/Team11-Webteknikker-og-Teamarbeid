@@ -12,8 +12,8 @@ var spiller2 = "";
 var spiller3 = "";
 var spiller4 = "";
 var hvemSinTur = 1;
+var drop = document.getElementById("diceSound");
 let hiddenPopFinalScore = true;
-var map = {};
 
 // En felles funksjon som endrer teksten på kasteknappen,
 // teller runder, og kjører spillet
@@ -39,6 +39,12 @@ function kasteKnapp() {
     fakeYatzy();
 
     if (hvemSinTur != antallSpillere) {
+      console.log(
+        "Test hvemSinTur og ikke antallSpillere: " +
+          hvemSinTur +
+          ", " +
+          antallSpillere
+      );
       hvemSinTur += 1;
       if (hvemSinTur == 2) {
         rundeForteller(spiller2);
@@ -48,6 +54,12 @@ function kasteKnapp() {
         rundeForteller(spiller4);
       }
     } else if (hvemSinTur == antallSpillere) {
+      console.log(
+        "Test hvemSinTur og ikke antallSpillere: " +
+          hvemSinTur +
+          ", " +
+          antallSpillere
+      );
       runde += 1;
       hvemSinTur = 1;
       rundeForteller(spiller1);
@@ -88,11 +100,6 @@ function kasteKnapp() {
 
 // Oppretter første kast hver runde
 function startKast() {
-  //husk å fjern!!!
-  var pHub = document.getElementById("intro");
-
-  pHub.play();
-
   //console.log("Test antallKast startKast() " + antallKast);
   if (hvemSinTur == 1 && runde == 0) {
     runde += 1;
@@ -117,6 +124,7 @@ function startKast() {
   document.getElementById("dicePos3").style.marginBottom = "0%";
   document.getElementById("dicePos4").style.transition = "all 0.3s";
   document.getElementById("dicePos4").style.marginBottom = "0%";
+  //putter styling av rundeforteller i js slik at man ikke ser deler av rundefortelleren før start spill er trykket
   document.getElementById("rundeForteller").style.border = "solid";
   document.getElementById("rundeForteller").style.borderColor = "#DBAD6A";
   document.getElementById("rundeForteller").style.borderWidth =
@@ -196,23 +204,16 @@ function rundeForteller(spiller) {
 
 // Sjekker score for alle rundet etter bonus
 function score() {
-  console.log("Test let spiller1 score " + spiller1);
-  console.log("Test let spiller2 score " + spiller2);
   midlertidig_poeng = 0;
   if (runde < 7) {
-    console.log("Test runde 1-6: " + runde);
     if (hvemSinTur == 1) {
       totalScore1 += faseEn(mitt_kast, runde);
-      console.log("Test totalScore1: " + totalScore1);
     } else if (hvemSinTur == 2) {
       totalScore2 += faseEn(mitt_kast, runde);
-      console.log("Test totalScore2: " + totalScore1);
     } else if (hvemSinTur == 3) {
       totalScore3 += faseEn(mitt_kast, runde);
-      console.log("Test totalScore3: " + totalScore3);
     } else if (hvemSinTur == 4) {
       totalScore4 += faseEn(mitt_kast, runde);
-      console.log("Test totalScore4: " + totalScore4);
     }
     if (runde == 6) {
       bonus();
@@ -451,7 +452,7 @@ function toPar(mitt_kast) {
   let antallToPar = 0;
   let totalScoreToPar = 0;
 
-  // Grunnen til at denne inne ble forenklet i en for-løkke
+  // Grunnen til at denne ikke ble forenklet i en for-løkke
   // er fordi vi ikke kan .pop() ut verdiene vi bruker
   // Disse verdiene må hentes for terningbildene
   for (var i = 0; i < 5; i++) {
@@ -620,79 +621,6 @@ function fakeYatzy() {
   }
 }
 
-function regScoreBtn(score) {
-  console.log("KNAPEN FIKK TALLET: " + score + " DET ER NAVNET " + map[score]);
-  let btn = document.createElement("BUTTON");
-  //ENDRE TEKSTEN I IKNAPPEN HER
-  btn.textContent = "Registrer Highscore";
-  // ------------------------
-  console.log(map);
-  let name = map[score];
-  btn.onclick = () => {
-    saveHighScore(name, score);
-  };
-  return btn;
-}
-
-function saveHighScore(navn, score) {
-  localSet(navn, score);
-  renderHighscores();
-}
-
-function sorterer(pers1, pers2) {
-  if (pers1.score > pers2.score) {
-    return -1;
-  } else if (pers2.score > pers1.score) {
-    return 1;
-  }
-  return 0;
-}
-
-function localSet(person, score) {
-  //henter data fra localStorage, legger til den nye personen, sorterer og lagrer den
-  //let before = JSON.parse(localStorage.getItem("highscore"));
-  hs = [];
-  if (localGet() != undefined) {
-    let hs = localGet();
-  }
-  let nyPerson = {
-    navn: person,
-    score: score
-  };
-
-  //Legger til ny person før listen sorteres og lagres
-  hs.push(nyPerson);
-  //Sorterer listen før den lagres
-  hs.sort(sorterer);
-
-  //Lagrer listen
-  localStorage.setItem("highscores", JSON.stringify(hs));
-}
-
-function localGet() {
-  if (localStorage.getItem("highscores")) {
-    return JSON.parse(localStorage.getItem("highscores")).sort(sorterer);
-  }
-}
-
-function renderHighscores() {
-  let highscores = localGet();
-  console.log(highscores);
-  while (hs.firstChild) {
-    hs.removeChild(hs.firstChild);
-  }
-  if (highscores) {
-    for (let person of highscores) {
-      let li = document.createElement("li");
-      li.textContent = person.navn + " har score: " + person.score;
-      document.getElementById("hs").append(li);
-    }
-  }
-}
-
-renderHighscores();
-// HIGHSCORE over
-
 function moveToTable() {
   let spiller = hvemSinTur;
   let spillere = [];
@@ -725,7 +653,6 @@ function moveToTable() {
         for (let l = 0; l < antallSpillere; l++) {
           map[finalScoreListe[l]] = localStorage["spiller" + (l + 1)];
         }
-        console.log(map);
         finalScoreListe.sort(function(a, b) {
           return b - a;
         });
@@ -892,7 +819,6 @@ function finalScore(nyttEllerGjenta) {
     console.log("Test nyttEllerGjenta: " + nyttEllerGjenta);
   }
 }
-
 function viseHvemSinTur() {
   let y = "imgAavatar" + hvemSinTur;
   console.log("Test viseHvemSinTur: " + y);

@@ -60,20 +60,25 @@ function fourGo() {
 function play() {
   if (isFourGo) {
     localStorage["spiller4"] = document.getElementById("playerFour").value;
-    try {
-      if(localStorage["spiller4"] == "")  throw "empty";
-    }
-    catch(err) {
-      document.getElementById("hjemmesideSpiller1").style.color = "red";
-    }
   }
 
   if (isThreeGo) {
+    if (!isFourGo) {
+      localStorage["spiller4"] = "";
+    }
     localStorage["spiller3"] = document.getElementById("playerThree").value;
   }
 
   if (isTwoGo) {
+    if (!isThreeGo) {
+      localStorage["spiller3"] = "";
+      localStorage["spiller4"] = "";
+    }
     localStorage["spiller2"] = document.getElementById("playerTwo").value;
+  } else {
+    localStorage["spiller2"] = "";
+    localStorage["spiller3"] = "";
+    localStorage["spiller4"] = "";
   }
 
   localStorage["spiller1"] = document.getElementById("playerOne").value;
