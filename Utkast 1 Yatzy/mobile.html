@@ -22,7 +22,25 @@
 
       <div id="first">
         <h1>
-          <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank"><img src="img/logo.png" alt="Logo" id="logo" ></a><br></h1>
+        <img src="img/logo.png" alt="Logo" id="logo"><br></h1>
+        <button onclick="dropmenu()" class="knappVenstreSide" id="menubutton">Meny</button>
+        <div id="toggleButtons">
+        <button onclick="regler()" class="knappVenstreSide" id="reglerButton">Regler</button>
+        <p id="regler">
+          Få høyest mulig poengsum på Yatzy! Trykk på terningene for å beholde dem,
+          slik at de ikke ruller. Du får tre kast per kategori.
+          Trenger du en liten oppfriskning på reglene? <br> <br>
+          - Liten straight er 1-5 <br>
+          - Stor straight er 2-6 <br>
+          - Fullt hus er 3 like + 2 like <br>
+          - På sjanse skal du få høyest mulig tall på alle terningene <br>
+          - På Yatzy skal du få 5 like <br> <br>
+          Lykke til!
+          </p>
+        <button type="button" id="resetKnapp" class="knappVenstreSide" onclick="resetSpill()">Restart Spill</button>
+        <button type="button" id="nyeSpillereKnapp" class="knappVenstreSide" onclick="window.location.href = 'hjemmeside.html';">Nye Spillere</button>
+        <button onclick="visHighscore()" id="highscoreId" class="knappVenstreSide">Highscore</button>
+        </div><br>
         <br><br><br>
 
 
@@ -41,7 +59,7 @@
       <div id="hsPopUp">
         <ol id="hs">
         </ol>
-        <button type="button" name="button" onclick="visHighscore()" class="litenKnapp">Gå tilbake</button>
+        <button type="button" name="button" onclick="visHighscore()" class="gaTilbake">Gå tilbake</button>
       </div>
     </div>
 
@@ -57,45 +75,6 @@
           <button type="button" class="litenKnapp" id="spillPaNytt" onclick="finalScore(this.id)">Spill på nytt</button>
       </div>
     </div>
-
-      <div id="second">
-        <div id="header">
-          <div><img id="imgAvatar1" class="avatar"><p class="spiller" id="avatar1"></p></div>
-          <div><img id="imgAvatar2" class="avatar"><p class="spiller" id="avatar2"></p></div>
-          <div><img id="imgAvatar3" class="avatar"><p class="spiller" id="avatar3"></p></div>
-          <div><img id="imgAvatar4" class="avatar"><p class="spiller" id="avatar4"></p></div>
-        </div>
-        <div id="brett">
-          <div id="rundeForteller"></div>
-          <label for="0" onclick="moveDice0()"><img height="40px" id="dicePos0" class="dices" draggable="false"></label>
-          <label for="1" onclick="moveDice1()"><img height="40px" id="dicePos1" class="dices" draggable="false"></label>
-          <label for="2" onclick="moveDice2()"><img height="40px" id="dicePos2" class="dices" draggable="false"></label>
-          <label for="3" onclick="moveDice3()"><img height="40px" id="dicePos3" class="dices" draggable="false"></label>
-          <label for="4" onclick="moveDice4()"><img height="40px" id="dicePos4" class="dices" draggable="false"></label>
-          <br>
-
-
-        </div>
-        <audio src="mp3/roll.mp3" id="rollsound"></audio>
-          <audio src="mp3/intro.mp3" id="intro"></audio>
-        <button onclick="kasteKnapp()" id="kasteKnapp" class="knappBrett">Start runde 1</button> <br>
-        <button onclick="regler()" class="knappVenstreSide" id="reglerButton">Regler</button>
-        <button onclick="visHighscore()" id="highscoreId" class="knappVenstreSide">Highscore</button><br>
-        <button type="button" id="resetKnapp" class="knappVenstreSide" onclick="resetSpill()">Restart Spill</button>
-        <button type="button" id="nyeSpillereKnapp" class="knappVenstreSide" onclick="window.location.href = 'hjemmeside.html';">Nye Spillere</button>
-        <button onclick="visHighscore()" id="highscoreId" class="knappVenstreSide">Highscore</button><br>
-        <p id="regler">
-          Få høyest mulig poengsum på Yatzy! Trykk på terningene for å beholde dem,
-          slik at de ikke ruller. Du får tre kast per kategori.
-          Trenger du en liten oppfriskning på reglene? <br> <br>
-          - Liten straight er 1-5 <br>
-          - Stor straight er 2-6 <br>
-          - Fullt hus er 3 like + 2 like <br>
-          - På sjanse skal du få høyest mulig tall på alle terningene <br>
-          - På Yatzy skal du få 5 like <br> <br>
-          Lykke til!
-          </p>
-      </div>
 
       <div id="third">
         <h3>Poengsum</h3>
@@ -236,9 +215,33 @@
           </tr>
         </table>
         </div>
+        <div id="second">
+          <div id="header">
+            <div><img id="imgAvatar1" class="avatar"><p class="spiller" id="avatar1"></p></div>
+            <div><img id="imgAvatar2" class="avatar"><p class="spiller" id="avatar2"></p></div>
+            <div><img id="imgAvatar3" class="avatar"><p class="spiller" id="avatar3"></p></div>
+            <div><img id="imgAvatar4" class="avatar"><p class="spiller" id="avatar4"></p></div>
+          </div>
+          <div id="brett">
+            <div id="rundeForteller"></div>
+            <label for="0" onclick="moveDice0()"><img height="40px" id="dicePos0" class="dices" draggable="false"></label>
+            <label for="1" onclick="moveDice1()"><img height="40px" id="dicePos1" class="dices" draggable="false"></label>
+            <label for="2" onclick="moveDice2()"><img height="40px" id="dicePos2" class="dices" draggable="false"></label>
+            <label for="3" onclick="moveDice3()"><img height="40px" id="dicePos3" class="dices" draggable="false"></label>
+            <label for="4" onclick="moveDice4()"><img height="40px" id="dicePos4" class="dices" draggable="false"></label>
+            <br>
+
+
+          </div>
+          <audio src="mp3/roll.mp3" id="rollsound"></audio>
+            <audio src="mp3/intro.mp3" id="intro"></audio>
+          <button onclick="kasteKnapp()" id="kasteKnapp" class="knappBrett">Start runde 1</button> <br>
+
+        </div>
         </div>
       </div>
     </div>
+
     <audio src="mp3/introsound.mp3" id="intro"></audio>
     <audio src="mp3/dicedrop.mp3" id="diceSound"></audio>
     <script src="yatzy.js"></script>

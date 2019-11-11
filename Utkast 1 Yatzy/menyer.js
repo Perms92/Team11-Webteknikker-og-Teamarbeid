@@ -190,3 +190,15 @@ function shuffle(avatars) {
   console.log("Test shuffle avatars: " + avatars);
   return avatars;
 }
+
+function dropmenu() {
+  var x = document.getElementById("toggleButtons");
+  // x.style,display = "none"; ved eventuelt onload, da vil den fungere igjen
+  if (!hidden) {
+    x.style.display = "none";
+    hidden = true;
+  } else {
+    x.style.display = "block";
+    hidden = false;
+  }
+}

@@ -11,46 +11,66 @@ body {
 div {
   border: 2px solid rgb(113, 115, 130);
 } */
+#container {
+  height: inherit;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 5rem 1fr 1fr 5rem;
+  grid-template-areas:
+    "h h h h"
+    "c c c c"
+    "c c c c"
+    "f f f f";
+  grid-gap: 2rem;
+}
 
+#header {
+  grid-area: h;
+}
 
 #toggleButtons {
+  margin: auto;
+  align-items: center;
+  margin-left: 0%;
+  grid-area: c;
 }
 
 #fancyStartButton {
+  grid-area: f;
 }
 
 button {
-  border: 0.2rem solid rgb(113, 115, 130);
+  border: 0.5rem solid rgb(113, 115, 130);
   color: rgb(75, 71, 71);
   padding: 1rem 2rem;
   text-align: center;
   text-decoration: none;
-  width: 18rem;
-  height: 6rem;
+  width: 28.4rem;
+  height: 10rem;
   display: inline-block;
   flex-wrap: nowrap;
-  font-size: 1.8rem;
+  font-size: 4rem;
   cursor: pointer;
-  margin: -0.3%;
+  margin: 0.5%;
   border-color: #DBAF6A;
   font-family: 'Rajdhani', sans-serif;
-  font-weight: 300;
+  font-weight: 700;
   background-color: #9a9a9a;
   background-image: url("https://www.transparenttextures.com/patterns/diagmonds.png");
   opacity: 1;
+  font-weight: 600;
   color: white;
-  border-radius: 0.2rem;
+  border-radius: 0.5rem;
 }
 
 p {
   letter-spacing: 0.2rem;
   display: inline;
+  font-size: 2.5rem;
 }
 
 #onePlayer {
   background-color: #ff0900;
-  border-top-left-radius: 2rem;
-  border-bottom-left-radius: 2rem;
 }
 
 #onePlayer:hover, #twoPlayer:hover, #threePlayer:hover, #fourPlayer:hover {
@@ -58,7 +78,7 @@ p {
   background-color:
   border-color: #eac080;
   color: white;
-  font-weight: 700;
+  font-weight: 500;
   outline: none;
 }
 
@@ -87,15 +107,13 @@ outline: none;
 
 #fourPlayer {
   background-color: #7c0a02;
-  border-top-right-radius: 2rem;
-  border-bottom-right-radius: 2rem;
 }
 
 #play {
   display: inline-block;
-  font-size: 2.5rem;
+  font-size: 5rem;
   cursor: pointer;
-  border: 0.3rem solid;
+  border: 0.5rem solid;
   border-color: #DBAD6A;
   background-color: #3d3d3d;
   background-image: url("https://www.transparenttextures.com/patterns/diagmonds.png");
@@ -105,9 +123,9 @@ outline: none;
   color: white;
   border-radius: 3%;
   text-align: center;
-  width: 28rem;
-  height: 6rem;
-  margin-top:6%;
+  width: 94%;
+  height: 10rem;
+  margin-top:0%;
   outline: none;
   margin-bottom: -5%;
 }
@@ -121,13 +139,6 @@ outline: none;
   font-weight: 700;
   outline: none;
 }
-#playerNames {
-  display: flex;
-  justify-content: space-around;
-  padding-left: 0% 20% 25% 0%;
-  margin-left: 0%;
-  margin-right: -15%;
-}
 
 #play:active {
   transform: scale(1.07);
@@ -139,17 +150,22 @@ outline: none;
 }
 
 input {
-  height: 3rem;
-  width: 12rem;
+  height: 6rem;
+  width: 28rem;
   display: inline-block;
+  flex-wrap: wrap;
   font-family: "Pontano Sans", sans-serif;
-  margin-top: 0.2rem;
+  margin-top: 5rem;
+  margin: 1rem;
   box-sizing: border-box;
   text-align: center;
   border-radius: 2%;
-  font-size: 1.5rem;
+  font-size: 3rem;
 }
 
+#playerNames {
+  margin: 0 auto;
+}
 .multiplayer {
   visibility: hidden;
 }
@@ -170,24 +186,25 @@ input {
   margin-left: 40%;
 } */
 
-#playerNames {
-  max-width: 98%;
+/* #playerNames {
   display: flex;
-  justify-content: space-around;
-  padding-left: 0% 25% 20% 0%;
-  margin-left: 6%;
-  margin-right: -1%;
-}
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 0% 20% 20% 0%;
+  margin-left: 12%;
+  width: 90%;
+} */
 
 #logo {
   cursor: pointer;
-  width: 20rem;
+  width: 50rem;
   margin-bottom: -10%;
 }
 
 #dice {
-  width: 10rem;
+  width: 22rem;
   height: auto;
   cursor: pointer;
-  margin-bottom: 0%;
+  margin-bottom: -10%;
+  margin-top: -22%;
 }

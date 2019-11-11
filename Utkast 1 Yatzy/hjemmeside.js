@@ -81,7 +81,7 @@ function play() {
   //localStorage["spillere"] = [localStorage["spiller1"], localStorage["spiller2"], ]
 
   if (screen.width <= 1024) {
-  location.replace("test.html");
+  location.replace("mobile.html");
 }
   else {
     location.replace("index.html");

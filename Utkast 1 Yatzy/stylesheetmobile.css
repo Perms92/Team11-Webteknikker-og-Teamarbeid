@@ -66,7 +66,6 @@ margin-bottom: 0%;
   font-size: 6rem;
   cursor: pointer;
   border: 0.8rem solid;
-  margin-top: 0rem;
   margin-left: -30rem;
   border-color: #DBAD6A;
   background-color: #3d3d3d;
@@ -75,51 +74,39 @@ margin-bottom: 0%;
   font-family: "Rajdhani", sans-serif;
   font-weight: 700;
   color: white;
-  width: 70%;
-  height: auto;
+  width: 94%;
+  height: 14rem;
   border-radius: 1rem;
   text-align: center;
   cursor: pointer;
-  width: 94%;
-  height: 20rem;
-  padding: 5rem;
+  padding: 0rem;
   margin: 3rem;
   margin-top: -2rem;
 }
 
-/*.knappBrett {
-  padding: 5rem;
-  display: inline-block;
-  font-size: 6rem;
-  cursor: pointer;
-  border: 0.8rem solid;
-  border-color: #ff0900;
-  background-color: #ffffff;
-  opacity: 0.7;
-  font-family: "Be Vietnam", sans-serif;
-  font-weight: 700;
-  color: #ffffff;
-  border-radius: 1rem;
-  text-align: center;
-  width: 50rem;
-  height: 12rem;
-  padding: 2rem;
-  margin: 2.5rem;
-}*/
+#toggleButtons {
+    background-color: #FFFFFF;
+  display:none;
+}
+
+#menubutton {
+  margin-top: -25%;
+  width: 20%;
+  margin-right: 77%;
+  margin-bottom: 0%;
+}
 
 button:hover {
-  transform: scale(1.05);
-  transition-duration: 1.2s;
-  background: url(img/pattern5.png);
-  background-color: #d2d2d2;
-  border-color: #ff0900;
-  color: black;
+  transform: scale(1.02);
+  transition-duration: 0.1s;
+  background-color: #5e5e5e;
+  color: #ffc061;
 }
 
 button:active {
-  transform: scale(1.1);
+  transform: scale(1.05);
   cursor: default;
-  transition-duration: 0.5s;
+  transition-duration: 0.2s;
 }
 
 #kast {
@@ -142,8 +129,9 @@ button:active {
 #logo {
   cursor: pointer;
   width: 40rem;
-  margin-left: 55rem;
-  margin-bottom: -10rem;
+  margin-left: 0%;
+  margin-bottom: 0%;
+  margin-top: 0%;
   padding: 0;
 }
 
@@ -170,15 +158,16 @@ button:active {
   height: 20rem;
   padding: 5rem;
   margin: 1rem;
+  margin-bottom: 2rem;
 }
 
 
 #kasteKnapp:active {
   transform: scale(1.05);
   cursor: default;
-  transition-duration: 0.5s;
-  border-color: #6e6e6e;
-  color: #FFE161;
+  transition-duration: 0.2s;
+  border: 4px solid;
+  border-color: gold;
   outline: none;
 }
 
@@ -199,14 +188,15 @@ button:active {
 }
 
 img:active {
-  transform: scale(1.2);
-  transition-duration: 0.5s;
+  transform: scale(1.1);
+  transition-duration: 0.2s;
 }
 
 table {
   width: 30rem;
   margin-left: 75rem;
-  margin-top: -180rem;
+  margin-top: 0rem;
+  margin-bottom: -110rem;
   min-width: 20%;
   max-width: 20%;
   text-align: center;
@@ -273,7 +263,7 @@ td {
   border-bottom: 1px solid gold;
 }
 
-#reglerButton {
+/* #reglerButton {
   display: inline-block;
   font-size: 6rem;
   cursor: pointer;
@@ -295,13 +285,17 @@ td {
   padding: 5rem;
   margin: 3rem;
   margin-top: -0.3rem;
-}
+} */
 
 #highscoreId {
 }
 
 #regler {
-  font-size: 10rem;
+  font-size: 5rem;
+  margin-left: 10%;
+  margin-right: 10%;
+  display: none;
+  margin-bottom: 5%;
 }
 
 #spiller1,
@@ -319,16 +313,13 @@ h3 {
   display: none;
 }
 
-
-.dices:active {
-  opacity: 0.8;
-}
   .dices:hover {
     opacity: 1;
     border: 2px solid;
     border-color: yellow;
     border-radius: 2rem;
 }
+
 #hsPopUp {
   margin: auto;
   position: absolute;
@@ -337,7 +328,8 @@ h3 {
   bottom: 0;
   right: 0;
   height: 500px;
-  width: 500px;
+  font-size: 6rem;
+  width: 97%;
   border: 1px solid black;
   background-color: #ffffff;
   border-radius: 10px;
@@ -350,9 +342,17 @@ h3 {
   height: 100%;
   background-color: rgba(204, 204, 204, 0.5);
   position: absolute;
+  margin-top: -70%;
   display: none;
 }
 
+li {
+  margin-left: 10%;
+}
+
+#first {
+  margin-bottom: -20%;
+}
 /*@media (max-width: 800px) {
   #container {
     display: flex;
@@ -403,8 +403,8 @@ h3 {
   height: auto;
   border-radius: 50%;
   display: block;
-  margin-bottom: -10%;
-  margin-top: -130%;
+  margin-bottom: 0%;
+  margin-top: -50%;
   transition-duration: 0.5s;
 }
 .avatar:hover {
