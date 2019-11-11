@@ -20,7 +20,7 @@ button {
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
-  width: 18rem;
+  width: 15rem;
   height: 6rem;
   display: inline-block;
   flex-wrap: nowrap;
@@ -139,9 +139,6 @@ input {
   font-size: 1.5rem;
 }
 
-#playerNames {
-  margin: 0 auto;
-}
 .multiplayer {
   visibility: hidden;
 }
@@ -166,8 +163,8 @@ input {
   display: flex;
   justify-content: space-around;
   padding-left: 0% 20% 25% 0%;
-  margin-left: 0%;
-  margin-right: -15%;
+  margin: auto;
+  width: 60rem;
 }
 
 #logo {

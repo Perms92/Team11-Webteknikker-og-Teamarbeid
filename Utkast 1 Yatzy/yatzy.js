@@ -54,7 +54,6 @@ function kasteKnapp() {
       hvemSinTur = 1;
       rundeForteller(spiller1);
     }
-    viseHvemSinTur();
     if (runde == 16) {
       x.innerHTML = "Nytt spill";
     }
@@ -69,6 +68,7 @@ function kasteKnapp() {
       finalScore();
       resetSpill();
     }
+/*  husk å fjerne eller legge tilbake
     spiller1 = document.getElementById("spiller1").innerHTML;
     spiller2 = document.getElementById("spiller2").innerHTML;
     spiller3 = document.getElementById("spiller3").innerHTML;
@@ -80,6 +80,7 @@ function kasteKnapp() {
     } else if (spiller2 != "") {
       antallSpillere = 2;
     }
+    */
     antallKast += 1;
     //console.log("Test 5 kasteKnapp()");
     x.innerHTML = "Neste kast";
@@ -812,21 +813,20 @@ function finalScore(nyttEllerGjenta) {
     console.log("Test nyttEllerGjenta: " + nyttEllerGjenta);
   }
 }
-function viseHvemSinTur() {
-  let y = "imgAavatar" + hvemSinTur + "";
-  console.log("Test viseHvemSinTur: " + y);
-  document.getElementsByClassName("avatar").style.opacity="0.7";
-  document.getElementById(y).style.transform="1.1";
-  document.getElementById(y).style.opacity="1";
-/*
+
 function antallAvatarer() {
-  for (i=1;i<antallSpillere;i++)
-  {
-    let y = "imgAvatar" + i + "";
-    document.getElementById(y).style.visibility = visible;
+  spiller1 = document.getElementById("spiller1").innerHTML;
+  spiller2 = document.getElementById("spiller2").innerHTML;
+  spiller3 = document.getElementById("spiller3").innerHTML;
+  spiller4 = document.getElementById("spiller4").innerHTML;
+  if (spiller4 != "") {
+    antallSpillere = 4;
+  } else if (spiller3 != "") {
+    antallSpillere = 3;
+  } else if (spiller2 != "") {
+    antallSpillere = 2;
+  }
+for (var i = 1; i <= antallSpillere; i++) {
+    document.getElementById("imgAvatar" + i).style.visibility = "visible";
   }
 }
-function visAvatar() {
-
-}
-*/
