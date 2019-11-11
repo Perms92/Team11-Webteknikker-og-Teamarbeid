@@ -18,6 +18,7 @@ let hiddenPopFinalScore = true;
 // En felles funksjon som endrer teksten på kasteknappen,
 // teller runder, og kjører spillet
 function kasteKnapp() {
+  console.log("Test runde " + runde);
   //console.log("Test mitt_kast " + mitt_kast);
   var diceroll = document.getElementById("rollsound");
   diceroll.play();
@@ -41,7 +42,9 @@ function kasteKnapp() {
     if (hvemSinTur != antallSpillere) {
       console.log("Test hvemSinTur og ikke antallSpillere: " + hvemSinTur + ", " + antallSpillere);
       hvemSinTur += 1;
-      if (hvemSinTur == 2) {
+      if (hvemSinTur == 1) {
+        rundeForteller(spiller1);
+      } else if (hvemSinTur == 2) {
         rundeForteller(spiller2);
       } else if (hvemSinTur == 3) {
         rundeForteller(spiller3);
@@ -49,16 +52,20 @@ function kasteKnapp() {
         rundeForteller(spiller4);
       }
     } else if (hvemSinTur == antallSpillere) {
-      console.log("Test hvemSinTur og ikke antallSpillere: " + hvemSinTur + ", " + antallSpillere);
+      console.log("Test hvemSinTur og antallSpillere: " + hvemSinTur + ", " + antallSpillere);
       runde += 1;
       hvemSinTur = 1;
       rundeForteller(spiller1);
+      if (runde == 16) {
+        x.innerHTML = "Nytt spill";
+      }
     }
     viseHvemSinTur();
-    if (runde == 16) {
-      x.innerHTML = "Nytt spill";
-    }
   } else if (x.innerHTML === "Start kast") {
+    if (runde == 0) {
+      runde = 1;
+      hvemSinTur = 1;
+    }
     antallKast += 1;
     //console.log("Test 4 kasteKnapp()");
     x.innerHTML = "Neste kast";
@@ -67,7 +74,6 @@ function kasteKnapp() {
   } else if (x.innerHTML === "Start runde 1" || x.innerHTML === "Nytt spill") {
     if (x.innerHTML === "Nytt spill") {
       finalScore();
-      resetSpill();
     }
     spiller1 = document.getElementById("spiller1").innerHTML;
     spiller2 = document.getElementById("spiller2").innerHTML;
@@ -158,6 +164,7 @@ function nytt_kast_indexer() {
 
 // Funksjonsnavnet er selvforklarende
 function rundeForteller(spiller) {
+  console.log("Test runde: " + runde);
   if (runde <= 6) {
     document.getElementById("rundeForteller").innerHTML =
       spiller + " sin tur." + "<br />" + " Du vil nå ha " + runde + "-ere";
@@ -630,7 +637,7 @@ function moveToTable() {
       document.getElementById("4-totalsum").innerHTML = totalScore4;
     }
     if (hvemSinTur == antallSpillere) {
-      let finalScoreListe = [];
+      /*let finalScoreListe = [];
       spillere[finalScoreListe[0]] = localStorage["spiller1"];
       spillere[finalScoreListe[1]] = localStorage["spiller2"];
       spillere[finalScoreListe[2]] = localStorage["spiller3"];
@@ -689,8 +696,9 @@ function moveToTable() {
         knappeplass.insertBefore(navn, knappeplass.firstChild);
         console.log(finalScoreListe);
         knappeplass.appendChild(regScoreBtn(finalScoreListe[k], map));
-      }
-      console.log(map);
+      }*/
+      //console.log(map);
+      finalScore();
     }
   }
 }
@@ -760,7 +768,8 @@ function moveDice4() {
 function resetSpill() {
   midlertidig_poeng = 0;
   antallKast = 0;
-  runde = 0;
+  runde = 1;
+  hvemSinTur = 1;
   totalScore1 = 0;
   totalScore2 = 0;
   totalScore3 = 0;
@@ -783,7 +792,6 @@ function resetSpill() {
     antallSpillere = 1;
   }
   spiller1 = localStorage["spiller1"];
-  hvemSinTur = 1;
   for (var i = 1; i <= antallSpillere; i++) {
     for (var y = 1; y < 16; y++) {
       document.getElementById(i + "-" + y).innerHTML = "";
@@ -808,9 +816,24 @@ function finalScore(nyttEllerGjenta) {
   } else {
     y.style.display = "block";
     hiddenPopFinalScore = false;
+    resetSpill();
     console.log("Test nyttEllerGjenta: " + nyttEllerGjenta);
   }
 }
+
+/*let hiddenPopFinalScore = true;
+function finalScore() {
+  var y = document.getElementById("finalScore");
+  var finalScorePopUp = document.getElementById("finalScorePopUp");
+
+  if (!hiddenPopFinalScore) {
+    y.style.display = "none";
+    hiddenPopFinalScore = true;
+  } else {
+    y.style.display = "block";
+    hiddenPopFinalScore = false;
+  }
+}*/
 
 function viseHvemSinTur() {
   let y = "imgAavatar" + hvemSinTur + "";
