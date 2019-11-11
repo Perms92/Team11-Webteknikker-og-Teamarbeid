@@ -90,6 +90,11 @@ function kasteKnapp() {
 
 // Oppretter første kast hver runde
 function startKast() {
+  //husk å fjern!!!
+ /* var pHub = document.getElementById("intro");
+
+   pHub.play();
+*/
   //console.log("Test antallKast startKast() " + antallKast);
   if (hvemSinTur == 1 && runde == 0) {
     runde += 1;
