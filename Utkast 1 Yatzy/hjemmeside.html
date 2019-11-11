@@ -19,9 +19,6 @@
         <button id="twoPlayer" onclick="twoGo()">Two-player</button>
         <button id="threePlayer" onclick="threeGo()">Three-player</button>
         <button id="fourPlayer" onclick="fourGo()">Four-player</button><br /><br />
-        <button id="play" onclick="play()">Spill</button><br>
-
-        </div>
 
         <div id="playerNames">
           <input
@@ -29,14 +26,13 @@
             id="playerOne"
             class="singleplayer"
             placeholder="Navn"
-            required
+            autofocus
           />
           <input
             type="text"
             id="playerTwo"
             class="multiplayer"
             placeholder="Navn"
-            required
           />
           <input
             type="text"
@@ -50,8 +46,10 @@
             class="multiplayer"
             placeholder="Navn"
           /> <br>
-          </div>
-<button id="play" onclick="play()">Start spillet!</button>
+          </div><br>
+
+          <div id="feilmelding" style="color:red; font-size:20px;"></div>
+          <button id="play" onclick="play()">Start spillet!</button>
         <!--  <div id="fancyStartButton"><button id="start"></button></div> -->
       </div>
       <!--<div id="fancyStartButton"><button id="start"></button></div>-->

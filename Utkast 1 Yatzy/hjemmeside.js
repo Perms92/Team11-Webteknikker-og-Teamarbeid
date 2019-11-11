@@ -1,4 +1,4 @@
-let isOneGo = false;
+let isOneGo = true;
 let isTwoGo = false;
 let isThreeGo = false;
 let isFourGo = false;
@@ -12,9 +12,6 @@ function oneGo() {
   document.getElementById("playerTwo").style.visibility = "hidden";
   document.getElementById("playerThree").style.visibility = "hidden";
   document.getElementById("playerFour").style.visibility = "hidden";
-  document.getElementById("hjemmesideSpiller2").style.visibility = "hidden";
-  document.getElementById("hjemmesideSpiller3").style.visibility = "hidden";
-  document.getElementById("hjemmesideSpiller4").style.visibility = "hidden";
 }
 
 function twoGo() {
@@ -22,11 +19,8 @@ function twoGo() {
   isFourGo = false;
 
   document.getElementById("playerTwo").style.visibility = "visible";
-  document.getElementById("hjemmesideSpiller2").style.visibility = "visible";
   document.getElementById("playerThree").style.visibility = "hidden";
   document.getElementById("playerFour").style.visibility = "hidden";
-  document.getElementById("hjemmesideSpiller3").style.visibility = "hidden";
-  document.getElementById("hjemmesideSpiller4").style.visibility = "hidden";
 
     isTwoGo = true;
 }
@@ -36,10 +30,7 @@ function threeGo() {
 
   document.getElementById("playerTwo").style.visibility = "visible";
   document.getElementById("playerThree").style.visibility = "visible";
-  document.getElementById("hjemmesideSpiller2").style.visibility = "visible";
-  document.getElementById("hjemmesideSpiller3").style.visibility = "visible";
   document.getElementById("playerFour").style.visibility = "hidden";
-  document.getElementById("hjemmesideSpiller4").style.visibility = "hidden";
 
   isTwoGo = true;
   isThreeGo = true;
@@ -49,9 +40,6 @@ function fourGo() {
   document.getElementById("playerTwo").style.visibility = "visible";
   document.getElementById("playerThree").style.visibility = "visible";
   document.getElementById("playerFour").style.visibility = "visible";
-  document.getElementById("hjemmesideSpiller2").style.visibility = "visible";
-  document.getElementById("hjemmesideSpiller3").style.visibility = "visible";
-  document.getElementById("hjemmesideSpiller4").style.visibility = "visible";
 
   isTwoGo = true;
   isThreeGo = true;
@@ -59,19 +47,21 @@ function fourGo() {
 }
 
 function play() {
-  if (isFourGo) {
+  document.getElementById("feilmelding").innerHTML = " ";
+  console.log("Test play true/false 1: " + isOneGo + ", 2: " + isTwoGo + ", 3: " + isThreeGo + ", 4: " + isFourGo);
+  if (isFourGo == true) {
     localStorage["spiller4"] = document.getElementById("playerFour").value;
   }
 
-  if (isThreeGo) {
-    if (!isFourGo) {
+  if (isThreeGo == true) {
+    if (isFourGo == false) {
       localStorage["spiller4"] = "";
     }
     localStorage["spiller3"] = document.getElementById("playerThree").value;
   }
 
-  if (isTwoGo) {
-    if (!isThreeGo) {
+  if (isTwoGo == true) {
+    if (isThreeGo == false) {
       localStorage["spiller3"] = "";
       localStorage["spiller4"] = "";
     }
@@ -84,31 +74,46 @@ function play() {
 
   localStorage["spiller1"] = document.getElementById("playerOne").value;
 
-  console.log("Test while isOneGo");
+  let y = 0;
+
   try {
-    if (isOneGo == "")
-      console.log("Test play() isOneGo " + isOneGo);
+    if (localStorage["spiller1"] == "") {
+      console.log("Test play() isOneGo er tomt " + localStorage["spiller1"]);
+      y += 1;
       throw "Spiller 1 må ha et navn";
-    if (isTwoGo && (isTwoGo == ""))
+    }
+    if ((isTwoGo == true) && (localStorage["spiller2"] == "")) {
+      console.log("Test play() isTwoGo er tomt");
+      y += 1;
       throw "Spiller 2 må ha et navn";
-    if (isThreeGo && (isThreeGo == ""))
+    }
+    if ((isThreeGo == true) && (localStorage["spiller3"] == "")) {
+      console.log("Test play() isThreeGo er tomt " + localStorage["spiller3"]);
+      y += 1;
       throw "Spiller 3 må ha et navn";
-    if (isFourGo && (isFourGo == ""))
+    }
+    if ((isFourGo == true) && (localStorage["spiller4"] == "")) {
+      console.log("Test play() isFourGo er tomt " + localStorage["spiller4"]);
+      y += 1;
       throw "Spiller 4 må ha et navn";
-    if ((isOneGo != "") &&
+    }
+    if (y == 0) {
+      location.replace("index.html");
+    }
+    /*if ((isOneGo != "") &&
         (isTwoGo && (isTwoGo != "")) &&
         (isThreeGo && (isThreeGo != "")) &&
         (isFourGo && (isFourGo != ""))) {
-      isOneGo = true;
-    }
+          document.getElementById("feilmelding").innerHTML = "";
+          location.replace("index.html");*/
     } catch (err) {
+      console.log("Test play() catch err " + err);
       document.getElementById("feilmelding").innerHTML = err;
     }
 
   console.log("Test play()");
   //localStorage["spillere"] = [localStorage["spiller1"], localStorage["spiller2"], ]
 
-  //location.replace("index.html");
 }
 
 function settSpillernavn() {
