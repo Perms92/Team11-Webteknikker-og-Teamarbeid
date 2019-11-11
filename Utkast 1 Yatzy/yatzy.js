@@ -39,6 +39,7 @@ function kasteKnapp() {
     fakeYatzy();
 
     if (hvemSinTur != antallSpillere) {
+      console.log("Test hvemSinTur og ikke antallSpillere: " + hvemSinTur + ", " + antallSpillere);
       hvemSinTur += 1;
       if (hvemSinTur == 2) {
         rundeForteller(spiller2);
@@ -48,6 +49,7 @@ function kasteKnapp() {
         rundeForteller(spiller4);
       }
     } else if (hvemSinTur == antallSpillere) {
+      console.log("Test hvemSinTur og ikke antallSpillere: " + hvemSinTur + ", " + antallSpillere);
       runde += 1;
       hvemSinTur = 1;
       rundeForteller(spiller1);
@@ -88,11 +90,6 @@ function kasteKnapp() {
 
 // Oppretter første kast hver runde
 function startKast() {
-  //husk å fjern!!!
- var pHub = document.getElementById("intro");
-
-   pHub.play();
-
   //console.log("Test antallKast startKast() " + antallKast);
   if (hvemSinTur == 1 && runde == 0) {
     runde += 1;
@@ -714,7 +711,7 @@ function moveDice0() {
     document.getElementById("dicePos0").style.marginBottom = "0%";
     drop.play();
   } else {
-    document.getElementById("dicePos" + i).style.marginBottom = "-770%";
+    document.getElementById("dicePos0").style.marginBottom = "-770%";
     drop.play();
   }
 }
@@ -814,7 +811,8 @@ function finalScore(nyttEllerGjenta) {
   }
 }
 function viseHvemSinTur() {
-  let y = "avatar" + hvemSinTur;
+  let y = "imgAavatar" + hvemSinTur;
+  console.log("Test viseHvemSinTur: " + y);
   document.getElementsByClassName("avatar").style.opacity="0.7";
   document.getElementById("y").style.transform="1.1";
   document.getElementById("y").style.opacity="1";

@@ -15,10 +15,11 @@
   </div>
     <div id="container">
       <div id="toggleButtons">
-        <button id="onePlayer" onclick="oneGo()">Singleplayer</button>
+        <button id="onePlayer" onclick="oneGo()">Single-player</button>
         <button id="twoPlayer" onclick="twoGo()">Two-player</button>
         <button id="threePlayer" onclick="threeGo()">Three-player</button>
         <button id="fourPlayer" onclick="fourGo()">Four-player</button><br /><br />
+        <button id="play" onclick="play()">Spill</button><br>
 
         <div id="playerNames">
           <p id="hjemmesideSpiller1" class="singleplayer" >Spiller 1</p>
@@ -27,7 +28,7 @@
             id="playerOne"
             class="singleplayer"
             placeholder="Navn 1"
-            required
+            autofocus
           /><br>
           <p id="hjemmesideSpiller2" class="multiplayer" >Spiller 2</p>
           <input
@@ -35,7 +36,6 @@
             id="playerTwo"
             class="multiplayer"
             placeholder="Navn 2"
-            required
           /><br>
           <p id="hjemmesideSpiller3" class="multiplayer" >Spiller 3</p>
           <input
@@ -43,7 +43,6 @@
             id="playerThree"
             class="multiplayer"
             placeholder="Navn 3"
-            required
           /><br>
           <p id="hjemmesideSpiller4" class="multiplayer" >Spiller 4</p>
           <input
@@ -51,10 +50,7 @@
             id="playerFour"
             class="multiplayer"
             placeholder="Navn 4"
-            required
           /><br>
-          <input value="Start spill" onsubmit="play()" type="submit">
-        </form>
         </div>
         <!--  <div id="fancyStartButton"><button id="start"></button></div> -->
       </div>
