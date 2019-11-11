@@ -1,8 +1,7 @@
-<!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8" />
-    <title></title>
+    <title>Yatzy</title>
     <link rel="stylesheet" type="text/css" href="hjemmeside.css" />
     <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic|Open+Sans+Condensed:300|Pontano+Sans&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Baloo+Bhai|Bree+Serif|Bungee+Shade|Comfortaa|Exo|Rajdhani|Righteous&display=swap" rel="stylesheet">
@@ -19,7 +18,6 @@
         <button id="twoPlayer" onclick="twoGo()">Two-player</button>
         <button id="threePlayer" onclick="threeGo()">Three-player</button>
         <button id="fourPlayer" onclick="fourGo()">Four-player</button><br /><br />
-        <button id="play" onclick="play()">Spill</button>
 
         <div id="playerNames">
           <p id="hjemmesideSpiller1" class="singleplayer" >Spiller 1</p>
@@ -27,32 +25,32 @@
             type="text"
             id="playerOne"
             class="singleplayer"
-            placeholder="Navn 1"
-            autofocus
-          /><br>
+            placeholder="Navn"
+            required
+          /><br />
           <p id="hjemmesideSpiller2" class="multiplayer" >Spiller 2</p>
           <input
             type="text"
             id="playerTwo"
             class="multiplayer"
-            placeholder="Navn 2"
-          /><br>
+            placeholder="Navn"
+            required
+          /><br />
           <p id="hjemmesideSpiller3" class="multiplayer" >Spiller 3</p>
           <input
             type="text"
             id="playerThree"
             class="multiplayer"
-            placeholder="Navn 3"
-          /><br>
+            placeholder="Navn"
+          /><br />
           <p id="hjemmesideSpiller4" class="multiplayer" >Spiller 4</p>
           <input
             type="text"
             id="playerFour"
             class="multiplayer"
-            placeholder="Navn 4"
-          /><br>
-          <input type="submit" value="Start spill" onsubmit="window.location.href = 'index.html';"></button>
-        </form>
+            placeholder="Navn"
+          /><br />
+<button id="play" onclick="play()">Start spillet!</button>
         </div>
         <!--  <div id="fancyStartButton"><button id="start"></button></div> -->
       </div>

@@ -5,25 +5,24 @@
     <title>Yatzy</title>
     <link rel="icon" href="img/favicon.jpg" type="image/gif" sizes="16x16">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
-    <link rel="stylesheet" media='(min-width: 1025px)' type="text/css" href="stylesheet.css">
+    <link rel="stylesheet" id="stylesheet" media='(min-width: 1025px)' type="text/css" href="stylesheet.css">
     <link rel="stylesheet" type="text/css" media='(max-width: 1024px)' href="stylesheetmobile.css">
     <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic|Open+Sans+Condensed:300|Pontano+Sans&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Rajdhani&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Bhai|Bree+Serif|Bungee+Shade|Comfortaa|Exo|Rajdhani|Righteous&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cinzel|Playfair+Display+SC&display=swap" rel="stylesheet">
   </head>
   <body onload="loadingSpill()">
     <script>
-      function loadingSpill() {
+      function loadingSpill(){
         settSpillernavn();
         tildelBilde();
       }
     </script>
-    <button type="button" name="button">Halla</button>
     <div id="container">
 
       <div id="first">
         <h1>
-          <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank"><img src="img/logo.png" alt="Logo" id="logo" ></a><br>
-          <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank"><img src="img/dice.png" alt="Dices" id="dice"></a></h1>
+          <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank"><img src="img/logo.png" alt="Logo" id="logo" ></a><br></h1>
         <br><br><br>
         <button onclick="regler()" class="knappVenstreSide" id="reglerButton">Regler</button>
 
@@ -49,14 +48,16 @@
         </div>
         <button onclick="visHighscore()" id="highscoreId" class="knappVenstreSide">Highscore</button><br>
         <button type="button" id="resetKnapp" class="knappVenstreSide" onclick="resetSpill()">Restart Spill</button>
-        <button type="button" id="nyeSpillereKnapp" class="knappVenstreSide" onclick="window.location.href = 'hjemmeside.html';">Nye Spillere</button>
+        <button type="button" id="nyeSpillereKnapp" class="knappVenstreSide" onclick="window.location.href = 'hjemmeside.html';">Nye Spillere</button> <br>
+        <button onclick="setStyleSheet('stylesheet.css')" href="#" class="modebutton">Light Mode</button>
+        <button onclick="setStyleSheet('stylesheet2.css')" href="#" class="modebutton">Dark Mode</button>
       </div>
       <div id="popUpContainer">
 
       <div id="hsPopUp">
         <ol id="hs">
         </ol>
-        <button type="button" name="button" onclick="visHighscore()" id="gaTilbakeHs">Gå tilbake</button>
+        <button type="button" name="button" onclick="visHighscore()" class="litenKnapp">Gå tilbake</button>
       </div>
     </div>
 
@@ -68,7 +69,8 @@
           <li id="plass3"></li>
           <li id="plass4"></li>
         </ol>
-          <button type="button" name="button" onclick="finalScore()" id="gaTilbakeFinalScore">Gå tilbake</button>
+          <button type="button" class="litenKnapp" id="nyeSpillere" onclick="finalScore(this.id)">Nye spillere</button>
+          <button type="button" class="litenKnapp" id="spillPaNytt" onclick="finalScore(this.id)">Spill på nytt</button>
       </div>
     </div>
 
@@ -88,9 +90,6 @@
           <label for="4" onclick="moveDice4()"><img height="40px" id="dicePos4" class="dices" draggable="false"></label>
           <br>
 
-            <!--<button onclick="playerName()" id="navneknapp" class="knappBrett"><img src="img/logo.png" alt="Logo" id="logo">
-            <br><img src="img/dice.png" alt="Dices" id="dice">
-            <br><br>START SPILL</button><br>-->
 
         </div>
         <audio src="mp3/roll.mp3" id="rollsound"></audio>
@@ -100,7 +99,7 @@
       </div>
 
       <div id="third">
-        <img src="img/Poengsum.png" height="50px"></img>
+        <h3>Poengsum</h3>
         <table>
           <tr>
             <th> Deltakere
