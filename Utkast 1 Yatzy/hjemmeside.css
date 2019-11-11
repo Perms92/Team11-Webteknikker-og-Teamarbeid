@@ -45,6 +45,7 @@ button {
   width: 18rem;
   height: 6rem;
   display: inline-block;
+  flex-wrap: nowrap;
   font-size: 24px;
   cursor: pointer;
   margin: -0.3%;
@@ -124,8 +125,9 @@ outline: none;
   text-align: center;
   width: 28rem;
   height: 6rem;
-  margin:-6%;
+  margin-top:6%;
   outline: none;
+  margin-bottom: -5%;
 }
 
 #play:hover {
@@ -164,6 +166,30 @@ input {
 }
 .multiplayer {
   visibility: hidden;
+}
+
+/* #playerOne {
+  margin-left: -10%;
+}
+
+#playerTwo {
+  margin-left: 10%;
+}
+
+#playerThree {
+  margin-left: 20%;
+}
+
+#playerFour {
+  margin-left: 40%;
+} */
+
+#playerNames {
+  display: flex;
+  justify-content: space-around;
+  padding-left: 0% 20% 25% 0%;
+  margin-left: 0%;
+  margin-right: -15%;
 }
 
 #logo {
