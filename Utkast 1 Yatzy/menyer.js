@@ -173,10 +173,10 @@ function tildelBilde() {
   avatarFire.src = avatars[3];
 }
 function antallAvatarer() {
-  if (antallSpillere == 1) {
-    avatarTo.style.display = hidden;
-    avatarTre.style.display = hidden;
-    avatarFire.style.display = hidden;
+  for (i=1;i<antallSpillere;i++)
+  {
+    let y = "imgAvatar" + i + "";
+    document.getElementById(y).style.visibility = visible;
   }
 }
 

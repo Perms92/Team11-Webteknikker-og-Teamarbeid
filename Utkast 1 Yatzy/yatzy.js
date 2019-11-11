@@ -798,6 +798,7 @@ function resetSpill() {
   }
 }
 
+
 function finalScore(nyttEllerGjenta) {
   var y = document.getElementById("finalScore");
   var finalScorePopUp = document.getElementById("finalScorePopUp");
@@ -815,10 +816,13 @@ function finalScore(nyttEllerGjenta) {
     console.log("Test nyttEllerGjenta: " + nyttEllerGjenta);
   }
 }
-function viseHvemSinTur() {
-  let y = "imgAavatar" + hvemSinTur;
-  console.log("Test viseHvemSinTur: " + y);
-  document.getElementsByClassName("avatar").style.opacity="0.7";
-  document.getElementById("y").style.transform="1.1";
-  document.getElementById("y").style.opacity="1";
+function antallAvatarer() {
+  for (i=1;i<antallSpillere;i++)
+  {
+    let y = "imgAvatar" + i + "";
+    document.getElementById(y).style.visibility = visible;
+  }
+}
+function visAvatar() {
+
 }
