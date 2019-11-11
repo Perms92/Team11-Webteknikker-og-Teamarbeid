@@ -5,7 +5,8 @@
     <title>Yatzy</title>
     <link rel="icon" href="img/favicon.jpg" type="image/gif" sizes="16x16">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
-    <link rel="stylesheet" id="stylesheet" type="text/css" href="stylesheet.css">
+    <link rel="stylesheet" id="stylesheet" media='(min-width: 1025px)' type="text/css" href="stylesheet.css">
+    <link rel="stylesheet" type="text/css" media='(max-width: 1024px)' href="stylesheetmobile.css">
     <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic|Open+Sans+Condensed:300|Pontano+Sans&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Baloo+Bhai|Bree+Serif|Bungee+Shade|Comfortaa|Exo|Rajdhani|Righteous&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Cinzel|Playfair+Display+SC&display=swap" rel="stylesheet">
@@ -15,7 +16,6 @@
       function loadingSpill(){
         settSpillernavn();
         tildelBilde();
-        antallAvatarer();
       }
     </script>
     <div id="container">
@@ -24,33 +24,17 @@
         <h1>
           <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank"><img src="img/logo.png" alt="Logo" id="logo" ></a><br></h1>
         <br><br><br>
-        <button onclick="regler()" class="knappVenstreSide" id="reglerButton">Regler</button>
 
-        <div id="regler">
-          Få høyest mulig poengsum på Yatzy! Trykk på terningene for å beholde dem,
-          slik at de ikke ruller. Du får tre kast per kategori.
-          Trenger du en liten oppfriskning på reglene? <br> <br>
-          - Liten straight er 1-5 <br>
-          - Stor straight er 2-6 <br>
-          - Fullt hus er 3 like + 2 like <br>
-          - På sjanse skal du få høyest mulig tall på alle terningene <br>
-          - På Yatzy skal du få 5 like <br> <br>
-          Lykke til!
+
           <div id="checkboxer">
             <input type="checkbox" id=0>
             <input type="checkbox" id=1>
             <input type="checkbox" id=2>
             <input type="checkbox" id=3>
             <input type="checkbox" id=4>
-          </div>
 
 
         </div>
-        <button onclick="visHighscore()" id="highscoreId" class="knappVenstreSide">Highscore</button><br>
-        <button type="button" id="resetKnapp" class="knappVenstreSide" onclick="resetSpill()">Restart Spill</button>
-        <button type="button" id="nyeSpillereKnapp" class="knappVenstreSide" onclick="window.location.href = 'hjemmeside.html';">Nye Spillere</button> <br>
-        <button onclick="setStyleSheet('stylesheet.css')" href="#" class="modebutton">Light Mode</button>
-        <button onclick="setStyleSheet('stylesheet2.css')" href="#" class="modebutton">Dark Mode</button>
       </div>
       <div id="popUpContainer">
 
@@ -76,10 +60,10 @@
 
       <div id="second">
         <div id="header">
-          <div><img id="imgAvatar1" class="avatar"><p id="avatar1">Spiller 1</p></div>
-          <div><img id="imgAvatar2" class="avatar"><p id="avatar2">Spiller 2</p></div>
-          <div><img id="imgAvatar3" class="avatar"><p id="avatar3">Spiller 3</p></div>
-          <div><img id="imgAvatar4" class="avatar"><p id="avatar4">Spiller 4</p></div>
+          <div><img id="imgAvatar1" class="avatar"><p class="spiller" id="avatar1"></p></div>
+          <div><img id="imgAvatar2" class="avatar"><p class="spiller" id="avatar2"></p></div>
+          <div><img id="imgAvatar3" class="avatar"><p class="spiller" id="avatar3"></p></div>
+          <div><img id="imgAvatar4" class="avatar"><p class="spiller" id="avatar4"></p></div>
         </div>
         <div id="brett">
           <div id="rundeForteller"></div>
@@ -93,8 +77,24 @@
 
         </div>
         <audio src="mp3/roll.mp3" id="rollsound"></audio>
-        <button onclick="kasteKnapp()" id="kasteKnapp" class="knappBrett">Start runde 1</button>
-        <p>© NTNU Digital Forretningsutvikling høsten 2019</p>
+          <audio src="mp3/intro.mp3" id="intro"></audio>
+        <button onclick="kasteKnapp()" id="kasteKnapp" class="knappBrett">Start runde 1</button> <br>
+        <button onclick="regler()" class="knappVenstreSide" id="reglerButton">Regler</button>
+        <button onclick="visHighscore()" id="highscoreId" class="knappVenstreSide">Highscore</button><br>
+        <button type="button" id="resetKnapp" class="knappVenstreSide" onclick="resetSpill()">Restart Spill</button>
+        <button type="button" id="nyeSpillereKnapp" class="knappVenstreSide" onclick="window.location.href = 'hjemmeside.html';">Nye Spillere</button>
+        <button onclick="visHighscore()" id="highscoreId" class="knappVenstreSide">Highscore</button><br>
+        <p id="regler">
+          Få høyest mulig poengsum på Yatzy! Trykk på terningene for å beholde dem,
+          slik at de ikke ruller. Du får tre kast per kategori.
+          Trenger du en liten oppfriskning på reglene? <br> <br>
+          - Liten straight er 1-5 <br>
+          - Stor straight er 2-6 <br>
+          - Fullt hus er 3 like + 2 like <br>
+          - På sjanse skal du få høyest mulig tall på alle terningene <br>
+          - På Yatzy skal du få 5 like <br> <br>
+          Lykke til!
+          </p>
       </div>
 
       <div id="third">
@@ -239,7 +239,7 @@
         </div>
       </div>
     </div>
-
+    <audio src="mp3/introsound.mp3" id="intro"></audio>
     <audio src="mp3/dicedrop.mp3" id="diceSound"></audio>
     <script src="yatzy.js"></script>
     <script src="menyer.js"></script>

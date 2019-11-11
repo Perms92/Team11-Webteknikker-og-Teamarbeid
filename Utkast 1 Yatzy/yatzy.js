@@ -90,11 +90,6 @@ function kasteKnapp() {
 
 // Oppretter første kast hver runde
 function startKast() {
-  //husk å fjern!!!
- /* var pHub = document.getElementById("intro");
-
-   pHub.play();
-*/
   //console.log("Test antallKast startKast() " + antallKast);
   if (hvemSinTur == 1 && runde == 0) {
     runde += 1;
@@ -694,9 +689,9 @@ function moveToTable() {
         knappeplass.insertBefore(navn, knappeplass.firstChild);
         console.log(finalScoreListe);
         knappeplass.appendChild(regScoreBtn(finalScoreListe[k], map));
+      }
+      console.log(map);
     }
-    console.log(map);
-  }
   }
 }
 
@@ -710,6 +705,7 @@ function showDice() {
     document.getElementById(showDiceId).src = diceName;
   }
 }
+
 function moveDice0() {
 
   if (document.getElementById("dicePos0").style.marginBottom == "-770%") {
@@ -788,7 +784,7 @@ function resetSpill() {
   }
   spiller1 = localStorage["spiller1"];
   hvemSinTur = 1;
-  for (var i = 1; i <= 4; i++) {
+  for (var i = 1; i <= antallSpillere; i++) {
     for (var y = 1; y < 16; y++) {
       document.getElementById(i + "-" + y).innerHTML = "";
     }
@@ -816,6 +812,13 @@ function finalScore(nyttEllerGjenta) {
     console.log("Test nyttEllerGjenta: " + nyttEllerGjenta);
   }
 }
+function viseHvemSinTur() {
+  let y = "imgAavatar" + hvemSinTur + "";
+  console.log("Test viseHvemSinTur: " + y);
+  document.getElementsByClassName("avatar").style.opacity="0.7";
+  document.getElementById(y).style.transform="1.1";
+  document.getElementById(y).style.opacity="1";
+/*
 function antallAvatarer() {
   for (i=1;i<antallSpillere;i++)
   {
@@ -826,3 +829,4 @@ function antallAvatarer() {
 function visAvatar() {
 
 }
+*/
