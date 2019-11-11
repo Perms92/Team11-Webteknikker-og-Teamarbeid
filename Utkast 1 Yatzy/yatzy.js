@@ -19,6 +19,8 @@ let hiddenPopFinalScore = true;
 // teller runder, og kjører spillet
 function kasteKnapp() {
   console.log("Test runde " + runde);
+  console.log("Test hvemSinTur " + hvemSinTur);
+
   //console.log("Test mitt_kast " + mitt_kast);
   var diceroll = document.getElementById("rollsound");
   diceroll.play();
@@ -60,7 +62,7 @@ function kasteKnapp() {
         x.innerHTML = "Nytt spill";
       }
     }
-    viseHvemSinTur();
+    //viseHvemSinTur();
   } else if (x.innerHTML === "Start kast") {
     if (runde == 0) {
       runde = 1;
@@ -164,7 +166,6 @@ function nytt_kast_indexer() {
 
 // Funksjonsnavnet er selvforklarende
 function rundeForteller(spiller) {
-  console.log("Test runde: " + runde);
   if (runde <= 6) {
     document.getElementById("rundeForteller").innerHTML =
       spiller + " sin tur." + "<br />" + " Du vil nå ha " + runde + "-ere";
@@ -775,6 +776,7 @@ function resetSpill() {
   totalScore3 = 0;
   totalScore4 = 0;
   map = {};
+  rundeForteller(spiller1);
   if (localStorage["spiller4"] != "") {
     antallSpillere = 4;
     spiller2 = localStorage["spiller2"];
@@ -817,28 +819,16 @@ function finalScore(nyttEllerGjenta) {
     y.style.display = "block";
     hiddenPopFinalScore = false;
     resetSpill();
+    hvemSinTur = 0;
     console.log("Test nyttEllerGjenta: " + nyttEllerGjenta);
   }
 }
 
-/*let hiddenPopFinalScore = true;
-function finalScore() {
-  var y = document.getElementById("finalScore");
-  var finalScorePopUp = document.getElementById("finalScorePopUp");
 
-  if (!hiddenPopFinalScore) {
-    y.style.display = "none";
-    hiddenPopFinalScore = true;
-  } else {
-    y.style.display = "block";
-    hiddenPopFinalScore = false;
-  }
-}*/
-
-function viseHvemSinTur() {
+/*function viseHvemSinTur() {
   let y = "imgAavatar" + hvemSinTur + "";
   console.log("Test viseHvemSinTur: " + y);
   document.getElementsByClassName("avatar").style.opacity="0.7";
   document.getElementById(y).style.transform="1.1";
   document.getElementById(y).style.opacity="1";
-}
+}*/
