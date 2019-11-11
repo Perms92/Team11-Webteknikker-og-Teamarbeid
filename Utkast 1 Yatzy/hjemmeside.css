@@ -40,7 +40,7 @@ button {
 
 p {
   letter-spacing: 2px;
-  display: inline;
+  margin-top: 10%;
 }
 
 #onePlayer {
@@ -132,7 +132,7 @@ input {
   width: 7rem;
   display: inline-block;
   font-family: "Pontano Sans", sans-serif;
-  margin-top: 2px;
+  margin-top: 0;
   box-sizing: border-box;
   text-align: center;
   border-radius: 2%;
@@ -181,4 +181,7 @@ input {
   height: auto;
   cursor: pointer;
   margin-bottom: -100px;
+}
+#bildeLogo {
+  margin-bottom: 10%;
 }
