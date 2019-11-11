@@ -98,7 +98,11 @@ function play() {
       throw "Spiller 4 må ha et navn";
     }
     if (y == 0) {
-      location.replace("index.html");
+      if (screen.width <= 1024) {
+        location.replace("mobile.html");
+      } else {
+        location.replace("index.html");
+      }
     }
     /*if ((isOneGo != "") &&
         (isTwoGo && (isTwoGo != "")) &&
