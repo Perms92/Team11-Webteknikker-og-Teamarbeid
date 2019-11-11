@@ -1,3 +1,4 @@
+let isOneGo = false;
 let isTwoGo = false;
 let isThreeGo = false;
 let isFourGo = false;
@@ -83,9 +84,31 @@ function play() {
 
   localStorage["spiller1"] = document.getElementById("playerOne").value;
 
+  console.log("Test while isOneGo");
+  try {
+    if (isOneGo == "")
+      console.log("Test play() isOneGo " + isOneGo);
+      throw "Spiller 1 må ha et navn";
+    if (isTwoGo && (isTwoGo == ""))
+      throw "Spiller 2 må ha et navn";
+    if (isThreeGo && (isThreeGo == ""))
+      throw "Spiller 3 må ha et navn";
+    if (isFourGo && (isFourGo == ""))
+      throw "Spiller 4 må ha et navn";
+    if ((isOneGo != "") &&
+        (isTwoGo && (isTwoGo != "")) &&
+        (isThreeGo && (isThreeGo != "")) &&
+        (isFourGo && (isFourGo != ""))) {
+      isOneGo = true;
+    }
+    } catch (err) {
+      document.getElementById("feilmelding").innerHTML = err;
+    }
+
+  console.log("Test play()");
   //localStorage["spillere"] = [localStorage["spiller1"], localStorage["spiller2"], ]
 
-  location.replace("index.html");
+  //location.replace("index.html");
 }
 
 function settSpillernavn() {
