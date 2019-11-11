@@ -80,7 +80,12 @@ function play() {
 
   //localStorage["spillere"] = [localStorage["spiller1"], localStorage["spiller2"], ]
 
-  location.replace("index.html");
+  if (screen.width <= 1024) {
+  location.replace("test.html");
+}
+  else {
+    location.replace("index.html");
+  }
 }
 
 function settSpillernavn() {
