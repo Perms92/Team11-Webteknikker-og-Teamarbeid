@@ -654,7 +654,14 @@ function moveToTable() {
       console.log("Test finalScoreListe: " + finalScoreListe);
       console.log("Test spillere[finalScoreListe]: " + spillere);
 
+      finalScoreListe.sort((a,b) => parseInt(b.split(' ')[0], 10) - parseInt(a.split(' ')[0], 10));
 
+      console.log("Test sortert finalScoreListe: " + finalScoreListe);
+
+      for (var y = 1; y <= antallSpillere; y++){
+        let p = "plass" + y + "";
+        document.getElementById(p).innerHTML = finalScoreListe[y-1];
+      }
 
       /*let finalScoreListe = [];
       spillere[finalScoreListe[0]] = localStorage["spiller1"];
