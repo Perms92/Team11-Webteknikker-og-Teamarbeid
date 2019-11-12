@@ -66,13 +66,13 @@ function visHighscore() {
     }
   }
   document.getElementById("spiller4").innerHTML = spiller4 + "";*/
-  /*let spillerEn = document.getElementById("playerOne").value;
+/*let spillerEn = document.getElementById("playerOne").value;
   console.log("Test hjemmesideSpiller1 " + spillerEn);
   let spillerTo = document.getElementById("playerTwo");
   let spillerTre = document.getElementById("playerThree");
   let spillerFire = document.getElementById("playerFour");
   href="index.html";*/
-  /*document.getElementById("navneknapp").style.display = "none";
+/*document.getElementById("navneknapp").style.display = "none";
   document.getElementById("kasteKnapp").style.visibility = "visible";
   document.getElementById("brett").style.backgroundColor = "#b03434";
   document.getElementById("brett").style.backgroundImage =
@@ -143,20 +143,21 @@ let y =
   }
 } */
 
-function setStyleSheet(url){
-       var stylesheet = document.getElementById("stylesheet");
-       stylesheet.setAttribute('href', url);
-    }
+function setStyleSheet(url) {
+  var stylesheet = document.getElementById("stylesheet");
+  stylesheet.setAttribute("href", url);
+}
 
-
-let avatars = ["img/avatarBear.png",
-    "img/avatarCat.png",
-    "img/avatarFox.png",
-    "img/avatarGiraffe.png",
-    "img/avatarGorilla.png",
-    "img/avatarKoala.png",
-    "img/avatarPanda.png",
-    "img/avatarPug.png"];
+let avatars = [
+  "img/avatarBear.png",
+  "img/avatarCat.png",
+  "img/avatarFox.png",
+  "img/avatarGiraffe.png",
+  "img/avatarGorilla.png",
+  "img/avatarKoala.png",
+  "img/avatarPanda.png",
+  "img/avatarPug.png"
+];
 
 function tildelBilde() {
   avatars = shuffle(avatars);
@@ -171,13 +172,21 @@ function tildelBilde() {
   avatarTre.src = avatars[2];
   avatarFire.src = avatars[3];
 }
+function antallAvatarer() {
+  if (antallSpillere == 1) {
+    avatarTo.style.display = hidden;
+    avatarTre.style.display = hidden;
+    avatarFire.style.display = hidden;
+  }
+}
 
 function shuffle(avatars) {
-  var currentIndex = avatars.length, temporaryValue, randomIndex;
+  var currentIndex = avatars.length,
+    temporaryValue,
+    randomIndex;
 
-// While there remain elements to shuffle...
+  // While there remain elements to shuffle...
   while (0 !== currentIndex) {
-
     // Pick a remaining element...
     randomIndex = Math.floor(Math.random() * currentIndex);
     currentIndex -= 1;
@@ -187,7 +196,6 @@ function shuffle(avatars) {
     avatars[currentIndex] = avatars[randomIndex];
     avatars[randomIndex] = temporaryValue;
   }
-  console.log("Test shuffle avatars: " + avatars);
   return avatars;
 }
 
