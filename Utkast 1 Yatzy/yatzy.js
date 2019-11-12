@@ -16,6 +16,23 @@ var hvemSinTur = 1;
 var drop = document.getElementById("diceSound");
 let hiddenPopFinalScore = true;
 
+// laster inn antall spillere og avatarer ut i fra input varieblene for spiller(1, 2, 3 og 4)
+function antallAvatarer() {
+  spiller1 = document.getElementById("spiller1").innerHTML;
+  spiller2 = document.getElementById("spiller2").innerHTML;
+  spiller3 = document.getElementById("spiller3").innerHTML;
+  spiller4 = document.getElementById("spiller4").innerHTML;
+  if (spiller4 != "") {
+    antallSpillere = 4;
+  } else if (spiller3 != "") {
+    antallSpillere = 3;
+  } else if (spiller2 != "") {
+    antallSpillere = 2;
+  }
+for (var i = 1; i <= antallSpillere; i++) {
+    document.getElementById("imgAvatar" + i).style.visibility = "visible";
+  }
+}
 // En felles funksjon som endrer teksten på kasteknappen,
 // teller runder, og kjører spillet
 function kasteKnapp() {
@@ -73,7 +90,9 @@ function kasteKnapp() {
         x.innerHTML = "Nytt spill";
       }
     }
-    //viseHvemSinTur();
+    if (runde == 16) {
+      x.innerHTML = "Nytt spill";
+    }
   } else if (x.innerHTML === "Start kast") {
     if (runde == 0) {
       runde = 1;
@@ -87,17 +106,6 @@ function kasteKnapp() {
   } else if (x.innerHTML === "Start runde 1" || x.innerHTML === "Nytt spill") {
     if (x.innerHTML === "Nytt spill") {
       finalScore();
-    }
-    spiller1 = document.getElementById("spiller1").innerHTML;
-    spiller2 = document.getElementById("spiller2").innerHTML;
-    spiller3 = document.getElementById("spiller3").innerHTML;
-    spiller4 = document.getElementById("spiller4").innerHTML;
-    if (spiller4 != "") {
-      antallSpillere = 4;
-    } else if (spiller3 != "") {
-      antallSpillere = 3;
-    } else if (spiller2 != "") {
-      antallSpillere = 2;
     }
     antallKast += 1;
     //console.log("Test 5 kasteKnapp()");
@@ -832,6 +840,7 @@ function resetSpill() {
     document.getElementById(i + "-totalsum").innerHTML = "";
   }
 }
+
 
 function finalScore(nyttEllerGjenta) {
   var y = document.getElementById("finalScore");
