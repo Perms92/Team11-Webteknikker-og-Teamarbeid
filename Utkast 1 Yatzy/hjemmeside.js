@@ -1,4 +1,4 @@
-let isOneGo = true;
+let isOneGo = false;
 let isTwoGo = false;
 let isThreeGo = false;
 let isFourGo = false;
@@ -13,6 +13,8 @@ function oneGo() {
   document.getElementById("playerTwo").style.visibility = "hidden";
   document.getElementById("playerThree").style.visibility = "hidden";
   document.getElementById("playerFour").style.visibility = "hidden";
+
+  isOneGo = true;
 }
 
 function twoGo() {
