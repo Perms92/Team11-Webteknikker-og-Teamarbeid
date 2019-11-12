@@ -657,8 +657,8 @@ function moveToTable() {
       for (let y = 1; y <= 4; y++){
         let p = "plass" + y + "";
         document.getElementById(p).innerHTML = finalScoreListe[y-1];
-        if (finalScoreListe[y-1] == "") {
-
+        if (localStorage[("spiller" + y)] == "") {
+          document.getElementById(p).style.display = "none";
         }
       }
       finalScore();
