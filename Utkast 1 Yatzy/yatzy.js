@@ -729,6 +729,8 @@ function moveDice4() {
 }
 
 function resetSpill() {
+  var x = document.getElementById("kasteKnapp");
+  x.innerHTML = "Start runde 1";
   midlertidig_poeng = 0;
   antallKast = 0;
   runde = 1;
@@ -764,6 +766,7 @@ function resetSpill() {
     document.getElementById(i + "-bonus").innerHTML = "";
     document.getElementById(i + "-totalsum").innerHTML = "";
   }
+  highlightAvatar();
 }
 
 function finalScore(nyttEllerGjenta) {
