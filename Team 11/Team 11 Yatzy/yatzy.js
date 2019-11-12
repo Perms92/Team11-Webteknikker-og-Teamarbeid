@@ -45,9 +45,9 @@ function kasteKnapp() {
   } else if (x.innerHTML === "Neste kast" && antallKast == 2) {
     // resetter posisjonen på terningene etter siste kast
     //
-    for (i=0;i<=4;i++){
-      document.getElementById("dicePos" + i).style.marginBottom = "0%";
-    }
+    //for (i = 0; i <= 4; i++) {
+    //  document.getElementById("dicePos" + i).style.marginBottom = "0%";
+    //}
     highlightAvatar();
     antallKast = 0;
     //console.log("Test 2 kasteKnapp()");
@@ -140,8 +140,8 @@ function startKast() {
     "0px 0px 2px 0px";
   document.getElementById("rundeForteller").style.padding = "1%";
 
-  for (i=0;i<=4;i++){
-  document.getElementById(i).checked = false;
+  for (i = 0; i <= 4; i++) {
+    document.getElementById(i).checked = false;
   }
 }
 
@@ -640,9 +640,9 @@ function moveToTable() {
     }
     if (hvemSinTur == antallSpillere) {
       let finalScoreListe = [];
-      for (let i = 1; i <= antallSpillere; i++){
+      for (let i = 1; i <= antallSpillere; i++) {
         let y = "spiller" + i + "";
-        spillere[i-1] = localStorage[y];
+        spillere[i - 1] = localStorage[y];
         //console.log("Test runde 15 localStorage y: " + spillere[i-1]);
       }
 
@@ -654,14 +654,16 @@ function moveToTable() {
       //console.log("Test finalScoreListe: " + finalScoreListe);
       //console.log("Test spillere[finalScoreListe]: " + spillere);
 
-      finalScoreListe.sort((a,b) => parseInt(b.split(' ')[0], 10) - parseInt(a.split(' ')[0], 10));
+      finalScoreListe.sort(
+        (a, b) => parseInt(b.split(" ")[0], 10) - parseInt(a.split(" ")[0], 10)
+      );
 
       //console.log("Test sortert finalScoreListe: " + finalScoreListe);
 
-      for (let y = 1; y <= 4; y++){
+      for (let y = 1; y <= 4; y++) {
         let p = "plass" + y + "";
-        document.getElementById(p).innerHTML = finalScoreListe[y-1];
-        if (localStorage[("spiller" + y)] == "") {
+        document.getElementById(p).innerHTML = finalScoreListe[y - 1];
+        if (localStorage["spiller" + y] == "") {
           document.getElementById(p).style.display = "none";
         }
       }
@@ -669,8 +671,6 @@ function moveToTable() {
     }
   }
 }
-
-
 
 function showDice() {
   //console.log("Test showDice() function");
@@ -771,7 +771,7 @@ function resetSpill() {
     document.getElementById(i + "-bonus").innerHTML = "";
     document.getElementById(i + "-totalsum").innerHTML = "";
   }
-resetAvatar();
+  resetAvatar();
 }
 
 function finalScore(nyttEllerGjenta) {
@@ -803,7 +803,7 @@ function resetAvatar() {
     document.getElementById(y).style.transform = "scale(0.8)";
     document.getElementById(y).style.display = "block";
     document.getElementById(y).style.opacity = "0.5";
-    document.getElementById(z).style.fontWeight="100";
+    document.getElementById(z).style.fontWeight = "100";
     console.log("Test higlightavatar: y " + y);
   }
 }
@@ -820,8 +820,8 @@ function highlightAvatar() {
     z = "avatar" + 1;
   } else {
     let knapp = document.getElementById("kasteKnapp");
-    x = "imgAvatar" + (hvemSinTur+1);
-    z = "avatar" + (hvemSinTur+1);
+    x = "imgAvatar" + (hvemSinTur + 1);
+    z = "avatar" + (hvemSinTur + 1);
   }
   //highlighter avatar
   document.getElementById(x).style.transform = "scale(1.25)";
