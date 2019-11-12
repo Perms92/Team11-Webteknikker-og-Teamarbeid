@@ -771,7 +771,7 @@ function finalScore(nyttEllerGjenta) {
     y.style.display = "none";
     hiddenPopFinalScore = true;
     if (nyttEllerGjenta == "nyeSpillere") {
-      location.replace("hjemmeside.html");
+      location.replace("index.html");
     }
     //console.log("Test nyttEllerGjenta: " + nyttEllerGjenta);
   } else {
