@@ -43,7 +43,12 @@ function kasteKnapp() {
     fakeYatzy();
 
     if (hvemSinTur != antallSpillere) {
-      console.log("Test hvemSinTur og ikke antallSpillere: " + hvemSinTur + ", " + antallSpillere);
+      console.log(
+        "Test hvemSinTur og ikke antallSpillere: " +
+          hvemSinTur +
+          ", " +
+          antallSpillere
+      );
       hvemSinTur += 1;
       if (hvemSinTur == 1) {
         rundeForteller(spiller1);
@@ -55,7 +60,12 @@ function kasteKnapp() {
         rundeForteller(spiller4);
       }
     } else if (hvemSinTur == antallSpillere) {
-      console.log("Test hvemSinTur og antallSpillere: " + hvemSinTur + ", " + antallSpillere);
+      console.log(
+        "Test hvemSinTur og ikke antallSpillere: " +
+          hvemSinTur +
+          ", " +
+          antallSpillere
+      );
       runde += 1;
       hvemSinTur = 1;
       rundeForteller(spiller1);
@@ -126,7 +136,8 @@ function startKast() {
   //putter styling av rundeforteller i js slik at man ikke ser deler av rundefortelleren før start spill er trykket
   document.getElementById("rundeForteller").style.border = "solid";
   document.getElementById("rundeForteller").style.borderColor = "#DBAD6A";
-  document.getElementById("rundeForteller").style.borderWidth = "0px 0px 2px 0px";
+  document.getElementById("rundeForteller").style.borderWidth =
+    "0px 0px 2px 0px";
   document.getElementById("rundeForteller").style.padding = "1%";
 
   document.getElementById(0).checked = false;
@@ -202,7 +213,6 @@ function rundeForteller(spiller) {
 
 // Sjekker score for alle rundet etter bonus
 function score() {
-
   midlertidig_poeng = 0;
   if (runde < 7) {
     if (hvemSinTur == 1) {
@@ -736,7 +746,6 @@ function showDice() {
 }
 
 function moveDice0() {
-
   if (document.getElementById("dicePos0").style.marginBottom == "-770%") {
     document.getElementById("dicePos0").style.marginBottom = "0%";
     drop.play();
