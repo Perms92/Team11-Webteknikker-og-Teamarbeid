@@ -373,12 +373,7 @@ td {
   margin-bottom: -10%;
   transition-duration: 0.5s;
 }
-.avatar:hover {
-  width: 9.5rem;
-  height: 9.5rem;
-  transition-duration: 0.5s;
 
-}
 #header {
   display: flex;
   justify-content: space-between;
