@@ -278,7 +278,6 @@ img:active {
 h3 {
   margin-top: 4%;
   font-size: 3.5rem;
-  /*position: fixed;*/
 }
 
 table {
@@ -286,9 +285,7 @@ table {
   text-align: center;
   font-size: 1.3rem;
   display: flex;
-  justify-content: space-around;s
-  /*position: fixed;
-  margin-top: -10%;*/
+  justify-content: space-around;
 }
 
 th {
@@ -306,16 +303,6 @@ td {
 .noBorder {
   border-bottom: none;
 }
-/* #terninger {
-  font-size: 28px;
-  opacity: 1;
-  border-radius: 5px;
-  border-width: 1px;
-  border-style: hidden;
-  margin-top: 2.5%;
-  margin-bottom: 0%;
-}
-*/
 
 #kast {
   visibility: hidden;
@@ -348,22 +335,6 @@ td {
   margin-left: 10%;
 }
 
-#hsPopUp,  {
-  margin: auto;
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  height: 500px;
-  width: 500px;
-  border: 1px solid black;
-  background-color: #ffffff;
-  border-radius: 10px;
-  border: 3px solid #ff0900;
-  opacity: 1;
-}
-
 #popUpContainer,
 #finalScore {
   width: 100%;
@@ -371,16 +342,6 @@ td {
   background-color: rgba(204, 204, 204, 0.5);
   position: absolute;
   display: none;
-}
-
-#terninger {
-  font-size: 6rem;
-  opacity: 1;
-  border-radius: 1rem;
-  border-width: 0.3rem;
-  border-style: hidden;
-  margin-top: 0%;
-  margin-bottom: 0%;
 }
 
 .dices {

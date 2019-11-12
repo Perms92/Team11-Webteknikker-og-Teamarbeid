@@ -155,22 +155,6 @@ outline: none;
   visibility: hidden;
 }
 
-/* #playerOne {
-  margin-left: -10%;
-}
-
-#playerTwo {
-  margin-left: 10%;
-}
-
-#playerThree {
-  margin-left: 20%;
-}
-
-#playerFour {
-  margin-left: 40%;
-} */
-
 #logo {
   cursor: pointer;
   width: 20rem;

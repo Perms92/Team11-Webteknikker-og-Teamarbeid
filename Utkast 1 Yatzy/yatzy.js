@@ -184,28 +184,28 @@ function rundeForteller(spiller) {
       "Det er " + spiller + " sin tur!" + "<br />" + " Du vil nå ha ett par.";
   } else if (runde == 8) {
     document.getElementById("rundeForteller").innerHTML =
-      spiller + " sin tur." + "<br />" + " Du vil nå ha to par.";
+      spiller + " sin tur!" + "<br />" + " Du vil nå ha to par.";
   } else if (runde == 9) {
     document.getElementById("rundeForteller").innerHTML =
-      spiller + " sin tur." + "<br />" + " Du vil nå ha tre like.";
+      spiller + " sin tur!" + "<br />" + " Du vil nå ha tre like.";
   } else if (runde == 10) {
     document.getElementById("rundeForteller").innerHTML =
-      spiller + " sin tur." + "<br />" + " Du vil nå ha fire like.";
+      spiller + " sin tur!" + "<br />" + " Du vil nå ha fire like.";
   } else if (runde == 11) {
     document.getElementById("rundeForteller").innerHTML =
-      spiller + " sin tur." + "<br />" + " Du vil nå ha liten straight.";
+      spiller + " sin tur!" + "<br />" + " Du vil nå ha liten straight.";
   } else if (runde == 12) {
     document.getElementById("rundeForteller").innerHTML =
-      spiller + " sin tur." + "<br />" + " Du vil nå ha stor straight.";
+      spiller + " sin tur!" + "<br />" + " Du vil nå ha stor straight.";
   } else if (runde == 13) {
     document.getElementById("rundeForteller").innerHTML =
-      spiller + " sin tur." + "<br />" + " Du vil nå ha fullt hus.";
+      spiller + " sin tur!" + "<br />" + " Du vil nå ha fullt hus.";
   } else if (runde == 14) {
     document.getElementById("rundeForteller").innerHTML =
-      spiller + " sin tur." + "<br />" + " Sjanse!";
+      spiller + " sin tur!" + "<br />" + " Sjanse!";
   } else if (runde == 15) {
     document.getElementById("rundeForteller").innerHTML =
-      spiller + " sin tur." + "<br />" + " Du vil nå ha fem like - Yatzy!";
+      spiller + " sin tur!" + "<br />" + " Du vil nå ha fem like - Yatzy!";
   }
 }
 
@@ -828,36 +828,3 @@ function highlightAvatar() {
   document.getElementById(z).style.fontWeight = "900";
   console.log("Test highlight avatar: x " + x);
 }
-
-
-
-
-/*function highlightAvatar() {
-  let x = "";
-  let y = "";
-  let z = "";
-
-  for (var i = 1; i <= antallSpillere; i++) {
-    let y = "imgAvatar" + i + "";
-    document.getElementById(y).style = "width: 8rem; height: 8rem;";
-    document.getElementById(y).style.visibility = "visible";
-    document.getElementById(y).style.opasity = "0.5";
-    console.log("Test highlightAvatar: " + y);
-  }
-
-  if (hvemSinTur == antallSpillere || (hvemSinTur == 1 && runde == 0)){
-    let knapp = document.getElementById("kasteKnapp");
-    x = "imgAvatar" + 1;
-    z = "avatar" + 1;
-    console.log("");
-  } else {
-    let knapp = document.getElementById("kasteKnapp");
-    x = "imgAvatar" + (hvemSinTur + 1);
-    z = "avatar" + (hvemSinTur + 1);
-  }
-
-  document.getElementById(x).style = "width: 9.5rem; height: 9.5rem;";
-  document.getElementById(x).style.visibility = "visible";
-  console.log("Test highlightAvatar: " + x);
-}
-*/

@@ -7,10 +7,6 @@ body {
   height: 100%;
 }
 
-/*
-div {
-  border: 2px solid rgb(113, 115, 130);
-} */
 #container {
   height: inherit;
   display: grid;
@@ -174,31 +170,6 @@ input {
 .singleplayer, .multiplayer {
   visibility: hidden;
 }
-
-/* #playerOne {
-  margin-left: -10%;
-}
-
-#playerTwo {
-  margin-left: 10%;
-}
-
-#playerThree {
-  margin-left: 20%;
-}
-
-#playerFour {
-  margin-left: 40%;
-} */
-
-/* #playerNames {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-left: 0% 20% 20% 0%;
-  margin-left: 12%;
-  width: 90%;
-} */
 
 #logo {
   cursor: pointer;
