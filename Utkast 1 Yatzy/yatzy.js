@@ -44,8 +44,8 @@ function kasteKnapp() {
     nytt_kast_indexer();
     showDice();
   } else if (x.innerHTML === "Neste kast" && antallKast == 2) {
+    highlightAvatar();
     antallKast = 0;
-    nytt_kast_indexer();
     //console.log("Test 2 kasteKnapp()");
     x.innerHTML = "Start kast";
     nytt_kast_indexer();
@@ -96,6 +96,7 @@ function kasteKnapp() {
     x.innerHTML = "Neste kast";
     startKast();
     showDice();
+    highlightAvatar();
   }
 }
 
@@ -653,9 +654,12 @@ function moveToTable() {
 
       //console.log("Test sortert finalScoreListe: " + finalScoreListe);
 
-      for (var y = 1; y <= antallSpillere; y++){
+      for (var y = 1; y <= 4; y++){
         let p = "plass" + y + "";
         document.getElementById(p).innerHTML = finalScoreListe[y-1];
+        if (finalScoreListe[y-1] == "") {
+
+        }
       }
       finalScore();
     }
@@ -772,13 +776,75 @@ function finalScore(nyttEllerGjenta) {
     hiddenPopFinalScore = true;
     if (nyttEllerGjenta == "nyeSpillere") {
       location.replace("index.html");
+    } else if (nyttEllerGjenta == "spillPaNytt") {
+      location.reload();
     }
     //console.log("Test nyttEllerGjenta: " + nyttEllerGjenta);
   } else {
     y.style.display = "block";
     hiddenPopFinalScore = false;
-    resetSpill();
     hvemSinTur = 0;
+    resetSpill();
     //console.log("Test nyttEllerGjenta: " + nyttEllerGjenta);
   }
 }
+
+function highlightAvatar() {
+  let x = "";
+  let y = "";
+  //kjører en løkke som setter alle style verdiene til orginalt. visibility er nødvendig slik at de ikke går tilbake til originalverdi (hidden)
+  for (var i = 1; i <= antallSpillere; i++) {
+    let y = "imgAvatar" + i;
+    document.getElementById(y).style = "width: 8rem; height: 8rem;";
+    document.getElementById(y).style.visibility = "visible";
+    document.getElementById(y).style.opacity = "0.5";
+    console.log("Test higlightavatar: y " + y);
+  }
+
+  if (hvemSinTur == antallSpillere || (antallKast == 1 && runde == 1)) {
+    let knapp = document.getElementById("kasteKnapp");
+    x = "imgAvatar" + 1;
+    z = "avatar" + 1;
+  } else {
+    let knapp = document.getElementById("kasteKnapp");
+    x = "imgAvatar" + (hvemSinTur+1);
+    z = "avatar" + (hvemSinTur+1);
+  }
+  //highlighter avatar
+  document.getElementById(x).style = "width: 9.5rem; height: 9.5rem;";
+  document.getElementById(x).style.visibility = "visible";
+  console.log("Test highlight avatar: x " + x);
+}
+
+
+
+
+/*function highlightAvatar() {
+  let x = "";
+  let y = "";
+  let z = "";
+
+  for (var i = 1; i <= antallSpillere; i++) {
+    let y = "imgAvatar" + i + "";
+    document.getElementById(y).style = "width: 8rem; height: 8rem;";
+    document.getElementById(y).style.visibility = "visible";
+    document.getElementById(y).style.opasity = "0.5";
+    console.log("Test highlightAvatar: " + y);
+  }
+
+  if (hvemSinTur == antallSpillere || (hvemSinTur == 1 && runde == 0)){
+    let knapp = document.getElementById("kasteKnapp");
+    x = "imgAvatar" + 1;
+    z = "avatar" + 1;
+    console.log("");
+  } else {
+    let knapp = document.getElementById("kasteKnapp");
+    x = "imgAvatar" + (hvemSinTur + 1);
+    z = "avatar" + (hvemSinTur + 1);
+  }
+
+  document.getElementById(x).style = "width: 9.5rem; height: 9.5rem;";
+  document.getElementById(x).style.visibility = "visible";
+  console.log("Test highlightAvatar: " + x);
+}
+*/

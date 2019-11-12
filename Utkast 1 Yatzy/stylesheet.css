@@ -370,6 +370,7 @@ td {
   display: block;
   margin-bottom: -10%;
   transition-duration: 0.5s;
+  visibility: hidden;
 }
 
 #header {
