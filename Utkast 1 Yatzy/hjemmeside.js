@@ -104,12 +104,6 @@ function play() {
         location.replace("index.html");
       }
     }
-    /*if ((isOneGo != "") &&
-        (isTwoGo && (isTwoGo != "")) &&
-        (isThreeGo && (isThreeGo != "")) &&
-        (isFourGo && (isFourGo != ""))) {
-          document.getElementById("feilmelding").innerHTML = "";
-          location.replace("index.html");*/
     } catch (err) {
       console.log("Test play() catch err " + err);
       document.getElementById("feilmelding").innerHTML = err;
