@@ -802,7 +802,7 @@ function resetAvatar() {
     document.getElementById(y).style.transform = "scale(0.8)";
     document.getElementById(y).style.display = "block";
     document.getElementById(y).style.opacity = "0.5";
-    document.getElementById(z).style.fontWeight="lighter";
+    document.getElementById(z).style.fontWeight="100";
     console.log("Test higlightavatar: y " + y);
   }
 }
@@ -825,7 +825,7 @@ function highlightAvatar() {
   document.getElementById(x).style.transform = "scale(1.25)";
   document.getElementById(x).style.opacity = "1";
   document.getElementById(x).style.display = "block";
-  document.getElementById(z).style.fontWeight = "bold";
+  document.getElementById(z).style.fontWeight = "900";
   console.log("Test highlight avatar: x " + x);
 }
 
