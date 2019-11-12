@@ -821,36 +821,3 @@ function highlightAvatar() {
   document.getElementById(z).style.fontWeight = "bold";
   console.log("Test highlight avatar: x " + x);
 }
-
-
-
-
-/*function highlightAvatar() {
-  let x = "";
-  let y = "";
-  let z = "";
-
-  for (var i = 1; i <= antallSpillere; i++) {
-    let y = "imgAvatar" + i + "";
-    document.getElementById(y).style = "width: 8rem; height: 8rem;";
-    document.getElementById(y).style.visibility = "visible";
-    document.getElementById(y).style.opasity = "0.5";
-    console.log("Test highlightAvatar: " + y);
-  }
-
-  if (hvemSinTur == antallSpillere || (hvemSinTur == 1 && runde == 0)){
-    let knapp = document.getElementById("kasteKnapp");
-    x = "imgAvatar" + 1;
-    z = "avatar" + 1;
-    console.log("");
-  } else {
-    let knapp = document.getElementById("kasteKnapp");
-    x = "imgAvatar" + (hvemSinTur + 1);
-    z = "avatar" + (hvemSinTur + 1);
-  }
-
-  document.getElementById(x).style = "width: 9.5rem; height: 9.5rem;";
-  document.getElementById(x).style.visibility = "visible";
-  console.log("Test highlightAvatar: " + x);
-}
-*/
