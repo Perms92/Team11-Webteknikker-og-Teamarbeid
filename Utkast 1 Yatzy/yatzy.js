@@ -11,31 +11,18 @@ var spiller1 = "";
 var spiller2 = "";
 var spiller3 = "";
 var spiller4 = "";
+let spillere = [];
 var hvemSinTur = 1;
 var drop = document.getElementById("diceSound");
 var diceroll = document.getElementById("rollsound");
 let hiddenPopFinalScore = true;
 
-// laster inn antall spillere og avatarer ut i fra input varieblene for spiller(1, 2, 3 og 4)
-function antallAvatarer() {
-  spiller1 = document.getElementById("spiller1").innerHTML;
-  spiller2 = document.getElementById("spiller2").innerHTML;
-  spiller3 = document.getElementById("spiller3").innerHTML;
-  spiller4 = document.getElementById("spiller4").innerHTML;
-  if (spiller4 != "") {
-    antallSpillere = 4;
-  } else if (spiller3 != "") {
-    antallSpillere = 3;
-  } else if (spiller2 != "") {
-    antallSpillere = 2;
-  }
-for (var i = 1; i <= antallSpillere; i++) {
-    document.getElementById("imgAvatar" + i).style.visibility = "visible";
-  }
-}
 // En felles funksjon som endrer teksten på kasteknappen,
 // teller runder, og kjører spillet
 function kasteKnapp() {
+  console.log("Test runde " + runde);
+  console.log("Test hvemSinTur " + hvemSinTur);
+
   //console.log("Test mitt_kast " + mitt_kast);
 
   var x = document.getElementById("kasteKnapp");
@@ -61,9 +48,16 @@ function kasteKnapp() {
     fakeYatzy();
 
     if (hvemSinTur != antallSpillere) {
-      console.log("Test hvemSinTur og ikke antallSpillere: " + hvemSinTur + ", " + antallSpillere);
+      console.log(
+        "Test hvemSinTur og ikke antallSpillere: " +
+          hvemSinTur +
+          ", " +
+          antallSpillere
+      );
       hvemSinTur += 1;
-      if (hvemSinTur == 2) {
+      if (hvemSinTur == 1) {
+        rundeForteller(spiller1);
+      } else if (hvemSinTur == 2) {
         rundeForteller(spiller2);
       } else if (hvemSinTur == 3) {
         rundeForteller(spiller3);
@@ -71,14 +65,20 @@ function kasteKnapp() {
         rundeForteller(spiller4);
       }
     } else if (hvemSinTur == antallSpillere) {
-      console.log("Test hvemSinTur og ikke antallSpillere: " + hvemSinTur + ", " + antallSpillere);
+      console.log(
+        "Test hvemSinTur og ikke antallSpillere: " +
+          hvemSinTur +
+          ", " +
+          antallSpillere
+      );
       runde += 1;
       hvemSinTur = 1;
       rundeForteller(spiller1);
+      if (runde == 16) {
+        x.innerHTML = "Nytt spill";
+      }
     }
-    if (runde == 16) {
-      x.innerHTML = "Nytt spill";
-    }
+    //viseHvemSinTur();
   } else if (x.innerHTML === "Start kast") {
 
     antallKast += 1;
@@ -127,7 +127,8 @@ function startKast() {
   //putter styling av rundeforteller i js slik at man ikke ser deler av rundefortelleren før start spill er trykket
   document.getElementById("rundeForteller").style.border = "solid";
   document.getElementById("rundeForteller").style.borderColor = "#DBAD6A";
-  document.getElementById("rundeForteller").style.borderWidth = "0px 0px 2px 0px";
+  document.getElementById("rundeForteller").style.borderWidth =
+    "0px 0px 2px 0px";
   document.getElementById("rundeForteller").style.padding = "1%";
 }
 
@@ -164,28 +165,28 @@ function nytt_kast_indexer() {
 function rundeForteller(spiller) {
   if (runde <= 6) {
     document.getElementById("rundeForteller").innerHTML =
-      spiller + " sin tur." + "<br />" + " Du vil nå ha " + runde + "-ere";
+      "Det er " + spiller + " sin tur!" + "<br />" + " Du vil nå ha " + runde + "-ere.";
   } else if (runde == 7) {
     document.getElementById("rundeForteller").innerHTML =
-      spiller + " sin tur." + "<br />" + " Du vil nå ha ett par";
+      "Det er " + spiller + " sin tur!" + "<br />" + " Du vil nå ha ett par.";
   } else if (runde == 8) {
     document.getElementById("rundeForteller").innerHTML =
-      spiller + " sin tur." + "<br />" + " Du vil nå ha to par";
+      spiller + " sin tur." + "<br />" + " Du vil nå ha to par.";
   } else if (runde == 9) {
     document.getElementById("rundeForteller").innerHTML =
-      spiller + " sin tur." + "<br />" + " Du vil nå ha tre like";
+      spiller + " sin tur." + "<br />" + " Du vil nå ha tre like.";
   } else if (runde == 10) {
     document.getElementById("rundeForteller").innerHTML =
-      spiller + " sin tur." + "<br />" + " Du vil nå ha fire like";
+      spiller + " sin tur." + "<br />" + " Du vil nå ha fire like.";
   } else if (runde == 11) {
     document.getElementById("rundeForteller").innerHTML =
-      spiller + " sin tur." + "<br />" + " Du vil nå ha liten straight";
+      spiller + " sin tur." + "<br />" + " Du vil nå ha liten straight.";
   } else if (runde == 12) {
     document.getElementById("rundeForteller").innerHTML =
-      spiller + " sin tur." + "<br />" + " Du vil nå ha stor straight";
+      spiller + " sin tur." + "<br />" + " Du vil nå ha stor straight.";
   } else if (runde == 13) {
     document.getElementById("rundeForteller").innerHTML =
-      spiller + " sin tur." + "<br />" + " Du vil nå ha fullt hus";
+      spiller + " sin tur." + "<br />" + " Du vil nå ha fullt hus.";
   } else if (runde == 14) {
     document.getElementById("rundeForteller").innerHTML =
       spiller + " sin tur." + "<br />" + " Sjanse!";
@@ -197,7 +198,6 @@ function rundeForteller(spiller) {
 
 // Sjekker score for alle rundet etter bonus
 function score() {
-
   midlertidig_poeng = 0;
   if (runde < 7) {
     if (hvemSinTur == 1) {
@@ -635,6 +635,23 @@ function moveToTable() {
     }
     if (hvemSinTur == antallSpillere) {
       let finalScoreListe = [];
+      for (var i = 1; i <= antallSpillere; i++){
+        let y = "spiller" + i + "";
+        spillere[i-1] = localStorage[y];
+        console.log("Test runde 15 localStorage y: " + spillere[i-1]);
+      }
+
+      finalScoreListe[0] = totalScore1 + " poeng til " + spiller1;
+      finalScoreListe[1] = totalScore2 + " poeng til " + spiller2;
+      finalScoreListe[2] = totalScore3 + " poeng til " + spiller3;
+      finalScoreListe[3] = totalScore4 + " poeng til " + spiller4;
+
+      console.log("Test finalScoreListe: " + finalScoreListe);
+      console.log("Test spillere[finalScoreListe]: " + spillere);
+
+
+
+      /*let finalScoreListe = [];
       spillere[finalScoreListe[0]] = localStorage["spiller1"];
       spillere[finalScoreListe[1]] = localStorage["spiller2"];
       spillere[finalScoreListe[2]] = localStorage["spiller3"];
@@ -693,11 +710,14 @@ function moveToTable() {
         knappeplass.insertBefore(navn, knappeplass.firstChild);
         console.log(finalScoreListe);
         knappeplass.appendChild(regScoreBtn(finalScoreListe[k], map));
-      }
-      console.log(map);
+      }*/
+      //console.log(map);
+      finalScore();
     }
   }
 }
+
+
 
 function showDice() {
   //console.log("Test showDice() function");
@@ -711,7 +731,6 @@ function showDice() {
 }
 
 function moveDice0() {
-
   if (document.getElementById("dicePos0").style.marginBottom == "-770%") {
     document.getElementById("dicePos0").style.marginBottom = "0%";
     drop.play();
@@ -764,12 +783,14 @@ function moveDice4() {
 function resetSpill() {
   midlertidig_poeng = 0;
   antallKast = 0;
-  runde = 0;
+  runde = 1;
+  hvemSinTur = 1;
   totalScore1 = 0;
   totalScore2 = 0;
   totalScore3 = 0;
   totalScore4 = 0;
   map = {};
+  rundeForteller(spiller1);
   if (localStorage["spiller4"] != "") {
     antallSpillere = 4;
     spiller2 = localStorage["spiller2"];
@@ -787,7 +808,6 @@ function resetSpill() {
     antallSpillere = 1;
   }
   spiller1 = localStorage["spiller1"];
-  hvemSinTur = 1;
   for (var i = 1; i <= antallSpillere; i++) {
     for (var y = 1; y < 16; y++) {
       document.getElementById(i + "-" + y).innerHTML = "";
@@ -797,7 +817,6 @@ function resetSpill() {
     document.getElementById(i + "-totalsum").innerHTML = "";
   }
 }
-
 
 function finalScore(nyttEllerGjenta) {
   var y = document.getElementById("finalScore");
@@ -813,6 +832,8 @@ function finalScore(nyttEllerGjenta) {
   } else {
     y.style.display = "block";
     hiddenPopFinalScore = false;
+    resetSpill();
+    hvemSinTur = 0;
     console.log("Test nyttEllerGjenta: " + nyttEllerGjenta);
   }
 }

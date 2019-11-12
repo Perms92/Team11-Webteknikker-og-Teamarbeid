@@ -1,4 +1,4 @@
-let isOneGo = true;
+let isOneGo = false;
 let isTwoGo = false;
 let isThreeGo = false;
 let isFourGo = false;
@@ -9,38 +9,48 @@ function oneGo() {
   isThreeGo = false;
   isFourGo = false;
 
+  document.getElementById("playerOne").style.visibility = "visible";
   document.getElementById("playerTwo").style.visibility = "hidden";
   document.getElementById("playerThree").style.visibility = "hidden";
   document.getElementById("playerFour").style.visibility = "hidden";
+
+  isOneGo = true;
 }
 
 function twoGo() {
   isThreeGo = false;
   isFourGo = false;
 
+  document.getElementById("playerOne").style.visibility = "visible";
   document.getElementById("playerTwo").style.visibility = "visible";
   document.getElementById("playerThree").style.visibility = "hidden";
   document.getElementById("playerFour").style.visibility = "hidden";
 
+    isOneGo = true;
     isTwoGo = true;
 }
 
 function threeGo() {
   isFourGo = false;
 
+  document.getElementById("playerOne").style.visibility = "visible";
   document.getElementById("playerTwo").style.visibility = "visible";
   document.getElementById("playerThree").style.visibility = "visible";
   document.getElementById("playerFour").style.visibility = "hidden";
 
+  isOneGo = true;
   isTwoGo = true;
   isThreeGo = true;
 }
 
 function fourGo() {
+
+  document.getElementById("playerOne").style.visibility = "visible";
   document.getElementById("playerTwo").style.visibility = "visible";
   document.getElementById("playerThree").style.visibility = "visible";
   document.getElementById("playerFour").style.visibility = "visible";
 
+  isOneGo = true;
   isTwoGo = true;
   isThreeGo = true;
   isFourGo = true;
@@ -101,7 +111,7 @@ function play() {
       if (screen.width <= 1024) {
         location.replace("mobile.html");
       } else {
-        location.replace("index.html");
+        location.replace("game.html");
       }
     }
     /*if ((isOneGo != "") &&
@@ -118,6 +128,12 @@ function play() {
   console.log("Test play()");
   //localStorage["spillere"] = [localStorage["spiller1"], localStorage["spiller2"], ]
 
+  /*if (screen.width <= 1024) {
+  location.replace("mobile.html");
+}
+  else {
+    location.replace("index.html");
+  }*/
 }
 
 function settSpillernavn() {

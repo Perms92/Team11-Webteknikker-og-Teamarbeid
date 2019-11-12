@@ -6,27 +6,52 @@ body {
   background-image: url("https://www.transparenttextures.com/patterns/diamond-upholstery.png");
   height: 100%;
 }
-.multiplayer {
-  visibility: hidden;
+
+/*
+div {
+  border: 2px solid rgb(113, 115, 130);
+} */
+#container {
+  height: inherit;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 5rem 1fr 1fr 5rem;
+  grid-template-areas:
+    "h h h h"
+    "c c c c"
+    "c c c c"
+    "f f f f";
+  grid-gap: 2rem;
+}
+
+#header {
+  grid-area: h;
 }
 
 #toggleButtons {
   margin: auto;
+  align-items: center;
+  margin-left: 0%;
+  grid-area: c;
+}
+
+#fancyStartButton {
+  grid-area: f;
 }
 
 button {
-  border: 4px solid rgb(113, 115, 130);
+  border: 0.5rem solid rgb(113, 115, 130);
   color: rgb(75, 71, 71);
-  padding: 15px 32px;
+  padding: 1rem 2rem;
   text-align: center;
   text-decoration: none;
-  width: 15rem;
-  height: 6rem;
+  width: 28.4rem;
+  height: 10rem;
   display: inline-block;
   flex-wrap: nowrap;
-  font-size: 24px;
+  font-size: 4rem;
   cursor: pointer;
-  margin: -0.3%;
+  margin: 0.5%;
   border-color: #DBAF6A;
   font-family: 'Rajdhani', sans-serif;
   font-weight: 700;
@@ -35,18 +60,22 @@ button {
   opacity: 1;
   font-weight: 600;
   color: white;
-  border-radius: 2px;
+  border-radius: 0.5rem;
 }
 
 p {
-  letter-spacing: 2px;
-  margin-top: 10%;
+  letter-spacing: 0.2rem;
+  display: inline;
+  font-size: 2.5rem;
+}
+
+#feilmelding {
+  color:red;
+  font-size:5rem;
 }
 
 #onePlayer {
   background-color: #ff0900;
-  border-top-left-radius: 25px;
-  border-bottom-left-radius: 25px;
 }
 
 #onePlayer:hover, #twoPlayer:hover, #threePlayer:hover, #fourPlayer:hover {
@@ -83,15 +112,13 @@ outline: none;
 
 #fourPlayer {
   background-color: #7c0a02;
-  border-top-right-radius: 25px;
-  border-bottom-right-radius: 25px;
 }
 
 #play {
   display: inline-block;
-  font-size: 2.5rem;
+  font-size: 5rem;
   cursor: pointer;
-  border: 0.3rem solid;
+  border: 0.5rem solid;
   border-color: #DBAD6A;
   background-color: #3d3d3d;
   background-image: url("https://www.transparenttextures.com/patterns/diagmonds.png");
@@ -101,9 +128,9 @@ outline: none;
   color: white;
   border-radius: 3%;
   text-align: center;
-  width: 28rem;
-  height: 6rem;
-  margin-top:6%;
+  width: 94%;
+  height: 10rem;
+  margin-top:0%;
   outline: none;
   margin-bottom: -5%;
 }
@@ -128,18 +155,23 @@ outline: none;
 }
 
 input {
-  height: 2.3rem;
-  width: 7rem;
+  height: 6rem;
+  width: 27rem;
   display: inline-block;
+  flex-wrap: wrap;
   font-family: "Pontano Sans", sans-serif;
-  margin-top: 0;
+  margin-top: 5rem;
+  margin: 1rem;
   box-sizing: border-box;
   text-align: center;
   border-radius: 2%;
-  font-size: 1.5rem;
+  font-size: 3rem;
 }
 
-.multiplayer {
+#playerNames {
+  margin: 0 auto;
+}
+.singleplayer, .multiplayer {
   visibility: hidden;
 }
 
@@ -159,26 +191,25 @@ input {
   margin-left: 40%;
 } */
 
-#playerNames {
+/* #playerNames {
   display: flex;
-  justify-content: space-around;
-  padding-left: 0% 20% 25% 0%;
-  margin: auto;
-  width: 60rem;
-}
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 0% 20% 20% 0%;
+  margin-left: 12%;
+  width: 90%;
+} */
 
 #logo {
   cursor: pointer;
-  width: 250px;
-  margin-bottom: -100px;
+  width: 50rem;
+  margin-bottom: -10%;
 }
 
 #dice {
-  width: 130px;
+  width: 22rem;
   height: auto;
   cursor: pointer;
-  margin-bottom: -100px;
-}
-#bildeLogo {
-  margin-bottom: 10%;
+  margin-bottom: -10%;
+  margin-top: -22%;
 }
