@@ -6,35 +6,12 @@ body {
   background-image: url("https://www.transparenttextures.com/patterns/diamond-upholstery.png");
   height: 100%;
 }
-
-/*
-div {
-  border: 2px solid rgb(113, 115, 130);
-} */
-#container {
-  height: inherit;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: 100px 1fr 1fr 100px;
-  grid-template-areas:
-    "h h h h"
-    "c c c c"
-    "c c c c"
-    "f f f f";
-  grid-gap: 10px;
-}
-
-#header {
-  grid-area: h;
+.multiplayer {
+  visibility: hidden;
 }
 
 #toggleButtons {
   margin: auto;
-  grid-area: c;
-}
-
-#fancyStartButton {
-  grid-area: f;
 }
 
 button {
@@ -43,7 +20,7 @@ button {
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
-  width: 18rem;
+  width: 15rem;
   height: 6rem;
   display: inline-block;
   flex-wrap: nowrap;
@@ -63,7 +40,7 @@ button {
 
 p {
   letter-spacing: 2px;
-  display: inline;
+  margin-top: 10%;
 }
 
 #onePlayer {
@@ -155,16 +132,13 @@ input {
   width: 7rem;
   display: inline-block;
   font-family: "Pontano Sans", sans-serif;
-  margin-top: 2px;
+  margin-top: 0;
   box-sizing: border-box;
   text-align: center;
   border-radius: 2%;
   font-size: 1.5rem;
 }
 
-#playerNames {
-  margin: 0 auto;
-}
 .multiplayer {
   visibility: hidden;
 }
@@ -189,8 +163,8 @@ input {
   display: flex;
   justify-content: space-around;
   padding-left: 0% 20% 25% 0%;
-  margin-left: 0%;
-  margin-right: -15%;
+  margin: auto;
+  width: 60rem;
 }
 
 #logo {
@@ -204,4 +178,7 @@ input {
   height: auto;
   cursor: pointer;
   margin-bottom: -100px;
+}
+#bildeLogo {
+  margin-bottom: 10%;
 }
