@@ -58,5 +58,32 @@ score():
   Denne funksjonen setter midlertidig_poeng til 0 og sjekker om nåværende hånd gir poeng ut ifra hvilken runde spillet er på. Det gjør den ved å kjøre funksjonene til de forskjellige poeng funksjonene gitt hvem sin tur og hvilken runde
 
 
+like():
+  Denne funksjonen blir kjørt i score() når runde er lik 7
+  Den kjører sjekk() med input av 6 til 1 for å se hvor mange det er av tall x i kastet. Hvis sjekk() er større eller lik input antall så returnerer en verdi av antall ganger tallet den sjekker mot
+
+
+sjekk():
+  Denne funksjonen sjekker og returnerer hvor mange av tall x som er i mitt_kast
+
+
+faseEn():
+  Denne funksjonen tar inn kastet og hvilken verdi den skal sjelle mot. Kjører sjekk() på denne og returnerer antall ganger verdien den blir bedt om.
+  F.eks. Hvis den skal sjekke hvor mange 6-ere det er, det er 4 stk. 6-ere, så den returnerer 4*6 som er 24
+
+
+bonus():
+  Denne funksjonen sjekker hver sin spiller sin totalScore og 
+
+
 antallAvatarer():
   Denne tar inn input fra index sidene og viser frem avatarene til spillerne som er med i spillet
+
+
+
+Her forklares index.html:
+
+id="container"
+  Her er knappene samlet
+
+id="playerNames"
