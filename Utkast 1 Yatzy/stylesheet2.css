@@ -349,7 +349,6 @@ td {
   display: none;
   margin-bottom: -10%;
   transition-duration: 0.5s;
-  visibility: hidden;
 }
 
 #header {
@@ -410,7 +409,7 @@ p {
   justify-content: center;
   align-items: center;
   font-size: 20px;
-  margin-top: -15%;
+  margin-top: 10%;
   margin-bottom: -10%;
 }
 
