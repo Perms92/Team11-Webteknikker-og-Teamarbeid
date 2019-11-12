@@ -11,6 +11,7 @@ body {
 margin-top: 3%;
 }
 
+
 button {
   border: 0.2rem solid rgb(113, 115, 130);
   color: rgb(75, 71, 71);
@@ -151,22 +152,6 @@ outline: none;
 .singleplayer, .multiplayer {
   visibility: hidden;
 }
-
-/* #playerOne {
-  margin-left: -10%;
-}
-
-#playerTwo {
-  margin-left: 10%;
-}
-
-#playerThree {
-  margin-left: 20%;
-}
-
-#playerFour {
-  margin-left: 40%;
-} */
 
 #logo {
   cursor: pointer;

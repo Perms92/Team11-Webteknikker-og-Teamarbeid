@@ -1,12 +1,17 @@
-Team11-Webteknikker og Teamarbeid
+Team11 - Webteknikker og Teamarbeid
 
 Medlemmer i Team 11:
-- Mina
-- Edvard
-- Vetle
-- Per Morten
-- Sigrun
-- Mats
+- Mina Jørstad Uthus
+- Edvard Øfsthus Toft
+- Vetle Tømmerberg
+- Per Morten Solheim
+- Sigrun Ulsund
+- Mats Selboe
+
+
+Denne README tar for seg de viktigste funksjonene og annen info som er til forklaring for faglærer i fager
+
+menyer.js og hjemmeside.js blir ikke kommentert her.
 
 
 Her forklares funksjonene og variablene i yatzy.js
@@ -109,11 +114,33 @@ fakeYatzy():
 
 
 moveToTable():
-  Denne funksjonen tar inn hvem sin tur og hvilken runde det er for så å sette inn midlertidig_poeng til den aktuelle spilleren
+  Denne funksjonen tar inn hvem sin tur og hvilken runde det er for så å sette inn midlertidig_poeng til den aktuelle spilleren. Hvis det er siste runde og siste spiller har kastet siste kast så sendes det sorterte resultatet til finalScoreListe og displayes via finaleScore()
+
+
+showDice():
+  Denne funksjonen tar inn verdien i mitt_kast[i] og viser frem tilhørende .png bilde av terningen
 
 
 antallAvatarer():
   Denne tar inn input fra index sidene og viser frem avatarene til spillerne som er med i spillet
+
+
+moveDiceX():
+  moveDice funksjonene flytter på terningene ettersom de blir klikket på
+
+
+resetSpill():
+  Denne funksjonen resetter alle globale variabler til opprinnelig verdi, endrer kasteknappen til "Start runde 1", og setter game.html til slik den er når siden lastes
+
+
+finaleScore():
+  Denne funksjonen kjøres når alle spillere er ferdig med siste runde. Viser frem highscore liste til spillere i rangert rekkefølge. Gir spilleren valg om å spille på nytt eller endre spillere
+
+
+highlightAvatar():
+  Denne funksjonen følger spillere og highlighter avatarene etter hvem sin tur det er
+
+
 
 
 
@@ -135,6 +162,7 @@ id="feilmelding"
 
 id="play"
   Trykker her for å starte spillet
+
 
 
 Her forklares game.html:
@@ -184,7 +212,82 @@ id="rundeforteller"
   Får inn info fra yatzy.js, der det står hvem sin tur det er og hva spilleren skal gjøre
 
 onclick="kasteKnapp()"
-
+  Dette er knappen som gjør at man kaster terningene
 
 id="third"
   Her ligger poengoversikt-tabellen.
+
+Her forklares stylesheet.css, stylesheet2.css og stylesheetmobile.css:
+body
+  Generell css for hele game.html
+
+#container
+  Gjør at nettsiden deles i tre
+
+.modebutton
+  Knappene som endrer det til light mode og dark mode
+
+.modebutton:hover
+  CSS forandrer seg når musepekeren er over knappene
+
+#first
+  Venstre side har en flex på 1
+
+#regler
+  Det som står inne i knappen regler
+
+#second
+  Midterste del har en flex på 1.25
+
+#third
+  Høyre side har en flex på 1
+
+#brett
+  Hvordan brettet på spillet ser ut
+
+#rundeForteller
+  Boksen der det vises hvem sin tur det er og hva spilleren skal gjøre
+
+.litenKnapp
+  Knapp som gjør at man kommer seg ut av finalScoreListe
+
+.knappVenstreSide
+  Knappene som er på venstre side
+
+#kasteKnapp
+  Knappen der terningene kastes på brettet
+
+.knappebrett
+  Knappen der terningene kastes på brettet
+
+#dice
+  Terninglogo
+
+#logo
+  Yatzy-logo
+
+#table, th, td
+  Tabellen sin css
+
+.avatar
+  Avatar bildene
+
+#finalScoreListe, #finalScorePopUp
+  Boksen der totalsummen kommer opp i en liste
+
+
+Her forklares index.CSS:
+button
+  Påvirker alle knappene på spill. Setter en del standardverdier.
+
+#onePlayer, #twoPlayer, #threePlayer, #fourPlayer
+  Knappene som velger antall spillere
+
+#play
+  Knappen som gjør at man kommer videre til game.html
+
+input
+  Feltet som man skriver inn navn i
+
+#playerNames
+  Alle inputboksene sammen
