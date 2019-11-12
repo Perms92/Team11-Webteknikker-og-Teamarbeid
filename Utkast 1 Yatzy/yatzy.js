@@ -374,7 +374,6 @@ function like(mitt_kast, antall) {
   return 0;
 }
 
-// Sjekker hvor mange av tall x er i kastet
 function sjekk(hand, tall) {
   var antall = 0;
   for (var i = 0; i < hand.length; i++) {
@@ -388,7 +387,6 @@ function sjekk(hand, tall) {
   return antall;
 }
 
-// Må kobles sammen med en funksjon som heter kast, sjekk def kast i py
 function faseEn(kast, verdi) {
   midlertidig_poeng = 0;
   var antall = sjekk(kast, verdi);
@@ -775,7 +773,7 @@ function finalScore(nyttEllerGjenta) {
     y.style.display = "none";
     hiddenPopFinalScore = true;
     if (nyttEllerGjenta == "nyeSpillere") {
-      location.replace("hjemmeside.html");
+      location.replace("index.html");
     } else if (nyttEllerGjenta == "spillPaNytt") {
       location.reload();
     }
