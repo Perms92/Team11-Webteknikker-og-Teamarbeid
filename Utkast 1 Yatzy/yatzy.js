@@ -13,6 +13,7 @@ var spiller3 = "";
 var spiller4 = "";
 var hvemSinTur = 1;
 var drop = document.getElementById("diceSound");
+var diceroll = document.getElementById("rollsound");
 let hiddenPopFinalScore = true;
 
 // laster inn antall spillere og avatarer ut i fra input varieblene for spiller(1, 2, 3 og 4)
@@ -36,19 +37,23 @@ for (var i = 1; i <= antallSpillere; i++) {
 // teller runder, og kjører spillet
 function kasteKnapp() {
   //console.log("Test mitt_kast " + mitt_kast);
-  var diceroll = document.getElementById("rollsound");
-  diceroll.play();
 
   var x = document.getElementById("kasteKnapp");
   if (x.innerHTML === "Neste kast" && antallKast != 2) {
     antallKast += 1;
-    //console.log("Test 1 kasteKnapp()");
+
     nytt_kast_indexer();
     showDice();
   } else if (x.innerHTML === "Neste kast" && antallKast == 2) {
     antallKast = 0;
     nytt_kast_indexer();
-    //console.log("Test 2 kasteKnapp()");
+    highlightAvatar();
+    drop.play();
+    // resetter terninger etter siste kast
+    for (i=0; i <= 4; i++){
+    document.getElementById("dicePos" + i).style.marginBottom = "0%";
+  }
+
     x.innerHTML = "Start kast";
     showDice();
     score();
@@ -75,19 +80,23 @@ function kasteKnapp() {
       x.innerHTML = "Nytt spill";
     }
   } else if (x.innerHTML === "Start kast") {
+
     antallKast += 1;
     //console.log("Test 4 kasteKnapp()");
     x.innerHTML = "Neste kast";
     startKast();
     showDice();
-  } else if (x.innerHTML === "Start runde 1" || x.innerHTML === "Nytt spill") {
+    diceroll.play();
+  } else if (x.innerHTML === "Start" || x.innerHTML === "Nytt spill") {
     if (x.innerHTML === "Nytt spill") {
       finalScore();
-      resetSpill();
     }
     antallKast += 1;
     //console.log("Test 5 kasteKnapp()");
     x.innerHTML = "Neste kast";
+
+    diceroll.play();
+    highlightAvatar();
     startKast();
     showDice();
   }
@@ -109,27 +118,17 @@ function startKast() {
   //console.log("Test: antallKast startkast " + antallKast);
   // Returnerer arrayet med 5 terninger med random verdier
   document.getElementById("kast").innerHTML = mitt_kast;
-  document.getElementById("dicePos0").style.transition = "all 0.3s";
-  document.getElementById("dicePos0").style.marginBottom = "0%";
-  document.getElementById("dicePos1").style.transition = "all 0.3s";
-  document.getElementById("dicePos1").style.marginBottom = "0%";
-  document.getElementById("dicePos2").style.transition = "all 0.3s";
-  document.getElementById("dicePos2").style.marginBottom = "0%";
-  document.getElementById("dicePos3").style.transition = "all 0.3s";
-  document.getElementById("dicePos3").style.marginBottom = "0%";
-  document.getElementById("dicePos4").style.transition = "all 0.3s";
-  document.getElementById("dicePos4").style.marginBottom = "0%";
+  for (i=0; i <= 4; i++){
+    document.getElementById("dicePos" + i).style.transition = "all 0.3s";
+    document.getElementById("dicePos" + i).style.marginBottom = "0%";
+    document.getElementById(i).checked = false;
+  }
+
   //putter styling av rundeforteller i js slik at man ikke ser deler av rundefortelleren før start spill er trykket
   document.getElementById("rundeForteller").style.border = "solid";
   document.getElementById("rundeForteller").style.borderColor = "#DBAD6A";
   document.getElementById("rundeForteller").style.borderWidth = "0px 0px 2px 0px";
   document.getElementById("rundeForteller").style.padding = "1%";
-
-  document.getElementById(0).checked = false;
-  document.getElementById(1).checked = false;
-  document.getElementById(2).checked = false;
-  document.getElementById(3).checked = false;
-  document.getElementById(4).checked = false;
 }
 
 // Bytter de terningene som ikke er huket i checkbox
@@ -816,4 +815,30 @@ function finalScore(nyttEllerGjenta) {
     hiddenPopFinalScore = false;
     console.log("Test nyttEllerGjenta: " + nyttEllerGjenta);
   }
+}
+function highlightAvatar() {
+  let x = "";
+  let y = "";
+  //kjører en løkke som setter alle style verdiene til orginalt. visibility er nødvendig slik at de ikke går tilbake til originalverdi (hidden)
+  for (var i = 1; i <= antallSpillere; i++) {
+    let y = "imgAvatar" + i;
+    document.getElementById(y).style = "width: 8rem; height: 8rem;";
+    document.getElementById(y).style.visibility = "visible";
+    document.getElementById(y).style.opacity = "0.5";
+    console.log("Test higlightavatar: " + y);
+  }
+
+  if (hvemSinTur == antallSpillere || (hvemSinTur == 1 && runde == 0)) {
+    let knapp = document.getElementById("kasteKnapp");
+    x = "imgAvatar" + 1;
+    z = "avatar" + 1;
+  } else {
+    let knapp = document.getElementById("kasteKnapp");
+    x = "imgAvatar" + (hvemSinTur+1);
+    z = "avatar" + (hvemSinTur+1);
+  }
+  //highlighter avatar
+  document.getElementById(x).style = "width: 9.5rem; height: 9.5rem;";
+  document.getElementById(x).style.visibility = "visible";
+  console.log("Test highlight avatar: " + x);
 }

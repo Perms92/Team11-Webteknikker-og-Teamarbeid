@@ -5,7 +5,7 @@ let isFourGo = false;
 
 
 function oneGo() {
-  isTwoGo = false;
+  isTwoGo = false;s
   isThreeGo = false;
   isFourGo = false;
 
