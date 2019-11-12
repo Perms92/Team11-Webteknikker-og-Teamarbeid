@@ -174,6 +174,7 @@ function tildelBilde() {
 }
 
 
+
 function shuffle(avatars) {
   var currentIndex = avatars.length,
     temporaryValue,

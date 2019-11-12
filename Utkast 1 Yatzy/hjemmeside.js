@@ -114,12 +114,6 @@ function play() {
         location.replace("game.html");
       }
     }
-    /*if ((isOneGo != "") &&
-        (isTwoGo && (isTwoGo != "")) &&
-        (isThreeGo && (isThreeGo != "")) &&
-        (isFourGo && (isFourGo != ""))) {
-          document.getElementById("feilmelding").innerHTML = "";
-          location.replace("index.html");*/
     } catch (err) {
       console.log("Test play() catch err " + err);
       document.getElementById("feilmelding").innerHTML = err;
@@ -128,12 +122,6 @@ function play() {
   console.log("Test play()");
   //localStorage["spillere"] = [localStorage["spiller1"], localStorage["spiller2"], ]
 
-  /*if (screen.width <= 1024) {
-  location.replace("mobile.html");
-}
-  else {
-    location.replace("index.html");
-  }*/
 }
 
 function settSpillernavn() {
