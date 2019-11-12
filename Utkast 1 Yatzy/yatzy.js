@@ -49,9 +49,9 @@ function kasteKnapp() {
     showDice();
   } else if (x.innerHTML === "Neste kast" && antallKast == 2) {
     antallKast = 0;
-    nytt_kast_indexer();
     ////console.log("Test 2 kasteKnapp()");
     x.innerHTML = "Start kast";
+    nytt_kast_indexer();
     showDice();
     score();
     moveToTable();
@@ -394,14 +394,7 @@ function faseEn(kast, verdi) {
   midlertidig_poeng = 0;
   var antall = sjekk(kast, verdi);
   midlertidig_poeng += verdi * antall;
-  //console.log(
-    "Du fikk " +
-      midlertidig_poeng +
-      " poeng for å ha " +
-      antall +
-      " av " +
-      verdi
-  );
+  //console.log("Du fikk " + midlertidig_poeng + " poeng for å ha " + antall + " av " + verdi);
   return midlertidig_poeng;
 }
 
