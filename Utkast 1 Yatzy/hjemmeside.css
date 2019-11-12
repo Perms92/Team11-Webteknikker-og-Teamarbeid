@@ -7,13 +7,8 @@ body {
   height: 100%;
 }
 
-/*
-div {
-  border: 2px solid rgb(113, 115, 130);
-} */
-
-
-#toggleButtons {
+#container {
+margin-top: 3%;
 }
 
 #fancyStartButton {
@@ -25,7 +20,7 @@ button {
   padding: 1rem 2rem;
   text-align: center;
   text-decoration: none;
-  width: 18rem;
+  width: 20%;
   height: 6rem;
   display: inline-block;
   flex-wrap: nowrap;
@@ -40,6 +35,25 @@ button {
   opacity: 1;
   color: white;
   border-radius: 0.2rem;
+}
+
+input {
+  height: 3rem;
+  width: 18%;
+  display: inline-block;
+  font-family: "Pontano Sans", sans-serif;
+  margin-top: 0.2rem;
+  box-sizing: border-box;
+  text-align: center;
+  border-radius: 2%;
+  font-size: 1.5rem;
+}
+
+#playerNames {
+  max-width: 80%;
+  display: flex;
+  justify-content: space-around;
+  margin-left: 10%;
 }
 
 p {
@@ -107,7 +121,7 @@ outline: none;
   text-align: center;
   width: 28rem;
   height: 6rem;
-  margin-top:6%;
+  margin-top:3%;
   outline: none;
   margin-bottom: -5%;
 }
@@ -121,13 +135,6 @@ outline: none;
   font-weight: 700;
   outline: none;
 }
-#playerNames {
-  display: flex;
-  justify-content: space-around;
-  padding-left: 0% 20% 25% 0%;
-  margin-left: 0%;
-  margin-right: -15%;
-}
 
 #play:active {
   transform: scale(1.07);
@@ -138,19 +145,7 @@ outline: none;
   outline: none;
 }
 
-input {
-  height: 3rem;
-  width: 12rem;
-  display: inline-block;
-  font-family: "Pontano Sans", sans-serif;
-  margin-top: 0.2rem;
-  box-sizing: border-box;
-  text-align: center;
-  border-radius: 2%;
-  font-size: 1.5rem;
-}
-
-.multiplayer {
+.singleplayer, .multiplayer {
   visibility: hidden;
 }
 
@@ -170,15 +165,6 @@ input {
   margin-left: 40%;
 } */
 
-#playerNames {
-  max-width: 98%;
-  display: flex;
-  justify-content: space-around;
-  padding-left: 0% 25% 20% 0%;
-  margin-left: 6%;
-  margin-right: -1%;
-}
-
 #logo {
   cursor: pointer;
   width: 20rem;
@@ -189,5 +175,5 @@ input {
   width: 10rem;
   height: auto;
   cursor: pointer;
-  margin-bottom: 0%;
+  margin-top: 3%;
 }
