@@ -93,6 +93,17 @@ function kasteKnapp() {
     if (x.innerHTML === "Nytt spill") {
       finalScore();
     }
+    spiller1 = document.getElementById("spiller1").innerHTML;
+    spiller2 = document.getElementById("spiller2").innerHTML;
+    spiller3 = document.getElementById("spiller3").innerHTML;
+    spiller4 = document.getElementById("spiller4").innerHTML;
+    if (spiller4 != "") {
+      antallSpillere = 4;
+    } else if (spiller3 != "") {
+      antallSpillere = 3;
+    } else if (spiller2 != "") {
+      antallSpillere = 2;
+    }
     antallKast += 1;
     ////console.log("Test 5 kasteKnapp()");
     x.innerHTML = "Neste kast";
@@ -130,7 +141,8 @@ function startKast() {
   //putter styling av rundeforteller i js slik at man ikke ser deler av rundefortelleren før start spill er trykket
   document.getElementById("rundeForteller").style.border = "solid";
   document.getElementById("rundeForteller").style.borderColor = "#DBAD6A";
-  document.getElementById("rundeForteller").style.borderWidth = "0px 0px 2px 0px";
+  document.getElementById("rundeForteller").style.borderWidth =
+    "0px 0px 2px 0px";
   document.getElementById("rundeForteller").style.padding = "1%";
 
   document.getElementById(0).checked = false;
@@ -173,28 +185,28 @@ function nytt_kast_indexer() {
 function rundeForteller(spiller) {
   if (runde <= 6) {
     document.getElementById("rundeForteller").innerHTML =
-      spiller + " sin tur." + "<br />" + " Du vil nå ha " + runde + "-ere";
+      "Det er " + spiller + " sin tur!" + "<br />" + " Du vil nå ha " + runde + "-ere.";
   } else if (runde == 7) {
     document.getElementById("rundeForteller").innerHTML =
-      spiller + " sin tur." + "<br />" + " Du vil nå ha ett par";
+      "Det er " + spiller + " sin tur!" + "<br />" + " Du vil nå ha ett par.";
   } else if (runde == 8) {
     document.getElementById("rundeForteller").innerHTML =
-      spiller + " sin tur." + "<br />" + " Du vil nå ha to par";
+      spiller + " sin tur." + "<br />" + " Du vil nå ha to par.";
   } else if (runde == 9) {
     document.getElementById("rundeForteller").innerHTML =
-      spiller + " sin tur." + "<br />" + " Du vil nå ha tre like";
+      spiller + " sin tur." + "<br />" + " Du vil nå ha tre like.";
   } else if (runde == 10) {
     document.getElementById("rundeForteller").innerHTML =
-      spiller + " sin tur." + "<br />" + " Du vil nå ha fire like";
+      spiller + " sin tur." + "<br />" + " Du vil nå ha fire like.";
   } else if (runde == 11) {
     document.getElementById("rundeForteller").innerHTML =
-      spiller + " sin tur." + "<br />" + " Du vil nå ha liten straight";
+      spiller + " sin tur." + "<br />" + " Du vil nå ha liten straight.";
   } else if (runde == 12) {
     document.getElementById("rundeForteller").innerHTML =
-      spiller + " sin tur." + "<br />" + " Du vil nå ha stor straight";
+      spiller + " sin tur." + "<br />" + " Du vil nå ha stor straight.";
   } else if (runde == 13) {
     document.getElementById("rundeForteller").innerHTML =
-      spiller + " sin tur." + "<br />" + " Du vil nå ha fullt hus";
+      spiller + " sin tur." + "<br />" + " Du vil nå ha fullt hus.";
   } else if (runde == 14) {
     document.getElementById("rundeForteller").innerHTML =
       spiller + " sin tur." + "<br />" + " Sjanse!";
@@ -206,7 +218,6 @@ function rundeForteller(spiller) {
 
 // Sjekker score for alle rundet etter bonus
 function score() {
-
   midlertidig_poeng = 0;
   if (runde < 7) {
     if (hvemSinTur == 1) {
@@ -678,7 +689,6 @@ function showDice() {
 }
 
 function moveDice0() {
-
   if (document.getElementById("dicePos0").style.marginBottom == "-770%") {
     document.getElementById("dicePos0").style.marginBottom = "0%";
     drop.play();
@@ -765,7 +775,6 @@ function resetSpill() {
     document.getElementById(i + "-totalsum").innerHTML = "";
   }
 }
-
 
 function finalScore(nyttEllerGjenta) {
   var y = document.getElementById("finalScore");
