@@ -69,6 +69,11 @@ p {
   font-size: 2.5rem;
 }
 
+#feilmelding {
+  color:red;
+  font-size:5rem;
+}
+
 #onePlayer {
   background-color: #ff0900;
 }
@@ -151,7 +156,7 @@ outline: none;
 
 input {
   height: 6rem;
-  width: 28rem;
+  width: 27rem;
   display: inline-block;
   flex-wrap: wrap;
   font-family: "Pontano Sans", sans-serif;
@@ -166,7 +171,7 @@ input {
 #playerNames {
   margin: 0 auto;
 }
-.multiplayer {
+.singleplayer, .multiplayer {
   visibility: hidden;
 }
 

@@ -180,28 +180,28 @@ function nytt_kast_indexer() {
 function rundeForteller(spiller) {
   if (runde <= 6) {
     document.getElementById("rundeForteller").innerHTML =
-      spiller + " sin tur." + "<br />" + " Du vil nå ha " + runde + "-ere";
+      "Det er " + spiller + " sin tur!" + "<br />" + " Du vil nå ha " + runde + "-ere.";
   } else if (runde == 7) {
     document.getElementById("rundeForteller").innerHTML =
-      spiller + " sin tur." + "<br />" + " Du vil nå ha ett par";
+      "Det er " + spiller + " sin tur!" + "<br />" + " Du vil nå ha ett par.";
   } else if (runde == 8) {
     document.getElementById("rundeForteller").innerHTML =
-      spiller + " sin tur." + "<br />" + " Du vil nå ha to par";
+      spiller + " sin tur." + "<br />" + " Du vil nå ha to par.";
   } else if (runde == 9) {
     document.getElementById("rundeForteller").innerHTML =
-      spiller + " sin tur." + "<br />" + " Du vil nå ha tre like";
+      spiller + " sin tur." + "<br />" + " Du vil nå ha tre like.";
   } else if (runde == 10) {
     document.getElementById("rundeForteller").innerHTML =
-      spiller + " sin tur." + "<br />" + " Du vil nå ha fire like";
+      spiller + " sin tur." + "<br />" + " Du vil nå ha fire like.";
   } else if (runde == 11) {
     document.getElementById("rundeForteller").innerHTML =
-      spiller + " sin tur." + "<br />" + " Du vil nå ha liten straight";
+      spiller + " sin tur." + "<br />" + " Du vil nå ha liten straight.";
   } else if (runde == 12) {
     document.getElementById("rundeForteller").innerHTML =
-      spiller + " sin tur." + "<br />" + " Du vil nå ha stor straight";
+      spiller + " sin tur." + "<br />" + " Du vil nå ha stor straight.";
   } else if (runde == 13) {
     document.getElementById("rundeForteller").innerHTML =
-      spiller + " sin tur." + "<br />" + " Du vil nå ha fullt hus";
+      spiller + " sin tur." + "<br />" + " Du vil nå ha fullt hus.";
   } else if (runde == 14) {
     document.getElementById("rundeForteller").innerHTML =
       spiller + " sin tur." + "<br />" + " Sjanse!";

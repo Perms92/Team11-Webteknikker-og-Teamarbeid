@@ -177,9 +177,15 @@ outline: none;
   margin-bottom: -10%;
 }
 
+#feilmelding {
+  color:red;
+  font-size:170%;
+}
+
 #dice {
   width: 10rem;
   height: auto;
   cursor: pointer;
-  margin-top: 3%;
+  margin-top: 0%;
+  margin-bottom: -2%;
 }

@@ -97,6 +97,7 @@ margin-bottom: 0%;
   margin-right: 77%;
   margin-bottom: 0%;
   background-color: #9a9a9a;
+  outline: none;
 }
 
 button:hover {
@@ -104,15 +105,21 @@ button:hover {
   transition-duration: 0.1s;
   background-color: #5e5e5e;
   color: #ffc061;
+  outline: none;
 }
 
 button:active {
   transform: scale(1.05);
   cursor: default;
   transition-duration: 0.2s;
+  outline: none;
 }
 
 #kast {
+  visibility: hidden;
+}
+
+.multiplayer {
   visibility: hidden;
 }
 
@@ -123,7 +130,7 @@ button:active {
 #dice {
   width: 20rem;
   height: auto;
-  margin-bottom: -5rem;
+  margin-bottom: -7rem;
   margin-left: 55rem;
   margin-top: -5rem;
   cursor: pointer;
@@ -289,6 +296,13 @@ h3 {
     border-radius: 1.8rem;
 }
 
+p {
+  font-size: 4rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 #hsPopUp {
   margin: auto;
   position: absolute;
@@ -364,6 +378,8 @@ li {
 
 #header {
   display: flex;
+  justify-content: space-around;
+  margin-right: 28%;
 }
 
 .avatar {
@@ -382,7 +398,9 @@ li {
 }
 
 .spiller {
-  font-size: 4rem;
+  font-size: 3.5rem;
+  font-weight: 600;
+  justify-content: center;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

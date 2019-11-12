@@ -111,7 +111,7 @@ function play() {
       if (screen.width <= 1024) {
         location.replace("mobile.html");
       } else {
-        location.replace("index.html");
+        location.replace("game.html");
       }
     }
     /*if ((isOneGo != "") &&
@@ -128,12 +128,12 @@ function play() {
   console.log("Test play()");
   //localStorage["spillere"] = [localStorage["spiller1"], localStorage["spiller2"], ]
 
-  if (screen.width <= 1024) {
+  /*if (screen.width <= 1024) {
   location.replace("mobile.html");
 }
   else {
     location.replace("index.html");
-  }
+  }*/
 }
 
 function settSpillernavn() {
