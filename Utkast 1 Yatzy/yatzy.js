@@ -178,10 +178,10 @@ function nytt_kast_indexer() {
 function rundeForteller(spiller) {
   if (runde <= 6) {
     document.getElementById("rundeForteller").innerHTML =
-      "Det er " + spiller + " sin tur!" + "<br />" + " Du vil nå ha " + runde + "-ere.";
+      spiller + " sin tur!" + "<br />" + " Du vil nå ha " + runde + "-ere.";
   } else if (runde == 7) {
     document.getElementById("rundeForteller").innerHTML =
-      "Det er " + spiller + " sin tur!" + "<br />" + " Du vil nå ha ett par.";
+      spiller + " sin tur!" + "<br />" + " Du vil nå ha ett par.";
   } else if (runde == 8) {
     document.getElementById("rundeForteller").innerHTML =
       spiller + " sin tur!" + "<br />" + " Du vil nå ha to par.";
