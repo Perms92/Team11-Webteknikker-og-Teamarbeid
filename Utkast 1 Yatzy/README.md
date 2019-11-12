@@ -1,15 +1,18 @@
 Team11 - Webteknikker og Teamarbeid
 
 Medlemmer i Team 11:
-- Mina
-- Edvard
-- Vetle
-- Per Morten
-- Sigrun
-- Mats
+- Mina Jørstad Uthus
+- Edvard Øfsthus Toft
+- Vetle Tømmerberg
+- Per Morten Solheim
+- Sigrun Ulsund
+- Mats Selboe
 
 
 Denne README tar for seg de viktigste funksjonene og annen info som er til forklaring for faglærer i fager
+
+menyer.js og hjemmeside.js blir ikke kommentert her.
+
 
 Her forklares funksjonene og variablene i yatzy.js
 Vi velger å la consol.log() kodene være slik at det vises hva vi har testet
@@ -214,7 +217,7 @@ onclick="kasteKnapp()"
 id="third"
   Her ligger poengoversikt-tabellen.
 
-Her forklares stylesheet.css og stylesheet2.css:
+Her forklares stylesheet.css, stylesheet2.css og stylesheetmobile.css:
 body
   Generell css for hele game.html
 
@@ -257,4 +260,34 @@ body
 .knappebrett
   Knappen der terningene kastes på brettet
 
-#navneknapp
+#dice
+  Terninglogo
+
+#logo
+  Yatzy-logo
+
+#table, th, td
+  Tabellen sin css
+
+.avatar
+  Avatar bildene
+
+#finalScoreListe, #finalScorePopUp
+  Boksen der totalsummen kommer opp i en liste
+
+
+Her forklares index.CSS:
+button
+  Påvirker alle knappene på spill. Setter en del standardverdier.
+
+#onePlayer, #twoPlayer, #threePlayer, #fourPlayer
+  Knappene som velger antall spillere
+
+#play
+  Knappen som gjør at man kommer videre til game.html
+
+input
+  Feltet som man skriver inn navn i
+
+#playerNames
+  Alle inputboksene sammen

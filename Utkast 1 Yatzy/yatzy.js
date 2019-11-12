@@ -795,6 +795,7 @@ function finalScore(nyttEllerGjenta) {
     //console.log("Test nyttEllerGjenta: " + nyttEllerGjenta);
   }
 }
+
 function resetAvatar() {
   for (var i = 1; i <= antallSpillere; i++) {
     let y = "imgAvatar" + i;
@@ -806,6 +807,7 @@ function resetAvatar() {
     console.log("Test higlightavatar: y " + y);
   }
 }
+
 function highlightAvatar() {
   let x = "";
   let y = "";
@@ -826,5 +828,5 @@ function highlightAvatar() {
   document.getElementById(x).style.opacity = "1";
   document.getElementById(x).style.display = "block";
   document.getElementById(z).style.fontWeight = "900";
-  console.log("Test highlight avatar: x " + x);
+  //console.log("Test highlight avatar: x " + x);
 }

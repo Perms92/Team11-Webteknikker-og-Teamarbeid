@@ -11,13 +11,8 @@ function regler() {
     x.style.display = "block";
     hidden = false;
   }
-  /*  if (x.style.display == "none") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "none";
-  }
-  */
 }
+
 function visHighscore() {
   var y = document.getElementById("popUpContainer");
   var hsPopUp = document.getElementById("hsPopUp");
@@ -86,14 +81,6 @@ function renderHighscores() {
   }
 }
 
-/* function changeCSS() {
-let y =
-  if (document.getElementById("stylesheet1") == "stylesheet.css"){
-    document.getElementById("stylesheet1") = "stylesheet2.css";
-  } else {
-    document.getElementById("stylesheet1")="stylesheet.css";
-  }
-} */
 
 function setStyleSheet(url) {
   var stylesheet = document.getElementById("stylesheet");
@@ -126,9 +113,9 @@ function tildelBilde() {
 }
 
 
-
+// Shuffles
 function shuffle(avatars) {
-  var currentIndex = avatars.length,
+  let currentIndex = avatars.length,
     temporaryValue,
     randomIndex;
 

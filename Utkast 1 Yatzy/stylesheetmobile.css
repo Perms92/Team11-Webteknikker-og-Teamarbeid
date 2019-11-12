@@ -331,25 +331,6 @@ li {
   margin-left: 10%;
 }
 
-/*@media (max-width: 800px) {
-  #container {
-    display: flex;
-  }
-  #first {
-    flex: 1;
-  }
-  #second {
-    flex: 1;
-  }
-
-  #third {
-    flex: 0.5;
-  }
-  #gaTilbake {
-    display: none;
-  }
-}*/
-
 #third {
   margin-top: -45%;
 }
