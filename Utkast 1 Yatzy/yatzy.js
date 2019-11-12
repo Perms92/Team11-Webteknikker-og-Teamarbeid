@@ -1,20 +1,20 @@
-var mitt_kast = [];
-var midlertidig_poeng = 0;
-var antallKast = 0;
-var runde = 0;
-var totalScore1 = 0;
-var totalScore2 = 0;
-var totalScore3 = 0;
-var totalScore4 = 0;
-var antallSpillere = 1;
-var spiller1 = "";
-var spiller2 = "";
-var spiller3 = "";
-var spiller4 = "";
+let mitt_kast = [];
+let midlertidig_poeng = 0;
+let antallKast = 0;
+let runde = 0;
+let totalScore1 = 0;
+let totalScore2 = 0;
+let totalScore3 = 0;
+let totalScore4 = 0;
+let antallSpillere = 1;
+let spiller1 = "";
+let spiller2 = "";
+let spiller3 = "";
+let spiller4 = "";
 let spillere = [];
-var hvemSinTur = 1;
-var drop = document.getElementById("diceSound");
-var diceroll = document.getElementById("rollsound");
+let hvemSinTur = 1;
+let drop = document.getElementById("diceSound");
+let diceroll = document.getElementById("rollsound");
 let hiddenPopFinalScore = true;
 
 function antallAvatarer() {
@@ -29,7 +29,7 @@ function antallAvatarer() {
   } else if (spiller2 != "") {
     antallSpillere = 2;
   }
-  for (var i = 1; i <= antallSpillere; i++) {
+  for (let i = 1; i <= antallSpillere; i++) {
     document.getElementById("imgAvatar" + i).style.display = "block";
   }
 }
@@ -37,7 +37,7 @@ function antallAvatarer() {
 function kasteKnapp() {
   //console.log("Test mitt_kast " + mitt_kast);
 
-  var x = document.getElementById("kasteKnapp");
+  let x = document.getElementById("kasteKnapp");
   if (x.innerHTML === "Neste kast" && antallKast != 2) {
     antallKast += 1;
     nytt_kast_indexer();
@@ -163,8 +163,8 @@ function nyttKast(indekser) {
 
 // Definerer hvilke indekser som skal kastes på nytt
 function nytt_kast_indexer() {
-  var nyeTerninger = [];
-  for (var i = 0; i <= 4; i++) {
+  let nyeTerninger = [];
+  for (let i = 0; i <= 4; i++) {
     if (document.getElementById(i).checked) {
       nyeTerninger[i] = 1;
     } else {
@@ -355,7 +355,7 @@ function score() {
 }
 
 function like(mitt_kast, antall) {
-  var verdi = 0;
+  let verdi = 0;
   if (sjekk(mitt_kast, 6) >= antall) {
     verdi = antall * 6;
     return verdi;
@@ -380,8 +380,8 @@ function like(mitt_kast, antall) {
 }
 
 function sjekk(hand, tall) {
-  var antall = 0;
-  for (var i = 0; i < hand.length; i++) {
+  let antall = 0;
+  for (let i = 0; i < hand.length; i++) {
     //console.log("Test for-løkke sjekk() " + i);
     if (hand[i] == tall) {
       //console.log("Test sjekk(), i: " + i + ", tall: " + tall);
@@ -394,15 +394,15 @@ function sjekk(hand, tall) {
 
 function faseEn(kast, verdi) {
   midlertidig_poeng = 0;
-  var antall = sjekk(kast, verdi);
+  let antall = sjekk(kast, verdi);
   midlertidig_poeng += verdi * antall;
   //console.log("Du fikk " + midlertidig_poeng + " poeng for å ha " + antall + " av " + verdi);
   return midlertidig_poeng;
 }
 
 function bonus() {
-  var bonuspoeng = 50;
-  var ikkeBonus = 0;
+  let bonuspoeng = 50;
+  let ikkeBonus = 0;
 
   if (hvemSinTur == 1) {
     document.getElementById("1-faseEn").innerHTML = totalScore1;
@@ -453,7 +453,7 @@ function toPar(mitt_kast) {
   // Grunnen til at denne ikke ble forenklet i en for-løkke
   // er fordi vi ikke kan .pop() ut verdiene vi bruker
   // Disse verdiene må hentes for terningbildene
-  for (var i = 0; i < 5; i++) {
+  for (let i = 0; i < 5; i++) {
     if (mitt_kast[i] == 6) {
       tall6 += 1;
       if (tall6 == 2) {
@@ -545,7 +545,7 @@ function litenStraight() {
   mitt_kast.sort();
   //console.log("Test mitt_kast.sort() litenStraight " + mitt_kast);
   if (mitt_kast[0] == 1 && mitt_kast[4] == 5) {
-    for (var i = 0; i < 4; i++) {
+    for (let i = 0; i < 4; i++) {
       if (mitt_kast[i + 1] - mitt_kast[i] == 1) {
         //console.log("Test liten straight: Ja");
       } else {
@@ -562,7 +562,7 @@ function litenStraight() {
 function storStraight() {
   mitt_kast.sort();
   if (mitt_kast[0] == 2 && mitt_kast[4] == 6) {
-    for (var i = 0; i < 4; i++) {
+    for (let i = 0; i < 4; i++) {
       if (mitt_kast[i + 1] - mitt_kast[i] == 1) {
         //console.log("Test stor straight: Ja");
       } else {
@@ -640,7 +640,7 @@ function moveToTable() {
     }
     if (hvemSinTur == antallSpillere) {
       let finalScoreListe = [];
-      for (var i = 1; i <= antallSpillere; i++){
+      for (let i = 1; i <= antallSpillere; i++){
         let y = "spiller" + i + "";
         spillere[i-1] = localStorage[y];
         //console.log("Test runde 15 localStorage y: " + spillere[i-1]);
@@ -658,7 +658,7 @@ function moveToTable() {
 
       //console.log("Test sortert finalScoreListe: " + finalScoreListe);
 
-      for (var y = 1; y <= 4; y++){
+      for (let y = 1; y <= 4; y++){
         let p = "plass" + y + "";
         document.getElementById(p).innerHTML = finalScoreListe[y-1];
         if (localStorage[("spiller" + y)] == "") {
@@ -674,9 +674,9 @@ function moveToTable() {
 
 function showDice() {
   //console.log("Test showDice() function");
-  for (var i = 0; i <= 4; i++) {
-    var diceName = "img/dice" + mitt_kast[i] + ".png";
-    var showDiceId = "dicePos" + i;
+  for (let i = 0; i <= 4; i++) {
+    let diceName = "img/dice" + mitt_kast[i] + ".png";
+    let showDiceId = "dicePos" + i;
     //console.log("Test showDice diceName " + diceName);
     //console.log("Test showDiceId " + showDiceId);
     document.getElementById(showDiceId).src = diceName;
@@ -734,7 +734,7 @@ function moveDice4() {
 }
 
 function resetSpill() {
-  var x = document.getElementById("kasteKnapp");
+  let x = document.getElementById("kasteKnapp");
   x.innerHTML = "Start runde 1";
   midlertidig_poeng = 0;
   antallKast = 0;
@@ -763,8 +763,8 @@ function resetSpill() {
     antallSpillere = 1;
   }
   spiller1 = localStorage["spiller1"];
-  for (var i = 1; i <= antallSpillere; i++) {
-    for (var y = 1; y < 16; y++) {
+  for (let i = 1; i <= antallSpillere; i++) {
+    for (let y = 1; y < 16; y++) {
       document.getElementById(i + "-" + y).innerHTML = "";
     }
     document.getElementById(i + "-faseEn").innerHTML = "";
@@ -775,8 +775,8 @@ resetAvatar();
 }
 
 function finalScore(nyttEllerGjenta) {
-  var y = document.getElementById("finalScore");
-  var finalScorePopUp = document.getElementById("finalScorePopUp");
+  let y = document.getElementById("finalScore");
+  let finalScorePopUp = document.getElementById("finalScorePopUp");
 
   if (!hiddenPopFinalScore) {
     y.style.display = "none";
@@ -797,7 +797,7 @@ function finalScore(nyttEllerGjenta) {
 }
 
 function resetAvatar() {
-  for (var i = 1; i <= antallSpillere; i++) {
+  for (let i = 1; i <= antallSpillere; i++) {
     let y = "imgAvatar" + i;
     let z = "avatar" + i;
     document.getElementById(y).style.transform = "scale(0.8)";

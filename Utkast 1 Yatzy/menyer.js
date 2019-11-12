@@ -2,7 +2,7 @@ let hidden = true;
 let hiddenPopHs = true;
 
 function regler() {
-  var x = document.getElementById("regler");
+  let x = document.getElementById("regler");
   // x.style,display = "none"; ved eventuelt onload, da vil den fungere igjen
   if (!hidden) {
     x.style.display = "none";
@@ -14,8 +14,8 @@ function regler() {
 }
 
 function visHighscore() {
-  var y = document.getElementById("popUpContainer");
-  var hsPopUp = document.getElementById("hsPopUp");
+  let y = document.getElementById("popUpContainer");
+  let hsPopUp = document.getElementById("hsPopUp");
   renderHighscores();
   if (!hiddenPopHs) {
     y.style.display = "none";
@@ -61,7 +61,7 @@ function localGet() {
 }
 
 function setStyleSheet(url) {
-  var stylesheet = document.getElementById("stylesheet");
+  let stylesheet = document.getElementById("stylesheet");
   stylesheet.setAttribute("href", url);
 }
 
@@ -112,7 +112,7 @@ function shuffle(avatars) {
 }
 
 function dropmenu() {
-  var x = document.getElementById("toggleButtons");
+  let x = document.getElementById("toggleButtons");
   // x.style,display = "none"; ved eventuelt onload, da vil den fungere igjen
   if (!hidden) {
     x.style.display = "none";
