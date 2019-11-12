@@ -14,6 +14,7 @@ var spiller4 = "";
 let spillere = [];
 var hvemSinTur = 1;
 var drop = document.getElementById("diceSound");
+var diceroll = document.getElementById("rollsound");
 let hiddenPopFinalScore = true;
 
 function antallAvatarer() {
@@ -35,8 +36,6 @@ function antallAvatarer() {
 
 function kasteKnapp() {
   //console.log("Test mitt_kast " + mitt_kast);
-  var diceroll = document.getElementById("rollsound");
-  diceroll.play();
 
   var x = document.getElementById("kasteKnapp");
   if (x.innerHTML === "Neste kast" && antallKast != 2) {
@@ -44,6 +43,11 @@ function kasteKnapp() {
     nytt_kast_indexer();
     showDice();
   } else if (x.innerHTML === "Neste kast" && antallKast == 2) {
+    // resetter posisjonen på terningene etter siste kast
+    //
+    for (i=0;i<=4;i++){
+      document.getElementById("dicePos" + i).style.marginBottom = "0%";
+    }
     highlightAvatar();
     antallKast = 0;
     //console.log("Test 2 kasteKnapp()");
@@ -53,6 +57,7 @@ function kasteKnapp() {
     score();
     moveToTable();
     fakeYatzy();
+    drop.play();
 
     if (hvemSinTur != antallSpillere) {
       //console.log("Test hvemSinTur og ikke antallSpillere: " + hvemSinTur + ", " + antallSpillere);
@@ -86,10 +91,12 @@ function kasteKnapp() {
     x.innerHTML = "Neste kast";
     startKast();
     showDice();
+    diceroll.play();
   } else if (x.innerHTML === "Start runde 1" || x.innerHTML === "Nytt spill") {
     if (x.innerHTML === "Nytt spill") {
       finalScore();
       resetSpill();
+      resetAvatar();
       hvemSinTur = 1;
     }
     antallKast += 1;
@@ -97,6 +104,7 @@ function kasteKnapp() {
     x.innerHTML = "Neste kast";
     startKast();
     showDice();
+    diceroll.play();
     highlightAvatar();
   }
 }
@@ -134,11 +142,9 @@ function startKast() {
     "0px 0px 2px 0px";
   document.getElementById("rundeForteller").style.padding = "1%";
 
-  document.getElementById(0).checked = false;
-  document.getElementById(1).checked = false;
-  document.getElementById(2).checked = false;
-  document.getElementById(3).checked = false;
-  document.getElementById(4).checked = false;
+  for (i=0;i<=4;i++){
+  document.getElementById(i).checked = false;
+  }
 }
 
 // Bytter de terningene som ikke er huket i checkbox
@@ -763,6 +769,7 @@ function resetSpill() {
     document.getElementById(i + "-bonus").innerHTML = "";
     document.getElementById(i + "-totalsum").innerHTML = "";
   }
+resetAvatar();
 }
 
 function finalScore(nyttEllerGjenta) {
@@ -784,11 +791,7 @@ function finalScore(nyttEllerGjenta) {
     //console.log("Test nyttEllerGjenta: " + nyttEllerGjenta);
   }
 }
-
-function highlightAvatar() {
-  let x = "";
-  let y = "";
-  //kjører en løkke som setter alle style verdiene til orginalt. visibility er nødvendig slik at de ikke går tilbake til originalverdi (hidden)
+function resetAvatar() {
   for (var i = 1; i <= antallSpillere; i++) {
     let y = "imgAvatar" + i;
     document.getElementById(y).style = "width: 8rem; height: 8rem;";
@@ -796,6 +799,12 @@ function highlightAvatar() {
     document.getElementById(y).style.opacity = "0.5";
     console.log("Test higlightavatar: y " + y);
   }
+}
+function highlightAvatar() {
+  let x = "";
+  let y = "";
+  //kjører en løkke som setter alle style verdiene til orginalt. visibility er nødvendig slik at de ikke går tilbake til originalverdi (hidden)
+  resetAvatar();
 
   if (hvemSinTur == antallSpillere || (antallKast == 1 && runde == 1)) {
     let knapp = document.getElementById("kasteKnapp");
