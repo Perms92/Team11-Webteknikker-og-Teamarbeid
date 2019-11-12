@@ -374,7 +374,6 @@ function like(mitt_kast, antall) {
   return 0;
 }
 
-// Sjekker hvor mange av tall x er i kastet
 function sjekk(hand, tall) {
   let antall = 0;
   for (let i = 0; i < hand.length; i++) {
@@ -388,7 +387,6 @@ function sjekk(hand, tall) {
   return antall;
 }
 
-// Må kobles sammen med en funksjon som heter kast, sjekk def kast i py
 function faseEn(kast, verdi) {
   midlertidig_poeng = 0;
   let antall = sjekk(kast, verdi);
@@ -506,6 +504,7 @@ function toPar(mitt_kast) {
 function treLike() {
   let treLikeSum = 0;
   mitt_kast.sort();
+
   //console.log("Test trelike Sort() " + mitt_kast);
   if (mitt_kast[0] == mitt_kast[2]) {
     treLikeSum = mitt_kast[0] + mitt_kast[1] + mitt_kast[2];
@@ -730,6 +729,8 @@ function moveDice4() {
 }
 
 function resetSpill() {
+  var x = document.getElementById("kasteKnapp");
+  x.innerHTML = "Start runde 1";
   midlertidig_poeng = 0;
   antallKast = 0;
   runde = 1;
@@ -765,6 +766,7 @@ function resetSpill() {
     document.getElementById(i + "-bonus").innerHTML = "";
     document.getElementById(i + "-totalsum").innerHTML = "";
   }
+  highlightAvatar();
 }
 
 function finalScore(nyttEllerGjenta) {
@@ -795,9 +797,11 @@ function highlightAvatar() {
   //kjører en løkke som setter alle style verdiene til orginalt. visibility er nødvendig slik at de ikke går tilbake til originalverdi (hidden)
   for (let i = 1; i <= antallSpillere; i++) {
     let y = "imgAvatar" + i;
-    document.getElementById(y).style = "width: 8rem; height: 8rem;";
-    document.getElementById(y).style.visibility = "visible";
+    let z = "avatar" + i;
+    document.getElementById(y).style.transform = "scale(0.8)";
+    document.getElementById(y).style.display = "block";
     document.getElementById(y).style.opacity = "0.5";
+    document.getElementById(z).style.fontWeight="lighter";
     console.log("Test higlightavatar: y " + y);
   }
 
@@ -811,8 +815,10 @@ function highlightAvatar() {
     z = "avatar" + (hvemSinTur+1);
   }
   //highlighter avatar
-  document.getElementById(x).style = "width: 9.5rem; height: 9.5rem;";
-  document.getElementById(x).style.visibility = "visible";
+  document.getElementById(x).style.transform = "scale(1.25)";
+  document.getElementById(x).style.opacity = "1";
+  document.getElementById(x).style.display = "block";
+  document.getElementById(z).style.fontWeight = "bold";
   console.log("Test highlight avatar: x " + x);
 }
 
