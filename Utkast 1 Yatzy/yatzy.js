@@ -11,7 +11,7 @@ var spiller1 = "";
 var spiller2 = "";
 var spiller3 = "";
 var spiller4 = "";
-let spillere = [];
+//var spillere = [];
 var hvemSinTur = 1;
 var drop = document.getElementById("diceSound");
 var diceroll = document.getElementById("rollsound");
@@ -637,11 +637,11 @@ function moveToTable() {
     }
     if (hvemSinTur == antallSpillere) {
       let finalScoreListe = [];
-      for (var i = 1; i <= antallSpillere; i++){
+      /*for (var i = 1; i <= antallSpillere; i++){
         let y = "spiller" + i + "";
         spillere[i-1] = localStorage[y];
         //console.log("Test runde 15 localStorage y: " + spillere[i-1]);
-      }
+      }*/
 
       finalScoreListe[0] = totalScore1 + " poeng til " + spiller1;
       finalScoreListe[1] = totalScore2 + " poeng til " + spiller2;
