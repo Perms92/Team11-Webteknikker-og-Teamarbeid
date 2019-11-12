@@ -504,6 +504,7 @@ function toPar(mitt_kast) {
 function treLike() {
   let treLikeSum = 0;
   mitt_kast.sort();
+
   //console.log("Test trelike Sort() " + mitt_kast);
   if (mitt_kast[0] == mitt_kast[2]) {
     treLikeSum = mitt_kast[0] + mitt_kast[1] + mitt_kast[2];
