@@ -386,20 +386,10 @@ li {
   width: 13rem;
   height: auto;
   border-radius: 50%;
-  display: block;
+  display: none;
   margin-bottom: 0%;
   margin-top: -50%;
   transition-duration: 0.5s;
-}
-.avatar:hover {
-  width: 17rem;
-  transition-duration: 0.5s;
-}
-
-.spiller {
-  font-size: 3.5rem;
-  font-weight: 600;
-  justify-content: center;
 }
 
 #finalScorePopUp {

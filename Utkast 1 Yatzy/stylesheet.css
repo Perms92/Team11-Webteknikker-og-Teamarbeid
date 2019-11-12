@@ -367,17 +367,16 @@ td {
   width: 8rem;
   height: 8rem;
   border-radius: 50%;
-  display: block;
+  display: none;
   margin-bottom: -10%;
   transition-duration: 0.5s;
-  visibility: hidden;
 }
 
 #header {
   display: flex;
-  justify-content: space-between;
-  margin-right: 10%;
-  margin-left: 10%;
+  justify-content: space-around;
+  margin-right: 0%;
+  margin-left: 0%;
 }
 
 #avatar1:hover, #avatar2:hover, #avatar3:hover, #avatar4:hover {
@@ -386,7 +385,7 @@ td {
   transition-duration: 0s;
 }
 
-#hsPopUp,  {
+#hsPopUp {
   margin: auto;
   position: absolute;
   top: 0;

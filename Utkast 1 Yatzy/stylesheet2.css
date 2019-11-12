@@ -361,20 +361,11 @@ td {
   width: 8rem;
   height: 8rem;
   border-radius: 50%;
-  display: block;
+  display: none;
   margin-bottom: -10%;
   transition-duration: 0.5s;
 }
-.avatar:hover {
-  width: 9.5rem;
-  height: 9.5rem;
-  transition-duration: 0.5s;
 
-}
-.spiller {
-  margin-bottom: 0;
-  font-size: 1.7rem;
-}
 #header {
   display: flex;
   justify-content: space-between;
