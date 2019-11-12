@@ -452,6 +452,7 @@ td {
   right: 0;
   height: 400px;
   width: 500px;
+<<<<<<< HEAD
   opacity: 1;
   font-size: 3rem;
   border: 0.8rem solid;
@@ -459,6 +460,10 @@ td {
   border-radius: 0.5rem;
   background-color: #ffffff;
   background-image: url("https://www.transparenttextures.com/patterns/diamond-upholstery.png");
+=======
+  border: 1px solid black;
+  background-color: white;
+>>>>>>> parent of 4cb49b6... fikset higlight av avatarer
 }
 
 /* top-left border-radius */
