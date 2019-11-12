@@ -96,8 +96,6 @@ function kasteKnapp() {
     if (x.innerHTML === "Nytt spill") {
       finalScore();
       resetSpill();
-      resetAvatar();
-      hvemSinTur = 1;
     }
     antallKast += 1;
     ////console.log("Test 5 kasteKnapp()");
@@ -381,7 +379,6 @@ function like(mitt_kast, antall) {
   return 0;
 }
 
-// Sjekker hvor mange av tall x er i kastet
 function sjekk(hand, tall) {
   var antall = 0;
   for (var i = 0; i < hand.length; i++) {
@@ -395,7 +392,6 @@ function sjekk(hand, tall) {
   return antall;
 }
 
-// Må kobles sammen med en funksjon som heter kast, sjekk def kast i py
 function faseEn(kast, verdi) {
   midlertidig_poeng = 0;
   var antall = sjekk(kast, verdi);
@@ -513,6 +509,7 @@ function toPar(mitt_kast) {
 function treLike() {
   let treLikeSum = 0;
   mitt_kast.sort();
+
   //console.log("Test trelike Sort() " + mitt_kast);
   if (mitt_kast[0] == mitt_kast[2]) {
     treLikeSum = mitt_kast[0] + mitt_kast[1] + mitt_kast[2];
@@ -661,9 +658,12 @@ function moveToTable() {
 
       //console.log("Test sortert finalScoreListe: " + finalScoreListe);
 
-      for (var y = 1; y <= antallSpillere; y++){
+      for (var y = 1; y <= 4; y++){
         let p = "plass" + y + "";
         document.getElementById(p).innerHTML = finalScoreListe[y-1];
+        if (localStorage[("spiller" + y)] == "") {
+          document.getElementById(p).style.display = "none";
+        }
       }
       finalScore();
     }
@@ -780,7 +780,9 @@ function finalScore(nyttEllerGjenta) {
     y.style.display = "none";
     hiddenPopFinalScore = true;
     if (nyttEllerGjenta == "nyeSpillere") {
-      location.replace("hjemmeside.html");
+      location.replace("index.html");
+    } else if (nyttEllerGjenta == "spillPaNytt") {
+      location.reload();
     }
     //console.log("Test nyttEllerGjenta: " + nyttEllerGjenta);
   } else {
