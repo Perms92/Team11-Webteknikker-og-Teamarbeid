@@ -27,17 +27,6 @@ function visHighscore() {
 }
 
 
-let testpersoner = [
-  { navn: "Peder", score: 123 },
-  { navn: "Andy", score: 156 }
-];
-
-//Husk å fjerne testpersoner
-
-localStorage.setItem("highscores", JSON.stringify(testpersoner));
-
-console.log(JSON.parse(localStorage.getItem("highscores")));
-
 function sorterer(pers1, pers2) {
   if (pers1.score > pers2.score) {
     return -1;
@@ -70,17 +59,6 @@ function localSet(person, score) {
 function localGet() {
   return JSON.parse(localStorage.getItem("highscores")).sort(sorterer);
 }
-
-function renderHighscores() {
-  let highscores = localGet();
-  console.log(highscores);
-  for (let person of highscores) {
-    let li = document.createElement("li");
-    li.textContent = person.navn + " har score: " + person.score;
-    document.getElementById("hs").append(li);
-  }
-}
-
 
 function setStyleSheet(url) {
   var stylesheet = document.getElementById("stylesheet");

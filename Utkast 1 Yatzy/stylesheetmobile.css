@@ -301,6 +301,12 @@ p {
   text-overflow: ellipsis;
 }
 
+.spiller {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 #hsPopUp {
   margin: auto;
   position: absolute;
@@ -363,7 +369,7 @@ li {
 }
 
 .avatar {
-  padding: 10px;
+  padding: 0px;
   width: 13rem;
   height: auto;
   border-radius: 50%;

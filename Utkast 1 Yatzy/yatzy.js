@@ -87,7 +87,7 @@ function kasteKnapp() {
       hvemSinTur = 1;
     }
     antallKast += 1;
-    ////console.log("Test 4 kasteKnapp()");
+    //console.log("Test 4 kasteKnapp()");
     x.innerHTML = "Neste kast";
     startKast();
     showDice();
@@ -98,7 +98,7 @@ function kasteKnapp() {
       resetSpill();
     }
     antallKast += 1;
-    ////console.log("Test 5 kasteKnapp()");
+    //console.log("Test 5 kasteKnapp()");
     x.innerHTML = "Neste kast";
     startKast();
     showDice();
@@ -109,7 +109,7 @@ function kasteKnapp() {
 
 // Oppretter første kast hver runde
 function startKast() {
-  ////console.log("Test antallKast startKast() " + antallKast);
+  //console.log("Test antallKast startKast() " + antallKast);
   if (hvemSinTur == 1 && runde == 0) {
     runde += 1;
     rundeForteller(spiller1);
@@ -120,7 +120,7 @@ function startKast() {
     mitt_kast[i] = Math.floor(Math.random() * 6 + 1);
   }
   // Teller startkastet som kast nr. 1
-  ////console.log("Test: antallKast startkast " + antallKast);
+  //console.log("Test: antallKast startkast " + antallKast);
   // Returnerer arrayet med 5 terninger med random verdier
   document.getElementById("kast").innerHTML = mitt_kast;
   document.getElementById("dicePos0").style.transition = "all 0.3s";
@@ -147,18 +147,18 @@ function startKast() {
 
 // Bytter de terningene som ikke er huket i checkbox
 function nyttKast(indekser) {
-  ////console.log("Test: antallKast != 3");
-  ////console.log(indekser + " Test indeks nyttKast");
+  //console.log("Test: antallKast != 3");
+  //console.log(indekser + " Test indeks nyttKast");
   for (i = 0; i <= 4; i++) {
     if (indekser[i] == 0) {
-      ////console.log("Test: indekser [0] " + indekser[i]);
-      // //console.log("Test bytte terning " + i);
+      //console.log("Test: indekser [0] " + indekser[i]);
+      //console.log("Test bytte terning " + i);
       mitt_kast[i] = Math.floor(Math.random() * 6 + 1);
     }
   }
-  ////console.log("Test:nyttKast1 antallKast " + antallKast);
+  //console.log("Test:nyttKast1 antallKast " + antallKast);
   document.getElementById("kast").innerHTML = mitt_kast;
-  ////console.log("Test: reset mitt_kast " + mitt_kast);
+  //console.log("Test: reset mitt_kast " + mitt_kast);
 }
 
 // Definerer hvilke indekser som skal kastes på nytt
@@ -184,28 +184,28 @@ function rundeForteller(spiller) {
       "Det er " + spiller + " sin tur!" + "<br />" + " Du vil nå ha ett par.";
   } else if (runde == 8) {
     document.getElementById("rundeForteller").innerHTML =
-      spiller + " sin tur." + "<br />" + " Du vil nå ha to par.";
+      spiller + " sin tur!" + "<br />" + " Du vil nå ha to par.";
   } else if (runde == 9) {
     document.getElementById("rundeForteller").innerHTML =
-      spiller + " sin tur." + "<br />" + " Du vil nå ha tre like.";
+      spiller + " sin tur!" + "<br />" + " Du vil nå ha tre like.";
   } else if (runde == 10) {
     document.getElementById("rundeForteller").innerHTML =
-      spiller + " sin tur." + "<br />" + " Du vil nå ha fire like.";
+      spiller + " sin tur!" + "<br />" + " Du vil nå ha fire like.";
   } else if (runde == 11) {
     document.getElementById("rundeForteller").innerHTML =
-      spiller + " sin tur." + "<br />" + " Du vil nå ha liten straight.";
+      spiller + " sin tur!" + "<br />" + " Du vil nå ha liten straight.";
   } else if (runde == 12) {
     document.getElementById("rundeForteller").innerHTML =
-      spiller + " sin tur." + "<br />" + " Du vil nå ha stor straight.";
+      spiller + " sin tur!" + "<br />" + " Du vil nå ha stor straight.";
   } else if (runde == 13) {
     document.getElementById("rundeForteller").innerHTML =
-      spiller + " sin tur." + "<br />" + " Du vil nå ha fullt hus.";
+      spiller + " sin tur!" + "<br />" + " Du vil nå ha fullt hus.";
   } else if (runde == 14) {
     document.getElementById("rundeForteller").innerHTML =
-      spiller + " sin tur." + "<br />" + " Sjanse!";
+      spiller + " sin tur!" + "<br />" + " Sjanse!";
   } else if (runde == 15) {
     document.getElementById("rundeForteller").innerHTML =
-      spiller + " sin tur." + "<br />" + " Du vil nå ha fem like - Yatzy!";
+      spiller + " sin tur!" + "<br />" + " Du vil nå ha fem like - Yatzy!";
   }
 }
 
@@ -382,11 +382,11 @@ function like(mitt_kast, antall) {
 function sjekk(hand, tall) {
   var antall = 0;
   for (var i = 0; i < hand.length; i++) {
-    ////console.log("Test for-løkke sjekk() " + i);
+    //console.log("Test for-løkke sjekk() " + i);
     if (hand[i] == tall) {
-      ////console.log("Test sjekk(), i: " + i + ", tall: " + tall);
+      //console.log("Test sjekk(), i: " + i + ", tall: " + tall);
       antall += 1;
-      ////console.log("Test sjekk() antall: "+ antall);
+      //console.log("Test sjekk() antall: "+ antall);
     }
   }
   return antall;
@@ -673,12 +673,12 @@ function moveToTable() {
 
 
 function showDice() {
-  ////console.log("Test showDice() function");
+  //console.log("Test showDice() function");
   for (var i = 0; i <= 4; i++) {
     var diceName = "img/dice" + mitt_kast[i] + ".png";
     var showDiceId = "dicePos" + i;
-    ////console.log("Test showDice diceName " + diceName);
-    ////console.log("Test showDiceId " + showDiceId);
+    //console.log("Test showDice diceName " + diceName);
+    //console.log("Test showDiceId " + showDiceId);
     document.getElementById(showDiceId).src = diceName;
   }
 }
