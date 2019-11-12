@@ -139,26 +139,6 @@ input {
   font-size: 1.5rem;
 }
 
-.multiplayer {
-  visibility: hidden;
-}
-
-/* #playerOne {
-  margin-left: -10%;
-}
-
-#playerTwo {
-  margin-left: 10%;
-}
-
-#playerThree {
-  margin-left: 20%;
-}
-
-#playerFour {
-  margin-left: 40%;
-} */
-
 #playerNames {
   display: flex;
   justify-content: space-around;
@@ -177,7 +157,7 @@ input {
   width: 130px;
   height: auto;
   cursor: pointer;
-  margin-bottom: -100px;
+  margin-bottom: -40%;
 }
 #bildeLogo {
   margin-bottom: 10%;

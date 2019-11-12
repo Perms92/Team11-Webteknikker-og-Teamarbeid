@@ -84,8 +84,6 @@ margin-bottom: 0%;
   margin-top: -2rem;
 }
 
-
-
 #toggleButtons {
     background-color: #FFFFFF;
   display:none;
@@ -140,8 +138,8 @@ button:active {
   cursor: pointer;
   width: 40rem;
   margin-left: 0%;
-  margin-bottom: 0%;
-  margin-top: 0%;
+  margin-bottom: -0%;
+  margin-top: -2%;
   padding: 0;
 }
 
@@ -202,7 +200,7 @@ img:active {
   transition-duration: 0.2s;
 }
 
-#spiller1, #spiller2, #spiller3, #spiller4 {
+.tabellspillernavn {
   display: none;
 }
 
@@ -333,9 +331,6 @@ li {
   margin-left: 10%;
 }
 
-#first {
-  margin-bottom: -20%;
-}
 /*@media (max-width: 800px) {
   #container {
     display: flex;
@@ -354,6 +349,10 @@ li {
     display: none;
   }
 }*/
+
+#third {
+  margin-top: -45%;
+}
 
 #finalScore {
   width: 100%;
@@ -387,23 +386,10 @@ li {
   width: 13rem;
   height: auto;
   border-radius: 50%;
-  display: block;
+  display: none;
   margin-bottom: 0%;
   margin-top: -50%;
   transition-duration: 0.5s;
-}
-.avatar:hover {
-  width: 17rem;
-  transition-duration: 0.5s;
-}
-
-.spiller {
-  font-size: 3.5rem;
-  font-weight: 600;
-  justify-content: center;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 #finalScorePopUp {
@@ -425,9 +411,9 @@ li {
 }
 
 #finalScoreListe {
-  margin-left: 15%;
-  margin-right: 15%;
-  font-size: 8rem;
+  margin-left: 2%;
+  margin-right: 2%;
+  font-size: 7rem;
 }
 
 #popUpContainer,
@@ -514,4 +500,19 @@ table tr:last-child td:first-child {
 /* bottom-right border-radius */
 table tr:last-child td:last-child {
   border-bottom-right-radius: 8px;
+}
+
+/* fikser en iPhone bug på mobil */
+@supports (-webkit-overflow-scrolling: touch) {
+  /* CSS specific to iOS devices */
+  #first {
+    margin-bottom: -10%;
+  }
+}
+
+@supports not (-webkit-overflow-scrolling: touch) {
+  /* CSS for other than iOS devices */
+  #first {
+    margin-bottom: -20%;
+  }
 }

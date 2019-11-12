@@ -346,11 +346,10 @@ td {
   width: 8rem;
   height: 8rem;
   border-radius: 50%;
-  display: block;
+  display: none;
   margin-bottom: -10%;
   transition-duration: 0.5s;
   visibility: hidden;
-
 }
 
 #header {

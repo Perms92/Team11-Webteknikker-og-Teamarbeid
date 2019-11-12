@@ -30,7 +30,7 @@ function antallAvatarer() {
     antallSpillere = 2;
   }
   for (var i = 1; i <= antallSpillere; i++) {
-    document.getElementById("imgAvatar" + i).style.visibility = "visible";
+    document.getElementById("imgAvatar" + i).style.display = "block";
   }
 }
 
@@ -734,6 +734,8 @@ function moveDice4() {
 }
 
 function resetSpill() {
+  var x = document.getElementById("kasteKnapp");
+  x.innerHTML = "Start runde 1";
   midlertidig_poeng = 0;
   antallKast = 0;
   runde = 1;
@@ -796,9 +798,11 @@ function finalScore(nyttEllerGjenta) {
 function resetAvatar() {
   for (var i = 1; i <= antallSpillere; i++) {
     let y = "imgAvatar" + i;
-    document.getElementById(y).style = "width: 8rem; height: 8rem;";
-    document.getElementById(y).style.visibility = "visible";
+    let z = "avatar" + i;
+    document.getElementById(y).style.transform = "scale(0.8)";
+    document.getElementById(y).style.display = "block";
     document.getElementById(y).style.opacity = "0.5";
+    document.getElementById(z).style.fontWeight="lighter";
     console.log("Test higlightavatar: y " + y);
   }
 }
@@ -818,8 +822,10 @@ function highlightAvatar() {
     z = "avatar" + (hvemSinTur+1);
   }
   //highlighter avatar
-  document.getElementById(x).style = "width: 9.5rem; height: 9.5rem;";
-  document.getElementById(x).style.visibility = "visible";
+  document.getElementById(x).style.transform = "scale(1.25)";
+  document.getElementById(x).style.opacity = "1";
+  document.getElementById(x).style.display = "block";
+  document.getElementById(z).style.fontWeight = "bold";
   console.log("Test highlight avatar: x " + x);
 }
 

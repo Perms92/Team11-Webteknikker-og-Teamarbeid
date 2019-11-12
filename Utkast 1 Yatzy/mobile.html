@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Yatzy</title>
-    <link rel="icon" href="img/favicon.jpg" type="image/gif" sizes="16x16">
+    <link rel="icon" href="img/favicon.png" type="image/gif" sizes="16x16">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
     <link rel="stylesheet" id="stylesheet" media='(min-width: 1025px)' type="text/css" href="stylesheet.css">
     <link rel="stylesheet" type="text/css" media='(max-width: 1024px)' href="stylesheetmobile.css">
@@ -16,6 +16,7 @@
       function loadingSpill(){
         settSpillernavn();
         tildelBilde();
+        antallAvatarer();
       }
     </script>
     <div id="container">
@@ -85,10 +86,10 @@
             <th> 2</th>
             <th> 3</th>
             <th> 4</th>
-            <th id="spiller1"></th>
-            <th id="spiller2"></th>
-            <th id="spiller3"></th>
-            <th id="spiller4"></th>
+            <th id="spiller1" class="tabellspillernavn"></th>
+            <th id="spiller2" class="tabellspillernavn"></th>
+            <th id="spiller3" class="tabellspillernavn"></th>
+            <th id="spiller4" class="tabellspillernavn"></th>
           </tr>
           <tr id="enere">
             <td>Enere</td>
