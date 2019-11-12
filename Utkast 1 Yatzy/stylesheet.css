@@ -96,8 +96,6 @@ body {
 p {
   display: flex;
   justify-content: center;
-  margin-top: -15%;
-  margin-bottom: -10%;
   align-items: center;
   font-size: 17px;
 }
@@ -386,6 +384,12 @@ td {
   margin-left: 10%;
 }
 
+#avatar1:hover, #avatar2:hover, #avatar3:hover, #avatar4:hover {
+  font-weight: 600;
+  transition-delay: 0.1s;
+  transition-duration: 0s;
+}
+
 #hsPopUp,  {
   margin: auto;
   position: absolute;
@@ -456,9 +460,7 @@ td {
   background-color: #ffffff;
   background-image: url("https://www.transparenttextures.com/patterns/diamond-upholstery.png");
 }
-#footer {
-  margin-top: 0;
-}
+
 /* top-left border-radius */
 table tr:first-child th:first-child {
   border-top-left-radius: 4px;
