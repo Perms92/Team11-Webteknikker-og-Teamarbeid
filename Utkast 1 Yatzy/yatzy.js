@@ -11,14 +11,29 @@ let spiller1 = "";
 let spiller2 = "";
 let spiller3 = "";
 let spiller4 = "";
+let spillere = [];
 let hvemSinTur = 1;
 let drop = document.getElementById("diceSound");
 let hiddenPopFinalScore = true;
 
-// En felles funksjon som endrer teksten på kasteknappen,
-// teller runder, og kjører spillet
+function antallAvatarer() {
+  spiller1 = document.getElementById("spiller1").innerHTML;
+  spiller2 = document.getElementById("spiller2").innerHTML;
+  spiller3 = document.getElementById("spiller3").innerHTML;
+  spiller4 = document.getElementById("spiller4").innerHTML;
+  if (spiller4 != "") {
+    antallSpillere = 4;
+  } else if (spiller3 != "") {
+    antallSpillere = 3;
+  } else if (spiller2 != "") {
+    antallSpillere = 2;
+  }
+  for (let i = 1; i <= antallSpillere; i++) {
+    document.getElementById("imgAvatar" + i).style.visibility = "visible";
+  }
+}
+
 function kasteKnapp() {
-  console.log("Test runde " + runde);
   //console.log("Test mitt_kast " + mitt_kast);
   let diceroll = document.getElementById("rollsound");
   diceroll.play();
@@ -26,21 +41,21 @@ function kasteKnapp() {
   let x = document.getElementById("kasteKnapp");
   if (x.innerHTML === "Neste kast" && antallKast != 2) {
     antallKast += 1;
-    //console.log("Test 1 kasteKnapp()");
     nytt_kast_indexer();
     showDice();
   } else if (x.innerHTML === "Neste kast" && antallKast == 2) {
+    highlightAvatar();
     antallKast = 0;
-    nytt_kast_indexer();
     //console.log("Test 2 kasteKnapp()");
     x.innerHTML = "Start kast";
+    nytt_kast_indexer();
     showDice();
     score();
     moveToTable();
     fakeYatzy();
 
     if (hvemSinTur != antallSpillere) {
-      console.log("Test hvemSinTur og ikke antallSpillere: " + hvemSinTur + ", " + antallSpillere);
+      //console.log("Test hvemSinTur og ikke antallSpillere: " + hvemSinTur + ", " + antallSpillere);
       hvemSinTur += 1;
       if (hvemSinTur == 1) {
         rundeForteller(spiller1);
@@ -52,7 +67,7 @@ function kasteKnapp() {
         rundeForteller(spiller4);
       }
     } else if (hvemSinTur == antallSpillere) {
-      console.log("Test hvemSinTur og antallSpillere: " + hvemSinTur + ", " + antallSpillere);
+      //console.log("Test hvemSinTur og antallSpillere: " + hvemSinTur + ", " + antallSpillere);
       runde += 1;
       hvemSinTur = 1;
       rundeForteller(spiller1);
@@ -60,43 +75,34 @@ function kasteKnapp() {
         x.innerHTML = "Nytt spill";
       }
     }
-    viseHvemSinTur();
+    //viseHvemSinTur();
   } else if (x.innerHTML === "Start kast") {
     if (runde == 0) {
       runde = 1;
       hvemSinTur = 1;
     }
     antallKast += 1;
-    //console.log("Test 4 kasteKnapp()");
+    ////console.log("Test 4 kasteKnapp()");
     x.innerHTML = "Neste kast";
     startKast();
     showDice();
   } else if (x.innerHTML === "Start runde 1" || x.innerHTML === "Nytt spill") {
     if (x.innerHTML === "Nytt spill") {
       finalScore();
-    }
-    spiller1 = document.getElementById("spiller1").innerHTML;
-    spiller2 = document.getElementById("spiller2").innerHTML;
-    spiller3 = document.getElementById("spiller3").innerHTML;
-    spiller4 = document.getElementById("spiller4").innerHTML;
-    if (spiller4 != "") {
-      antallSpillere = 4;
-    } else if (spiller3 != "") {
-      antallSpillere = 3;
-    } else if (spiller2 != "") {
-      antallSpillere = 2;
+      resetSpill();
     }
     antallKast += 1;
-    //console.log("Test 5 kasteKnapp()");
+    ////console.log("Test 5 kasteKnapp()");
     x.innerHTML = "Neste kast";
     startKast();
     showDice();
+    highlightAvatar();
   }
 }
 
 // Oppretter første kast hver runde
 function startKast() {
-  //console.log("Test antallKast startKast() " + antallKast);
+  ////console.log("Test antallKast startKast() " + antallKast);
   if (hvemSinTur == 1 && runde == 0) {
     runde += 1;
     rundeForteller(spiller1);
@@ -107,7 +113,7 @@ function startKast() {
     mitt_kast[i] = Math.floor(Math.random() * 6 + 1);
   }
   // Teller startkastet som kast nr. 1
-  //console.log("Test: antallKast startkast " + antallKast);
+  ////console.log("Test: antallKast startkast " + antallKast);
   // Returnerer arrayet med 5 terninger med random verdier
   document.getElementById("kast").innerHTML = mitt_kast;
   document.getElementById("dicePos0").style.transition = "all 0.3s";
@@ -123,7 +129,8 @@ function startKast() {
   //putter styling av rundeforteller i js slik at man ikke ser deler av rundefortelleren før start spill er trykket
   document.getElementById("rundeForteller").style.border = "solid";
   document.getElementById("rundeForteller").style.borderColor = "#DBAD6A";
-  document.getElementById("rundeForteller").style.borderWidth = "0px 0px 2px 0px";
+  document.getElementById("rundeForteller").style.borderWidth =
+    "0px 0px 2px 0px";
   document.getElementById("rundeForteller").style.padding = "1%";
 
   document.getElementById(0).checked = false;
@@ -135,18 +142,18 @@ function startKast() {
 
 // Bytter de terningene som ikke er huket i checkbox
 function nyttKast(indekser) {
-  //console.log("Test: antallKast != 3");
-  //console.log(indekser + " Test indeks nyttKast");
+  ////console.log("Test: antallKast != 3");
+  ////console.log(indekser + " Test indeks nyttKast");
   for (i = 0; i <= 4; i++) {
     if (indekser[i] == 0) {
-      //console.log("Test: indekser [0] " + indekser[i]);
-      // console.log("Test bytte terning " + i);
+      ////console.log("Test: indekser [0] " + indekser[i]);
+      // //console.log("Test bytte terning " + i);
       mitt_kast[i] = Math.floor(Math.random() * 6 + 1);
     }
   }
-  //console.log("Test:nyttKast1 antallKast " + antallKast);
+  ////console.log("Test:nyttKast1 antallKast " + antallKast);
   document.getElementById("kast").innerHTML = mitt_kast;
-  //console.log("Test: reset mitt_kast " + mitt_kast);
+  ////console.log("Test: reset mitt_kast " + mitt_kast);
 }
 
 // Definerer hvilke indekser som skal kastes på nytt
@@ -164,31 +171,30 @@ function nytt_kast_indexer() {
 
 // Funksjonsnavnet er selvforklarende
 function rundeForteller(spiller) {
-  console.log("Test runde: " + runde);
   if (runde <= 6) {
     document.getElementById("rundeForteller").innerHTML =
-      spiller + " sin tur." + "<br />" + " Du vil nå ha " + runde + "-ere";
+      "Det er " + spiller + " sin tur!" + "<br />" + " Du vil nå ha " + runde + "-ere.";
   } else if (runde == 7) {
     document.getElementById("rundeForteller").innerHTML =
-      spiller + " sin tur." + "<br />" + " Du vil nå ha ett par";
+      "Det er " + spiller + " sin tur!" + "<br />" + " Du vil nå ha ett par.";
   } else if (runde == 8) {
     document.getElementById("rundeForteller").innerHTML =
-      spiller + " sin tur." + "<br />" + " Du vil nå ha to par";
+      spiller + " sin tur." + "<br />" + " Du vil nå ha to par.";
   } else if (runde == 9) {
     document.getElementById("rundeForteller").innerHTML =
-      spiller + " sin tur." + "<br />" + " Du vil nå ha tre like";
+      spiller + " sin tur." + "<br />" + " Du vil nå ha tre like.";
   } else if (runde == 10) {
     document.getElementById("rundeForteller").innerHTML =
-      spiller + " sin tur." + "<br />" + " Du vil nå ha fire like";
+      spiller + " sin tur." + "<br />" + " Du vil nå ha fire like.";
   } else if (runde == 11) {
     document.getElementById("rundeForteller").innerHTML =
-      spiller + " sin tur." + "<br />" + " Du vil nå ha liten straight";
+      spiller + " sin tur." + "<br />" + " Du vil nå ha liten straight.";
   } else if (runde == 12) {
     document.getElementById("rundeForteller").innerHTML =
-      spiller + " sin tur." + "<br />" + " Du vil nå ha stor straight";
+      spiller + " sin tur." + "<br />" + " Du vil nå ha stor straight.";
   } else if (runde == 13) {
     document.getElementById("rundeForteller").innerHTML =
-      spiller + " sin tur." + "<br />" + " Du vil nå ha fullt hus";
+      spiller + " sin tur." + "<br />" + " Du vil nå ha fullt hus.";
   } else if (runde == 14) {
     document.getElementById("rundeForteller").innerHTML =
       spiller + " sin tur." + "<br />" + " Sjanse!";
@@ -200,7 +206,6 @@ function rundeForteller(spiller) {
 
 // Sjekker score for alle rundet etter bonus
 function score() {
-
   midlertidig_poeng = 0;
   if (runde < 7) {
     if (hvemSinTur == 1) {
@@ -360,7 +365,7 @@ function like(mitt_kast, antall) {
     return verdi;
   } else if (sjekk(mitt_kast, 2) >= antall) {
     verdi = antall * 2;
-    console.log("Test like2 " + verdi);
+    //console.log("Test like2 " + verdi);
     return verdi;
   } else if (sjekk(mitt_kast, 1) >= antall) {
     verdi = antall * 1;
@@ -373,11 +378,11 @@ function like(mitt_kast, antall) {
 function sjekk(hand, tall) {
   let antall = 0;
   for (let i = 0; i < hand.length; i++) {
-    //console.log("Test for-løkke sjekk() " + i);
+    ////console.log("Test for-løkke sjekk() " + i);
     if (hand[i] == tall) {
-      //console.log("Test sjekk(), i: " + i + ", tall: " + tall);
+      ////console.log("Test sjekk(), i: " + i + ", tall: " + tall);
       antall += 1;
-      //console.log("Test sjekk() antall: "+ antall);
+      ////console.log("Test sjekk() antall: "+ antall);
     }
   }
   return antall;
@@ -388,14 +393,7 @@ function faseEn(kast, verdi) {
   midlertidig_poeng = 0;
   let antall = sjekk(kast, verdi);
   midlertidig_poeng += verdi * antall;
-  console.log(
-    "Du fikk " +
-      midlertidig_poeng +
-      " poeng for å ha " +
-      antall +
-      " av " +
-      verdi
-  );
+  //console.log("Du fikk " + midlertidig_poeng + " poeng for å ha " + antall + " av " + verdi);
   return midlertidig_poeng;
 }
 
@@ -497,10 +495,10 @@ function toPar(mitt_kast) {
     }
   }
   if (antallToPar == 2) {
-    console.log("Test toPar score: " + totalScoreToPar);
+    //console.log("Test toPar score: " + totalScoreToPar);
     return totalScoreToPar;
   } else {
-    console.log("Test toPar score 0: " + totalScoreToPar);
+    //console.log("Test toPar score 0: " + totalScoreToPar);
     return 0;
   }
 }
@@ -508,7 +506,7 @@ function toPar(mitt_kast) {
 function treLike() {
   let treLikeSum = 0;
   mitt_kast.sort();
-  console.log("Test trelike Sort() " + mitt_kast);
+  //console.log("Test trelike Sort() " + mitt_kast);
   if (mitt_kast[0] == mitt_kast[2]) {
     treLikeSum = mitt_kast[0] + mitt_kast[1] + mitt_kast[2];
     return treLikeSum;
@@ -526,7 +524,7 @@ function treLike() {
 function fireLike() {
   let firelikeSum = 0;
   mitt_kast.sort();
-  console.log("Test fireLike sort() " + mitt_kast);
+  //console.log("Test fireLike sort() " + mitt_kast);
   if (mitt_kast[0] == mitt_kast[3]) {
     // Kunne laget for-løkke, men det blir flere linjer
     firelikeSum = mitt_kast[0] + mitt_kast[1] + mitt_kast[2] + mitt_kast[3];
@@ -541,13 +539,13 @@ function fireLike() {
 
 function litenStraight() {
   mitt_kast.sort();
-  console.log("Test mitt_kast.sort() litenStraight " + mitt_kast);
+  //console.log("Test mitt_kast.sort() litenStraight " + mitt_kast);
   if (mitt_kast[0] == 1 && mitt_kast[4] == 5) {
     for (let i = 0; i < 4; i++) {
       if (mitt_kast[i + 1] - mitt_kast[i] == 1) {
-        console.log("Test liten straight: Ja");
+        //console.log("Test liten straight: Ja");
       } else {
-        console.log("Test liten straight: Nei");
+        //console.log("Test liten straight: Nei");
         return 0;
       }
     }
@@ -562,9 +560,9 @@ function storStraight() {
   if (mitt_kast[0] == 2 && mitt_kast[4] == 6) {
     for (let i = 0; i < 4; i++) {
       if (mitt_kast[i + 1] - mitt_kast[i] == 1) {
-        console.log("Test stor straight: Ja");
+        //console.log("Test stor straight: Ja");
       } else {
-        console.log("Test stor straight: Nei");
+        //console.log("Test stor straight: Nei");
         return 0;
       }
     }
@@ -600,7 +598,7 @@ function sjanse() {
 function yatzy() {
   mitt_kast.sort();
   if (mitt_kast[0] == mitt_kast[4]) {
-    console.log("DU HAR YAAAAAATZYYYY!!");
+    //console.log("DU HAR YAAAAAATZYYYY!!");
     alert("DU HAR FÅTT YATZY!!!");
     return 50;
   }
@@ -622,8 +620,8 @@ function moveToTable() {
   let spiller = hvemSinTur;
   let spillere = [];
   let sendTilId = spiller + "-" + runde;
-  console.log("Test moveToTable: " + sendTilId);
-  console.log("Test moveToTable midlertidig_poeng: " + midlertidig_poeng);
+  //console.log("Test moveToTable: " + sendTilId);
+  //console.log("Test moveToTable midlertidig_poeng: " + midlertidig_poeng);
   document.getElementById(sendTilId).innerHTML = midlertidig_poeng;
   // legge til animasjon
   if (runde == 15) {
@@ -637,85 +635,51 @@ function moveToTable() {
       document.getElementById("4-totalsum").innerHTML = totalScore4;
     }
     if (hvemSinTur == antallSpillere) {
-      /*let finalScoreListe = [];
-      spillere[finalScoreListe[0]] = localStorage["spiller1"];
-      spillere[finalScoreListe[1]] = localStorage["spiller2"];
-      spillere[finalScoreListe[2]] = localStorage["spiller3"];
-      spillere[finalScoreListe[3]] = localStorage["spiller4"];
-      if (antallSpillere == 4) {
-        finalScoreListe[0] = totalScore1;
-        finalScoreListe[1] = totalScore2;
-        finalScoreListe[2] = totalScore3;
-        finalScoreListe[3] = totalScore4;
-        for (let l = 0; l < antallSpillere; l++) {
-          map[finalScoreListe[l]] = localStorage["spiller" + (l + 1)];
-        }
-        finalScoreListe.sort(function(a, b) {
-          return b - a;
-        });
-        document.getElementById("plass1").innerHTML = finalScoreListe[0];
-        document.getElementById("plass2").innerHTML = finalScoreListe[1];
-        document.getElementById("plass3").innerHTML = finalScoreListe[2];
-        document.getElementById("plass4").innerHTML = finalScoreListe[3];
-      } else if (antallSpillere == 3) {
-        finalScoreListe[0] = totalScore1;
-        finalScoreListe[1] = totalScore2;
-        finalScoreListe[2] = totalScore3;
-        for (let l = 0; l < antallSpillere; l++) {
-          map[finalScoreListe[l]] = localStorage["spiller" + (l + 1)];
-        }
-        finalScoreListe.sort(function(a, b) {
-          return b - a;
-        });
-        document.getElementById("plass1").innerHTML = finalScoreListe[0];
-        document.getElementById("plass2").innerHTML = finalScoreListe[1];
-        document.getElementById("plass3").innerHTML = finalScoreListe[2];
-      } else if (antallSpillere == 2) {
-        finalScoreListe[0] = totalScore1;
-        finalScoreListe[1] = totalScore2;
-        for (let l = 0; l < antallSpillere; l++) {
-          map[finalScoreListe[l]] = localStorage["spiller" + (l + 1)];
-        }
-        finalScoreListe.sort(function(a, b) {
-          return b - a;
-        });
-        document.getElementById("plass1").innerHTML = finalScoreListe[0];
-        document.getElementById("plass2").innerHTML = finalScoreListe[1];
-      } else if (antallSpillere == 1) {
-        finalScoreListe[0] = totalScore1;
-        for (let l = 0; l < antallSpillere; l++) {
-          map[finalScoreListe[l]] = localStorage["spiller" + (l + 1)];
-        }
-        document.getElementById("plass1").innerHTML =
-          spiller1 + " fikk: " + finalScoreListe[0] + " poeng";
+      let finalScoreListe = [];
+      for (let i = 1; i <= antallSpillere; i++){
+        let y = "spiller" + i + "";
+        spillere[i-1] = localStorage[y];
+        //console.log("Test runde 15 localStorage y: " + spillere[i-1]);
       }
-      for (let k = 0; k < antallSpillere; k++) {
-        let knappeplass = document.getElementById("plass" + (k + 1));
-        let navn = document.createElement("span");
-        navn.textContent = map[finalScoreListe[k]];
-        knappeplass.insertBefore(navn, knappeplass.firstChild);
-        console.log(finalScoreListe);
-        knappeplass.appendChild(regScoreBtn(finalScoreListe[k], map));
-      }*/
-      //console.log(map);
+
+      finalScoreListe[0] = totalScore1 + " poeng til " + spiller1;
+      finalScoreListe[1] = totalScore2 + " poeng til " + spiller2;
+      finalScoreListe[2] = totalScore3 + " poeng til " + spiller3;
+      finalScoreListe[3] = totalScore4 + " poeng til " + spiller4;
+
+      //console.log("Test finalScoreListe: " + finalScoreListe);
+      //console.log("Test spillere[finalScoreListe]: " + spillere);
+
+      finalScoreListe.sort((a,b) => parseInt(b.split(' ')[0], 10) - parseInt(a.split(' ')[0], 10));
+
+      //console.log("Test sortert finalScoreListe: " + finalScoreListe);
+
+      for (let y = 1; y <= 4; y++){
+        let p = "plass" + y + "";
+        document.getElementById(p).innerHTML = finalScoreListe[y-1];
+        if (finalScoreListe[y-1] == "") {
+
+        }
+      }
       finalScore();
     }
   }
 }
 
+
+
 function showDice() {
-  //console.log("Test showDice() function");
+  ////console.log("Test showDice() function");
   for (let i = 0; i <= 4; i++) {
     let diceName = "img/dice" + mitt_kast[i] + ".png";
     let showDiceId = "dicePos" + i;
-    //console.log("Test showDice diceName " + diceName);
-    //console.log("Test showDiceId " + showDiceId);
+    ////console.log("Test showDice diceName " + diceName);
+    ////console.log("Test showDiceId " + showDiceId);
     document.getElementById(showDiceId).src = diceName;
   }
 }
 
 function moveDice0() {
-
   if (document.getElementById("dicePos0").style.marginBottom == "-770%") {
     document.getElementById("dicePos0").style.marginBottom = "0%";
     drop.play();
@@ -775,6 +739,7 @@ function resetSpill() {
   totalScore3 = 0;
   totalScore4 = 0;
   map = {};
+  rundeForteller(spiller1);
   if (localStorage["spiller4"] != "") {
     antallSpillere = 4;
     spiller2 = localStorage["spiller2"];
@@ -811,34 +776,75 @@ function finalScore(nyttEllerGjenta) {
     hiddenPopFinalScore = true;
     if (nyttEllerGjenta == "nyeSpillere") {
       location.replace("hjemmeside.html");
+    } else if (nyttEllerGjenta == "spillPaNytt") {
+      location.reload();
     }
-    console.log("Test nyttEllerGjenta: " + nyttEllerGjenta);
+    //console.log("Test nyttEllerGjenta: " + nyttEllerGjenta);
   } else {
     y.style.display = "block";
     hiddenPopFinalScore = false;
+    hvemSinTur = 0;
     resetSpill();
-    console.log("Test nyttEllerGjenta: " + nyttEllerGjenta);
+    //console.log("Test nyttEllerGjenta: " + nyttEllerGjenta);
   }
 }
 
-/*let hiddenPopFinalScore = true;
-function finalScore() {
-  let y = document.getElementById("finalScore");
-  let finalScorePopUp = document.getElementById("finalScorePopUp");
+function highlightAvatar() {
+  let x = "";
+  let y = "";
+  //kjører en løkke som setter alle style verdiene til orginalt. visibility er nødvendig slik at de ikke går tilbake til originalverdi (hidden)
+  for (let i = 1; i <= antallSpillere; i++) {
+    let y = "imgAvatar" + i;
+    document.getElementById(y).style = "width: 8rem; height: 8rem;";
+    document.getElementById(y).style.visibility = "visible";
+    document.getElementById(y).style.opacity = "0.5";
+    console.log("Test higlightavatar: y " + y);
+  }
 
-  if (!hiddenPopFinalScore) {
-    y.style.display = "none";
-    hiddenPopFinalScore = true;
+  if (hvemSinTur == antallSpillere || (antallKast == 1 && runde == 1)) {
+    let knapp = document.getElementById("kasteKnapp");
+    x = "imgAvatar" + 1;
+    z = "avatar" + 1;
   } else {
-    y.style.display = "block";
-    hiddenPopFinalScore = false;
+    let knapp = document.getElementById("kasteKnapp");
+    x = "imgAvatar" + (hvemSinTur+1);
+    z = "avatar" + (hvemSinTur+1);
   }
-}*/
-
-function viseHvemSinTur() {
-  let y = "imgAavatar" + hvemSinTur + "";
-  console.log("Test viseHvemSinTur: " + y);
-  document.getElementsByClassName("avatar").style.opacity="0.7";
-  document.getElementById(y).style.transform="1.1";
-  document.getElementById(y).style.opacity="1";
+  //highlighter avatar
+  document.getElementById(x).style = "width: 9.5rem; height: 9.5rem;";
+  document.getElementById(x).style.visibility = "visible";
+  console.log("Test highlight avatar: x " + x);
 }
+
+
+
+
+/*function highlightAvatar() {
+  let x = "";
+  let y = "";
+  let z = "";
+
+  for (let i = 1; i <= antallSpillere; i++) {
+    let y = "imgAvatar" + i + "";
+    document.getElementById(y).style = "width: 8rem; height: 8rem;";
+    document.getElementById(y).style.visibility = "visible";
+    document.getElementById(y).style.opasity = "0.5";
+    console.log("Test highlightAvatar: " + y);
+  }
+
+  if (hvemSinTur == antallSpillere || (hvemSinTur == 1 && runde == 0)){
+    let knapp = document.getElementById("kasteKnapp");
+    x = "imgAvatar" + 1;
+    z = "avatar" + 1;
+    console.log("");
+  } else {
+    let knapp = document.getElementById("kasteKnapp");
+    x = "imgAvatar" + (hvemSinTur + 1);
+    z = "avatar" + (hvemSinTur + 1);
+  }
+
+  document.getElementById(x).style = "width: 9.5rem; height: 9.5rem;";
+  document.getElementById(x).style.visibility = "visible";
+  console.log("Test highlightAvatar: " + x);
+}
+*/

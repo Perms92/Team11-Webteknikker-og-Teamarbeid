@@ -172,13 +172,8 @@ function tildelBilde() {
   avatarTre.src = avatars[2];
   avatarFire.src = avatars[3];
 }
-function antallAvatarer() {
-  if (antallSpillere == 1) {
-    avatarTo.style.display = hidden;
-    avatarTre.style.display = hidden;
-    avatarFire.style.display = hidden;
-  }
-}
+
+
 
 function shuffle(avatars) {
   var currentIndex = avatars.length,
@@ -197,4 +192,16 @@ function shuffle(avatars) {
     avatars[randomIndex] = temporaryValue;
   }
   return avatars;
+}
+
+function dropmenu() {
+  var x = document.getElementById("toggleButtons");
+  // x.style,display = "none"; ved eventuelt onload, da vil den fungere igjen
+  if (!hidden) {
+    x.style.display = "none";
+    hidden = true;
+  } else {
+    x.style.display = "block";
+    hidden = false;
+  }
 }

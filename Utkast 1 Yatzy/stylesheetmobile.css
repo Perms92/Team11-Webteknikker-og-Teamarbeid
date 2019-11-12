@@ -7,12 +7,12 @@ body {
 }
 
 #brett {
-  background-color: #D20900;
+  background-color: #A60700;
   background-image: url("https://www.transparenttextures.com/patterns/60-lines.png");
   border-radius: 1rem;
   border: 1.5rem solid;
   border-color: #5d5d5d #4e4e4e;
-  height: 110rem;
+  height: 94rem;
   width: 70rem;
 }
  #regler, .knappVenstreSide {
@@ -29,7 +29,7 @@ margin-bottom: 0%;
 #dicePos2,
 #dicePos3,
 #dicePos4 {
-  width: 13rem;
+  width: 12.5rem;
   height: auto;
 }
 
@@ -66,7 +66,6 @@ margin-bottom: 0%;
   font-size: 6rem;
   cursor: pointer;
   border: 0.8rem solid;
-  margin-top: 0rem;
   margin-left: -30rem;
   border-color: #DBAD6A;
   background-color: #3d3d3d;
@@ -75,54 +74,52 @@ margin-bottom: 0%;
   font-family: "Rajdhani", sans-serif;
   font-weight: 700;
   color: white;
-  width: 70%;
-  height: auto;
+  width: 94%;
+  height: 14rem;
   border-radius: 1rem;
   text-align: center;
   cursor: pointer;
-  width: 94%;
-  height: 20rem;
-  padding: 5rem;
+  padding: 0rem;
   margin: 3rem;
   margin-top: -2rem;
 }
 
-/*.knappBrett {
-  padding: 5rem;
-  display: inline-block;
-  font-size: 6rem;
-  cursor: pointer;
-  border: 0.8rem solid;
-  border-color: #ff0900;
-  background-color: #ffffff;
-  opacity: 0.7;
-  font-family: "Be Vietnam", sans-serif;
-  font-weight: 700;
-  color: #ffffff;
-  border-radius: 1rem;
-  text-align: center;
-  width: 50rem;
-  height: 12rem;
-  padding: 2rem;
-  margin: 2.5rem;
-}*/
+
+
+#toggleButtons {
+    background-color: #FFFFFF;
+  display:none;
+}
+
+#menubutton {
+  margin-top: -25%;
+  width: 20%;
+  margin-right: 77%;
+  margin-bottom: 0%;
+  background-color: #9a9a9a;
+  outline: none;
+}
 
 button:hover {
-  transform: scale(1.05);
-  transition-duration: 1.2s;
-  background: url(img/pattern5.png);
-  background-color: #d2d2d2;
-  border-color: #ff0900;
-  color: black;
+  transform: scale(1.02);
+  transition-duration: 0.1s;
+  background-color: #5e5e5e;
+  color: #ffc061;
+  outline: none;
 }
 
 button:active {
-  transform: scale(1.1);
+  transform: scale(1.05);
   cursor: default;
-  transition-duration: 0.5s;
+  transition-duration: 0.2s;
+  outline: none;
 }
 
 #kast {
+  visibility: hidden;
+}
+
+.multiplayer {
   visibility: hidden;
 }
 
@@ -133,7 +130,7 @@ button:active {
 #dice {
   width: 20rem;
   height: auto;
-  margin-bottom: -5rem;
+  margin-bottom: -7rem;
   margin-left: 55rem;
   margin-top: -5rem;
   cursor: pointer;
@@ -142,8 +139,9 @@ button:active {
 #logo {
   cursor: pointer;
   width: 40rem;
-  margin-left: 55rem;
-  margin-bottom: -10rem;
+  margin-left: 0%;
+  margin-bottom: 0%;
+  margin-top: 0%;
   padding: 0;
 }
 
@@ -170,15 +168,16 @@ button:active {
   height: 20rem;
   padding: 5rem;
   margin: 1rem;
+  margin-bottom: 2rem;
 }
 
 
 #kasteKnapp:active {
   transform: scale(1.05);
   cursor: default;
-  transition-duration: 0.5s;
-  border-color: #6e6e6e;
-  color: #FFE161;
+  transition-duration: 0.2s;
+  border: 4px solid;
+  border-color: gold;
   outline: none;
 }
 
@@ -199,14 +198,19 @@ button:active {
 }
 
 img:active {
-  transform: scale(1.2);
-  transition-duration: 0.5s;
+  transform: scale(1.1);
+  transition-duration: 0.2s;
+}
+
+#spiller1, #spiller2, #spiller3, #spiller4 {
+  display: none;
 }
 
 table {
   width: 30rem;
   margin-left: 75rem;
-  margin-top: -180rem;
+  margin-top: 0rem;
+  margin-bottom: -105rem;
   min-width: 20%;
   max-width: 20%;
   text-align: center;
@@ -219,7 +223,8 @@ th {
   background-color: #4d4d4d;
   color: #ffffff;
   padding: 10px;
-  border-bottom: 4px solid #ff0900;
+  border-bottom: 1.2rem solid #ffc061;
+  border-top: 0.6rem solid black;
 }
 
 td {
@@ -227,22 +232,6 @@ td {
   padding: 5px;
   text-align: left;
   border-bottom: 0.5px solid #000000;
-}
-
-#spiller1::before {
-  content: "1";
-}
-
-#spiller2::before {
-  content: "2";
-}
-
-#spiller3::before {
-  content: "3";
-}
-
-#spiller4::before {
-  content: "4";
 }
 
 #terninger {
@@ -258,12 +247,11 @@ td {
 #rundeForteller {
   font-size: 6rem;
   color: white;
-  background-color: #a80600;
+  background-color: #7E0500;
   background-image: url("https://www.transparenttextures.com/patterns/60-lines.png");
   opacity: 1;
   font-weight: 100;
   font-family: "Pontano Sans", sans-serif;
-  border-radius: 1rem;
   border-width: 1rem;
   border-style: hidden;
   margin-top: 0.1rem;
@@ -273,39 +261,21 @@ td {
   border-bottom: 1px solid gold;
 }
 
-#reglerButton {
-  display: inline-block;
-  font-size: 6rem;
-  cursor: pointer;
-  border: 0.8rem solid;
-  border-color: #DBAD6A;
-  background-color: #3d3d3d;
-  background-image: url("https://www.transparenttextures.com/patterns/diagmonds.png");
-  opacity: 1;
-  font-family: "Rajdhani", sans-serif;
-  font-weight: 700;
-  color: white;
-  width: 70%;
-  height: auto;
-  border-radius: 1rem;
-  text-align: center;
-  cursor: pointer;
-  width: 94%;
-  height: 20rem;
-  padding: 5rem;
-  margin: 3rem;
-  margin-top: -0.3rem;
-}
-
 #highscoreId {
 }
 
 #regler {
-  font-size: 10rem;
+  font-size: 5rem;
+  margin-left: 10%;
+  margin-right: 10%;
+  display: none;
+  margin-bottom: 5%;
 }
 
 #spiller1,
-#spiller2 {
+#spiller2,
+#spiller3,
+#spiller4 {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -319,16 +289,20 @@ h3 {
   display: none;
 }
 
-
-.dices:active {
-  opacity: 0.8;
-}
   .dices:hover {
     opacity: 1;
     border: 2px solid;
     border-color: yellow;
-    border-radius: 2rem;
+    border-radius: 1.8rem;
 }
+
+p {
+  font-size: 4rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 #hsPopUp {
   margin: auto;
   position: absolute;
@@ -337,7 +311,8 @@ h3 {
   bottom: 0;
   right: 0;
   height: 500px;
-  width: 500px;
+  font-size: 6rem;
+  width: 97%;
   border: 1px solid black;
   background-color: #ffffff;
   border-radius: 10px;
@@ -350,9 +325,17 @@ h3 {
   height: 100%;
   background-color: rgba(204, 204, 204, 0.5);
   position: absolute;
+  margin-top: -70%;
   display: none;
 }
 
+li {
+  margin-left: 10%;
+}
+
+#first {
+  margin-bottom: -20%;
+}
 /*@media (max-width: 800px) {
   #container {
     display: flex;
@@ -395,6 +378,8 @@ h3 {
 
 #header {
   display: flex;
+  justify-content: space-around;
+  margin-right: 28%;
 }
 
 .avatar {
@@ -403,8 +388,8 @@ h3 {
   height: auto;
   border-radius: 50%;
   display: block;
-  margin-bottom: -10%;
-  margin-top: -130%;
+  margin-bottom: 0%;
+  margin-top: -50%;
   transition-duration: 0.5s;
 }
 .avatar:hover {
@@ -413,8 +398,104 @@ h3 {
 }
 
 .spiller {
-  font-size: 4rem;
+  font-size: 3.5rem;
+  font-weight: 600;
+  justify-content: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
+
+#finalScorePopUp {
+  margin: auto;
+  position: absolute;
+  top: -500px;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 45%;
+  width: 100%;
+  opacity: 1;
+  font-size: 3rem;
+  border: 0.8rem solid;
+  border-color: #3a3a3a;
+  border-radius: 0.5rem;
+  background-color: #ffffff;
+  background-image: url("https://www.transparenttextures.com/patterns/diamond-upholstery.png");
+}
+
+#finalScoreListe {
+  margin-left: 15%;
+  margin-right: 15%;
+  font-size: 8rem;
+}
+
+#popUpContainer,
+#finalScore {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(204, 204, 204, 0.5);
+  position: absolute;
+  display: none;
+}
+
+#hsPopUp,  {
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 500px;
+  width: 500px;
+  border: 1px solid black;
+  background-color: #ffffff;
+  border-radius: 10px;
+  border: 3px solid #ff0900;
+  opacity: 1;
+}
+
+.litenKnapp {
+  display: inline-block;
+  font-size: 8rem;
+  cursor: pointer;
+  border: 0.8rem solid;
+  border-color: #DBAF6A;
+  background-color: #5a5a5a;
+  background-image: url("https://www.transparenttextures.com/patterns/diagmonds.png");
+  opacity: 1;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 400;
+  color: white;
+  border-radius: 0.8rem;
+  text-align: center;
+  width: 46%;
+  height: 25%;
+  padding: 0px;
+  margin: 1%;
+  margin-top: 10%;
+}
+
+.litenKnapp:hover {
+  transform: scale(1.03);
+  background-color: #b2b2b2;
+  border-color: #f2c685;
+  font-weight: 700;
+  color: white;
+  outline: none;
+}
+
+.litenKnapp:active {
+  transform: scale(1.05);
+  cursor: default;
+  transition-duration: 0.5s;
+  background-color: #5a5a5a;
+  border-color: #ffc061;
+  color: #FFE161;
+  outline: none;
+}
+
+
 /* top-left border-radius */
 table tr:first-child th:first-child {
   border-top-left-radius: 8px;

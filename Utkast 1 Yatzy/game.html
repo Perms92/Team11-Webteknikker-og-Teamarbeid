@@ -5,8 +5,7 @@
     <title>Yatzy</title>
     <link rel="icon" href="img/favicon.jpg" type="image/gif" sizes="16x16">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
-    <link rel="stylesheet" id="stylesheet" media='(min-width: 1025px)' type="text/css" href="stylesheet.css">
-    <link rel="stylesheet" type="text/css" media='(max-width: 1024px)' href="stylesheetmobile.css">
+    <link rel="stylesheet" id="stylesheet" type="text/css" href="stylesheet.css">
     <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic|Open+Sans+Condensed:300|Pontano+Sans&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Baloo+Bhai|Bree+Serif|Bungee+Shade|Comfortaa|Exo|Rajdhani|Righteous&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Cinzel|Playfair+Display+SC&display=swap" rel="stylesheet">
@@ -16,17 +15,18 @@
       function loadingSpill(){
         settSpillernavn();
         tildelBilde();
+        antallAvatarer();
       }
     </script>
     <div id="container">
 
       <div id="first">
         <h1>
-        <img src="img/logo.png" alt="Logo" id="logo"><br></h1>
-        <button onclick="dropmenu()" class="knappVenstreSide" id="menubutton">Meny</button>
-        <div id="toggleButtons">
+          <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank"><img src="img/logo.png" alt="Logo" id="logo" ></a><br></h1>
+        <br><br><br>
         <button onclick="regler()" class="knappVenstreSide" id="reglerButton">Regler</button>
-        <p id="regler">
+
+        <div id="regler">
           Få høyest mulig poengsum på Yatzy! Trykk på terningene for å beholde dem,
           slik at de ikke ruller. Du får tre kast per kategori.
           Trenger du en liten oppfriskning på reglene? <br> <br>
@@ -36,29 +36,27 @@
           - På sjanse skal du få høyest mulig tall på alle terningene <br>
           - På Yatzy skal du få 5 like <br> <br>
           Lykke til!
-          </p>
-        <button type="button" id="resetKnapp" class="knappVenstreSide" onclick="resetSpill()">Start på nytt</button>
-        <button type="button" id="nyeSpillereKnapp" class="knappVenstreSide" onclick="window.location.href = 'index.html';">Nye spillere</button>
-        </div><br>
-        <br><br><br>
-
-
           <div id="checkboxer">
             <input type="checkbox" id=0>
             <input type="checkbox" id=1>
             <input type="checkbox" id=2>
             <input type="checkbox" id=3>
             <input type="checkbox" id=4>
+          </div>
 
 
         </div>
+        <button type="button" id="resetKnapp" class="knappVenstreSide" onclick="resetSpill()">Start på nytt</button>
+        <button type="button" id="nyeSpillereKnapp" class="knappVenstreSide" onclick="window.location.href = 'index.html';">Nye spillere</button> <br>
+        <button onclick="setStyleSheet('stylesheet.css')" href="#" class="modebutton">Light mode</button>
+        <button onclick="setStyleSheet('stylesheet2.css')" href="#" class="modebutton">Dark mode</button>
       </div>
       <div id="popUpContainer">
 
       <div id="hsPopUp">
         <ol id="hs">
         </ol>
-        <button type="button" name="button" onclick="visHighscore()" class="gaTilbake">Gå tilbake</button>
+        <button type="button" name="button" onclick="visHighscore()" class="litenKnapp">Gå tilbake</button>
       </div>
     </div>
 
@@ -75,16 +73,34 @@
       </div>
     </div>
 
+      <div id="second">
+        <div id="header">
+          <div><img id="imgAvatar1" class="avatar"><p class="spiller" id="avatar1"></p></div>
+          <div><img id="imgAvatar2" class="avatar"><p class="spiller" id="avatar2"></p></div>
+          <div><img id="imgAvatar3" class="avatar"><p class="spiller" id="avatar3"></p></div>
+          <div><img id="imgAvatar4" class="avatar"><p class="spiller" id="avatar4"></p></div>
+        </div>
+        <div id="brett">
+          <div id="rundeForteller"></div>
+          <label for="0" onclick="moveDice0()"><img height="40px" id="dicePos0" class="dices" draggable="false"></label>
+          <label for="1" onclick="moveDice1()"><img height="40px" id="dicePos1" class="dices" draggable="false"></label>
+          <label for="2" onclick="moveDice2()"><img height="40px" id="dicePos2" class="dices" draggable="false"></label>
+          <label for="3" onclick="moveDice3()"><img height="40px" id="dicePos3" class="dices" draggable="false"></label>
+          <label for="4" onclick="moveDice4()"><img height="40px" id="dicePos4" class="dices" draggable="false"></label>
+          <br>
+
+
+        </div>
+        <audio src="mp3/roll.mp3" id="rollsound"></audio>
+        <button onclick="kasteKnapp()" id="kasteKnapp" class="knappBrett">Start runde 1</button>
+      </div>
+
       <div id="third">
         <h3>Poengsum</h3>
         <table>
           <tr>
-            <th> Spillernr.
+            <th> Deltakere
             </th>
-            <th> 1</th>
-            <th> 2</th>
-            <th> 3</th>
-            <th> 4</th>
             <th id="spiller1"></th>
             <th id="spiller2"></th>
             <th id="spiller3"></th>
@@ -218,34 +234,11 @@
           </tr>
         </table>
         </div>
-        <div id="second">
-          <div id="header">
-            <div><img id="imgAvatar1" class="avatar"><p class="spiller" id="avatar1"></p></div>
-            <div><img id="imgAvatar2" class="avatar"><p class="spiller" id="avatar2"></p></div>
-            <div><img id="imgAvatar3" class="avatar"><p class="spiller" id="avatar3"></p></div>
-            <div><img id="imgAvatar4" class="avatar"><p class="spiller" id="avatar4"></p></div>
-          </div>
-          <div id="brett">
-            <div id="rundeForteller"></div>
-            <label for="0" onclick="moveDice0()"><img height="40px" id="dicePos0" class="dices" draggable="false"></label>
-            <label for="1" onclick="moveDice1()"><img height="40px" id="dicePos1" class="dices" draggable="false"></label>
-            <label for="2" onclick="moveDice2()"><img height="40px" id="dicePos2" class="dices" draggable="false"></label>
-            <label for="3" onclick="moveDice3()"><img height="40px" id="dicePos3" class="dices" draggable="false"></label>
-            <label for="4" onclick="moveDice4()"><img height="40px" id="dicePos4" class="dices" draggable="false"></label>
-            <br>
-
-
-          </div>
-          <audio src="mp3/roll.mp3" id="rollsound"></audio>
-            <audio src="mp3/intro.mp3" id="intro"></audio>
-          <button onclick="kasteKnapp()" id="kasteKnapp" class="knappBrett">Start runde 1</button> <br>
-          <p>NTNU Digital Forretningsutvikling 2019</p>
-        </div>
         </div>
       </div>
+      <p>© NTNU Digital Forretningsutvikling høsten 2019</p>
     </div>
 
-    <audio src="mp3/introsound.mp3" id="intro"></audio>
     <audio src="mp3/dicedrop.mp3" id="diceSound"></audio>
     <script src="yatzy.js"></script>
     <script src="menyer.js"></script>
