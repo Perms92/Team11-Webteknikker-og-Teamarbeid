@@ -73,7 +73,43 @@ faseEn():
 
 
 bonus():
-  Denne funksjonen sjekker hver sin spiller sin totalScore og 
+  Denne funksjonen sjekker hver sin spiller sin totalScore etter runde 6, hvis deres score får de en bonus score på 50 poeng som legges til totalscoren og vises frem på poengsum brettet
+
+
+toPar():
+  Denne funksjonen sjekker om det finnes to like verdier i mitt_kast[]. Den tar vare på det høyeste paret.
+
+
+treLike():
+  Denne funksjonen sorterer mitt_kast og sjekker om det er samme verdi på tre plasser etter hverandre. Returnerer den verdien x3
+
+
+fireLike():
+  Denne funksjonen sorterer mitt_kast og sjekker om det er samme verdi på fire plasser etter hverandre. Returnerer den verdien x4
+
+
+litenStraight():
+  Denne sorterer mitt_kast og sjekker om mitt_kast[0] til mitt_kast[4] inneholder 1-5 og returnerer 15
+
+
+storStraight():
+  Denne sorterer mitt_kast og sjekker om mitt_kast[0] til mitt_kast[4] inneholder 2-6 og returnerer 20
+
+
+hus():
+  Denne funksjonen sjekker om vi har 2+3 like og returnerer verdien i mitt_kast hvis det stemmer. Returnerer 0 hvis 2+3 like er ikke oppfyllt
+
+
+sjanse():
+  Denne funksjonen returnerer verdien i mitt_kast;
+
+
+fakeYatzy():
+  Denne funksjonen gir deg alert hvis du har yatzy på siste kast når du ikke er på siste runde.
+
+
+moveToTable():
+  Denne funksjonen tar inn hvem sin tur og hvilken runde det er for så å sette inn midlertidig_poeng til den aktuelle spilleren
 
 
 antallAvatarer():
@@ -82,8 +118,73 @@ antallAvatarer():
 
 
 Her forklares index.html:
+id="bildelogo"
+  Samler begge bildene til logo sammen, sånn at man kan plassere begge samtidig
 
 id="container"
-  Her er knappene samlet
+  Her samler vi tre divs som inneholder knappene for valg av spillere, input-feltene for spillernavn og feilmeldingen
+
+id="toggleButtons"
+  Samler alle knappene og id="playerNames"
 
 id="playerNames"
+  Setter sammen alle input-feltene for å kunne skrive inn spillernavn
+
+id="feilmelding"
+  Kommer frem hvis du glemmer å skrive inn antall navn man har satt inn
+
+id="play"
+  Trykker her for å starte spillet
+
+
+Her forklares game.html:
+id="first"
+  Dette er den delen på venstre side, der knappene sitter
+
+onclick="regler()"
+  knapp som gjør at <div id="regler"> kommer opp
+
+id="checkboxer"
+  Dette er terningen som blir checket som blir checket når du trykker på terningen sånn at den endrer plass og unchecket når du trykker på terningen igjen så den kommer opp til orginal plass igjen
+
+id="resetKnapp"
+  Gjør at du kan spille spillet igjen
+
+id="nyeSpillereKnapp"
+  Gjør at du kommer tilbake til index.html for å velge nye spiller
+
+onclick="setStyleSheet('stylesheet.css')"
+  Gjør at man kommer inn i light mode
+
+onclick="setStyleSheet('stylesheet2.css')"
+  Gjør at man kommer inn i dark mode
+
+id="finalScore"
+  Div for å få opp totalsummen for alle der det er sortert etter poeng, men er det som er utenfor boksen
+
+id="finalScorePopUp"
+  Boksen som får opp totalsummen for alle der det er sortert etter poeng
+
+id="nyeSpillere"
+  Gjør at du kommer til index.html og kan velge nye spiller
+
+id="spillPaNytt"
+  Starter spillet på nytt med de samme spillerne som på forrige runde
+
+id="second"
+  Dette er en div der brettet er i fokus, i tillegg til avatarene.
+
+id="header"
+  Her ligger bildene til avatarene med spilleren sitt navn under bildet
+
+id="brett"  
+  Her er brettet der terningene ligger, pluss der de forteller hvem spiller sin tur og hva de skal gjøre
+
+id="rundeforteller"
+  Får inn info fra yatzy.js, der det står hvem sin tur det er og hva spilleren skal gjøre
+
+onclick="kasteKnapp()"
+
+
+id="third"
+  Her ligger poengoversikt-tabellen.
