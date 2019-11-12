@@ -11,4 +11,10 @@ Medlemmer i Team 11:
 
 Her forklares funksjonene i yatzy.js
 
-fuction kasteKnapp()
+
+kasteKnapp():
+
+
+
+antallAvatarer():
+  Denne tar inn input fra index sidene og viser frem avatarene til spillerne som er med i spillet

@@ -16,7 +16,6 @@ var hvemSinTur = 1;
 var drop = document.getElementById("diceSound");
 let hiddenPopFinalScore = true;
 
-// laster inn antall spillere og avatarer ut i fra input varieblene for spiller(1, 2, 3 og 4)
 function antallAvatarer() {
   spiller1 = document.getElementById("spiller1").innerHTML;
   spiller2 = document.getElementById("spiller2").innerHTML;
@@ -29,7 +28,7 @@ function antallAvatarer() {
   } else if (spiller2 != "") {
     antallSpillere = 2;
   }
-for (var i = 1; i <= antallSpillere; i++) {
+  for (var i = 1; i <= antallSpillere; i++) {
     document.getElementById("imgAvatar" + i).style.visibility = "visible";
   }
 }
