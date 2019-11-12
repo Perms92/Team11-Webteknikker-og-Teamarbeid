@@ -838,3 +838,30 @@ function finalScore(nyttEllerGjenta) {
     console.log("Test nyttEllerGjenta: " + nyttEllerGjenta);
   }
 }
+
+function highlightAvatar() {
+  let x = "";
+  let y = "";
+  //kjører en løkke som setter alle style verdiene til orginalt. visibility er nødvendig slik at de ikke går tilbake til originalverdi (hidden)
+  for (var i = 1; i <= antallSpillere; i++) {
+    let y = "imgAvatar" + i;
+    document.getElementById(y).style = "width: 8rem; height: 8rem;";
+    document.getElementById(y).style.visibility = "visible";
+    document.getElementById(y).style.opacity = "0.5";
+    console.log("Test higlightavatar: " + y);
+  }
+
+  if (hvemSinTur == antallSpillere || (hvemSinTur == 1 && runde == 0)) {
+    let knapp = document.getElementById("kasteKnapp");
+    x = "imgAvatar" + 1;
+    z = "avatar" + 1;
+  } else {
+    let knapp = document.getElementById("kasteKnapp");
+    x = "imgAvatar" + (hvemSinTur+1);
+    z = "avatar" + (hvemSinTur+1);
+  }
+  //highlighter avatar
+  document.getElementById(x).style = "width: 9.5rem; height: 9.5rem;";
+  document.getElementById(x).style.visibility = "visible";
+  console.log("Test highlight avatar: " + x);
+}
