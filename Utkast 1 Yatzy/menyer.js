@@ -89,7 +89,7 @@ let testpersoner = [
 
 localStorage.setItem("highscores", JSON.stringify(testpersoner));
 
-//console.log(JSON.parse(localStorage.getItem("highscores")));
+console.log(JSON.parse(localStorage.getItem("highscores")));
 
 function sorterer(pers1, pers2) {
   if (pers1.score > pers2.score) {
@@ -126,13 +126,22 @@ function localGet() {
 
 function renderHighscores() {
   let highscores = localGet();
-  //console.log(highscores);
+  console.log(highscores);
   for (let person of highscores) {
     let li = document.createElement("li");
     li.textContent = person.navn + " har score: " + person.score;
     document.getElementById("hs").append(li);
   }
 }
+
+/* function changeCSS() {
+let y =
+  if (document.getElementById("stylesheet1") == "stylesheet.css"){
+    document.getElementById("stylesheet1") = "stylesheet2.css";
+  } else {
+    document.getElementById("stylesheet1")="stylesheet.css";
+  }
+} */
 
 function setStyleSheet(url) {
   var stylesheet = document.getElementById("stylesheet");
