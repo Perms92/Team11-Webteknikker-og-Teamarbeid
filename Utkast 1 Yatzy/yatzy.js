@@ -90,7 +90,6 @@ function kasteKnapp() {
     if (x.innerHTML === "Nytt spill") {
       finalScore();
       resetSpill();
-      hvemSinTur = 1;
     }
     antallKast += 1;
     ////console.log("Test 5 kasteKnapp()");
@@ -774,6 +773,8 @@ function finalScore(nyttEllerGjenta) {
     hiddenPopFinalScore = true;
     if (nyttEllerGjenta == "nyeSpillere") {
       location.replace("hjemmeside.html");
+    } else if (nyttEllerGjenta == "spillPaNytt") {
+      location.reload();
     }
     //console.log("Test nyttEllerGjenta: " + nyttEllerGjenta);
   } else {
