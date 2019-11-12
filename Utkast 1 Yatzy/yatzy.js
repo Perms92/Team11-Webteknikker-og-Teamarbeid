@@ -654,9 +654,12 @@ function moveToTable() {
 
       //console.log("Test sortert finalScoreListe: " + finalScoreListe);
 
-      for (var y = 1; y <= antallSpillere; y++){
+      for (var y = 1; y <= 4; y++){
         let p = "plass" + y + "";
         document.getElementById(p).innerHTML = finalScoreListe[y-1];
+        if (finalScoreListe[y-1] == "") {
+
+        }
       }
       finalScore();
     }
