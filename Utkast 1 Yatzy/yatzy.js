@@ -14,6 +14,7 @@ var spiller4 = "";
 let spillere = [];
 var hvemSinTur = 1;
 var drop = document.getElementById("diceSound");
+var diceroll = document.getElementById("rollsound");
 let hiddenPopFinalScore = true;
 
 function antallAvatarer() {
@@ -32,14 +33,12 @@ function antallAvatarer() {
     document.getElementById("imgAvatar" + i).style.visibility = "visible";
   }
 }
-// En felles funksjon som endrer teksten på kasteknappen,
-// teller runder, og kjører spillet
+
 function kasteKnapp() {
   ////console.log("Test runde " + runde);
   ////console.log("Test hvemSinTur " + hvemSinTur);
 
   ////console.log("Test mitt_kast " + mitt_kast);
-  var diceroll = document.getElementById("rollsound");
   diceroll.play();
 
   var x = document.getElementById("kasteKnapp");
