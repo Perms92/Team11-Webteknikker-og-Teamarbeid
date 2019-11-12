@@ -41,11 +41,6 @@ function kasteKnapp() {
   var x = document.getElementById("kasteKnapp");
   if (x.innerHTML === "Neste kast" && antallKast != 2) {
     antallKast += 1;
-<<<<<<< HEAD
-    ////console.log("Test 1 kasteKnapp()");
-=======
-    //console.log("Test 1 kasteKnapp()");
->>>>>>> parent of 4cb49b6... fikset higlight av avatarer
     nytt_kast_indexer();
     showDice();
   } else if (x.innerHTML === "Neste kast" && antallKast == 2) {
@@ -82,13 +77,10 @@ function kasteKnapp() {
     }
     //viseHvemSinTur();
   } else if (x.innerHTML === "Start kast") {
-<<<<<<< HEAD
     if (runde == 0) {
       runde = 1;
       hvemSinTur = 1;
     }
-=======
->>>>>>> parent of 4cb49b6... fikset higlight av avatarer
     antallKast += 1;
     ////console.log("Test 4 kasteKnapp()");
     x.innerHTML = "Neste kast";
